@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http://bandbrary.com/index.php/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,8 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'CzUGhlLgeOekcLZuAssX2jzOnYE8eYEh';
+// use for encode and decode
 
 /*
 |--------------------------------------------------------------------------
