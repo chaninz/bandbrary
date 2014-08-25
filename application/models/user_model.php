@@ -47,4 +47,14 @@ class User_Model extends CI_Model {
 	function createBand ($data){
 		$this->db->insert('Band',$data);
 	}
+
+	function editProfile(){
+		$id = $this->session->userdata('id');
+		$this->db->select('*');
+		$this->db->from('Users');
+		$this->db->where('id',$id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
 }

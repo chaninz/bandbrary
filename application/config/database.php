@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = 'bandbrary.com';
 $db['default']['username'] = 'bandbrary_root';
 $db['default']['password'] = 'bandbrary5423';
 $db['default']['database'] = 'bandbrary_web';

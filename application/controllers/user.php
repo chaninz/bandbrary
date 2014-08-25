@@ -7,6 +7,7 @@ class User extends CI_Controller {
 	}
 	
 	public function index(){
+		echo "reeeeee";
 		$this->load->view('login');	
 		}
 		
@@ -51,7 +52,10 @@ class User extends CI_Controller {
 	}
 	
 	public function editProfile(){ 
-	
+		$this->load->model('user');
+		$data = $this->user->editProfile();
+		
+		print_r($data);
 	}
 	
 	public function editBiography(){
