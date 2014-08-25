@@ -54,8 +54,8 @@ class User extends CI_Controller {
 	public function editProfile(){ 
 		$this->load->model('user');
 		$data = $this->user->editProfile();
-		
-		print_r($data);
+		$this->load->view('editProfile',$data);
+		//print_r($data);
 	}
 	
 	public function editBiography(){
