@@ -59,6 +59,9 @@ class User extends CI_Controller {
 	}
 	
 	public function editBiography(){
+		$this->load->model('user');
+		$data = $this->user->editBiography);
+		$this->load->view('editBiography',$data);
 	}
 	
 	
@@ -83,6 +86,7 @@ class User extends CI_Controller {
 			'name' => $this->input->post('name'),
 			'cover_url' => $this->input->post('cover_url')
 		);
+		$this->user->createAlbum($data);
 	}
 	
 	public function manageBand(){
@@ -106,10 +110,10 @@ class User extends CI_Controller {
 	
 	public function writeStatus(){
 		$data = array (
-			'username' => $this->session->userdata('username'),
-			'name' => $this->input->post('name'),
-			'status' => $this->input->post('writeStatus')
+			'username' => $this->session->userdata('id'),
+			'status' => $this->input->post('status')
 		);
+		$this->user->writeStatus($data);
 	}
 	
 	

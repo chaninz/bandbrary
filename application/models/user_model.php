@@ -34,9 +34,9 @@ class User_Model extends CI_Model {
 		$this->session->set_userdata('count',$result->COUNT);
 	}
 	
-	function writePost($data){
+	function writeStatus($data){
 		$id = $this->session->userdata('id');
-		$this->db->insert('',$data);	
+		$this->db->insert('status',$data);	
 	}
 	
 	function createAlbum($data){
@@ -51,6 +51,16 @@ class User_Model extends CI_Model {
 	function editProfile(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
+		$this->db->from('Users');
+		$this->db->where('id',$id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	function editBiography(){
+		$id = $this->session->userdata('id');
+		$this->db->select('biography');
 		$this->db->from('Users');
 		$this->db->where('id',$id);
 
