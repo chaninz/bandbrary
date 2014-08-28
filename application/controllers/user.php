@@ -89,9 +89,6 @@ class User extends CI_Controller {
 		$this->user->createAlbum($data);
 	}
 	
-	public function manageBand(){
-	}
-	
 	public function privateMessage(){
 	}
 	
@@ -110,10 +107,17 @@ class User extends CI_Controller {
 	
 	public function writeStatus(){
 		$data = array (
-			'username' => $this->session->userdata('id'),
+			'id' => $this->session->userdata('id'),
 			'status' => $this->input->post('status')
 		);
 		$this->user->writeStatus($data);
+	}
+
+	public function createJob(){
+		$data = array(
+			'id' => $this->session->userdata('id'),
+			''
+		);
 	}
 	
 	
