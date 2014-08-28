@@ -36,16 +36,25 @@ class User_Model extends CI_Model {
 	
 	function writeStatus($data){
 		$id = $this->session->userdata('id');
-		$this->db->insert('status',$data);	
+		$this->db->insert('Status',$data);	
 	}
 	
 	function createAlbum($data){
 		$id = $this->session->userdata('id');
 		$this->db->insert('Albums',$data);
 	}
+	function deleteAlbum(){
+		$id = $this->session->userdata('id');
+		$this->db->delete('Albums',$data);
+	}
+
 	
 	function createBand ($data){
 		$this->db->insert('Band',$data);
+	}
+
+	function createJob ($data){
+		$this->db->insert('Jobs',$data);
 	}
 
 	function editProfile(){

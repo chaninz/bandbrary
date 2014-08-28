@@ -6,7 +6,6 @@ class Band extends CI_Controller {
 	}
 
 	public function index(){
-		echo "reeeeee";
 		$this->load->view('login');	
 		}
 

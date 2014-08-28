@@ -7,7 +7,6 @@ class User extends CI_Controller {
 	}
 	
 	public function index(){
-		echo "reeeeee";
 		$this->load->view('login');	
 		}
 		
@@ -21,8 +20,6 @@ class User extends CI_Controller {
 			'surname' => $this->input->post('surname'),
 			'province_id' => $this->input->post('province'),
 			'user_type' => $this->input->post('usertype'),
-			'cover_url' => $this->input->post('cover'),
-			'photo_url' => $this->input->post('profile'),
 			'biography' => $this->input->post('biography'),
 			'fb_url' => $this->input->post('fburl'),
 			'tw_url' => $this->input->post('twurl')
@@ -60,7 +57,7 @@ class User extends CI_Controller {
 	
 	public function editBiography(){
 		$this->load->model('user');
-		$data = $this->user->editBiography);
+		$data = $this->user->editBiography();
 		$this->load->view('editBiography',$data);
 	}
 	
@@ -71,8 +68,6 @@ class User extends CI_Controller {
 	public function createBand(){
 		$data = array(
 			'name' => $this->input->post('name'),
-			'cover_url' => $this->input->post('cover'),
-			'photo_url' => $this->input->post('photo'),
 			'biography' => $this->input->post('biography'),
 			'fb_url' => $this->input->post('fburl'),
 			'tw_url' => $this->input->post('twurl')
@@ -87,6 +82,14 @@ class User extends CI_Controller {
 			'cover_url' => $this->input->post('cover_url')
 		);
 		$this->user->createAlbum($data);
+	}
+
+	public function deleteAlbum(){
+		$data = array(
+			'id' => $this->session->userdata('id'),
+			'id' => $this->input->post('id')
+		);
+		$this->user->deleteAlbum($data);
 	}
 	
 	public function privateMessage(){
