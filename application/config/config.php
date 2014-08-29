@@ -14,8 +14,18 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/bandbrary/index.php/';
-
+// $config['base_url']	= 'http://localhost/bandbrary/';
+switch($_SERVER["SERVER_NAME"]) {
+	case "localhost":
+		$config["base_url"] = "http://localhost/bandbrary/";
+	break;
+	case "bandbrary.com":
+		$config["base_url"] = "http://bandbrary.com/";
+	break;
+	case "www.bandbrary.com":
+		$config["base_url"] = "http://www.bandbrary.com/";
+	break;
+}
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -26,7 +36,8 @@ $config['base_url']	= 'http://localhost/bandbrary/index.php/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+//$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
