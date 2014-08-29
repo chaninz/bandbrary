@@ -22,7 +22,9 @@ class User extends CI_Controller {
 			'user_type' => $this->input->post('usertype'),
 			'biography' => $this->input->post('biography'),
 			'fb_url' => $this->input->post('fburl'),
-			'tw_url' => $this->input->post('twurl')
+			'tw_url' => $this->input->post('twurl'),
+			'yt_url' => $this->input->post('yturl'),
+			'dob' => $this->input->post('dob')
 		);
 		
 		$this->user->register($data);
