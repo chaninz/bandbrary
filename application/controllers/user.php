@@ -7,7 +7,7 @@ class User extends CI_Controller {
 	}
 	
 	public function index(){
-		$this->load->view('login');	
+		$this->load->view('index');	
 		}
 		
 	public function register(){
@@ -22,7 +22,9 @@ class User extends CI_Controller {
 			'user_type' => $this->input->post('usertype'),
 			'biography' => $this->input->post('biography'),
 			'fb_url' => $this->input->post('fburl'),
-			'tw_url' => $this->input->post('twurl')
+			'tw_url' => $this->input->post('twurl'),
+			'yt_url' => $this->input->post('yturl'),
+			'dob' => $this->input->post('dob')
 		);
 		
 		$this->user->register($data);
@@ -69,6 +71,7 @@ class User extends CI_Controller {
 		$data = array(
 			'name' => $this->input->post('name'),
 			'biography' => $this->input->post('biography'),
+			'style' => $this->input->post('style'),
 			'fb_url' => $this->input->post('fburl'),
 			'tw_url' => $this->input->post('twurl')
 		);
