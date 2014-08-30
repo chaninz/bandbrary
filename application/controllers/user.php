@@ -71,6 +71,7 @@ class User extends CI_Controller {
 		$data = array(
 			'name' => $this->input->post('name'),
 			'biography' => $this->input->post('biography'),
+			'style' => $this->input->post('style'),
 			'fb_url' => $this->input->post('fburl'),
 			'tw_url' => $this->input->post('twurl')
 		);
