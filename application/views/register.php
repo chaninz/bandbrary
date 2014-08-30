@@ -314,14 +314,16 @@ $('.ui.dropdown').dropdown();
 $('.ui.checkbox').checkbox();
 
 $(document).ready(function(){
-  $("#confirmPass").change(function(){
+  $("#confirmPass,#password").change(function(){
     var confirmPass = $("#confirmPass").val();
     var password = $("#password").val();
-
+    
     if (confirmPass != password) {
         $("#errorMsg").text("Invalid password");
-    };
-  })
+    }else {
+        $("#errorMsg").text("");
+    }
+  });
 
 });
 </script>
