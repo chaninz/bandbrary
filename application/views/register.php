@@ -9,7 +9,8 @@
   <link href="../semantic/packaged/css/semantic.min.css" rel="stylesheet">
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-
+<script type="text/javascript">
+</script>
 </head>
 <body>
 
