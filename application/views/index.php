@@ -6,6 +6,7 @@
 	<title>Bandbrary</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php $this->load->view('header'); ?>
+	
 	<style>
 	.welcome-msg {
 		color:#FFFFFF;
