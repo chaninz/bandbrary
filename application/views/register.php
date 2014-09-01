@@ -18,21 +18,21 @@
 						<div class="field">
 							<label>Username</label>
 							<div class="ui left labeled icon input">
-								<input type="text" placeholder="Username" name="username">
+								<input type="text" placeholder="Username" name="username" required>
 								<i class="user icon"></i>
 							</div>
 						</div>
 						<div class="field">
 							<label>Password</label>
 							<div class="ui left labeled icon input">
-								<input type="password" placeholder="Password" id="password" name="password">
+								<input type="password" placeholder="Password" id="password" name="password" required>
 								<i class="lock icon"></i>
 							</div>
 						</div>
 						<div class="field">
 							<label>Confirm Password</label>
 							<div class="ui left labeled icon input">
-								<input type="password" placeholder="Confirm Password" id="confirmPass">
+								<input type="password" placeholder="Confirm Password" id="confirmPass" required>
 								<i class="lock icon"></i>
 							</div>
 							<span id="errorMsg" style="color:red"> </span>
@@ -40,7 +40,7 @@
 						<div class="field">
 							<label>Email address</label>
 							<div class="ui left labeled icon input">
-								<input type="text" placeholder="Email address" name="email">
+								<input type="email" placeholder="Email address" name="email" required>
 								<i class="mail icon"></i>
 							</div>
 						</div>
@@ -71,17 +71,17 @@
 						<div class="two fields">
 							<div class="field">
 								<label>First Name</label>
-								<input placeholder="First Name" type="text" name="name">
+								<input placeholder="First Name" type="text" name="name" required>
 							</div>
 							<div class="field">
 								<label>Last Name</label>
-								<input placeholder="Last Name" type="text" name="surname">
+								<input placeholder="Last Name" type="text" name="surname" required>
 							</div>
 						</div>
 						<div class="ui form">
 							<div class=" field">
 								<label>Birthday</label>
-								<input type="date" placeholder="xx/xx/xxxx" name="dob">
+								<input type="date" placeholder="xx/xx/xxxx" name="dob" required>
 							</div>
 						</div>
 						<div class="field">
@@ -150,13 +150,13 @@
 							<div class="grouped inline fields">
 								<div class="field">
 									<div class="ui slider checkbox">
-										<input type="radio" name="usertype">
+										<input type="radio" name="usertype" value="00">
 										<label>Audience</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui slider checkbox">
-										<input type="radio" name="usertype">
+										<input type="radio" name="usertype" value="01">
 										<label>Musician</label>
 									</div>
 								</div>
@@ -167,55 +167,55 @@
 							<div class="grouped inline fields">
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="blues">
+										<input type="checkbox" name="style" value="01">
 										<label>Blues</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="country">
+										<input type="checkbox" name="style" value="02"> 
 										<label>Country</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="hiphop">
+										<input type="checkbox" name="style" value="03">
 										<label>Hip Hop</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="jazz">
+										<input type="checkbox" name="style" value="04">
 										<label>Jazz</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="latin">
+										<input type="checkbox" name="style" value="05">
 										<label>Latin</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="pop">
+										<input type="checkbox" name="style" value="07">
 										<label>Pop</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="reggae">
+										<input type="checkbox" name="style" value="08">
 										<label>Reggae</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="rnb">
+										<input type="checkbox" name="style" value="09">
 										<label>R&B</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="rock">
+										<input type="checkbox" name="style" value="10">
 										<label>Rock</label>
 									</div>
 								</div>
@@ -226,55 +226,55 @@
 							<div class="grouped inline fields">
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="vocal">
+										<input type="checkbox" name="vocal" value="01">
 										<label>Vocal</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="guitar">
+										<input type="checkbox" name="guitar" value="02">
 										<label>Guitar</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="bass">
+										<input type="checkbox" name="bass" value="03">
 										<label>Bass</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="drum">
+										<input type="checkbox" name="drum" value="04">
 										<label>Drum</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="piano">
+										<input type="checkbox" name="piano" value="05">
 										<label>Piano</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="keyboard">
+										<input type="checkbox" name="keyboard" value="06">
 										<label>Keyboard</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="saxophone">
+										<input type="checkbox" name="saxophone" value="07">
 										<label>Saxophone</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="trumpets">
+										<input type="checkbox" name="trumpets" value="08">
 										<label>Trumpets</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="violin">
+										<input type="checkbox" name="violin" value="09">
 										<label>Violin</label>
 									</div>
 								</div>
