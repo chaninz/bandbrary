@@ -36,6 +36,8 @@ class User extends CI_Controller {
 		$data = $this->user->login($username,$password);
 		$session = array('id'=> $data->id,'username' => $data->username);
 		$this->session->set_userdata($session);
+		$this->load->view('profile',$session);
+
 		//$this->load->view('message',$data);	
 		/*if($check){
 			redirect(base_url('feed'));
@@ -52,17 +54,54 @@ class User extends CI_Controller {
 	
 	public function editProfile(){ 
 		$this->load->model('user');
-		$data = $this->user->editProfile();
+		$data = $this->user->getProfile();
 		$this->load->view('editProfile',$data);
 		//print_r($data);
+	}
+
+	public function updateProfile(){
+		$data = array(
+			'name' => $this->input->post('name'),
+			'surname' => $this->input->post('surname'),
+			'province_id' => $this->input->post('province'),
+			'user_type' => $this->input->post('usertype'),
+			'biography' => $this->input->post('biography'),
+			'fb_url' => $this->input->post('fburl'),
+			'tw_url' => $this->input->post('twurl'),
+			'yt_url' => $this->input->post('yturl'),
+			'dob' => $this->input->post('dob')
+		);
+		
+		$this->user->updateProfile($data);
+		
 	}
 	
 	public function editBiography(){
 		$this->load->model('user');
-		$data = $this->user->editBiography();
+		$data = $this->user->getBiography();
 		$this->load->view('editBiography',$data);
 	}
+
+	public function updateBiography(){
+		$biography = $this->input->post('biography');
+		$this->user->updateProfile($biography);
+
+	}
+	public function writeStatus(){
+		$this->load->model('user');
+		$data = $this->user->writeStatus();
+		$this->load->view('writeStatus',$data);
+	}
 	
+	public function updateStatus(){
+		$data = array (
+			'id' => $this->session->userdata('id'),
+			'status' => $this->input->post('status')
+		);
+		$this->user->writeStatus($data);
+	}
+
+
 	
 	public function goBandProfile(){
 	}
@@ -89,7 +128,7 @@ class User extends CI_Controller {
 
 	public function deleteAlbum(){
 		$data = array(
-			'id' => $this->session->userdata('id'),
+			'user_id' => $this->session->userdata('id'),
 			'id' => $this->input->post('id')
 		);
 		$this->user->deleteAlbum($data);
@@ -111,13 +150,6 @@ class User extends CI_Controller {
 		echo 'Due to browser security restrictions, most "Ajax" requests are subject to the same origin policy; the request can not successfully retrieve data from a different domain, subdomain, port, or protocol.'.$data;	
 	}
 	
-	public function writeStatus(){
-		$data = array (
-			'id' => $this->session->userdata('id'),
-			'status' => $this->input->post('status')
-		);
-		$this->user->writeStatus($data);
-	}
 
 	public function createJob(){
 		$data = array(

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Untitled Document</title>
 </head>
-<?php print_r($email); ?>
+<?php print_r($id); ?>
 <br/>
 <?php print_r($username); ?>
 <body>

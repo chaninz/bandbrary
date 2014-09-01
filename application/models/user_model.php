@@ -12,6 +12,7 @@ class User_Model extends CI_Model {
 	
 	function login ($username,$password){
 		$query = $this->db->get_where('Users',array('username' => $username,'password'=> $password ));
+		return $query->row();
 		/*foreach ($query->result() as $row){
 			$id = $row->id;
 			$this->session->set_userdata('id',$row->id);
@@ -23,7 +24,7 @@ class User_Model extends CI_Model {
 			$result = $query2->row();
 			$this->session->set_userdata('count',$row->COUNT);
 		}*/
-		return $query->row();
+		
 	}
 	
 	function post ($by_id,$username,$content,$type){
@@ -35,16 +36,26 @@ class User_Model extends CI_Model {
 	}
 	
 	function writeStatus($data){
-		$id = $this->session->userdata('id');
 		$this->db->insert('Status',$data);	
 	}
-	
-	function createAlbum($data){
+	function getStatus(){
 		$id = $this->session->userdata('id');
+		$this->db->select('status');
+		$this->db->from('Status');
+		$this->db->where('id',$id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
+	function updateStatus($data){
+		$this->db->update('Status',$data);
+
+	}
+	
+	function createAlbum(){
 		$this->db->insert('Albums',$data);
 	}
-	function deleteAlbum(){
-		$id = $this->session->userdata('id');
+	function deleteAlbum($data){
 		$this->db->delete('Albums',$data);
 	}
 
@@ -57,7 +68,7 @@ class User_Model extends CI_Model {
 		$this->db->insert('Jobs',$data);
 	}
 
-	function editProfile(){
+	function getProfile(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Users');
@@ -65,9 +76,16 @@ class User_Model extends CI_Model {
 
 		$query = $this->db->get();
 		return $query->row();
+		// return 1 person
 	}
 
-	function editBiography(){
+	function updateProfile($data){
+		$id = $this->session->userdata('id');
+		$this->db->where('id',$id);
+		$this->db->update('Users',$data);
+	} // get data but do not care about type
+
+	function getBiography(){
 		$id = $this->session->userdata('id');
 		$this->db->select('biography');
 		$this->db->from('Users');
@@ -76,4 +94,11 @@ class User_Model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	function updateBiography($biography){
+		$this->db->update('Users',$biography);
+	}
+
+
+
 }
