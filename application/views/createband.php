@@ -26,55 +26,55 @@
             <div class="grouped inline fields">
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="blues" name="style">
+                  <input type="checkbox" value="1" name="style">
                   <label>Blues</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="country" name="style">
+                  <input type="checkbox" value="2" name="style">
                   <label>Country</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="hiphop" name="style">
+                  <input type="checkbox" value="3" name="style">
                   <label>Hip Hop</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="jazz" name="style">
+                  <input type="checkbox" value="4" name="style">
                   <label>Jazz</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="latin" name="style">
+                  <input type="checkbox" value="5" name="style">
                   <label>Latin</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="pop" name="style">
+                  <input type="checkbox" value="6" name="style">
                   <label>Pop</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="reggae" name="style">
+                  <input type="checkbox" value="7" name="style">
                   <label>Reggae</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="rnb" name="style">
+                  <input type="checkbox" value="8" name="style">
                   <label>R&B</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="rock" name="style">
+                  <input type="checkbox" value="9" name="style">
                   <label>Rock</label>
                 </div>
               </div>

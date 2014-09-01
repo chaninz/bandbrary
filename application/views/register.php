@@ -150,13 +150,13 @@
 							<div class="grouped inline fields">
 								<div class="field">
 									<div class="ui slider checkbox">
-										<input type="radio" name="usertype" value="00">
+										<input type="radio" name="usertype" value="1">
 										<label>Audience</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui slider checkbox">
-										<input type="radio" name="usertype" value="01">
+										<input type="radio" name="usertype" value="2">
 										<label>Musician</label>
 									</div>
 								</div>
@@ -167,55 +167,55 @@
 							<div class="grouped inline fields">
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="01">
+										<input type="checkbox" name="style" value="1">
 										<label>Blues</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="02"> 
+										<input type="checkbox" name="style" value="2"> 
 										<label>Country</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="03">
+										<input type="checkbox" name="style" value="3">
 										<label>Hip Hop</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="04">
+										<input type="checkbox" name="style" value="4">
 										<label>Jazz</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="05">
+										<input type="checkbox" name="style" value="5">
 										<label>Latin</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="07">
+										<input type="checkbox" name="style" value="6">
 										<label>Pop</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="08">
+										<input type="checkbox" name="style" value="7">
 										<label>Reggae</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="09">
+										<input type="checkbox" name="style" value="8">
 										<label>R&B</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="style" value="10">
+										<input type="checkbox" name="style" value="9">
 										<label>Rock</label>
 									</div>
 								</div>
@@ -226,55 +226,55 @@
 							<div class="grouped inline fields">
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="vocal" value="01">
+										<input type="checkbox" name="vocal" value="1">
 										<label>Vocal</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="guitar" value="02">
+										<input type="checkbox" name="guitar" value="2">
 										<label>Guitar</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="bass" value="03">
+										<input type="checkbox" name="bass" value="3">
 										<label>Bass</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="drum" value="04">
+										<input type="checkbox" name="drum" value="4">
 										<label>Drum</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="piano" value="05">
+										<input type="checkbox" name="piano" value="5">
 										<label>Piano</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="keyboard" value="06">
+										<input type="checkbox" name="keyboard" value="6">
 										<label>Keyboard</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="saxophone" value="07">
+										<input type="checkbox" name="saxophone" value="7">
 										<label>Saxophone</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="trumpets" value="08">
+										<input type="checkbox" name="trumpets" value="8">
 										<label>Trumpets</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui checkbox">
-										<input type="checkbox" name="violin" value="09">
+										<input type="checkbox" name="violin" value="9">
 										<label>Violin</label>
 									</div>
 								</div>
