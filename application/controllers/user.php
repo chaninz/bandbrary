@@ -83,13 +83,16 @@ class User extends CI_Controller {
 	}
 
 	public function updateBiography(){
-		$biography = $this->input->post('biography');
-		$this->user->updateProfile($biography);
+		$data = array (
+			'id' => $this->session->userdata('id'),
+			'biography' => $this->input->post('biography')
+		);
+		$this->user->updateProfile($data);
 
 	}
 	public function writeStatus(){
 		$this->load->model('user');
-		$data = $this->user->writeStatus();
+		$data = $this->user->getStatus();
 		$this->load->view('writeStatus',$data);
 	}
 	
@@ -98,7 +101,7 @@ class User extends CI_Controller {
 			'id' => $this->session->userdata('id'),
 			'status' => $this->input->post('status')
 		);
-		$this->user->writeStatus($data);
+		$this->user->updateStatus($data);
 	}
 
 

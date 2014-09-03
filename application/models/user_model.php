@@ -40,7 +40,7 @@ class User_Model extends CI_Model {
 	}
 	function getStatus(){
 		$id = $this->session->userdata('id');
-		$this->db->select('status');
+		$this->db->select('*');
 		$this->db->from('Status');
 		$this->db->where('id',$id);
 
@@ -48,6 +48,8 @@ class User_Model extends CI_Model {
 		return $query->row();
 	}
 	function updateStatus($data){
+		$id = $this->session->userdata('id');
+		$this->db->where('id',$id);
 		$this->db->update('Status',$data);
 
 	}
@@ -96,7 +98,9 @@ class User_Model extends CI_Model {
 	}
 
 	function updateBiography($biography){
-		$this->db->update('Users',$biography);
+		$id = $this->session->userdata('id');
+		$this->db->where('id',$id);
+		$this->db->insert('Users',$data);
 	}
 
 
