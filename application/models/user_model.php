@@ -69,6 +69,21 @@ class User_Model extends CI_Model {
 	function createJob ($data){
 		$this->db->insert('Jobs',$data);
 	}
+	function getJob(){
+		$id = $this->session->userdata('id');
+		$this->db->select('*');
+		$this->db->from('Jobs');
+		$this->db->where('id',$id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
+	function updateJob($data){
+		$id = $this->session->userdata('id');
+		$this->db->where('id',$id);
+		$this->db->update('Jobs',$data);
+
+	}
 
 	function getProfile(){
 		$id = $this->session->userdata('id');
