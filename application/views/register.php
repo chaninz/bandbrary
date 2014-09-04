@@ -81,7 +81,7 @@
 						<div class="ui form">
 							<div class=" field">
 								<label>Birthday</label>
-								<input type="date" placeholder="xx/xx/xxxx" name="dob" required>
+								<input type="date" placeholder="xx/xx/xxxx" name="dob" style="padding: .2em 1em;" required>
 							</div>
 						</div>
 						<div class="field">
