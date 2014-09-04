@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bandbrary</title>
     <?php $this->load->view('header'); ?>
-
+    
 
 </head>
 <style>
 body {
-    background: url("<?php echo base_url().'images/noise-black.png; ?>");
+    background: url("<?php echo base_url().'images/noise-black.png'; ?>");
 }
 .col-md-3 {
     float: left;

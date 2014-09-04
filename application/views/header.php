@@ -6,3 +6,4 @@
 	<script src="assets/js/jquery.address.min.js"></script>
 	<script src="assets/js/semantic.js"></script>
 	<script src="assets/js/bg-slide.js"></script>
+	<script src="assets/js/menu.js"></script>
