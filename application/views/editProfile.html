@@ -5,13 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-	<?php $this->load->view('header'); ?>
 
+	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../assets/css/semantic.min.css">
+
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.address.min.js"></script>
+	<script src="../../assets/js/semantic.min.js"></script>
 
 </head>
 <style>
 body {
-	background: url("<?php echo base_url().'images/noise-black.png; ?>");
+	background: url(../../images/noise-black.png);
 }
 .col-md-3 {
 	float: left;
@@ -78,7 +84,6 @@ body {
 					<a class="active item">
 						Edit profile
 					</a>
-					<form action="<?php echo base_url().'user/updateProfile'; ?>" method="post" >  
 					<a class="item" href="changePassword.html">
 						<i class="angle right icon"></i> Change password
 					</a>
@@ -93,25 +98,25 @@ body {
 						<div class="field">
 							<label>Username</label>
 							<div class="ui left labeled icon input">
-								<input type="text" placeholder="Username" name="username" readonly>
+								<input type="text" placeholder="Username" name="username" required>
 								<i class="user icon"></i>
 							</div>
 						</div>
 						<div class="field">
 							<label>Email address</label>
 							<div class="ui left labeled icon input">
-								<input type="email" placeholder="Email address" name="email" <?php echo $email; ?> readonly>
+								<input type="email" placeholder="Email address" name="email" required>
 								<i class="mail icon"></i>
 							</div>
 						</div>
 						<div class="two fields">
 							<div class="field">
 								<label>First Name</label>
-								<input placeholder="First Name" type="text" name="name" value="<?php echo $name; ?>" required>>
+								<input placeholder="First Name" type="text" name="name" required>
 							</div>
 							<div class="field">
 								<label>Last Name</label>
-								<input placeholder="Last Name" type="text" name="surname" value="<?php echo $surname; ?>" required>
+								<input placeholder="Last Name" type="text" name="surname" required>
 							</div>
 						</div>
 						<div class="field">
@@ -121,8 +126,8 @@ body {
 								<i class="dropdown icon"></i>
 								<input type="hidden" name="province">
 								<div class="menu">
-									<div class="item" data-value="1" style="font-size: 14px;">Bangkok</div>
-									<div class="item" data-value="2" style="font-size: 14px;">Changmai</div>
+									<div class="item" data-value="01" style="font-size: 14px;">Bangkok</div>
+									<div class="item" data-value="02" style="font-size: 14px;">Changmai</div>
 								</div>
 							</div>
 						</div>
@@ -153,38 +158,37 @@ body {
 								<label>Profile Image</label>
 								<div class="small ui profile-pic button">Change photo</div>
 							</div>
-							<div class="field" >
+							<div class="field" name="biography">
 								<label>Biography</label>
-								<textarea name="biography" value="<?php echo $biography; ?>"required></textarea>
+								<textarea></textarea>
 							</div>
 							<div class="line"></div>
 							<p>
 								<div class="field">
 									<label>Facebook URL</label>
 									<div class="ui left labeled icon input">
-										<input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $fb_url; ?>">  
+										<input type="text" placeholder="Facebook URL" name="fburl">
 										<i class="facebook icon"></i>
 									</div>
 								</div>
 								<div class="field">
 									<label>Twitter URL</label>
 									<div class="ui left labeled icon input">
-										<input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $tw_url; ?>">
+										<input type="text" placeholder="Twitter URL" name="twurl">
 										<i class="twitter icon"></i>
 									</div>
 								</div>
 								<div class="field">
 									<label>Youtube URL</label>
 									<div class="ui left labeled icon input">
-										<input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $yt_url; ?>">
+										<input type="text" placeholder="Youtube URL" name="yturl">
 										<i class="youtube icon"></i>
 									</div>
 								</div>
 								<br><p>
 								<div class="line"></div>
 								<p>
-									<input class="ui red submit button" type="submit" value="Save Change">
-
+									<div class="ui red submit button">Save Change</div>
 								</div>
 
 								<!--Cover Modal-->
@@ -238,16 +242,14 @@ body {
 											Cancel
 										</div>
 										<div class="ui positive right labeled icon button">
-
 											Upload Photo
 											<i class="upload icon"></i>
-										</form>
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<?php $this->load->view('footer'); ?>
+							<script src="../../assets/js/bandbrary.js"></script>
 							<script>
 							$('.profile-cov.modal')
 							.modal('attach events', '.profile-cov.button', 'show')
