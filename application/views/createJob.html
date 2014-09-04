@@ -19,17 +19,18 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
+				<form action="<?php echo base_url().'user/createJob'; ?>" method="post" > 
 				<div class="ui form segment">
 					<div class="field">
 						<label>Job Name</label>
-							<input type="text" placeholder="Job Name">
+							<input type="text" placeholder="Job Name" name="event">
 					</div>
 					<div class="field">
 						<label>Job Type</label>
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="province">
+							<input type="hidden" name="job_type">
 							<div class="menu">
 								<div class="item" data-value="wedding" style="font-size: 14px;">Wedding</div>
 								<div class="item" data-value="restuarant" style="font-size: 14px;">Restuarant</div>
@@ -42,7 +43,7 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="province">
+							<input type="hidden" name="style">
 							<div class="menu">
 								<div class="item" data-value="bangkok" style="font-size: 14px;">Blues</div>
 								<div class="item" data-value="country" style="font-size: 14px;">Country</div>
@@ -58,11 +59,11 @@
 					</div>
 					<div class="field">
 						<label>Description</label>
-						<textarea></textarea>
+						<textarea name="description"></textarea>
 					</div>
 					<div class="field">
 						<label>Venue</label>
-							<input type="text" placeholder="Job Name">
+							<input type="text" placeholder="Job Name" name="venue">
 					</div>
 					<div class="field">
 						<label>Province</label>
@@ -78,24 +79,27 @@
 					</div>
 					<div class="field">
 						<label>Budget</label>					
-							<input type="number" placeholder="Budget">
+							<input type="number" placeholder="Budget" name="budget">
 					</div>
 					<div class="field">
 						<label>Start Time</label>
 						<div class="ui left labeled icon input">
-							<input type="date" placeholder="" style="padding: .2em 1em;">
+							<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time">
 							<i class="calendar icon"></i>
 						</div>
 					</div>
 					<div class="field">
 						<label>End Time</label>
 						<div class="ui left labeled icon input">
-							<input type="date" placeholder="" style="padding: .2em 1em;">
+							<input type="date" placeholder="" style="padding: .2em 1em;" name="end_time">
 							<i class="calendar icon"></i>
 						</div>
 					</div>
-					<div class="ui red submit button">Submit</div>
+				
+					<input class="ui red submit button" type="submit" value="register">
+
 				</div>
+			</form>
 			</div>
 			<div class="col-md-3"></div>
 		</div>
