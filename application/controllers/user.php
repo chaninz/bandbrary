@@ -156,13 +156,13 @@ class User extends CI_Controller {
 
 	public function createJob(){
 		$data = array(
-			'id' => $this->session->userdata('id'),
+			'user_id' => $this->session->userdata('id'),
 			'event' => $this->input->post('event'),
 			'job_type' => $this->input->post('job_type'),
 			'style' => $this->input->post('style'),
 			'description' => $this->input->post('description'),
 			'venue' => $this->input->post('venue'),
-			'province' => $this->input->post('province'),
+			'province_id' => $this->input->post('province'),
 			'budget' => $this->input->post('budget'),
 			'start_time' => $this->input->post('start_time'),
 			'end_time' => $this->input->post('end_time')
