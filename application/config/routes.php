@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "home";
 $route['404_override'] = '';
+//$route['band'] = 'band/band';
 
 
 /* End of file routes.php */

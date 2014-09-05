@@ -12,31 +12,31 @@ class User extends CI_Controller {
 		
 	public function register(){
 		//echo "register controller";
-		$data = array(
-			'email' => $this->input->post('email'),
-			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
-			'name' => $this->input->post('name'),
-			'surname' => $this->input->post('surname'),
-			'province_id' => $this->input->post('province'),
-			'user_type' => $this->input->post('usertype'),
-			'biography' => $this->input->post('biography'),
-			'fb_url' => $this->input->post('fburl'),
-			'tw_url' => $this->input->post('twurl'),
-			'yt_url' => $this->input->post('yturl'),
-			'dob' => $this->input->post('dob')
-		);
+		// $data = array(
+		// 	'email' => $this->input->post('email'),
+		// 	'username' => $this->input->post('username'),
+		// 	'password' => $this->input->post('password'),
+		// 	'name' => $this->input->post('name'),
+		// 	'surname' => $this->input->post('surname'),
+		// 	'province_id' => $this->input->post('province'),
+		// 	'user_type' => $this->input->post('usertype'),
+		// 	'biography' => $this->input->post('biography'),
+		// 	'fb_url' => $this->input->post('fburl'),
+		// 	'tw_url' => $this->input->post('twurl'),
+		// 	'yt_url' => $this->input->post('yturl'),
+		// 	'dob' => $this->input->post('dob')
+		// );
 		
-		$this->user->register($data);
+		// $this->user->register($data);
 		// model >function()
 	}
 	public function login(){
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$data = $this->user->login($username,$password);
-		$session = array('id'=> $data->id,'username' => $data->username);
-		$this->session->set_userdata($session);
-		$this->load->view('profile',$session);
+		// $username = $this->input->post('username');
+		// $password = $this->input->post('password');
+		// $data = $this->user->login($username,$password);
+		// $session = array('id'=> $data->id,'username' => $data->username);
+		// $this->session->set_userdata($session);
+		// $this->load->view('profile',$session);
 
 		//$this->load->view('message',$data);	
 		/*if($check){
@@ -47,20 +47,19 @@ class User extends CI_Controller {
 		}*/
 	}
 	public function logout(){
-		$this->load->model('user');
+		/*$this->load->model('user');
 		$this->session->sess_destroy();
-		redirect(base_url('feed')); 
+		redirect(base_url('feed')); */
 	}
 	
 	public function editProfile(){ 
-		$this->load->model('user');
+/*		$this->load->model('user');
 		$data = $this->user->getProfile();
-		$this->load->view('editProfile',$data);
-		//print_r($data);
+		$this->load->view('editProfile',$data);*/
 	}
 
 	public function updateProfile(){
-		$data = array(
+		/*$data = array(
 			'name' => $this->input->post('name'),
 			'surname' => $this->input->post('surname'),
 			'province_id' => $this->input->post('province'),
@@ -72,10 +71,10 @@ class User extends CI_Controller {
 			'dob' => $this->input->post('dob')
 		);
 		
-		$this->user->updateProfile($data);
+		$this->user->updateProfile($data);*/
 		
 	}
-	
+/*	
 	public function editBiography(){
 		$this->load->model('user');
 		$data = $this->user->getBiography();
@@ -89,7 +88,7 @@ class User extends CI_Controller {
 		);
 		$this->user->updateProfile($data);
 
-	}
+	}*/
 	public function writeStatus(){
 		$this->load->model('user');
 		$data = $this->user->getStatus();

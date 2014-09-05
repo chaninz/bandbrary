@@ -1,13 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Register extends CI_Controller {
+class Edit extends CI_Controller {
 
 	public function index() {
 		if ($this->input->post()) {
 			$data = array(
-				'email' => $this->input->post('email'),
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
 				'name' => $this->input->post('name'),
 				'surname' => $this->input->post('surname'),
 				'province_id' => $this->input->post('province'),
@@ -18,13 +15,17 @@ class Register extends CI_Controller {
 				'yt_url' => $this->input->post('yturl'),
 				'dob' => $this->input->post('dob')
 				);
-			$this->user->register($data);
+			$this->user->updateProfile($data);
 		} else {
-			$this->load->view('register');
-		}	
+			$this->load->model('user');
+			$data = $this->user->getProfile();
+			$this->load->view('editProfile',$data);
+		}
 	}
+
+	
 
 }
 
-/* End of file register.php */
-/* Location: ./application/controllers/register.php */
+/* End of file edit.php */
+/* Location: ./application/controllers/account/edit.php */
