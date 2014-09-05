@@ -4,10 +4,9 @@ class Biography extends CI_Controller {
 
 	public function edit() {
 		if ($this->input->post()) {
-			$data = array (
+			$data = array(
 				'id' => $this->session->userdata('id'),
-				'biography' => $this->input->post('biography')
-				);
+				'biography' => $this->input->post('biography'));
 			$this->user->updateProfile($data);
 		} else {
 			$this->load->model('user');

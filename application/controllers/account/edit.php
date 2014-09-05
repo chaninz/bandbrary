@@ -13,8 +13,7 @@ class Edit extends CI_Controller {
 				'fb_url' => $this->input->post('fburl'),
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
-				'dob' => $this->input->post('dob')
-				);
+				'dob' => $this->input->post('dob'));
 			$this->user->updateProfile($data);
 		} else {
 			$this->load->model('user');
@@ -22,7 +21,6 @@ class Edit extends CI_Controller {
 			$this->load->view('editProfile',$data);
 		}
 	}
-
 	
 
 }

@@ -38,6 +38,7 @@ class User_Model extends CI_Model {
 	function writeStatus($data){
 		$this->db->insert('Status',$data);	
 	}
+	
 	function getStatus(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
@@ -47,44 +48,13 @@ class User_Model extends CI_Model {
 		$query = $this->db->get();
 		return $query->row();
 	}
+
 	function updateStatus($data){
 		$id = $this->session->userdata('id');
 		$this->db->where('id',$id);
 		$this->db->update('Status',$data);
-
 	}
 	
-	function createAlbum(){
-		$this->db->insert('Albums',$data);
-	}
-	function deleteAlbum($data){
-		$this->db->delete('Albums',$data);
-	}
-
-	
-	function createBand ($data){
-		$this->db->insert('Band',$data);
-	}
-
-	function createJob ($data){
-		$this->db->insert('Jobs',$data);
-	}
-	function getJob(){
-		$id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->from('Jobs');
-		$this->db->where('id',$id);
-
-		$query = $this->db->get();
-		return $query->row();
-	}
-	function updateJob($data){
-		$id = $this->session->userdata('id');
-		$this->db->where('id',$id);
-		$this->db->update('Jobs',$data);
-
-	}
-
 	function getProfile(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');

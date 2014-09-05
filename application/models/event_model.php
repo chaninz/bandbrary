@@ -36,7 +36,7 @@ class Event_Model extends CI_Model {
 	}
 
 	// Get event by id of user and band.
-	function Get_by_user($id, $user_type) {
+	function get_by_user($id, $user_type) {
 		if ($user_type == 1) {
 			$query = $this->db->get_where('User_Events', $id);
 			return $query;

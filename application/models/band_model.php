@@ -2,11 +2,6 @@
 
 class Band_Model extends CI_Model {
 
-	public function __construct() {
-		parent::__construct();
-		$this->load->model('event_model','event');
-	}
-
 	function create($data) {
 		$this->db->insert('Band',$data);
 	}
