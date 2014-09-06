@@ -2,32 +2,29 @@
 
 class Login extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
 	public function index() {
-		if ($this->input->post()) {
+		if ($this->session->userdata('email')) {
+			//redirect('home');
+		} elseif ($this->input->post()) {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
-			$data = $this->user->login($username,$password);
-			$session = array('id'=> $data->id,'username' => $data->username);
-			$this->session->set_userdata($session);
-			$this->load->view('profile',$session);
-
-			//$this->load->view('message',$data);	
-			/*if($check){
-				redirect(base_url('feed'));
+			$result = $this->user_model->login($username, $password);
+			if ($result) {
+				$user = array('id' => $result->id,
+					'username' => $result->username,
+					'email' => $result->email);
+				$this->session->set_userdata($user);
+				$this->load->view('feed');
 			}
-			else{
-				$this->load->view('notfound');
-			}*/
-
 		} else {
 			$this->load->view('login');
 		}
 	}
-
-	public function welcome() {
-		$this->load->view('welcome_message');
-	}
-
 }
 
 /* End of file login.php */

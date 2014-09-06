@@ -3,9 +3,8 @@
 class Logout extends CI_Controller {
 
 	public function index() {
-		$this->load->model('user');
 		$this->session->sess_destroy();
-		redirect(base_url('home')); 
+		redirect('home'); 
 	}
 
 }

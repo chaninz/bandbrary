@@ -7,14 +7,18 @@
 
 <body>
 Form login
-<form method="post" action="<?php echo base_url().'user/login'; ?>">
+<form method="post" action="<?php echo base_url().'login'; ?>">
 	username : <input type="text" name="username" maxlength="30" />
     password : <input type="password" name="password" />
     <input type="submit" ckass="btn" value="Login" />
 </form>
 <hr/>
 
-
+<?php print_r($this->session->all_userdata()); 
+	/*foreach ($session as $row) {
+		echo $row.'<br/>';
+	}*/
+?>
 <div class="ajaxcontent">
 ajax content
 <p></p>

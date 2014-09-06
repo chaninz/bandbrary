@@ -1,30 +1,51 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_Model extends CI_Model {
+class User_model extends CI_Model {
 	
-	function __construct(){
+	function __construct() {
 		parent::__construct();	
 	}
 	
-	function register ($data){
-		$this->db->insert('Users',$data);
+	function register($user) {
+		$this->db->insert('Users',$user);
+	}
+
+	// Check if email or username are exist.
+	function is_exist($user) {
+		$result = 0;
+		$email_exist = FALSE;
+		$username_exist = FALSE;
+		$this->db->or_where($user);
+		$query = $this->db->get('Users');
+		if ($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+				if ($row->username == $user['username'])
+					$username_exist = TRUE;
+				if ($row->email == $user['email'])
+					$email_exist = TRUE;
+			}
+
+			if ($email_exist && $username_exist) {
+				$result = 3;
+			} elseif ($email_exist) {
+				$result = 2;
+			} elseif ($username_exist) {
+				$result = 1;
+			}
+		}
+		else {
+			$result = 0;
+		}
+
+		return $result;
 	}
 	
-	function login ($username,$password){
-		$query = $this->db->get_where('Users',array('username' => $username,'password'=> $password ));
-		return $query->row();
-		/*foreach ($query->result() as $row){
-			$id = $row->id;
-			$this->session->set_userdata('id',$row->id);
-			$this->session->set_userdata('username',$row->username);
-			$this->session->set_userdata('password',$row->password);
-		}
-		if (isset($id)){
-			$query2 = $this->db->query("SELECT count(id) COUNT from post where by_id = $id");
-			$result = $query2->row();
-			$this->session->set_userdata('count',$row->COUNT);
-		}*/
-		
+	function login($username, $password) {
+		$query = $this->db->get_where('Users', array('username' => $username,
+			'password' => $password));
+		$result = $query->row();
+
+		return $result;
 	}
 	
 	function post ($by_id,$username,$content,$type){
