@@ -55,10 +55,10 @@
 		height: auto;
 		background: #333 url('../images/noise-black.png') 50% 50%;
 		background-image: url('../images/profile-header-gradient.png'),url('../images/noise-black.png');
-		-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.2),0 1px 3px rgba(0,0,0,.5)inset;
-		-moz-box-shadow: 0 1px 0 rgba(255,255,255,.2),0 1px 3px rgba(0,0,0,.5)inset;
-		box-shadow: 0 1px 0 rgba(255,255,255,.2),0 1px 3px rgba(0,0,0,.5)inset;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+			box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 		overflow: hidden;
+		border-bottom: 1px solid #000000;
 	}
 	.profile-cover {
 		margin-left: auto;
@@ -86,7 +86,7 @@
 		border-radius: 0px;
 		background-color: none;
 		color: #FFFFFF;
-		margin-left: 200px;
+		margin-left: 270px;
 	}
 	.navbar-item4 {
 		float: left;

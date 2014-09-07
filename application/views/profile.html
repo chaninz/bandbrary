@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bandbrary</title>
+
+	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../assets/css/semantic.min.css">
+
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.address.min.js"></script>
+	<script src="../../assets/js/semantic.min.js"></script>
+
+	<style>
+	.ui.basic.buttons {
+		-webkit-box-shadow: none; 
+		box-shadow: none; 
+		border-radius: 0px;
+		margin-bottom: 3px;
+	}
+	.ui.basic.button, .ui.basic.buttons .button {
+		color: white!important;
+	}
+	.ui.button, .ui.buttons .button {
+		font-size: 1.2rem;
+	}
+	i.icon {
+		margin: 0px;
+		font-size: 2rem;
+		margin-left: 7px;
+	}
+	.ui.input input {
+		font-size: 0.7em;
+		width: 240px;
+		margin-left: 20px;
+	}
+	.ui.icon.input > .icon {
+		padding-top: .7em;
+	}
+	.ui.menu {
+		background-color: transparent;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		border-radius: 0px;
+		color: #FFFFFF;
+	}
+	.ui.menu .item, .ui.menu .item>a:not(.button) {
+		color: #FFFFFF;
+	}
+	.ui.menu .item {
+		font-size: 1.2rem;
+		font-weight: 400px;
+		padding: 0px;
+		margin-top: 4px;
+	}
+	.ui.menu .active.item {
+		color: #FFFFFF;
+		background-color: none;
+	}
+	.user-name {
+		float: left;
+		margin-top: 10px;
+		margin-left: 6px;
+	}
+	.ui.dropdown .menu .item {
+		font-size: 1.2rem;
+		border-top: 0px;
+	}
+	.ui.dropdown .menu {
+		left: -43px;
+	}
+	.ui.dropdown > .dropdown.icon {
+		margin: 0.8em 0 0 0.8em;
+	}
+	/*---------------------------*/
+	.profile-name {
+		height: 100px;
+		background-color: #FCFCFC;
+		border: 1px solid #EBEBEB;
+	}
+	.menu-profile {
+		height: 40px;
+		background-color: #FFFFFF;
+		padding-left: 245px;
+			-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+			box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+	}
+	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+		color: #E72A30;
+	}
+	.img-thumbnail {
+		height: 180px;
+		width: 180px;
+		position: absolute;
+		z-index: 50;
+		top: 400px;
+		left: 100px;
+	}
+	/*.col-md-3 {
+		height: 500px;
+		border: 1px solid #000000
+	}
+	.col-md-7 {
+		height: 500px;
+		border: 1px solid #000000
+	}
+	.col-md-2 {
+		height: 500px;
+		border: 1px solid #000000
+		}*/
+		.title {
+			width: 277px;
+			height: 43px;
+			background-color: #FFFFFF;
+			border: 1px solid #EBEBEB;
+			font-size: 14px;
+			font-weight: 450;
+			padding-top: 10px;
+			padding-left: 13px; 
+		}
+		.body {
+
+		}
+		.ui.form textarea, .ui.textarea {
+			height: 11.4em;
+			border-radius: 0px;
+		}
+		.status {
+			width: 277px;
+			height: 160px;
+			margin-top: 14px;
+			background-color: #F7F6F6;
+			-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+			box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+		}
+		.ui.icon.button, .ui.icon.buttons .button {
+			position: absolute;
+			z-index: 50;
+			top: 5px;
+			left: 265px;
+			border-radius: 10px;
+			font-size: 1rem;
+		}
+		.about {
+			width: 277px;
+			height: 339px;
+			margin-top: 14px;
+			background-color: #F7F6F6;
+			-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+			box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+		}
+		.content {
+			width: 666px;
+			height: 689px;
+			margin-top: 14px;
+			background-color: #F7F6F6;
+			-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+			box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+		}
+		.advt {
+			width: 164px;
+			height: 276px;
+			margin-top: 14px;
+			background-color: #F7F6F6;
+		}
+		</style>
+
+	</head>
+	<body>
+		<header>
+			<div class="navbar-item1">	
+				<i class="home icon" style="font-size: 2.7rem"></i>
+				<div class="ui basic buttons">
+					<div class="ui button">Explore</div>
+					<div class="ui button">Jobs</div>
+				</div>
+			</div>
+			<div class="navbar-item2">
+				<div class="ui icon input">
+					<input type="text" placeholder="Search...">
+					<i class="search icon" style="font-size: 1.2rem"></i>
+				</div>
+			</div>
+			<div class="bb-logo">
+				<img src="../../images/bangbrary_logo_16-9.png">
+			</div>
+			<div class="navbar-item3">
+				<div class="ui compact menu">
+					<div class="ui pointing dropdown link item">
+						<img src="" alt="" class="profile-image">
+						<div class="user-name">
+							Bandbrary
+						</div>
+						<i class="dropdown icon" style="font-size: 1.2rem;"></i>
+						<div class="menu">
+							<a class="item"></i>Music</a>
+							<a class="item"></i>Post</a>
+							<a class="item"></i>Follower</a>
+							<a class="item"></i>Following</a>
+							<a class="item"></i>Event</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="navbar-item4">
+				<i class="bell icon"></i>
+				<i class="mail icon"></i>
+				<div class="ui pointing dropdown icon">
+					<i class="settings icon"></i>
+					<div class="menu" style="margin-top: 1.11em; border-top:0px;">
+						<div class="item">Go to Band</div>
+						<div class="line"></div>
+						<div class="item">Create Band</div>
+						<div class="item">Manage Band</div>
+						<div class="line"></div>
+						<div class="item">Create Job</div>
+						<div class="item">Manage Job</div>
+						<div class="line"></div>
+						<div class="item">Setting</div>
+						<div class="item">Sign out</div>
+						<div class="line"></div>
+						<div class="item">Help</div>
+						<div class="item">Report a Problem</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section>
+			<article>
+				<div class="top-bg">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="profile-cover">
+									<img src="" alt="">
+								</div>
+							</div>	
+						</div>
+					</div>
+					<img src="" alt="" class="img-thumbnail">
+				</div>
+				<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="menu-profile">
+							<ul class="nav nav-pills nav-justified">
+								<li class="active">
+									<a href=""><span class="badge pull-right">0</span>Timeline</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Music</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Post</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Follower</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Following</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Event</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+</div>
+			</article>
+		</section>
+
+		<section>
+			<article>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="ui icon button">
+								<i class="cloud icon" style="font-size: 1.5rem"></i>
+							</div>
+							<div class="status">
+								<div class="body">
+									<div class="ui form">
+										<div class="field">
+											<textarea></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="about">
+								<div class="title">ABOUT</div>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="content"></div>
+						</div>
+						<div class="col-md-2">
+							<div class="advt"></div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+
+
+		<script src="../../assets/js/bandbrary.js"></script>
+	</body>
+	</html>
