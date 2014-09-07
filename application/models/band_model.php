@@ -26,6 +26,22 @@ class Band_model extends CI_Model {
 		$this->db->update('Bands', $band);
 	}
 
+	function join($user, $band) {
+		$this->db->insert
+	}
+
+	function accept($user, $band) {
+
+	}
+
+	function reject($user, $band) {
+
+	}
+
+	function set_master() {
+		
+	}
+
 }
 
 /* End of file band_model.php */
