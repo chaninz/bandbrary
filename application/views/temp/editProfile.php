@@ -78,7 +78,7 @@ body {
                     <a class="active item">
                         Edit profile
                     </a>
-                <form action="<?php echo base_url().'user/updateProfile'; ?>" method="post" >  
+                <form action="<?php echo base_url().'account/edit'; ?>" method="post" >  
                     <a class="item" href="changePassword.html">
                         <i class="angle right icon"></i> Change password
                     </a>
