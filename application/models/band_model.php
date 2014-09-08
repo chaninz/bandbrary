@@ -42,25 +42,7 @@ class Band_model extends CI_Model {
 		
 	}
 
-	function post($data){
-		$this->db->insert('Band_Posts',$data);	
-	}
-	
-	function getPost(){
-		$id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->from('Band_posts');
-		$this->db->where('id',$id);
 
-		$query = $this->db->get();
-		return $query->row();
-	}
-
-	function editPost($data){
-		$id = $this->session->userdata('id');
-		$this->db->where('id',$id);
-		$this->db->update('Band_posts',$data);
-	}
 }
 
 /* End of file band_model.php */
