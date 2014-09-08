@@ -4915,7 +4915,7 @@ i.massive.basic.icon {
 .ui.basic.button {
   background-color: transparent !important;
   background-image: none;
-  color: #808080 !important;
+  color: #808080;
   font-weight: normal;
   text-transform: none;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
