@@ -9,7 +9,7 @@ class Post_model extends CI_Model {
 	function getPost(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
-		$this->db->from('Band_posts');
+		$this->db->from('Band_Posts');
 		$this->db->where('id',$id);
 
 		$query = $this->db->get();
@@ -19,13 +19,13 @@ class Post_model extends CI_Model {
 	function editPost($data){
 		$id = $this->session->userdata('id');
 		$this->db->where('id',$id);
-		$this->db->update('Band_posts',$data);
+		$this->db->update('Band_Posts',$data);
 	}
 
 	function deletePost($data){
 		$id = $this->session->userdata('id');
 		$this->db->where('id',$id);
-		$this->db->update('Band_posts',$data);
+		$this->db->update('Band_Posts',$data);
 	}
 
 }

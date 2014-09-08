@@ -4,7 +4,7 @@ class Post extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('band_model');
+		$this->load->model('post_model');
 	}
 
 	public function add() {
@@ -28,9 +28,11 @@ class Post extends CI_Controller {
 			$post = array('post' => $this->input->post('post'),
 				'image_url' => $this->input->post('imageurl')
 			);
-			$this->band_model->edit($post);
+			$this->post_model->editPost($post);
 		} else {
-			echo 'no data input';
+			$this->load->model('user_model');
+			$data = $this->post_model->getPost();
+			$this->load->view('temp/editPost',$data);
 		}
 	}
 
