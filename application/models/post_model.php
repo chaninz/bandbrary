@@ -25,7 +25,7 @@ class Post_model extends CI_Model {
 	function deletePost($data){
 		$id = $this->session->userdata('id');
 		$this->db->where('id',$id);
-		$this->db->update('Band_Posts',$data);
+		$this->db->delete('Band_Posts',$data);
 	}
 
 }
