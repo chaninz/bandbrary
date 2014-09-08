@@ -15,6 +15,7 @@ class Post extends CI_Controller {
 		if ($this->input->post()) {
 
 			$post = array('id' => $this->session->userdata('id'),
+				'band_id' = 1 ,
 				'topic' => $this->input->post('topic'),
 				'post' => $this->input->post('post'),
 				'image_url' => $this->input->post('imageurl')
@@ -34,6 +35,16 @@ class Post extends CI_Controller {
 			$this->band_model->edit($post);
 		} else {
 			echo 'no data input';
+		}
+	}
+
+	public function delete(){
+		if ($this->input->post()) {
+			// edit band to get band name from session
+			$post = array('post' => $this->input->post('post'),
+				'image_url' => $this->input->post('imageurl')
+			);
+			$this->band_model->delete($post);
 		}
 	}
 
