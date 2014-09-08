@@ -18,7 +18,9 @@ class Edit extends CI_Controller {
 				'yt_url' => $this->input->post('yturl'));
 			$this->band_model->edit($band);
 		} else {
-			echo 'no data input';
+			$this->load->model('band_model');
+			$data = $this->band_model->getBand();
+			$this->load->view('band/edit', $data);
 		}
 	}
 

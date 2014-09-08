@@ -10,6 +10,8 @@ class Edit extends CI_Controller {
 				'province_id' => $this->input->post('province'),
 				'user_type' => $this->input->post('usertype'),
 				'biography' => $this->input->post('biography'),
+				'cover_url' => $this->input->post('cover'),
+				'photo_url' => $this->input->post('photo'),
 				'fb_url' => $this->input->post('fburl'),
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
