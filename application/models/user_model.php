@@ -109,6 +109,13 @@ class User_model extends CI_Model {
 		$this->db->insert('Users',$data);
 	}
 
+	function greedd(){
+		$this->db->insert($data);
+	}
 
+	function ungreedd(){
+		$id = $this->session->userdata('id');
+		$this->db->where('id',$id);
+		$this->db->delete('greedd',$data);	}
 
 }
