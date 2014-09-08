@@ -7,10 +7,6 @@ class Post extends CI_Controller {
 		$this->load->model('band_model');
 	}
 
-	public function index() {
-		echo 'test';
-	}
-
 	public function add() {
 		if ($this->input->post()) {
 

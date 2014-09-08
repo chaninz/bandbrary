@@ -16,9 +16,9 @@ class Edit extends CI_Controller {
 				'dob' => $this->input->post('dob'));
 			$this->user->updateProfile($data);
 		} else {
-			$this->load->model('user');
-			$data = $this->user->getProfile();
-			$this->load->view('editProfile',$data);
+			$this->load->model('user_model');
+			$data = $this->user_model->getProfile();
+			$this->load->view('account/edit', $data);
 		}
 	}
 	

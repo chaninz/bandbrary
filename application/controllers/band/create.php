@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Band extends CI_Controller {
+class Create extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -8,10 +8,6 @@ class Band extends CI_Controller {
 	}
 
 	public function index() {
-		echo 'test';
-	}
-
-	public function create() {
 		if ($this->input->post()) {
 			$band = array('name' => $this->input->post('name'),
 				'biography' => $this->input->post('biography'),
@@ -26,26 +22,11 @@ class Band extends CI_Controller {
 				echo 'cannot create band';
 			}
 		} else {
-			echo 'no data input';
-		}
-	}
-
-	public function edit() {
-		if ($this->input->post()) {
-			// edit band to get band name from session
-			$band = array('name' => $this->input->post('name'),
-				'biography' => $this->input->post('biography'),
-				'style' => $this->input->post('style'),
-				'fb_url' => $this->input->post('fburl'),
-				'tw_url' => $this->input->post('twurl'),
-				'yt_url' => $this->input->post('yturl'));
-			$this->band_model->edit($band);
-		} else {
-			echo 'no data input';
+			$this->load->view('band/create');
 		}
 	}
 
 }
 
-/* End of file profile.php */
-/* Location: ./application/controllers/profile.php */
+/* End of file create.php */
+/* Location: ./application/controllers/band/create.php */
