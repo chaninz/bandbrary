@@ -78,7 +78,7 @@ body {
                     <a class="active item">
                         Edit profile
                     </a>
-                <form action="<?php echo base_url().'user/updateProfile'; ?>" method="post" >  
+                <form action="<?php echo base_url().'account/edit'; ?>" method="post" >  
                     <a class="item" href="changePassword.html">
                         <i class="angle right icon"></i> Change password
                     </a>
@@ -93,14 +93,14 @@ body {
                         <div class="field">
                             <label>Username</label>
                             <div class="ui left labeled icon input">
-                                <input type="text" placeholder="Username" name="username" readonly>
+                                <input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" readonly>
                                 <i class="user icon"></i>
                             </div>
                         </div>
                         <div class="field">
                             <label>Email address</label>
                             <div class="ui left labeled icon input">
-                                <input type="email" placeholder="Email address" name="email" <?php echo $data[email]; ?> readonly>
+                                <input type="email" placeholder="Email address" name="email" value="<?php echo $email; ?>" readonly>
                                 <i class="mail icon"></i>
                             </div>
                         </div>
@@ -155,7 +155,7 @@ body {
                             </div>
                             <div class="field" >
                                 <label>Biography</label>
-                                <textarea name="biography" value="<?php echo $biography; ?>"required></textarea>
+                                <textarea name="biography" required><?php echo $biography; ?></textarea>
                             </div>
                             <div class="line"></div>
                             <p>

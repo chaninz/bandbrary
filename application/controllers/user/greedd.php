@@ -15,7 +15,7 @@ class Greedd extends CI_Controller {
 		if ($this->input->post()) {
 			$user_data = array(
 			// edit user id to use session
-				'user_id' => $this->input->post('id'),
+				'id' => $this->session->userdata('id'),
 				'music_id' => $this->input->post('music_id'),
 				'greedd' => $this->input->post('greedd')
 			);
@@ -29,7 +29,7 @@ class Greedd extends CI_Controller {
 		if ($this->input->post()) {
 			$user_data = array(
 			// edit user id to use session
-				'user_id' => $this->input->post('id'),
+				'id' => $this->session->userdata('id'),
 				'music_id' => $this->input->post('music_id'),
 				'greedd' => $this->input->post('greedd')
 			);

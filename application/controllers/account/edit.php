@@ -2,6 +2,10 @@
 
 class Edit extends CI_Controller {
 
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('user_model');
+	}
 	public function index() {
 		if ($this->input->post()) {
 			$data = array(
@@ -16,10 +20,11 @@ class Edit extends CI_Controller {
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
 				'dob' => $this->input->post('dob'));
-			$this->user->updateProfile($data);
+			$this->user_model->updateProfile($data);
 		} else {
 			$this->load->model('user_model');
 			$data = $this->user_model->getProfile();
+			//echo print_r($data);
 			$this->load->view('account/edit', $data);
 		}
 	}
