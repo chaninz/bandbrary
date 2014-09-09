@@ -52,7 +52,7 @@
 								<input placeholder="Password" type="password">
 							</div>
 							<div class="field">
-								<div class="ui red small submit button" style="font-size: 1rem; margin-top: 1.8em;">Sign in</div>
+								<div class="ui red small submit button" style="font-size: 1rem!important; margin-top: 1.8em;">Sign in</div>
 							</div>
 						</div>
 						<div class="inline field">
