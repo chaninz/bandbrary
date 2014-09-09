@@ -5,7 +5,7 @@ class Greedd_model extends CI_Model {
 	function __construct(){
 		parent::__construct();	
 	}
-	
+
 	function add($data){
 		$this->db->insert('Greedd',$data);	
 	}
@@ -26,6 +26,11 @@ class Greedd_model extends CI_Model {
 		$this->db->delete('Greedd',$data);
 	}
 
+	function countGreedd(){
+		$this->db->select('COUNT (*)');
+		$this->db->from('Greedd');
+		$this->db->where('music_id',$music_id);
+	}
 }
 
 /* End of file post_model.php */

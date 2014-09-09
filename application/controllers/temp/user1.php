@@ -90,18 +90,18 @@ class User extends CI_Controller {
 
 	}*/
 	public function writeStatus(){
-		$this->load->model('user');
-		$data = $this->user->getStatus();
-		$this->load->view('writeStatus',$data);
-	}
+	// 	$this->load->model('user');
+	// 	$data = $this->user->getStatus();
+	// 	$this->load->view('writeStatus',$data);
+	// }
 	
 	public function updateStatus(){
-		$data = array (
-			'id' => $this->session->userdata('id'),
-			'status' => $this->input->post('status')
-		);
-		$this->user->updateStatus($data);
-	}
+	// 	$data = array (
+	// 		'id' => $this->session->userdata('id'),
+	// 		'status' => $this->input->post('status')
+	// 	);
+	// 	$this->user->updateStatus($data);
+	// }
 
 
 	
