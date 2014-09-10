@@ -60,15 +60,18 @@ class Post extends CI_Controller {
 		$this->load->view('temp/viewPost',$data);
 	}
 
-	public function viewAll(){
-		if ($this->input->post()) {
-			// edit band to get band name from session
-			$band_id = $this->input->post('band_id');
-			$this->post_model->getAllPost($band_id);
-		} else {
-			$data = $this->post_model->getAllPost();
-			$this->load->view('temp/getAllPost',$data);
-		}
+	public function viewAll($band_id){
+		// if ($this->input->post()) {
+		// 	// edit band to get band name from session
+		// 	$band_id = $this->input->post('band_id');
+		// 	$this->post_model->getAllPost($band_id);
+		// } else {
+		// 	$data = $this->post_model->getAllPost();
+		// 	$this->load->view('temp/getAllPost',$data);
+		// }
+		$this->post_model->getAllPost($band_id);
+		$this->load->view('temp/getAllPost',$data);
+
 	}
 
 }
