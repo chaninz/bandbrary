@@ -7,31 +7,22 @@ class Greedd extends CI_Controller {
 		$this->load->model('greedd_model');
 	}
 
-	public function add() {
-		if ($this->input->post()) {
-			$user_data = array(
-			// edit user id to use session
+	public function add($music_id) {
+			$data = array(
 				'id' => $this->session->userdata('id'),
-				'music_id' => 1
+				'music_id' => $music_id	
 			);
-			$this->greedd_model->add($user_data);
-		}else{
-			$this->load->model('greedd_model');
-			$this->load->view('temp/greedd');
-			} 
+			$this->greedd_model->add($data);
+		
 		
 	}
 
-	public function delete() {
-		if ($this->input->post()) {
-			$user_data = array(
-			// edit user id to use session
+	public function delete($music_id) {
+			$data = array(
 				'id' => $this->session->userdata('id'),
-				'music_id' => $this->input->post('music_id'),
-				'greedd' => $this->input->post('greedd')
+				'music_id' => $music_id
 			);
-
-			$this->greedd_model->delete($user_data);
+			$this->greedd_model->delete($data);
 		} 
 	}
 

@@ -26,7 +26,7 @@ class Greedd_model extends CI_Model {
 		$this->db->delete('Greedd',$data);
 	}
 
-	function countGreedd(){
+	function countGreedd($music_id){
 		$this->db->select('COUNT (*)');
 		$this->db->from('Greedd');
 		$this->db->where('music_id',$music_id);

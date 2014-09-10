@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bandbrary</title>
-    <?php $this->load->view('header'); ?>
-    
+    <?php $this->load->view('header'); ?>  
 
 </head>
 <style>
@@ -15,7 +14,7 @@ body {
 }
 .col-md-3 {
     float: left;
-    height: 1700px;
+    height: 1200px;
     background-color: #f7f7f7;
     border-left: 1px solid #C0C0C0;
     border-right: 1px solid #C0C0C0;
@@ -37,7 +36,7 @@ body {
     box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 }
 .ui.vertical.menu {
-    width: 29.1rem;
+    width: 29rem;
     border-radius: 0px;
 }
 .ui.vertical.menu > .active.item {
@@ -58,8 +57,12 @@ body {
 .ui.menu {
     background-color: #F7F6F6;
 }
-.ui.menu > .item {
-    font-size: 1.4rem;
+.ui.menu .item {
+    font-size: 1.5rem;
+    padding: 1em 1em;
+}
+.ui.menu:first-child {
+    margin-top: 3rem;
 }
 .ui.form.segment{
     -webkit-box-shadow: none;
@@ -68,28 +71,47 @@ body {
 .line {
     width: 750px;
 }
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.img-preview {
+    width: 73px;
+    height: 73px;
+}
 </style>
 <body>
     <div class="container">
         <div class="row">
-            
             <div class="col-md-3">
                 <div class="ui vertical pointing menu">
                     <a class="active item">
                         Edit profile
                     </a>
-                <form action="<?php echo base_url().'account/edit'; ?>" method="post" >  
-                    <a class="item" href="changePassword.html">
-                        <i class="angle right icon"></i> Change password
-                    </a>
+                    <form action="<?php echo base_url().'account/edit'; ?>" method="post"/>  
+                        <a class="item" href="changePassword.html">
+                            <i class="angle right icon"></i> Change password
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-7">
-                <div class="ui form segment">
-                    <p>
+                <div class="col-md-7">
+                    <div class="ui form segment">
+                        <p/>
                         <h1>Edit Profile</h1>
                         <div class="line"></div>
-                        <br><p>
+                        <br/><p/>
                         <div class="field">
                             <label>Username</label>
                             <div class="ui left labeled icon input">
@@ -107,7 +129,7 @@ body {
                         <div class="two fields">
                             <div class="field">
                                 <label>First Name</label>
-                                <input placeholder="First Name" type="text" name="name" value="<?php echo $name; ?>" required>>
+                                <input placeholder="First Name" type="text" name="name" value="<?php echo $name; ?>" required>
                             </div>
                             <div class="field">
                                 <label>Last Name</label>
@@ -144,109 +166,71 @@ body {
                             </div>
                         </div>
                         <div class="line"></div>
-                        <p>
-                            <div class="field">
-                                <label>Cover Image</label>
-                                <div class="small ui profile-cov button">Change cover</div>
+                        <p/>
+                        <div class="field">
+                            <label>Profile Photo</label>
+                            <img src="" alt="" class="img-preview">
+                            <div class="ui selection dropdown" style="margin-left: 10px;">
+                              <input type="hidden" name="profile-photo">
+                              <div class="default text"><b>Change photo</b></div>
+                              <i class="dropdown icon"></i>
+                              <div class="menu">
+                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload"/></div>
+                                <div class="item" data-value="0">Remove</div>
                             </div>
-                            <div class="field">
-                                <label>Profile Image</label>
-                                <div class="small ui profile-pic button">Change photo</div>
-                            </div>
-                            <div class="field" >
-                                <label>Biography</label>
-                                <textarea name="biography" required><?php echo $biography; ?></textarea>
-                            </div>
-                            <div class="line"></div>
-                            <p>
-                                <div class="field">
-                                    <label>Facebook URL</label>
-                                    <div class="ui left labeled icon input">
-                                        <input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $fb_url; ?>">  
-                                        <i class="facebook icon"></i>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label>Twitter URL</label>
-                                    <div class="ui left labeled icon input">
-                                        <input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $tw_url; ?>">
-                                        <i class="twitter icon"></i>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label>Youtube URL</label>
-                                    <div class="ui left labeled icon input">
-                                        <input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $yt_url; ?>">
-                                        <i class="youtube icon"></i>
-                                    </div>
-                                </div>
-                                <br><p>
-                                <div class="line"></div>
-                                <p>
-                                    <input class="ui red submit button" type="submit" value="Save Change">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Cover Photo</label>
+                        <img src="" alt="" class="img-preview">
+                        <div class="ui selection dropdown" style="margin-left: 10px;">
+                          <input type="hidden" name="cover-photo">
+                          <div class="default text"><b>Change cover</b></div>
+                          <i class="dropdown icon"></i>
+                          <div class="menu">
+                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload"/></div>
+                            <div class="item" data-value="0">Remove</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field" >
+                    <label>Biography</label>
+                    <textarea name="biography" required><?php echo $biography; ?></textarea>
+                </div>
+                <div class="line"></div>
+                <p/>
+                <div class="field">
+                    <label>Facebook URL</label>
+                    <div class="ui left labeled icon input">
+                        <input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $fb_url; ?>">  
+                        <i class="facebook icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Twitter URL</label>
+                    <div class="ui left labeled icon input">
+                        <input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $tw_url; ?>">
+                        <i class="twitter icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Youtube URL</label>
+                    <div class="ui left labeled icon input">
+                        <input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $yt_url; ?>">
+                        <i class="youtube icon"></i>
+                    </div>
+                </div>
+                <br/><p/>
+                <div class="line"></div>
+                <p/>
+                <input class="ui red submit button" type="submit" value="Save Change">
+            </div> 
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
 
-                                </div>
-
-                                <!--Cover Modal-->
-                                <div class="ui profile-cov modal">
-                                    <i class="close icon"></i>
-                                    <div class="header">
-                                        Cover Picture
-                                    </div>
-                                    <div class="content">
-                                        <div class="left">
-                                            <img class="ui medium image" src="/images/demo/avatar2.jpg">
-                                        </div>
-                                        <div class="right">
-                                            <div class="ui header">Are you sure you want to upload that?</div>
-                                            <p>I mean it's not really the best profile photo.</p>
-                                            <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
-                                        </div>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="ui black button">
-                                            Cancel
-                                        </div>
-                                        <div class="ui positive right labeled icon button">
-
-                                            <input type="file" name="pic" accept="image/*">
-
-                                            Upload Photo
-                                            <i class="upload icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Profile Picture Modal-->
-                                <div class="ui profile-pic modal">
-                                    <i class="close icon"></i>
-                                    <div class="header">
-                                        Profile Picture
-                                    </div>
-                                    <div class="content">
-                                        <div class="left">
-                                            <img class="ui medium image" src="/images/demo/avatar2.jpg">
-                                        </div>
-                                        <div class="right">
-                                            <div class="ui header">Are you sure you want to upload that?</div>
-                                            <p>I mean it's not really the best profile photo.</p>
-                                            <p>It's resampled to like two times the size it's suppose to be. Our image detection software also says it might even be inappropriate.</p>
-                                        </div>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="ui black button">
-                                            Cancel
-                                        </div>
-                                        <div class="ui positive right labeled icon button">
-
-                                            Upload Photo
-                                            <i class="upload icon"></i>
-                                        </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+<<<<<<< HEAD
                             <?php $this->load->view('footer'); ?>
                             <script>
                             $('.profile-cov.modal')
@@ -266,3 +250,13 @@ body {
                             </script>
                         </body>
                         </html>
+=======
+<?php $this->load->view('footer'); ?>
+<script>
+document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+</script>
+</body>
+</html>
+>>>>>>> 038e1c709fa3a99ed7559917f4a1d81b83da35fd
