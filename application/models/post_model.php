@@ -6,14 +6,22 @@ class Post_model extends CI_Model {
 		$this->db->insert('Band_Posts',$data);	
 	}
 	
-	function getPost(){
-		$id = $this->session->userdata('id');
+	function getPost($data){
 		$this->db->select('*');
 		$this->db->from('Band_Posts');
-		$this->db->where('id',$id);
+		$this->db->where('id',$data);
 
 		$query = $this->db->get();
 		return $query->row();
+	}
+
+	function getAllPost($band_id){
+		$this->db->select('*');
+		$this->db->from('Band_Posts');
+		$this->db->where('band_id',$band_id);
+
+		$query = $this->db->get();
+		return $query->result_set();
 	}
 
 	function editPost($data){

@@ -46,4 +46,29 @@ class Post extends CI_Controller {
 		}
 	}
 
+	public function view($post_id){
+		// if ($this->input->post()) {
+		// 	// edit band to get band name from session
+		// 	$post_id = 4 ;//$this->input->post('post_id')
+		// 	$data = $this->post_model->getPost($post_id);
+		// 	$this->load->view('temp/viewPost',$data);
+		// } else {
+		// 	$data = $this->post_model->getPost(4);
+		// 	$this->load->view('temp/viewPost',$data);
+		// }
+		$data = $this->post_model->getPost($post_id);
+		$this->load->view('temp/viewPost',$data);
+	}
+
+	public function viewAll(){
+		if ($this->input->post()) {
+			// edit band to get band name from session
+			$band_id = $this->input->post('band_id');
+			$this->post_model->getAllPost($band_id);
+		} else {
+			$data = $this->post_model->getAllPost();
+			$this->load->view('temp/getAllPost',$data);
+		}
+	}
+
 }

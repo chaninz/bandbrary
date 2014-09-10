@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class Postcomment_model extends CI_Model {
 	
 	function __construct() {
 		parent::__construct();
@@ -10,12 +10,12 @@ class User_model extends CI_Model {
 		$this->db->insert('Post_Comments',$data);
 	}
 
-	function delete(){
-
+	function delete($pcomment_id){
+		$this->db->delete('Greedd',$pcomment_id);
 	}
 
 	funcion getComment(){
-		
+
 	}
 
 }
