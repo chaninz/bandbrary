@@ -4,13 +4,13 @@ class Status extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('user_model');
+		$this->load->model('status_model');
 	}
 
 	public function add(){
 		$this->load->model('user_model');
-		$data = $this->user_model->getStatus();
-		$this->load->view('writeStatus',$data);
+		$data = $this->status_model->getStatus();
+		$this->load->view('add',$data);
 	}
 	
 	public function edit(){

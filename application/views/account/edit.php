@@ -255,6 +255,14 @@ body {
                             $('.profile-pic.modal')
                             .modal('attach events', '.profile-pic.button', 'show')
                             ;
+
+                            $(document).ready(function() {
+                            $('#entertain').mouseover(function(){
+                                $('#content').load('entertainment.html').hide(0).fadeIn(1000);
+                            });
+                            $('#sports').mouseover(function(){
+                                $('#content').load('Sport.html').hide(0).fadeIn(1000);
+                            });
                             </script>
                         </body>
                         </html>

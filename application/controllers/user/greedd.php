@@ -22,7 +22,7 @@ class Greedd extends CI_Controller {
 		
 	}
 
-	public function ungreedd() {
+	public function delete() {
 		if ($this->input->post()) {
 			$user_data = array(
 			// edit user id to use session
@@ -31,7 +31,7 @@ class Greedd extends CI_Controller {
 				'greedd' => $this->input->post('greedd')
 			);
 
-			$this->user->ungreedd($user_data);
+			$this->greedd_model->delete($user_data);
 		} 
 	}
 
