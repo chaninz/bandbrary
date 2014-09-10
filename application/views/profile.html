@@ -114,18 +114,66 @@
 			box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 		}
 		.date {
+			float: left;
 			width: 80px;
 			height: 98px;
 			background-color: #E72A30;
 			margin-left: 10px;
 			margin-top: 10px;
+			text-align: center;
+			padding-top: 12px;
+		}
+		.day {
+			color: #FFFFFF;
+			font-size: 18px;
+			font-weight: 800;
+		}
+		.month {
+			color: #FFFFFF;
+			font-size: 16px;
+			font-weight: 200;
+			margin-top: 5px;
+		}
+		.heading {
+			float: left;
+			width: 95px;
+			height: 98px;
+			border: 1px solid #000000;
+			margin-left: 10px;
+			margin-top: 10px;
+			font-size: 24px;
+			font-weight: 600;
+			font-family: 'TH sarabunPSK';
 		}
 		.text {
+			float: left;
 			width: 185px;
 			height: 100px;
 			border: 1px solid #000000;
 			margin-left: 10px;
 			margin-top: 10px;
+			font-size: 20px;
+			font-family: 'TH sarabunPSK';
+		}
+		.comment {
+			float: left;
+			width: 185px;
+			height: 25px;
+			margin-left: 10px;
+			margin-top: 10px;
+			padding-top: 3px;
+		}
+		.white-line {
+			width: 60px;
+			height: 5px;
+			background-color: #FFFFFF;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+		.amount-comment {
+			font-weight: 600;
+			margin-top: 3px;
+			font-size: 0.85em;
 		}
 		</style>
 
@@ -271,26 +319,39 @@
 								background-color: transparent; 
 								background-image: none;
 								-webkit-box-shadow: none;">
-									<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
-								</div>
-								<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
+								<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
 							</div>
-							<div class="post">
-								<div class="date"></div>
-								<div class="text"></div>
-							</div>
-							<div class="post"></div>
+							<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
 						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="advt"></div>
+						<div class="post">
+							<div class="date">
+								<div class="day">14</div>
+								<div class="month">MAR</div>
+								<div class="white-line"></div>
+							</div>
+							<div class="heading">
+								หัวข้อเรื่อง
+							</div>
+							<div class="text">
+								เนื้อหา
+							</div>
+							<div class="comment">
+								<i class="comment icon" style=" color: #E72A30; font-size: 1em;"></i>
+								<div class="amount-comment">0</div>
+							</div>
+						</div>
+						<div class="post"></div>
 					</div>
 				</div>
+				<div class="col-md-2">
+					<div class="advt"></div>
+				</div>
 			</div>
-		</article>
-	</section>
+		</div>
+	</article>
+</section>
 
 
-	<script src="../../assets/js/bandbrary.js"></script>
+<script src="../../assets/js/bandbrary.js"></script>
 </body>
 </html>
