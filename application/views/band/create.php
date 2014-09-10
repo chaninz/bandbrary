@@ -11,11 +11,12 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
         <div class="ui form segment">
           <div class="field">
             <label>Band Name</label>
-              <input type="text" placeholder="Band Name" name="name" required>
+            <input type="text" placeholder="Band Name" name="name" required>
           </div>
           <div class="field">
             <label>Biography</label>
@@ -101,10 +102,14 @@
               <i class="youtube icon"></i>
             </div>
           </div>
+          <div class="ui red submit button">Submit</div>
         </div>
       </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
 
-	<?php $this->load->view('footer'); ?>
+  <?php $this->load->view('footer'); ?>
 
 </body>
 </html>
