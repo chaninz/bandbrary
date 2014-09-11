@@ -27,19 +27,6 @@ class Postcomment extends CI_Controller {
 		
 	}
 
-	public function edit() {
-		$id = array('id' => $this->input->post('id'),
-			// edit user id to use session
-			'user_id' => $this->input->post('user_id'));
-		$data = array('event' => $this->input->post('event'),
-			'description' => $this->input->post('description'),
-			'venue' => $this->input->post('venue'),
-			'start_time' => $this->input->post('start_time'),
-			'end_time' => $this->input->post('end_time'));
-		$user_type = 1;
-		$this->event->edit($data, $user_type, $id);
-	}
-
 	public function delete() {
 		$post_id = array('id' => $this->input->get('post_id'));
 		$user_type = 1;

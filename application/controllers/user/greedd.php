@@ -9,7 +9,7 @@ class Greedd extends CI_Controller {
 
 	public function add($music_id) {
 			$data = array(
-				'id' => $this->session->userdata('id'),
+				'user_id' => $this->session->userdata('id'),
 				'music_id' => $music_id	
 			);
 			$this->greedd_model->add($data);
@@ -23,7 +23,7 @@ class Greedd extends CI_Controller {
 				'music_id' => $music_id
 			);
 			$this->greedd_model->delete($data);
-		} 
+		
 	}
 
 	
