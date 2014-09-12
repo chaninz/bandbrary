@@ -42,25 +42,28 @@
 					<div class="login-form">
 						<div class="ui small form segment" 
 						style="-webkit-box-shadow: none; box-shadow: none; border-radius: 0px; font-size: 1rem; padding:0em; margin-top: 0.4em;">
-						<div class="three fields">
-							<div class="field">
-								<label>Username</label>
-								<input placeholder="Username" type="text">
+						<form action="login" method="post">
+							<div class="three fields">
+								<div class="field">
+									<label>Username</label>
+									<input placeholder="Username" type="text" name="username">
+								</div>
+								<div class="field">
+									<label>Password</label>
+									<input placeholder="Password" type="password">
+								</div>
+								<div class="field">
+									<!-- <div class="ui red small submit button" style="font-size: 1rem!important; margin-top: 1.8em;">Sign in</div> -->
+									<input class="ui red small submit button" type="submit" style="font-size: 1rem!important; margin-top: 1.8em;" value="Sign in"/>
+								</div>
 							</div>
-							<div class="field">
-								<label>Password</label>
-								<input placeholder="Password" type="password">
+							<div class="inline field">
+								<div class="ui checkbox">
+									<input type="checkbox">
+									<label>Remember me</label>
+								</div>
 							</div>
-							<div class="field">
-								<div class="ui red small submit button" style="font-size: 1rem!important; margin-top: 1.8em;">Sign in</div>
-							</div>
-						</div>
-						<div class="inline field">
-							<div class="ui checkbox">
-								<input type="checkbox">
-								<label>Remember me</label>
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>

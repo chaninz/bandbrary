@@ -38,11 +38,11 @@ class Job_Model extends CI_Model {
 	}
 
 	public function get_by_region($region) {
-		$this->db->get_where();
+		$this->db->get_where('Jobs', array('region' => $region));
 	}
 
 	public function get_by_province($province) {
-		$this->db->get_where
+		$this->db->get_where('Jobs', array('province' => $province));
 	}
 }
 ?>
