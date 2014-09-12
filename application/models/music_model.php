@@ -2,12 +2,6 @@
 
 class Music_Model extends CI_Model {
 
-	function createAlbum(){
-		$this->db->insert('Albums',$data);
-	}
-	function deleteAlbum($data){
-		$this->db->delete('Albums',$data);
-	}
 
 }
 

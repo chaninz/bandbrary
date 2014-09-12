@@ -10,7 +10,7 @@ class Greedd_model extends CI_Model {
 		$this->db->insert('Greedd',$data);	
 	}
 	
-	function getPost(){
+	function get_post(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Band_Posts');

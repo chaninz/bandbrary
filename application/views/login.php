@@ -1,41 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-</head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bandbrary</title>
 
+	<?php $this->load->view('header'); ?>  
+	<style>
+	.col-md-6 {
+		margin-top: 100px;
+	}
+	</style>
 <body>
-Form login
-<form method="post" action="<?php echo base_url().'login'; ?>">
-	username : <input type="text" name="username" maxlength="30" />
-    password : <input type="password" name="password" />
-    <input type="submit" ckass="btn" value="Login" />
-</form>
-<hr/>
-
-<?php print_r($this->session->all_userdata()); 
-	/*foreach ($session as $row) {
-		echo $row.'<br/>';
-	}*/
-?>
-<div class="ajaxcontent">
-ajax content
-<p></p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div id="login-form-full" class="ui form segment">
+					<h2 id="login-hea-text">Bandbrary Login</h2>
+					<p/>
+					<div class="line"></div>
+					<p/>
+	<form method="post" action="<?php echo base_url().'login'; ?>">
+  <div class="field">
+    <label>Username</label>
+    <div class="ui left labeled icon input">
+      <input type="text" placeholder="Username" name="username">
+      <i class="user icon"></i>
+      <div class="ui corner label">
+        <i class="icon asterisk"></i>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <div class="ui left labeled icon input">
+      <input type="password" placeholder="Password" type="password">
+      <i class="lock icon"></i>
+      <div class="ui corner label">
+        <i class="icon asterisk"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+  <div><input type="submit" ckass="ui red submit button" value="Login" /></div>
 </div>
-</body>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"/></script>
-<script>
-	$(document).ready(function(e) {
-		$.ajax({
-		  type:"POST",
-		  url: "user/getText",
-		  data :{data:' ::: punpun sa :3'},
-		  success: function(msg){
-			  $(".ajaxcontent p").html(msg);
-			}
-		});
-    });
-</script>
+</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
 
+	<?php $this->load->view('footer'); ?>
+</body>
 </html>

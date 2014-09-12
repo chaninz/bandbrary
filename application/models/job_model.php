@@ -8,18 +8,13 @@ class Job_Model extends CI_Model {
 	public function add($data) {
 		$this->db->insert('users',$data);
 		$id = $this->db->insert_id();
-		
 		return (isset($id)) ? $id : FALSE;	
 	}
-	
-	public function get_all() {
 
-	}
-
-	function createJob ($data){
+	function create($data){
 		$this->db->insert('Jobs',$data);
 	}
-	function getJob(){
+	function get(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Jobs');
@@ -35,11 +30,19 @@ class Job_Model extends CI_Model {
 		$this->db->update('Jobs',$data);
 	}
 
-	public function getAllJobs() {
+	public function get_all() {
 		$this->db->get('jobs');
 		foreach ($row as $query => $result) {
 			echo $row->description;
 		}
+	}
+
+	public function get_by_region($region) {
+		$this->db->get_where();
+	}
+
+	public function get_by_province($province) {
+		$this->db->get_where
 	}
 }
 ?>

@@ -45,6 +45,7 @@ class Event_Model extends CI_Model {
 			$query = $this->db->get_where('Band_Events', $id);
 			return $query;
 	}
+
 }
 
 /* End of file post_model.php */

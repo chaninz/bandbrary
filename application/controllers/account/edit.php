@@ -23,7 +23,7 @@ class Edit extends CI_Controller {
 			$this->user_model->updateProfile($data);
 		} else {
 			$this->load->model('user_model');
-			$data = $this->user_model->getProfile();
+			$data = $this->user_model->getJob();
 			//echo print_r($data);
 			$this->load->view('account/edit', $data);
 		}
