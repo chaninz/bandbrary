@@ -14,7 +14,7 @@ body {
 }
 .col-md-3 {
     float: left;
-    height: 1200px;
+    height: 1280px;
     background-color: #f7f7f7;
     border-left: 1px solid #C0C0C0;
     border-right: 1px solid #C0C0C0;
@@ -70,26 +70,6 @@ body {
 }
 .line {
     width: 750px;
-}
-
-.fileUpload {
-    position: relative;
-    overflow: hidden;
-}
-.fileUpload input.upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-.img-preview {
-    width: 73px;
-    height: 73px;
 }
 </style>
 <body>
@@ -169,7 +149,7 @@ body {
                         <p/>
                         <div class="field">
                             <label>Profile Photo</label>
-                            <img src="" alt="" class="img-preview">
+                            <img src="" alt="" id="img-preview"/>
                             <div class="ui selection dropdown" style="margin-left: 10px;">
                               <input type="hidden" name="profile-photo">
                               <div class="default text"><b>Change photo</b></div>
@@ -182,7 +162,7 @@ body {
                     </div>
                     <div class="field">
                         <label>Cover Photo</label>
-                        <img src="" alt="" class="img-preview">
+                        <img src="" alt="" id="img-preview"/>
                         <div class="ui selection dropdown" style="margin-left: 10px;">
                           <input type="hidden" name="cover-photo">
                           <div class="default text"><b>Change cover</b></div>
@@ -231,25 +211,25 @@ body {
 </div>
 
 <<<<<<< HEAD
-                            <?php $this->load->view('footer'); ?>
-                            <script>
-                            $('.profile-cov.modal')
-                            .modal('attach events', '.profile-cov.button', 'show')
-                            ;
-                            $('.profile-pic.modal')
-                            .modal('attach events', '.profile-pic.button', 'show')
-                            ;
+<?php $this->load->view('footer'); ?>
+<script>
+$('.profile-cov.modal')
+.modal('attach events', '.profile-cov.button', 'show')
+;
+$('.profile-pic.modal')
+.modal('attach events', '.profile-pic.button', 'show')
+;
 
-                            $(document).ready(function() {
-                            $('#entertain').mouseover(function(){
-                                $('#content').load('entertainment.html').hide(0).fadeIn(1000);
-                            });
-                            $('#sports').mouseover(function(){
-                                $('#content').load('Sport.html').hide(0).fadeIn(1000);
-                            });
-                            </script>
-                        </body>
-                        </html>
+$(document).ready(function() {
+    $('#entertain').mouseover(function(){
+        $('#content').load('entertainment.html').hide(0).fadeIn(1000);
+    });
+    $('#sports').mouseover(function(){
+        $('#content').load('Sport.html').hide(0).fadeIn(1000);
+    });
+    </script>
+</body>
+</html>
 =======
 <?php $this->load->view('footer'); ?>
 <script>
