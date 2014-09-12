@@ -18,7 +18,7 @@
 	<div class="navbar-item3">
 		<div class="ui compact menu">
 			<div class="ui pointing dropdown link item">
-				<img src="" alt="" class="profile-image">
+				<img src="" alt="" class="profile-pic1">
 				<div class="user-name">
 					Bandbrary
 				</div>

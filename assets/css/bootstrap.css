@@ -2688,7 +2688,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-tabs.nav-justified > .active > a,
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #ffffff;
+    border-bottom-color: #E72A30;
   }
 }
 .nav-pills > li {
@@ -3475,7 +3475,7 @@ a.thumbnail.active {
 .modal-open {
   overflow: hidden;
 }
-.modal {
+/*.modal {
   display: none;
   overflow: hidden;
   position: fixed;
@@ -3486,7 +3486,7 @@ a.thumbnail.active {
   z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0;
-}
+}*/
 .modal.fade .modal-dialog {
   -webkit-transform: translate3d(0, -25%, 0);
   transform: translate3d(0, -25%, 0);
