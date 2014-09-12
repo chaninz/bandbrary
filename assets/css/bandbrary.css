@@ -151,11 +151,11 @@
 	}
 	.profile-name #pn1 {
 		font-weight: bolder;
-		font-size: 24px;
+		font-size: 25px;
 	}
 	.profile-name #pn2 {
-		font-weight: 500;
-		font-size: 20px;
+		font-weight: 400;
+		font-size: 19px;
 	}
 	.menu-profile {
 		height: 40px;
@@ -173,7 +173,10 @@
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
-	.title {
+	#bg-status {
+		background-color: #FFFBC7;
+	}
+	.title-box {
 		width: 277px;
 		height: 40px;
 		background-color: #FFFFFF;
@@ -192,7 +195,6 @@
 	}
 	.center {
 		width: 666px;
-		height: 689px;
 		background-color: transparent;
 	}
 	.advt {
