@@ -5,17 +5,16 @@ class Job_Model extends CI_Model {
 
 	}
 	
-	public function add($data) {
-		$this->db->insert('users',$data);
-		$id = $this->db->insert_id();
-		return (isset($id)) ? $id : FALSE;	
-	}
+	// public function add($data) {
+	// 	$this->db->insert('users',$data);
+	// 	$id = $this->db->insert_id();
+	// 	return (isset($id)) ? $id : FALSE;	
+	// }
 
 	function create($data){
 		$this->db->insert('Jobs',$data);
 	}
-	function get(){
-		$id = $this->session->userdata('id');
+	function get($id){
 		$this->db->select('*');
 		$this->db->from('Jobs');
 		$this->db->where('id',$id);
