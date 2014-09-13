@@ -58,8 +58,15 @@ class Job extends CI_Controller {
 		$this->job->delete($id);
 	}
 
+	// view only one job
 	public function view($id) {
 		$data = $this->job->get($id);
+		$this->load->view('temp/viewJob');
+	}
+
+	//view all job (all job in job's page)
+	public function viewAll() {
+		$data = $this->job->get_all();
 		$this->load->view('temp/viewJob');
 	}
 
