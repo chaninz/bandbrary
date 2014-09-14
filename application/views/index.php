@@ -33,106 +33,104 @@
 	</ul>
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-xs-12">
 			<header style="background-color: #FFFFFF; height: 80px;">
-				<div class="col-md-8">
+				<div class="col-xs-8">
 					<img src="images/bandbrary_logo2.png" alt="" width="80px" height="80px" style="margin-left:50px;">
 				</div>
-				<div class="col-md-4">
+				<div class="col-xs-4">
 					<div class="login-form">
-						<div class="ui small form segment" 
-						style="-webkit-box-shadow: none; box-shadow: none; border-radius: 0px; font-size: 1rem; padding:0em; margin-top: 0.4em;">
-						<form action="login" method="post">
-							<div class="three fields">
+						<div class="ui small form segment" style="-webkit-box-shadow: none; box-shadow: none; border-radius: 0px; font-size: 1rem; padding:0em; margin-top: 0.4em;">
+							<form action="login" method="post">
+								<div class="three fields">
+									<div class="field">
+										<label>Username</label>
+										<input placeholder="Username" type="text" name="username">
+									</div>
+									<div class="field">
+										<label>Password</label>
+										<input placeholder="Password" type="password">
+									</div>
+									<div class="field">
+										<input class="ui red small submit button" type="submit" style="font-size: 1rem!important; margin-top: 1.8em;" value="Sign in"/>
+									</div>
+								</div>
+								<div class="inline field">
+									<div class="ui checkbox">
+										<input type="checkbox">
+										<label>Remember me</label>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+	</div>
+	<div class="container" style="margin-top:100px;">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="welcome-msg">
+					<h1>Welcome to Bandbrary.</h1>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<div class="register-form">
+					<!-- Step 1 -->
+					<div class="ui form segment">
+						<div class="signup-msg">
+							<b>New to Bandbrary?</b> Sign up
+						</div>
+						<p>
+							<div class="line"></div>
+							<p>
 								<div class="field">
 									<label>Username</label>
-									<input placeholder="Username" type="text" name="username">
+									<div class="ui left labeled icon input">
+										<input type="text" placeholder="Username" name="username" required>
+										<i class="user icon"></i>
+									</div>
 								</div>
 								<div class="field">
 									<label>Password</label>
-									<input placeholder="Password" type="password">
+									<div class="ui left labeled icon input">
+										<input type="password" placeholder="Password" id="password" name="password" required>
+										<i class="lock icon"></i>
+									</div>
 								</div>
 								<div class="field">
-									<!-- <div class="ui red small submit button" style="font-size: 1rem!important; margin-top: 1.8em;">Sign in</div> -->
-									<input class="ui red small submit button" type="submit" style="font-size: 1rem!important; margin-top: 1.8em;" value="Sign in"/>
+									<label>Confirm Password</label>
+									<div class="ui left labeled icon input">
+										<input type="password" placeholder="Confirm Password" id="confirmPass" required>
+										<i class="lock icon"></i>
+									</div>
+									<span id="errorMsg" style="color:red"> </span>
 								</div>
+								<div class="field">
+									<label>Email address</label>
+									<div class="ui left labeled icon input">
+										<input type="email" placeholder="Email address" name="email" required>
+										<i class="mail icon"></i>
+									</div>
+								</div>
+								<div class="ui red submit button">Next</div>
+								<p>
+									<div class="line"></div>	
+								</p>
+								<div class="ui three steps">
+									<div class="ui active step">
+										Step 1
+									</div>
+									<div class="ui disabled step">
+										Step 2
+									</div>
+									<div class="ui disabled step">
+										Step 3
+									</div>
+								</div> 
 							</div>
-							<div class="inline field">
-								<div class="ui checkbox">
-									<input type="checkbox">
-									<label>Remember me</label>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</header>
-	</div>
-</div>
-<div class="container" style="margin-top:100px;">
-	<div class="row">
-		<div class="col-md-5">
-			<div class="welcome-msg">
-				<h1>Welcome to Bandbrary.</h1>
-			</div>
-		</div>
-		<div class="col-md-7">
-			<div class="register-form">
-				<!-- Step 1 -->
-				<div class="ui form segment">
-					<div class="signup-msg">
-						<b>New to Bandbrary?</b> Sign up
-					</div>
-					<p>
-						<div class="line"></div>
-						<p>
-							<div class="field">
-								<label>Username</label>
-								<div class="ui left labeled icon input">
-									<input type="text" placeholder="Username" name="username" required>
-									<i class="user icon"></i>
-								</div>
-							</div>
-							<div class="field">
-								<label>Password</label>
-								<div class="ui left labeled icon input">
-									<input type="password" placeholder="Password" id="password" name="password" required>
-									<i class="lock icon"></i>
-								</div>
-							</div>
-							<div class="field">
-								<label>Confirm Password</label>
-								<div class="ui left labeled icon input">
-									<input type="password" placeholder="Confirm Password" id="confirmPass" required>
-									<i class="lock icon"></i>
-								</div>
-								<span id="errorMsg" style="color:red"> </span>
-							</div>
-							<div class="field">
-								<label>Email address</label>
-								<div class="ui left labeled icon input">
-									<input type="email" placeholder="Email address" name="email" required>
-									<i class="mail icon"></i>
-								</div>
-							</div>
-							<div class="ui red submit button">Next</div>
-							<p>
-								<div class="line"></div>	
-							</p>
-							<div class="ui three steps">
-								<div class="ui active step">
-									Step 1
-								</div>
-								<div class="ui disabled step">
-									Step 2
-								</div>
-								<div class="ui disabled step">
-									Step 3
-								</div>
-							</div> 
-						</div>
-						<!-- End Step 1 -->
+							<!-- End Step 1 -->
 
 					<!-- Step 2 
 					<div class="ui form segment">

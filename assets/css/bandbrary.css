@@ -1,6 +1,6 @@
 	body{
 		font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', Tahoma, Verdana, Arial, Sans-Serif;
-		background: #D8D8D8 url('../../images/noise-2.png');
+		background: #FFFFFF url('../../images/noise-2.png');
 		-webkit-font-smoothing: antialiased;	
 	}
 	header{
@@ -137,7 +137,7 @@
 		position: absolute;
 		z-index: 50;
 		top: 480px;
-		left: 280px;
+		left: 300px;
 		font-weight: bolder;
 		color: #FFFFFF;
 	}
@@ -147,15 +147,15 @@
 		position: absolute;
 		z-index: 50;
 		top: 400px;
-		left: 70px;
+		left: 95px;
 	}
 	.profile-name #pn1 {
 		font-weight: bolder;
 		font-size: 25px;
 	}
 	.profile-name #pn2 {
-		font-weight: 400;
-		font-size: 19px;
+		font-weight: 200;
+		font-size: 18px;
 	}
 	.menu-profile {
 		height: 40px;
@@ -208,7 +208,7 @@
 		position: absolute;
 		z-index: 50;
 		top: 510px;
-		left: 935px;
+		left: 955px;
 		font-size: 12px;
 		padding-left: 10px;
 		border-radius: 0em;
@@ -220,7 +220,7 @@
 		position: absolute;
 		z-index: 50;
 		top: 510px;
-		left: 1050px;
+		left: 1070px;
 	}
 	#joinBand .icon {
 		font-size: 1.049em;
