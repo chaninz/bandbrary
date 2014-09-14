@@ -16,7 +16,7 @@
 				<div class="ui form segment">
 					<div class="field">
 						<label>Job Name</label>
-							<input type="text" placeholder="Job Name" name="event">
+							<input type="text" placeholder="Job Name" name="name">
 					</div>
 					<div class="field">
 						<label>Job Type</label>

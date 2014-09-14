@@ -22,7 +22,7 @@ class Edit extends CI_Controller {
 				'dob' => $this->input->post('dob'));
 			$this->user_model->updateProfile($data);
 		} else {
-			$data = $this->user_model->getJob();
+			$data = $this->user_model->getProfile();
 			//echo print_r($data);
 			$this->load->view('account/edit', $data);
 		}

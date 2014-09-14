@@ -15,7 +15,7 @@ class Job extends CI_Controller {
 		if ($this->input->post()) {
 			$data = array(
 			'user_id' => $this->session->userdata('id'),
-			'event' => $this->input->post('event'),
+			'name' => $this->input->post('name'),
 			'job_type' => $this->input->post('job_type'),
 			'style' => $this->input->post('style'),
 			'description' => $this->input->post('description'),
@@ -32,7 +32,7 @@ class Job extends CI_Controller {
 		
 	}
 
-	public function edit() {
+	public function edit($id) {
 		if ($this->input->post()) {
 			$data = array (
 			'job_type' => $this->input->post('job_type'),
@@ -46,8 +46,8 @@ class Job extends CI_Controller {
 		);
 			$this->job->edit($data);
 		} else {
-			$data = $this->job->getJob();
-			$this->load->view('editJob',$data);
+			$data = $this->job->get($id);
+			$this->load->view('temp/editJob',$data);
 		}
 
 

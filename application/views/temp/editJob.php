@@ -15,14 +15,14 @@
 				<div class="ui form segment">
 					<div class="field">
 						<label>Job Name</label>
-							<input type="text" placeholder="Job Name" name="event" value="<?php echo $event; ?>" readonly>
+							<input type="text" placeholder="Job Name" name="name" value="<?php echo $name; ?>" readonly>
 					</div>
 					<div class="field">
 						<label>Job Type</label>
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="job_type" value="<?php echo $job_type; ?>">
+							<input type="hidden" name="job_type" >
 							<div class="menu">
 								<div class="item" data-value="1" style="font-size: 14px;">Wedding</div>
 								<div class="item" data-value="2" style="font-size: 14px;">Restuarant</div>
@@ -35,7 +35,7 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="style" value="<?php echo $style; ?>">
+							<input type="hidden" name="style">
 							<div class="menu">
 								<div class="item" data-value="1" style="font-size: 14px;">Blues</div>
 								<div class="item" data-value="2" style="font-size: 14px;">Country</div>
@@ -51,7 +51,7 @@
 					</div>
 					<div class="field">
 						<label>Description</label>
-						<textarea name="description">  value="<?php echo $description; ?>"</textarea>
+						<textarea name="description"> <?php echo $description; ?></textarea>
 					</div>
 					<div class="field">
 						<label>Venue</label>
@@ -62,7 +62,7 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="province"  value="<?php echo $province; ?>">
+							<input type="hidden" name="province" >
 							<div class="menu">
 								<div class="item" data-value="1" style="font-size: 14px;">Bangkok</div>
 								<div class="item" data-value="2" style="font-size: 14px;">Changmai</div>
