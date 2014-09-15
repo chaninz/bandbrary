@@ -32,19 +32,20 @@ class Job extends CI_Controller {
 		
 	}
 
-	public function edit($id) {
+	public function edit($id=0) {
 		if ($this->input->post()) {
 			$data = array (
 			'job_type' => $this->input->post('job_type'),
 			'style' => $this->input->post('style'),
 			'description' => $this->input->post('description'),
 			'venue' => $this->input->post('venue'),
-			'province' => $this->input->post('province'),
+			'province_id' => $this->input->post('province'),
 			'budget' => $this->input->post('budget'),
 			'start_time' => $this->input->post('start_time'),
 			'end_time' => $this->input->post('end_time')
 		);
-			$this->job->edit($data);
+			$id = $this->input->post('id');
+			$this->job->edit($data,$id);
 		} else {
 			$data = $this->job->get($id);
 			$this->load->view('temp/editJob',$data);

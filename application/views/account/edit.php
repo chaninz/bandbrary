@@ -121,10 +121,11 @@ body {
                             <div class="ui fluid selection dropdown">
                                 <div class="text">Select</div>
                                 <i class="dropdown icon"></i>
-                                <input type="hidden" name="province">
+                                <input type="hidden" name="province" value="<?php echo $province_id; ?>" >
+
                                 <div class="menu">
-                                    <div class="item" data-value="1" style="font-size: 14px;">Bangkok</div>
-                                    <div class="item" data-value="2" style="font-size: 14px;">Changmai</div>
+                                    <div class="item  <?php echo ($province_id ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
+                                    <div class="item <?php echo ($province_id ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Changmai</div>
                                 </div>
                             </div>
                         </div>

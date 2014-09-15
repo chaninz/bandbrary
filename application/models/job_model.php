@@ -20,7 +20,7 @@ class Job_Model extends CI_Model {
 		return $query->row();
 	}
 
-	function update($data) {
+	function edit($data,$id) {
 		$this->db->where('id',$id);
 		$this->db->update('Jobs',$data);
 	}
