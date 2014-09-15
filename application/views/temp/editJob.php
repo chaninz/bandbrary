@@ -78,14 +78,14 @@
 					<div class="field">
 						<label>Start Time</label>
 						<div class="ui left labeled icon input">
-							<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time" > 
+							<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time" value="<?php echo $start_time; ?>" > 
 							<i class="calendar icon"></i>
 						</div>
 					</div>
 					<div class="field">
 						<label>End Time</label>
 						<div class="ui left labeled icon input">
-							<input type="date" placeholder="" style="padding: .2em 1em;" name="end_time">
+							<input type="date" placeholder="" style="padding: .2em 1em;" name="end_time" value="<?php echo $end_time; ?>" >
 							<i class="calendar icon"></i>
 						</div>
 					</div>

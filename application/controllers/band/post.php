@@ -18,7 +18,12 @@ class Post extends CI_Controller {
 			);
 			$this->post_model->add($post);
 		} else {
-			$this->load->view('post');
+			$session = array(
+			'id' => $this->session->userdata('id'),
+			'name' => $this->session->userdata('name'),
+			'photo_url' => $this->session->userdata('photo_url')
+			);
+			$this->load->view('post',$session);
 			}
 	}
 

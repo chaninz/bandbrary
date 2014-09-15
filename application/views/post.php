@@ -65,16 +65,16 @@
 				<input type="text" placeholder="Search...">
 				<i class="search icon" style="font-size: 1.2rem"></i>
 			</div>
-		</div>
+		</div>	
 		<div class="bb-logo">
-			<img src="../../images/bangbrary_logo_16-9.png">
+			<img src="../../images/bandbrary_logo_16-9.png">
 		</div>
 		<div class="navbar-item3">
 			<div class="ui compact menu">
 				<div class="ui pointing dropdown link item">
-					<img src="" alt="" class="profile-pic1">
+					<img src="<?php echo $photo_url; ?>" alt="" class="profile-pic1">
 					<div class="user-name">
-						Bandbrary
+						<?php echo $name; ?>;
 					</div>
 					<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 					<div class="menu">
