@@ -5,15 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
-	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../assets/css/semantic.css">
-
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.address.min.js"></script>
-	<script src="../../assets/js/semantic.min.js"></script>
-
+	<?php $this->load->view('header'); ?>
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
@@ -53,6 +45,43 @@
 	}
 	.ui.comments .reply.form {
 		max-width: 96%;
+	}
+	.ui.accordion, .ui.accordion .accordion {
+		font-size: 1em;
+	}
+	.center {
+		background-color: #F7F6F6;
+		padding: 20px;
+		margin-top: 15px;
+	}
+	.event-hea {
+		padding: 10px;
+		font-size: 16px;
+	}
+	.eh1 {
+		color: #D95C5C;
+		font-weight: bold;
+		padding-left: 35px;
+	}
+	.eh2 {
+		padding-left: 55px;
+		font-weight: 400;
+	}
+	.eh3 {
+		padding-left: 55px;
+		font-weight: bold;
+	}
+	.eh4 {
+		color: #D95C5C;
+		font-weight: bold;
+	}
+	.eh5 {
+		padding-left: 14px;
+		font-weight: 400;
+	}
+	.eh6 {
+		padding-left: 18px;
+		font-weight: bold;
 	}
 	</style>
 
@@ -168,7 +197,7 @@
 									<li>
 										<a href=""><span class="badge pull-right">0</span>Music</a>
 									</li>
-									<li class="active">
+									<li>
 										<a href="post.html"><span class="badge pull-right">0</span>Post</a>
 									</li>
 									<li>
@@ -177,7 +206,7 @@
 									<li>
 										<a href="following.html"><span class="badge pull-right">0</span>Following</a>
 									</li>
-									<li>
+									<li class="active">
 										<a href="event.html"><span class="badge pull-right">0</span>Event</a>
 									</li>
 								</ul>
@@ -194,95 +223,62 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div id="status-button"class="ui icon button">
-							<i class="pencil icon" style="font-size: 1.5rem"></i>
+								<i class="pencil icon" style="font-size: 1.5rem"></i>
+							</div>
+							<div class="status">
+								<div class="body">
+									<div class="ui form">
+										<div class="field">
+											<textarea id="bg-status"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="about">
+								<div class="title-box">ABOUT</div>
+							</div>
 						</div>
-						<div class="status">
-							<div class="body">
-								<div class="ui form">
-									<div class="field">
-										<textarea id="bg-status"></textarea>
+						<div class="col-md-7">
+							<div class="center">
+								<div class="ui fluid accordion">
+									<div class="event-hea">
+									<table>
+											<tbody>
+												<td class="eh1">DATE</td>
+												<td class="eh2">TIME</td>
+												<td class="eh3">EVENT</td>
+											</tbody>
+										</table>
+										</div>
+									<div class="active title">
+										<i class="dropdown icon"></i>
+										<table>
+											<tbody>
+												<td class="eh4">12 OCT 2014</td>
+												<td class="eh5">19:00-22.00</td>
+												<td class="eh6">ปรากฏการณ์ ดัม-มะ-ชา-ติ</td>
+											</tbody>
+										</table>
+									</div>
+									<div class="active content">
+										<p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="about">
-							<div class="title-box">ABOUT</div>
-						</div>
-					</div>
-					<div class="col-md-7">
-						<div class="center">
-							<div class="create-post test nin">
-								<div id="create-post-button" class="ui icon button">
-								<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
-							</div>
-							<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
-						</div>
-						<div class="view-post">
-							<div class="post-date">
-								<div class="post-day">14</div>
-								<div class="post-month">MAR</div>
-								<div class="post-white-line"></div>
-							</div>
-							<div class="post-heading">
-								หัวข้อเรื่อง
-							</div>
-							<div class="post-body">
-								เนื้อหา
-							</div>
-							<div class="icon-comment">
-								<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
-								<div class="amount-comment">0</div>
-							</div>
+						<div class="col-md-2">
+							<div class="advt"></div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="advt"></div>
-				</div>
-			</div>
-		</div>
-	</article>
-</section>
+			</article>
+		</section>
 
-<!--Modal semantic-->
-
-<!--Create post modal-->
-<div class="ui form segment create modal">
-	<i class="close icon"></i>
-	<h3>Create a Post</h3>
-	<div class="line"></div>
-	<p/>
-	<div class="field">
-		<label>Title</label>
-		<input type="text" placeholder="" name="title" required>
-	</div>
-	<div class="line"></div>
-	<p/>
-	<div class="field">
-		<label>Description</label>
-		<textarea name="description"></textarea>
-	</div>
-	<div class="field">
-		<label>Profile Photo</label>
-		<input type="file">
-	</div>
-	<div class="line"></div>
-	<p/>
-	<div class="actions">
-		<div class="ui button">cancel</div>
-		<div class="ui red submit button">Create post</div>
-	</div>
-</div>
-</div>
-
-<script src="../../assets/js/bandbrary.js"></script>
-<script>
-$('.create.modal')
-.modal('attach events', '.test.nin', 'show')
-;
-document.getElementById("uploadBtn").onchange = function () {
-	document.getElementById("uploadFile").value = this.value;
-};
-</script>
-</body>
-</html>
+		<script src="../../assets/js/bandbrary.js"></script>
+		<script>
+		$('.ui.accordion')
+		.accordion()
+		;
+		</script>
+	</body>
+	</html>
