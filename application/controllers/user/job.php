@@ -27,7 +27,8 @@ class Job extends CI_Controller {
 		);
 			$this->job->add($data);
 		} else {
-			redirect(base_url('user/add')); 
+			// redirect(base_url('user/add')); 
+			$this->load->view('user/createJob');
 		}
 		
 	}
@@ -48,7 +49,7 @@ class Job extends CI_Controller {
 			$this->job->edit($data,$id);
 		} else {
 			$data = $this->job->get($id);
-			$this->load->view('temp/editJob',$data);
+			$this->load->view('user/editJob',$data);
 		}
 
 

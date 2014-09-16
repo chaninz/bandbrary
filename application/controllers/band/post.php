@@ -23,7 +23,7 @@ class Post extends CI_Controller {
 			'name' => $this->session->userdata('name'),
 			'photo_url' => $this->session->userdata('photo_url')
 			);
-			$this->load->view('post',$session);
+			$this->load->view('band/post',$session);
 			}
 	}
 

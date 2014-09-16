@@ -8,7 +8,7 @@ class Job_Model extends CI_Model {
 	// 	return (isset($id)) ? $id : FALSE;	
 	// }
 
-	function create($data){
+	function add($data){
 		$this->db->insert('Jobs',$data);
 	}
 	function get($id){
