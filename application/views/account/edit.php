@@ -150,13 +150,14 @@ body {
                         <p/>
                         <div class="field">
                             <label>Profile Photo</label>
-                            <img src="" alt="" id="img-preview"/>
+                            <?php print_r($photo_url); ?>
+                            <img src="../../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
                             <div class="ui selection dropdown" style="margin-left: 10px;">
                               <input type="hidden" name="profile-photo">
                               <div class="default text"><b>Change photo</b></div>
                               <i class="dropdown icon"></i>
                               <div class="menu">
-                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload"/></div>
+                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo"></div>
                                 <div class="item" data-value="0">Remove</div>
                             </div>
                         </div>
@@ -169,7 +170,7 @@ body {
                           <div class="default text"><b>Change cover</b></div>
                           <i class="dropdown icon"></i>
                           <div class="menu">
-                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload"/></div>
+                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover"></div>
                             <div class="item" data-value="0">Remove</div>
                         </div>
                     </div>
