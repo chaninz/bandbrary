@@ -6,13 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 
-	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../../assets/css/semantic.css">
+	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../assets/css/semantic.css">
 
-	<script src="../../../assets/js/jquery.min.js"></script>
-	<script src="../../../assets/js/jquery.address.min.js"></script>
-	<script src="../../../assets/js/semantic.min.js"></script>
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.address.min.js"></script>
+	<script src="../../assets/js/semantic.min.js"></script>
 
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -79,7 +79,7 @@
 			</div>
 		</div>
 		<div class="bb-logo">
-			<img src="../../../images/bandbrary_logo_16-9.png">
+			<img src="../../images/bandbrary_logo_16-9.png">
 		</div>
 		<div class="navbar-item3">
 			<div class="ui compact menu">
@@ -289,7 +289,7 @@
 			</article>
 		</section>
 
-		<script src="../../../assets/js/bandbrary.js"></script>
+		<script src="../../assets/js/bandbrary.js"></script>
 		<script>
 		$('.ui.accordion')
 		.accordion()
