@@ -9,9 +9,6 @@
 
 </head>
 <style>
-body {
-    background: url("<?php echo base_url().'images/noise-black.png'; ?>");
-}
 .col-md-3 {
     float: left;
     height: 1280px;
@@ -151,7 +148,7 @@ body {
                         <div class="field">
                             <label>Profile Photo</label>
                             <?php print_r($photo_url); ?>
-                            <img src="../../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
+                            <img src="../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
                             <div class="ui selection dropdown" style="margin-left: 10px;">
                               <input type="hidden" name="profile-photo">
                               <div class="default text"><b>Change photo</b></div>
@@ -164,7 +161,7 @@ body {
                     </div>
                     <div class="field">
                         <label>Cover Photo</label>
-                        <img src="" alt="" id="img-preview"/>
+                        <img src="../images/Belleandbeast.png" alt="" id="img-preview">
                         <div class="ui selection dropdown" style="margin-left: 10px;">
                           <input type="hidden" name="cover-photo">
                           <div class="default text"><b>Change cover</b></div>
@@ -215,13 +212,6 @@ body {
 <<<<<<< HEAD
 <?php $this->load->view('footer'); ?>
 <script>
-$('.profile-cov.modal')
-.modal('attach events', '.profile-cov.button', 'show')
-;
-$('.profile-pic.modal')
-.modal('attach events', '.profile-pic.button', 'show')
-;
-
 $(document).ready(function() {
     $('#entertain').mouseover(function(){
         $('#content').load('entertainment.html').hide(0).fadeIn(1000);
