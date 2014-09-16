@@ -6,11 +6,11 @@ class Follow_User_model extends CI_Model {
 		parent::__construct();	
 	}
 
-	function add($data){
+	function follow($data){
 		$this->db->insert('Follow_Users',$data);	
 	}
 	
-	function get_post(){
+	function get_follow_user(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Band_Posts');
@@ -20,7 +20,7 @@ class Follow_User_model extends CI_Model {
 		return $query->row();
 	}
 
-	function delete($data){
+	function unfollow($data){
 		$id = $this->session->userdata('id');
 		$this->db->where('id',$id);
 		$this->db->delete('Greedd',$data);

@@ -6,11 +6,11 @@ class Follow_Band_model extends CI_Model {
 		parent::__construct();	
 	}
 
-	function add($data){
+	function follow($data){
 		$this->db->insert('Follow_Bands',$data);	
 	}
 	
-	function get_post(){
+	function get_follow_band(){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Band_Posts');
@@ -20,15 +20,15 @@ class Follow_Band_model extends CI_Model {
 		return $query->row();
 	}
 
-	function delete($data){
+	function unfollow($data){
 		$id = $this->session->userdata('id');
-		$this->db->where('id',$id);
-		$this->db->delete('Greedd',$data);
+		$this->db->where('user_id',$id);
+		$this->db->delete('Follow_Bands',$data);
 	}
 
-	function countGreedd($music_id){
+	function countFollow(){
 		$this->db->select('COUNT (*)');
-		$this->db->from('Greedd');
+		$this->db->from('Follow_Bands');
 		$this->db->where('music_id',$music_id);
 	}
 }
