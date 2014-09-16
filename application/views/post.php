@@ -6,13 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 
-	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../assets/css/semantic.css">
-
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.address.min.js"></script>
-	<script src="../../assets/js/semantic.min.js"></script>
+	<?php $this->load->view('header'); ?>
 
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -86,16 +80,16 @@
 				<input type="text" placeholder="Search...">
 				<i class="search icon" style="font-size: 1.2rem"></i>
 			</div>
-		</div>
+		</div>	
 		<div class="bb-logo">
-			<img src="../../images/bangbrary_logo_16-9.png">
+			<img src="../../images/bandbrary_logo_16-9.png">
 		</div>
 		<div class="navbar-item3">
 			<div class="ui compact menu">
 				<div class="ui pointing dropdown link item">
-					<img src="" alt="" class="profile-pic1">
+					<img src="<?php echo $photo_url; ?>" alt="" class="profile-pic1">
 					<div class="user-name">
-						Bandbrary
+						<?php echo $name; ?>;
 					</div>
 					<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 					<div class="menu">
@@ -266,33 +260,36 @@
 <!--Create post modal-->
 <div class="ui form segment create modal">
 	<i class="close icon"></i>
+	<form action="<?php echo base_url().'band/post/add'; ?>" method="post">
 	<h3>Create a Post</h3>
 	<div class="line"></div>
 	<p/>
 	<div class="field">
 		<label>Title</label>
-		<input type="text" placeholder="" name="title" required>
+		<input type="text" placeholder="" name="topic" required>
 	</div>
 	<div class="line"></div>
 	<p/>
 	<div class="field">
 		<label>Description</label>
-		<textarea name="description"></textarea>
+		<textarea name="post"></textarea>
 	</div>
 	<div class="field">
 		<label>Profile Photo</label>
-		<input type="file">
+		<input type="file" name="image_url">
 	</div>
 	<div class="line"></div>
 	<p/>
 	<div class="actions">
 		<div class="ui button">cancel</div>
-		<div class="ui red submit button">Create post</div>
+		<div > <input type="submit" class="ui red submit button" value="Create Post">
+	</form>
+</div>
 	</div>
 </div>
 </div>
 
-<script src="../../assets/js/bandbrary.js"></script>
+<?php $this->load->view('footer'); ?>
 <script>
 $('.create.modal')
 .modal('attach events', '.test.nin', 'show')

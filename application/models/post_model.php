@@ -2,7 +2,7 @@
 
 class Post_model extends CI_Model {
 
-	function addPost($data){
+	function add($data){
 		$this->db->insert('Band_Posts',$data);	
 	}
 	

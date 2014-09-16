@@ -9,18 +9,22 @@ class Login extends CI_Controller {
 	}
 
 	public function index() {
-		if ($this->session->userdata('email')) {
+		if ($this->session->userdata('email')) {	
+			echo "test";
 			//redirect('home');
-		} elseif ($this->input->post()) {
+		} else if ($this->input->post()) {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$result = $this->user_model->login($username, $password);
 			if ($result) {
 				$user = array('id' => $result->id,
 					'username' => $result->username,
-					'email' => $result->email);
+					'email' => $result->email,
+					'name' => $result->name,
+					'photo_url' => $result->photo_url
+					);
 				$this->session->set_userdata($user);
-				$this->load->view('feed');
+				// $this->load->view('feed');
 			}
 		} else {
 			$this->load->view('login');

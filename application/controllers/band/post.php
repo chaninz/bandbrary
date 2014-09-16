@@ -10,15 +10,20 @@ class Post extends CI_Controller {
 	public function add() {
 		if ($this->input->post()) {
 
-			$post = array('id' => $this->session->userdata('id'),
+			$post = array(
 				'band_id' => 1 ,
 				'topic' => $this->input->post('topic'),
 				'post' => $this->input->post('post'),
 				'image_url' => $this->input->post('imageurl')
 			);
-			$this->band_model->addPost($post);
+			$this->post_model->add($post);
 		} else {
-			$this->load->view('temp/addPost');
+			$session = array(
+			'id' => $this->session->userdata('id'),
+			'name' => $this->session->userdata('name'),
+			'photo_url' => $this->session->userdata('photo_url')
+			);
+			$this->load->view('post',$session);
 			}
 	}
 

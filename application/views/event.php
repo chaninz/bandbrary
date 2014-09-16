@@ -5,15 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
-	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../assets/css/semantic.css">
-
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.address.min.js"></script>
-	<script src="../../assets/js/semantic.min.js"></script>
-
+	<?php $this->load->view('header'); ?>
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;

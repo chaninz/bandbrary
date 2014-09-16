@@ -12,9 +12,11 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
+				<form action="<?php echo base_url().'user/job/edit'; ?>" method="post"/>  
 				<div class="ui form segment">
 					<div class="field">
 						<label>Job Name</label>
+							<input type="hidden" name="id" value="<?php echo $id; ?>"> 
 							<input type="text" placeholder="Job Name" name="name" value="<?php echo $name; ?>" readonly>
 					</div>
 					<div class="field">
@@ -22,11 +24,11 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="job_type" >
+							<input type="hidden" name="job_type" value="<?php echo $job_type; ?>" >
 							<div class="menu">
-								<div class="item" data-value="1" style="font-size: 14px;">Wedding</div>
-								<div class="item" data-value="2" style="font-size: 14px;">Restuarant</div>
-								<div class="item" data-value="3" style="font-size: 14px;">Hotel</div>
+								<div class="item <?php echo ($job_type ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Wedding</div>
+								<div class="item <?php echo ($job_type ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Restuarant</div>
+								<div class="item <?php echo ($job_type ==3)?'active':'';?>" data-value="3" style="font-size: 14px;">Hotel</div>
 							</div>
 						</div>
 					</div>
@@ -35,17 +37,17 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="style">
+							<input type="hidden" name="style" value="<?php echo $style; ?>">
 							<div class="menu">
-								<div class="item" data-value="1" style="font-size: 14px;">Blues</div>
-								<div class="item" data-value="2" style="font-size: 14px;">Country</div>
-								<div class="item" data-value="3" style="font-size: 14px;">Hip Hop</div>
-								<div class="item" data-value="4" style="font-size: 14px;">Jazz</div>
-								<div class="item" data-value="5" style="font-size: 14px;">Latin</div>
-								<div class="item" data-value="6" style="font-size: 14px;">Pop</div>
-								<div class="item" data-value="7" style="font-size: 14px;">Reggae</div>
-								<div class="item" data-value="8" style="font-size: 14px;">R&B</div>
-								<div class="item" data-value="9" style="font-size: 14px;">Rock</div>
+								<div class="item <?php echo ($style ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Blues</div>
+								<div class="item <?php echo ($style ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Country</div>
+								<div class="item <?php echo ($style ==3)?'active':'';?>" data-value="3" style="font-size: 14px;">Hip Hop</div>
+								<div class="item <?php echo ($style ==4)?'active':'';?>" data-value="4" style="font-size: 14px;">Jazz</div>
+								<div class="item <?php echo ($style ==5)?'active':'';?>" data-value="5" style="font-size: 14px;">Latin</div>
+								<div class="item <?php echo ($style ==6)?'active':'';?>" data-value="6" style="font-size: 14px;">Pop</div>
+								<div class="item <?php echo ($style ==7)?'active':'';?>" data-value="7" style="font-size: 14px;">Reggae</div>
+								<div class="item <?php echo ($style ==8)?'active':'';?>" data-value="8" style="font-size: 14px;">R&B</div>
+								<div class="item <?php echo ($style ==9)?'active':'';?>" data-value="9" style="font-size: 14px;">Rock</div>
 							</div>
 						</div>
 					</div>
@@ -62,32 +64,33 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">Select</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="province" >
+							<input type="hidden" name="province" value="<?php echo $province_id; ?>" >
 							<div class="menu">
-								<div class="item" data-value="1" style="font-size: 14px;">Bangkok</div>
-								<div class="item" data-value="2" style="font-size: 14px;">Changmai</div>
+								<div class="item  <?php echo ($province_id ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
+								<div class="item <?php echo ($province_id ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Changmai</div>
 							</div>
 						</div>
 					</div>
 					<div class="field">
 						<label>Budget</label>					
-							<input type="number" placeholder="Budget" name="budget"  value="<?php echo $style; ?>">
+							<input type="number" placeholder="Budget" name="budget"  value="<?php echo $budget; ?>">
 					</div>
 					<div class="field">
 						<label>Start Time</label>
 						<div class="ui left labeled icon input">
-							<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time" > 
+							<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time" value="<?php echo $start_time; ?>" > 
 							<i class="calendar icon"></i>
 						</div>
 					</div>
 					<div class="field">
 						<label>End Time</label>
 						<div class="ui left labeled icon input">
-							<input type="date" placeholder="" style="padding: .2em 1em;" name="end_time">
+							<input type="date" placeholder="" style="padding: .2em 1em;" name="end_time" value="<?php echo $end_time; ?>" >
 							<i class="calendar icon"></i>
 						</div>
 					</div>
-					<input class="ui red submit button" type="submit" value="register">
+					<input class="ui red submit button" type="submit" value="Save Change">
+				</form>
 				</div>
 			</form>
 			</div>
