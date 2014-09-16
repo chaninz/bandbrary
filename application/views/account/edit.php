@@ -151,7 +151,7 @@ body {
                         <div class="field">
                             <label>Profile Photo</label>
                             <?php print_r($photo_url); ?>
-                            <img src="../../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
+                            <img src="../../../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
                             <div class="ui selection dropdown" style="margin-left: 10px;">
                               <input type="hidden" name="profile-photo">
                               <div class="default text"><b>Change photo</b></div>
