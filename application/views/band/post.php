@@ -67,7 +67,7 @@
 
 </head>
 <body>
-	
+
 	<!-- <header>
 		<div class="navbar-item1">	
 			<i class="home icon" style="font-size: 2.7rem"></i>
@@ -245,7 +245,7 @@
 							</div>
 							<div class="icon-comment">
 								<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
-								<div class="amount-comment">0</div>
+								<div class="amount-comment">'.$post->count.'</div>
 							</div>
 						</div>
 						';

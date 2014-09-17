@@ -47,8 +47,6 @@ class Postcomment extends CI_Controller {
 	// }
 
 	public function view($post_id){
-		
-		$band_id = $this->session->userdata('band_id');
 		$data = array (
 		'post' => $this->post_model->getPost($post_id),
 		'comment' => $this->postcomment_model->getComment($post_id),
@@ -63,8 +61,17 @@ class Postcomment extends CI_Controller {
 
 	}
 
-
-
+	public function count($post_id){
+		$data = array (
+		'post' => $this->post_model->getPost($post_id),
+		'count' => $this->postcomment_model->countComment($post_id),
+		'user_id' => $this->session->userdata('id'),
+		'name' => $this->session->userdata('name'),
+		'photo_url' => $this->session->userdata('photo_url')
+	
+		);
+		print_r($data);
+		}
 }
 
 /* End of file event.php */
