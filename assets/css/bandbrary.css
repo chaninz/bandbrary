@@ -66,8 +66,7 @@
 		margin-top: 110px;
 		margin-left: auto;
 		margin-right: auto;
-		background-image: url('../../images/music-is-life.jpg');
-		opacity: 50%;
+		opacity: 50;
 	}
 	.profile-cover img {
 		width: 1140px;
@@ -153,7 +152,6 @@
 		position: absolute;
 		top: -155px;
 		left: 40px;
-		background-image: url('../../images/no_profile.png');
 	}
 	.profile-name #pn1 {
 		font-weight: bolder;
@@ -197,6 +195,20 @@
 		background-color: #F7F6F6;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+	}
+	.member {
+		width: 277px;
+		margin-top: 14px;
+		background-color: #F7F6F6;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+	}
+	#member-pic {
+		width: 5em;
+		height: 5em;
+	}
+	#member-nam {
+		margin-top: 19px;
 	}
 	.center {
 		width: 666px;

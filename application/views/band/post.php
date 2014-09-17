@@ -20,7 +20,7 @@
 		border-radius: 0px;
 	}
 	.ui.modal {
-		height: 500px;
+		height: 470px;
 	}
 	.ui.modal > .header {
 		font-family: 'TH sarabunPSK';
@@ -47,21 +47,6 @@
 	}
 	.ui.comments .reply.form {
 		max-width: 96%;
-	}
-	.container {
-		border: 1px solid #000000;
-	}
-	.col-md-3 {
-		border: 1px solid #000000;
-	}
-	.col-md-7 {
-		border: 1px solid #000000;
-	}
-	.col-md-2 {
-		border: 1px solid #000000;
-	}
-	.col-md-12 {
-		border: 1px solid #000000;
 	}
 	</style>
 
@@ -197,14 +182,14 @@
 				</div>
 			</article>
 		</section>
- -->
-		<section>
-			<article>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-3">
-							<div id="status-button"class="ui icon button">
-							<i class="pencil icon" style="font-size: 1.5rem"></i>
+	-->
+	<section>
+		<article>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div id="status-button"class="ui icon button">
+							<i class="edit icon" style="font-size: 1.5rem"></i>
 						</div>
 						<div class="status">
 							<div class="body">
@@ -217,94 +202,176 @@
 						</div>
 						<div class="about">
 							<div class="title-box">ABOUT</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<i class="book icon"></i>
+										<div class="content">
+											<a class="header">Biography</a>
+											<div class="description">Im so glad you chose to bring me home from the shelter...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="attention icon"></i>
+										<div class="content">
+											<a class="header">Genre</a>
+											<div class="description">Im so glad you chose to bring me home from the shelter...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="map marker icon"></i>
+										<div class="content">
+											<a class="header">Location</a>
+											<div class="description">Man i am so tired that walk today really was too far...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="facebook sign icon"></i>
+										<div class="content">
+											<a class="header">Facebook</a>
+											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="twitter icon"></i>
+										<div class="content">
+											<a class="header">Twitter</a>
+											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="youtube play icon"></i>
+										<div class="content">
+											<a class="header">Youtube</a>
+											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="member">
+							<div class="title-box">MEMBER</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Vocal
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Guitar
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Bass
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Drum
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Keyboard
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-7">
 						<div class="center">
 							<div class="create-post test nin">
 								<div id="create-post-button" class="ui icon button">
-								<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
+									<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
+								</div>
+								<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
 							</div>
-							<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
-						</div>
-						<?php 
+							<?php 
 							foreach ($band_post as $post) {
-								
-						echo '
-						<div class="view-post">
-							<div class="post-date">
+
+								echo '
+								<div class="view-post">
+								<div class="post-date">
 								<div class="post-day">'.'14'.'</div>
 								<div class="post-month">'.'MAR'.'</div>
 								<div class="post-white-line">'.'2014'.'</div>
-							</div>
-							<div class="post-heading">
+								</div>
+								<div class="post-heading">
 								'.$post->topic.' 
-							</div>
-							<div class="post-body">
+								</div>
+								<div class="post-body">
 								'.$post->post.'
-							</div>
-							<div class="icon-comment">
+								</div>
+								<div class="icon-comment">
 								<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
 								<div class="amount-comment">'.$post->count.'</div>
+								</div>
+								</div>
+								';
+							} ?>
+
+							<div class="view-post">
 							</div>
 						</div>
-						';
-						} ?>
-					
-						<div class="view-post">
-						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="advt"></div>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="advt"></div>
-				</div>
 			</div>
-		</div>
-	</article>
-</section>
+		</article>
+	</section>
 
-<!--Modal semantic-->
+	<!--Modal semantic-->
 
-<!--Create post modal-->
-<div class="ui form segment create modal">
-	<i class="close icon"></i>
-	<form action="<?php echo base_url().'band/post/add'; ?>" method="post">
-	<h3>Create a Post</h3>
-	<div class="line"></div>
-	<p/>
-	<div class="field">
-		<label>Title</label>
-		<input type="text" placeholder="" name="topic" required>
+	<!--Create post modal-->
+	<div class="ui form segment create modal">
+		<i class="close icon"></i>
+		<form action="<?php echo base_url().'band/post/add'; ?>" method="post">
+			<h3>Create a Post</h3>
+			<div class="line"></div>
+			<p/>
+			<div class="field">
+				<label>Title</label>
+				<input type="text" placeholder="" name="topic" required>
+			</div>
+			<div class="line"></div>
+			<p/>
+			<div class="field">
+				<label>Description</label>
+				<textarea name="post"></textarea>
+			</div>
+			<div class="field">
+				<label>Profile Photo</label>
+				<input type="file" name="image_url">
+			</div>
+			<div class="line"></div>
+			<p/>
+			<div class="actions">
+				<div class="ui button">cancel</div>
+				<input type="submit" class="ui red submit button" value="Create Post">
+			</div>
+		</form>
 	</div>
-	<div class="line"></div>
-	<p/>
-	<div class="field">
-		<label>Description</label>
-		<textarea name="post"></textarea>
-	</div>
-	<div class="field">
-		<label>Profile Photo</label>
-		<input type="file" name="image_url">
-	</div>
-	<div class="line"></div>
-	<p/>
-	<div class="actions">
-		<div class="ui button">cancel</div>
-		<div > <input type="submit" class="ui red submit button" value="Create Post">
-	</form>
-</div>
-	</div>
-</div>
-</div>
 
-<?php $this->load->view('footer'); ?>
-<script>
-$('.create.modal')
-.modal('attach events', '.test.nin', 'show')
-;
-document.getElementById("uploadBtn").onchange = function () {
-	document.getElementById("uploadFile").value = this.value;
-};
-</script>
+	<?php $this->load->view('footer'); ?>
+	<script>
+	$('.create.modal')
+	.modal('attach events', '.test.nin', 'show');
+	</script>
 </body>
 </html>
