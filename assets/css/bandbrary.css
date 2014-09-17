@@ -143,6 +143,10 @@
 		font-weight: bolder;
 		color: #FFFFFF;
 	}
+	.punpun {
+		position: relative;
+		z-index: 50;
+	}
 	#profile-pic2 {
 		height: 180px;
 		width: 180px;
