@@ -56,7 +56,7 @@
 							<li>
 								<a href=""><span class="badge pull-right">0</span>Music</a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="post.html"><span class="badge pull-right">0</span>Post</a>
 							</li>
 							<li>

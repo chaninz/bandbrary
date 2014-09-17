@@ -115,12 +115,11 @@
 							<div class="ui pointing dropdown link item">
 								<img src="" alt="" class="profile-pic1">
 								<div class="user-name">
-									Bandbrary
+									Punpun Sa
 								</div>
 								<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 								<div class="menu">
 									<a class="item"></i>Music</a>
-									<a class="item" href="post.html"></i>Post</a>
 									<a class="item" href="follower.html"></i>Follower</a>
 									<a class="item" href="following.html"></i>Following</a>
 									<a class="item" href="event.html"></i>Event</a>
@@ -135,12 +134,6 @@
 							<i class="settings icon"></i>
 							<div class="menu" style="margin-top: 1.11em; border-top:0px;">
 								<div class="item">Go to Band</div>
-								<div class="line"></div>
-								<div class="item">Create Band</div>
-								<div class="item">Manage Band</div>
-								<div class="line"></div>
-								<div class="item">Create Job</div>
-								<div class="item">Manage Job</div>
 								<div class="line"></div>
 								<div class="item">Setting</div>
 								<div class="item">Sign out</div>
@@ -162,7 +155,7 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="profile-cover">
-								<img src="" alt="">
+								<img src="../../../images/disc.jpg" alt="">
 							</div>
 						</div>	
 					</div>
@@ -172,7 +165,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="punpun">
-							<img src="" alt="" id="profile-pic2"class="img-thumbnail">
+							<img src="../../../images/no_profile.jpg" alt="" id="profile-pic2"class="img-thumbnail">
 							<div class="profile-name">
 								<? if(isset($myband)==1){?>
 								<div id="pn1"><?php echo $name." ".$surname; ?></div>
@@ -197,13 +190,13 @@ else
 								<li>
 									<a href=""><span class="badge pull-right">0</span>Music</a>
 								</li>
-								<li class="active">
+								<li>
 									<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
 								</li>
 								<li>
 									<a href="following.html"><span class="badge pull-right">0</span>Following</a>
 								</li>
-								<li>
+								<li class="active">
 									<a href="event.html"><span class="badge pull-right">0</span>Event</a>
 								</li>
 							</ul>
@@ -250,16 +243,23 @@ else
 										</div>
 									</div>
 									<div class="item">
-										<i class="users icon"></i>
+										<i class="facebook sign icon"></i>
 										<div class="content">
-											<a class="header">Social</a>
+											<a class="header">Facebook</a>
 											<div class="description"><?php echo $fb_url; ?> <br></div>
 										</div>
 									</div>
 									<div class="item">
-										<i class="url icon"></i>
+										<i class="twitter icon"></i>
 										<div class="content">
-											<a class="header">Website</a>
+											<a class="header">Twitter</a>
+											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="youtube play icon"></i>
+										<div class="content">
+											<a class="header">Youtube</a>
 											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
 										</div>
 									</div>

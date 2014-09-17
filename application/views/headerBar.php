@@ -54,13 +54,7 @@
 						<div class="ui pointing dropdown icon">
 							<i class="settings icon"></i>
 							<div class="menu" style="margin-top: 1.11em; border-top:0px;">
-								<div class="item">Go to Band</div>
-								<div class="line"></div>
-								<div class="item">Create Band</div>
-								<div class="item">Manage Band</div>
-								<div class="line"></div>
-								<div class="item">Create Job</div>
-								<div class="item">Manage Job</div>
+								<div class="item">Go to Profile</div>
 								<div class="line"></div>
 								<div class="item">Setting</div>
 								<div class="item">Sign out</div>
