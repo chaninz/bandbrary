@@ -61,18 +61,21 @@
 		border-bottom: 1px solid #000000;
 	}
 	.profile-cover {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.profile-cover > img {
-		width: 100%;
+		width: 1140px;
 		height: 448px;
 		margin-top: 110px;
+		margin-left: auto;
+		margin-right: auto;
+		background-image: url('../../images/music-is-life.jpg');
+		opacity: 50%;
+	}
+	.profile-cover img {
+		width: 1140px;
+		height: 448px;
 	}
 	.navbar-item1 {
 		float: left;
 		font-size: 2.7rem;
-		margin-left: 30px;
 		color: #FFFFFF;
 	}
 	.navbar-item2 {
@@ -86,7 +89,7 @@
 		border-radius: 0px;
 		background-color: none;
 		color: #FFFFFF;
-		margin-left: 220px;
+		margin-left: 236px;
 	}
 	.navbar-item4 {
 		float: left;
@@ -135,9 +138,8 @@
 	/*--- Profile ---*/
 	.profile-name {
 		position: absolute;
-		z-index: 50;
-		top: 480px;
-		left: 300px;
+		top: -80px;
+		left: 250px;
 		font-weight: bolder;
 		color: #FFFFFF;
 	}
@@ -145,9 +147,9 @@
 		height: 180px;
 		width: 180px;
 		position: absolute;
-		z-index: 50;
-		top: 400px;
-		left: 95px;
+		top: -155px;
+		left: 40px;
+		background-image: url('../../images/no_profile.png');
 	}
 	.profile-name #pn1 {
 		font-weight: bolder;
@@ -187,7 +189,6 @@
 	}
 	.about {
 		width: 277px;
-		height: 339px;
 		margin-top: 14px;
 		background-color: #F7F6F6;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
@@ -206,9 +207,8 @@
 	}
 	#greedd {
 		position: absolute;
-		z-index: 50;
-		top: 510px;
-		left: 955px;
+		top: -55px;
+		left: 865px;
 		font-size: 12px;
 		padding-left: 10px;
 		border-radius: 0em;
@@ -218,9 +218,8 @@
 	}
 	#joinBand {
 		position: absolute;
-		z-index: 50;
-		top: 510px;
-		left: 1070px;
+		top: -55px;
+		left: 985px;
 	}
 	#joinBand .icon {
 		font-size: 1.049em;
@@ -280,9 +279,8 @@
 		border: 1px solid #000000;
 		margin-left: 10px;
 		margin-top: 10px;
-		font-size: 24px;
+		font-size: 18px;
 		font-weight: 600;
-		font-family: 'TH sarabunPSK';
 	}
 	.post-body {
 		float: left;
@@ -291,8 +289,7 @@
 		border: 1px solid #000000;
 		margin-left: 10px;
 		margin-top: 10px;
-		font-size: 20px;
-		font-family: 'TH sarabunPSK';
+		font-size: 14px;
 	}
 	.post-white-line {
 		width: 60px;
@@ -349,7 +346,6 @@
 	header i.icon {
 		margin: 0px;
 		font-size: 2rem;
-		margin-left: 7px;
 	}
 	header .ui.input input {
 		font-size: 0.7em;
