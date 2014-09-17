@@ -14,8 +14,22 @@ class Postcomment_model extends CI_Model {
 		$this->db->delete('Greedd',$pcomment_id);
 	}
 
-	funcion getComment(){
+	function getComment($post_id){
+		$this->db->select('comment');
+		$this->db->from('Post_Comments');
+		$this->db->where('post_id',$post_id);
 
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	function countComment(){
+		$this->db->select('COUNT (*)');
+		$this->db->from('Post_Comments');
+		$this->db->where('post_id',$post_id);
+
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 }

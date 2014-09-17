@@ -21,7 +21,7 @@ class Post_model extends CI_Model {
 		$this->db->where('band_id',$band_id);
 
 		$query = $this->db->get();
-		return $query->result_set();
+		return $query->result();
 	}
 
 	function editPost($data){

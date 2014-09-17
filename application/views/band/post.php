@@ -67,7 +67,8 @@
 
 </head>
 <body>
-	<header>
+	
+	<!-- <header>
 		<div class="navbar-item1">	
 			<i class="home icon" style="font-size: 2.7rem"></i>
 			<div class="ui basic buttons">
@@ -87,7 +88,7 @@
 		<div class="navbar-item3">
 			<div class="ui compact menu">
 				<div class="ui pointing dropdown link item">
-					<img src="<?php echo $photo_url; ?>" alt="" class="profile-pic1">
+					<img src="../../images/<?php echo $photo_url; ?>" alt="" class="profile-pic1">
 					<div class="user-name">
 						<?php echo $name; ?>;
 					</div>
@@ -124,9 +125,9 @@
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 
-	<section>
+	<!-- <section>
 		<article>
 			<div class="top-bg">
 				<div class="container">
@@ -196,7 +197,7 @@
 				</div>
 			</article>
 		</section>
-
+ -->
 		<section>
 			<article>
 				<div class="container">
@@ -226,23 +227,30 @@
 							</div>
 							<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
 						</div>
+						<?php 
+							foreach ($band_post as $post) {
+								
+						echo '
 						<div class="view-post">
 							<div class="post-date">
-								<div class="post-day">14</div>
-								<div class="post-month">MAR</div>
-								<div class="post-white-line"></div>
+								<div class="post-day">'.'14'.'</div>
+								<div class="post-month">'.'MAR'.'</div>
+								<div class="post-white-line">'.'2014'.'</div>
 							</div>
 							<div class="post-heading">
-								หัวข้อเรื่อง
+								'.$post->topic.' 
 							</div>
 							<div class="post-body">
-								เนื้อหา
+								'.$post->post.'
 							</div>
 							<div class="icon-comment">
 								<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
 								<div class="amount-comment">0</div>
 							</div>
 						</div>
+						';
+						} ?>
+					
 						<div class="view-post">
 						</div>
 					</div>
