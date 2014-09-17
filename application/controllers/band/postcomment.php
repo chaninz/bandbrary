@@ -70,7 +70,9 @@ class Postcomment extends CI_Controller {
 		'photo_url' => $this->session->userdata('photo_url')
 	
 		);
-		print_r($data);
+		// $this->load->view('headerBar',$data);
+		// $this->load->view('coverSection');
+		// $this->load->view('band/comment',$data);
 		}
 }
 

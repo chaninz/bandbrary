@@ -63,7 +63,14 @@ class Post extends CI_Controller {
 		// 	$data = $this->post_model->getPost(4);
 		// 	$this->load->view('temp/viewPost',$data);
 		// }
-		$data = $this->post_model->getPost($post_id);
+		$band_id = $this->session->userdata('band_id');
+		$data = array (
+		'post' => $this->post_model->getPost($post_id),
+		'id' => $this->session->userdata('id'),
+		'name' => $this->session->userdata('name'),
+		'photo_url' => $this->session->userdata('photo_url')
+
+		);
 		$this->load->view('temp/viewPost',$data);
 	}
 
