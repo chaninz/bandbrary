@@ -58,17 +58,43 @@
 		font-size: 1em;
 	}
 	.center {
+		background-color: #F7F6F6;
+		padding: 20px;
 		margin-top: 15px;
 	}
-	.punpun {
-		position: relative;
-		z-index: 50;
+	.event-hea {
+		padding: 10px;
+		font-size: 16px;
+	}
+	.eh1 {
+		color: #D95C5C;
+		font-weight: bold;
+		padding-left: 35px;
+	}
+	.eh2 {
+		padding-left: 55px;
+		font-weight: 400;
+	}
+	.eh3 {
+		padding-left: 55px;
+		font-weight: bold;
+	}
+	.eh4 {
+		color: #D95C5C;
+		font-weight: bold;
+	}
+	.eh5 {
+		padding-left: 14px;
+		font-weight: 400;
+	}
+	.eh6 {
+		padding-left: 18px;
+		font-weight: bold;
 	}
 	#greedd {
 		left: 985px;
 	}
 	</style>
-
 </head>
 <body>
 	<header>
@@ -247,66 +273,28 @@
 
 					<div class="col-xs-7">
 						<div class="center">
-							<div class="ui five connected items">
-								<div class="item">
-									<div class="image">
-										<img src="/images/demo/highres4.jpg">
-										<a class="star ui corner label">
-											<i class="star icon"></i>
-										</a>
-									</div>
-									<div class="content">
-										<div class="name">Cute Dog</div>
-										<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
-									</div>
+							<div class="ui fluid accordion">
+								<div class="event-hea">
+									<table>
+										<tbody>
+											<td class="eh1">DATE</td>
+											<td class="eh2">TIME</td>
+											<td class="eh3">EVENT</td>
+										</tbody>
+									</table>
 								</div>
-								<div class="item">
-									<div class="image">
-										<img src="/images/demo/highres5.jpg">
-										<a class="star ui corner label">
-											<i class="star icon"></i>
-										</a>
-									</div>
-									<div class="content">
-										<div class="name">Faithful Dog</div>
-										<p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
-									</div>
+								<div class="active title">
+									<i class="dropdown icon"></i>
+									<table>
+										<tbody>
+											<td class="eh4">12 OCT 2014</td>
+											<td class="eh5">19:00-22.00</td>
+											<td class="eh6">ปรากฏการณ์ ดัม-มะ-ชา-ติ</td>
+										</tbody>
+									</table>
 								</div>
-								<div class="item">
-									<div class="image">
-										<img src="/images/demo/highres3.jpg">
-										<a class="star ui corner label">
-											<i class="star icon"></i>
-										</a>
-									</div>
-									<div class="content">
-										<div class="name">Silly Dog</div>
-										<p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
-									</div>
-								</div>
-								<div class="item">
-									<div class="image">
-										<img src="/images/demo/highres2.jpg">
-										<a class="star ui corner label">
-											<i class="star icon"></i>
-										</a>
-									</div>
-									<div class="content">
-										<div class="name">Happy Dog</div>
-										<p class="description">Happy dogs are pretty interesting if you are an unhappy person.</p>
-									</div>
-								</div>
-								<div class="item">
-									<div class="image">
-										<img src="/images/demo/highres.jpg">
-										<a class="star ui corner label">
-											<i class="star icon"></i>
-										</a>
-									</div>
-									<div class="content">
-										<div class="name">Quiet Dog</div>
-										<p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
-									</div>
+								<div class="active content">
+									<p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
 								</div>
 							</div>
 						</div>
@@ -316,11 +304,15 @@
 					</div>
 				</div>
 			</div>
-		</article>
-	</section>
+		</div>
+	</article>
+</section>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
-	<script>
-	</script>
+<script src="../../../assets/js/bandbrary.js"></script>
+<script>
+$('.ui.accordion')
+.accordion()
+;
+</script>
 </body>
 </html>
