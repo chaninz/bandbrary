@@ -6,10 +6,10 @@ class Post_model extends CI_Model {
 		$this->db->insert('Band_Posts',$data);	
 	}
 	
-	function getPost($data){
+	function getPost($post_id){
 		$this->db->select('*');
 		$this->db->from('Band_Posts');
-		$this->db->where('id',$data);
+		$this->db->where('id',$post_id);
 
 		$query = $this->db->get();
 		return $query->row();

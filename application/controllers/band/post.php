@@ -25,6 +25,8 @@ class Post extends CI_Controller {
 			'name' => $this->session->userdata('name'),
 			'photo_url' => $this->session->userdata('photo_url')
 		);
+			$this->load->view('headerBar',$data);
+			$this->load->view('coverSection');
 			$this->load->view('band/post',$data);
 			}
 	}
@@ -71,7 +73,7 @@ class Post extends CI_Controller {
 		'photo_url' => $this->session->userdata('photo_url')
 
 		);
-		$this->load->view('temp/viewPost',$data);
+		//$this->load->view('temp/viewPost',$data);
 	}
 
 	public function viewAll(){
@@ -92,8 +94,8 @@ class Post extends CI_Controller {
 
 		);
 		$this->load->view('headerBar',$data);
-		$this->load->view('coverSection');
-		$this->load->view('band/post',$data);
+		//$this->load->view('coverSection');
+		//$this->load->view('band/post',$data);
 
 	}
 
