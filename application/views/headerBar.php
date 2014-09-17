@@ -23,24 +23,24 @@
 				<input type="text" placeholder="Search...">
 				<i class="search icon" style="font-size: 1.2rem"></i>
 			</div>
-		</div>
+		</div>	
 		<div class="bb-logo">
 			<img src="../../images/bandbrary_logo_16-9.png">
 		</div>
 		<div class="navbar-item3">
 			<div class="ui compact menu">
 				<div class="ui pointing dropdown link item">
-					<img src="" alt="" class="profile-image">
+					<img src="../../images/<?php echo $photo_url; ?>" alt="" class="profile-pic1">
 					<div class="user-name">
-						Bandbrary
+						<?php echo $name; ?>;
 					</div>
 					<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 					<div class="menu">
 						<a class="item"></i>Music</a>
-						<a class="item"></i>Post</a>
-						<a class="item"></i>Follower</a>
-						<a class="item"></i>Following</a>
-						<a class="item"></i>Event</a>
+						<a class="item" href="post.html"></i>Post</a>
+						<a class="item" href="follower.html"></i>Follower</a>
+						<a class="item" href="following.html"></i>Following</a>
+						<a class="item" href="event.html"></i>Event</a>
 					</div>
 				</div>
 			</div>

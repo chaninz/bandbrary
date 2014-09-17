@@ -147,12 +147,7 @@
                         <p/>
                         <div class="field">
                             <label>Profile Photo</label>
-                            <?php print_r($photo_url); ?>
-<<<<<<< HEAD
-                            <img src="../../../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
-=======
                             <img src="../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
->>>>>>> 877753676bd9d1dcbf7e4d3cd4734be0ff0d7fbd
                             <div class="ui selection dropdown" style="margin-left: 10px;">
                               <input type="hidden" name="profile-photo">
                               <div class="default text"><b>Change photo</b></div>
@@ -213,7 +208,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
 <?php $this->load->view('footer'); ?>
 <script>
 $(document).ready(function() {
@@ -224,10 +218,6 @@ $(document).ready(function() {
         $('#content').load('Sport.html').hide(0).fadeIn(1000);
     });
     </script>
-</body>
-</html>
-=======
-<?php $this->load->view('footer'); ?>
 <script>
 document.getElementById("uploadBtn").onchange = function () {
     document.getElementById("uploadFile").value = this.value;
@@ -235,4 +225,3 @@ document.getElementById("uploadBtn").onchange = function () {
 </script>
 </body>
 </html>
->>>>>>> 038e1c709fa3a99ed7559917f4a1d81b83da35fd
