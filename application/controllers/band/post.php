@@ -18,12 +18,14 @@ class Post extends CI_Controller {
 			);
 			$this->post_model->add($post);
 		} else {
-			$session = array(
+			$band_id = $this->session->userdata('band_id');
+			$data = array (
+			'band_post' => $this->post_model->getAllPost($band_id),
 			'id' => $this->session->userdata('id'),
 			'name' => $this->session->userdata('name'),
 			'photo_url' => $this->session->userdata('photo_url')
-			);
-			$this->load->view('band/post',$session);
+		);
+			$this->load->view('band/post',$data);
 			}
 	}
 

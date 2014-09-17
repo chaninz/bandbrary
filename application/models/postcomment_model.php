@@ -23,13 +23,13 @@ class Postcomment_model extends CI_Model {
 		return $query->result();
 	}
 
-	function countComment(){
-		$this->db->select('COUNT (*)');
+	function countComment($post_id){
+		$this->db->select('*');
 		$this->db->from('Post_Comments');
 		$this->db->where('post_id',$post_id);
 
 		$query = $this->db->get();
-		return $query->result();
+		return $query->num_rows();
 	}
 
 }

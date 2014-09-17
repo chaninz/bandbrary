@@ -16,11 +16,12 @@ class Post_model extends CI_Model {
 	}
 
 	function getAllPost($band_id){
-		$this->db->select('*');
-		$this->db->from('Band_Posts');
-		$this->db->where('band_id',$band_id);
+		// $this->db->select('*');
+		// $this->db->from('Band_Posts');
+		// $this->db-join()
+		// $this->db->where('band_id',$band_id);
 
-		$query = $this->db->get();
+		$query = $this->db->query('SELECT b.id as post_id ,b.topic,b.post,b.image_url,count(c .id) as count FROM Band_Posts b left join Post_Comments c on b.id = c.post_id  WHERE b.band_id = '.$band_id.' group by b.id,b.topic,b.post,b.image_url');
 		return $query->result();
 	}
 
