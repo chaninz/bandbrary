@@ -73,10 +73,10 @@ class Post extends CI_Controller {
 		'photo_url' => $this->session->userdata('photo_url')
 
 		);
-		//$this->load->view('temp/viewPost',$data);
+		$this->load->view('temp/viewPost');
 	}
 
-	public function viewAll(){
+	public function viewAll($band_id){
 		// if ($this->input->post()) {
 		// 	// edit band to get band name from session
 		// 	$band_id = $this->input->post('band_id');
@@ -85,7 +85,7 @@ class Post extends CI_Controller {
 		// 	$data = $this->post_model->getAllPost();
 		// 	$this->load->view('temp/getAllPost',$data);
 		// }
-		$band_id = $this->session->userdata('band_id');
+		// $band_id = $this->session->userdata('band_id');
 		$data = array (
 		'band_post' => $this->post_model->getAllPost($band_id),
 		'id' => $this->session->userdata('id'),
@@ -94,8 +94,8 @@ class Post extends CI_Controller {
 
 		);
 		$this->load->view('headerBar',$data);
-		//$this->load->view('coverSection');
-		//$this->load->view('band/post',$data);
+		$this->load->view('coverSection');
+		$this->load->view('band/post',$data);
 
 	}
 

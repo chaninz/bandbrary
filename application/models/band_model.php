@@ -42,6 +42,14 @@ class Band_model extends CI_Model {
 		
 	}
 
+	function get($band_id){
+		$this->db->select('*');
+		$this->db->from('Bands');
+		$this->db->where('id',$band_id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
 
 }
 
