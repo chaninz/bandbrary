@@ -21,6 +21,7 @@ class Post extends CI_Controller {
 		} else {
 			$band_id = $this->session->userdata('band_id');
 			$data = array (
+			'band' => $this->band_model->get($band_id),
 			'band_post' => $this->post_model->getAllPost($band_id),
 			'id' => $this->session->userdata('id'),
 			'name' => $this->session->userdata('name'),
@@ -86,17 +87,21 @@ class Post extends CI_Controller {
 		// 	$this->load->view('temp/getAllPost',$data);
 		// }
 		// $band_id = $this->session->userdata('band_id');
-		$data = array (
-		'band_post' => $this->post_model->getAllPost($band_id),
-		'id' => $this->session->userdata('id'),
-		'name' => $this->session->userdata('name'),
-		'photo_url' => $this->session->userdata('photo_url'),
-		'band' => $this->band_model->get($band_id)
 
-		);
+		// $data = array (
+		// 'band_post' => $this->post_model->getAllPost($band_id),
+		// 'id' => $this->session->userdata('id'),
+		// 'name' => $this->session->userdata('name'),
+		// 'photo_url' => $this->session->userdata('photo_url'),
+		// 'band' => $this->band_model->get($band_id)
+		// );
 		// $this->load->view('headerBar',$data);
 		// $this->load->view('coverSection');
-		$data = $this->band_model->get($band_id);
+		$data = array( 
+		'band' => $this->band_model->get($band_id),
+		'band_post' => $this->post_model->getAllPost($band_id)
+		);
+
 		$this->load->view('band/post',$data);
 
 	}

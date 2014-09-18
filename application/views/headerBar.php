@@ -33,9 +33,9 @@
 					<div class="navbar-item3">
 						<div class="ui compact menu">
 							<div class="ui pointing dropdown link item">
-								<img src="<?php echo base_url().'images/'.$photo_url; ?>" alt="" class="profile-pic1">
+								<img src="<?php echo base_url().'images/'.$this->session->userdata('photo_url'); ?>" alt="" class="profile-pic1">
 								<div class="user-name">
-									<?php echo $name; ?>;
+									<?php echo $this->session->userdata('name'); ?>;
 								</div>
 								<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 								<div class="menu">

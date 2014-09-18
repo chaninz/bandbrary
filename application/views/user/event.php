@@ -267,7 +267,7 @@ else
 										<i class="youtube play icon"></i>
 										<div class="content">
 											<a class="header">Youtube</a>
-											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+											<div class="description"><?php echo $yt_url ; ?></div>
 										</div>
 									</div>
 									<? } ?>

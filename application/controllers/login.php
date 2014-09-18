@@ -15,6 +15,7 @@ class Login extends CI_Controller {
 			// $bid = $this->session->userdata('band_id'); ---> use for check band_id
 			// echo $bid;
 			echo "successful";
+			print_r($this->session->all_userdata());
 
 			//redirect('home');
 		} else if ($this->input->post()) {
