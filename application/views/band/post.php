@@ -7,6 +7,7 @@
 	<title>Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
+	
 
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -52,7 +53,7 @@
 
 </head>
 <body>
-
+	<?php $this->load->view('headerBar'); ?>
 	<!-- <header>
 		<div class="navbar-item1">	
 			<i class="home icon" style="font-size: 2.7rem"></i>
@@ -111,7 +112,7 @@
 			</div>
 		</div>
 	</header> -->
-
+	<?php $this->load->view('coverSectionBand'); ?>
 	<!-- <section>
 		<article>
 			<div class="top-bg">

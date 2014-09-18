@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
-
+	
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
@@ -90,7 +90,8 @@
 	</style>
 </head>
 <body>
-	<header>
+	<?php $this->load->view('headerBar'); ?>
+	<!-- <header>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -147,8 +148,9 @@
 			</div>
 		</div>
 	</header>
-
-	<section>
+ -->
+ 	<?php $this->load->view('coverSectionUser'); ?>
+	<!-- <section>
 		<article>
 			<div class="top-bg">
 				<div class="container">
@@ -205,7 +207,7 @@ else
 				</div>
 			</div>
 		</article>
-	</section>
+	</section> -->
 
 	<section>
 		<article>
@@ -242,6 +244,7 @@ else
 											<div class="description">Man i am so tired that walk today really was too far...</div>
 										</div>
 									</div>
+									<? if(strlen($fb_url)!=0  ){?>
 									<div class="item">
 										<i class="facebook sign icon"></i>
 										<div class="content">
@@ -249,13 +252,17 @@ else
 											<div class="description"><?php echo $fb_url; ?> <br></div>
 										</div>
 									</div>
+									<? } ?>
+									<? if(strlen($tw_url)!=0  ){?>
 									<div class="item">
 										<i class="twitter icon"></i>
 										<div class="content">
 											<a class="header">Twitter</a>
-											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+											<div class="description"><?php echo $tw_url ; ?> </div>
 										</div>
 									</div>
+								    <? } ?>
+								    <? if(strlen($tw_url)!=0  ){?>
 									<div class="item">
 										<i class="youtube play icon"></i>
 										<div class="content">
@@ -263,6 +270,7 @@ else
 											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
 										</div>
 									</div>
+									<? } ?>
 								</div>
 							</div>
 						</div>

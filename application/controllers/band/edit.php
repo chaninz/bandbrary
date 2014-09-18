@@ -10,7 +10,8 @@ class Edit extends CI_Controller {
 	public function index() {
 		if ($this->input->post()) {
 			// edit band to get band name from session
-			$band = array('name' => $this->input->post('name'),
+			$band = array(
+				'name' => $this->input->post('name'),
 				'biography' => $this->input->post('biography'),
 				'style' => $this->input->post('style'),
 				'fb_url' => $this->input->post('fburl'),
@@ -18,8 +19,8 @@ class Edit extends CI_Controller {
 				'yt_url' => $this->input->post('yturl'));
 			$this->band_model->edit($band);
 		} else {
-			$this->load->model('band_model');
-			$data = $this->band_model->getBand();
+			$band_id = $this->session->userdata('band_id');
+			$data = $this->band_model->get($band_id);
 			$this->load->view('band/edit', $data);
 		}
 	}

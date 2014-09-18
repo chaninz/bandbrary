@@ -153,7 +153,7 @@
                               <div class="default text"><b>Change photo</b></div>
                               <i class="dropdown icon"></i>
                               <div class="menu">
-                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo"></div>
+                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value="<?php echo $photo_url; ?>"></div>
                                 <div class="item" data-value="0">Remove</div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                           <div class="default text"><b>Change cover</b></div>
                           <i class="dropdown icon"></i>
                           <div class="menu">
-                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover"></div>
+                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value="<?php echo $cover_url; ?>"></div>
                             <div class="item" data-value="0">Remove</div>
                         </div>
                     </div>

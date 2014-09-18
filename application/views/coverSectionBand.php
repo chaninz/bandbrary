@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="profile-cover">
-							<img src="../../images/disc.jpg" alt="">
+							<img src="<?php echo base_url().'images/'.$cover_url; ?>" alt="">
 						</div>
 					</div>	
 				</div>
@@ -15,9 +15,9 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="punpun">
-						<img src="../../images/no_profile.jpg" alt="" id="profile-pic2" class="img-thumbnail">
+						<img src="<?php echo base_url().'images/'.$photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
 						<div class="profile-name">
-							<div id="pn1">Bandbrary</div>
+							<div id="pn1"><?php echo $name; ?></div>
 							<div id="pn2">Rock/Blues/Jazz</div>
 						</div>
 						<div id="greedd"class="ui button"><i class="add icon"></i>Follow</div>

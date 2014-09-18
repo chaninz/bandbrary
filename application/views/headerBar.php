@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -9,7 +9,7 @@
 
 
 </head>
-<body>
+<body> -->
 	<header>
 		<div class="container">
 			<div class="row">
@@ -28,12 +28,12 @@
 						</div>
 					</div>	
 					<div class="bb-logo">
-						<img src="../../images/bandbrary_logo_16-9.png">
+						<img src="<?php echo base_url().'images/bandbrary_logo_16-9.png'; ?>">
 					</div>
 					<div class="navbar-item3">
 						<div class="ui compact menu">
 							<div class="ui pointing dropdown link item">
-								<img src="../../images/<?php echo $photo_url; ?>" alt="" class="profile-pic1">
+								<img src="<?php echo base_url().'images/'.$photo_url; ?>" alt="" class="profile-pic1">
 								<div class="user-name">
 									<?php echo $name; ?>;
 								</div>
@@ -68,7 +68,7 @@
 			</div>
 		</div>
 	</header>
-
+<!-- 
 	<?php $this->load->view('footer'); ?>
 </body>
-</html>
+</html> -->
