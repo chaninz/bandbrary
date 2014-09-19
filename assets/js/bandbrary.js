@@ -4,8 +4,10 @@
 		.dropdown();
 		$('.ui.checkbox')
 		.checkbox();
-		$("#confirmPass,#password").change(function() {
-			var confirmPass = $("#confirmPass").val();
+		$('.ui.radio.checkbox')
+		.checkbox();
+		$("#confirm-pass,#password").change(function() {
+			var confirmPass = $("#confirm-pass").val();
 			var password = $("#password").val();
 
 			if (confirmPass != password) {
