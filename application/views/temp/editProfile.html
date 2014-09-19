@@ -6,22 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 
-	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../assets/css/semantic.min.css">
+	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../../assets/css/semantic.min.css">
 
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.address.min.js"></script>
-	<script src="../../assets/js/semantic.min.js"></script>
+	<script src="../../../assets/js/jquery.min.js"></script>
+	<script src="../../../assets/js/jquery.address.min.js"></script>
+	<script src="../../../assets/js/semantic.min.js"></script>
 
 </head>
 <style>
-body {
-	background: url(../../images/noise-black.png);
-}
 .col-md-3 {
 	float: left;
-	height: 1700px;
+	height: 1280px;
 	background-color: #f7f7f7;
 	border-left: 1px solid #C0C0C0;
 	border-right: 1px solid #C0C0C0;
@@ -64,8 +61,12 @@ body {
 .ui.menu {
 	background-color: #F7F6F6;
 }
-.ui.menu > .item {
-	font-size: 1.4rem;
+.ui.menu .item {
+	font-size: 1.5rem;
+	padding: 1em 1em;
+}
+.ui.menu:first-child {
+	margin-top: 3rem;
 }
 .ui.form.segment{
 	-webkit-box-shadow: none;
@@ -151,12 +152,30 @@ body {
 						<div class="line"></div>
 						<p>
 							<div class="field">
-								<label>Cover Image</label>
-								<div class="small ui profile-cov button">Change cover</div>
+								<label>Profile Photo</label>
+								<img src="" alt="" id="img-preview"/>
+								<div class="ui selection dropdown" style="margin-left: 10px;">
+									<input type="hidden" name="profile-photo">
+									<div class="default text"><b>Change photo</b></div>
+									<i class="dropdown icon"></i>
+									<div class="menu">
+										<div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value=""></div>
+										<div class="item" data-value="0">Remove</div>
+									</div>
+								</div>
 							</div>
 							<div class="field">
-								<label>Profile Image</label>
-								<div class="small ui profile-pic button">Change photo</div>
+								<label>Cover Photo</label>
+								<img src="" alt="" id="img-preview">
+								<div class="ui selection dropdown" style="margin-left: 10px;">
+									<input type="hidden" name="cover-photo">
+									<div class="default text"><b>Change cover</b></div>
+									<i class="dropdown icon"></i>
+									<div class="menu">
+										<div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value=""></div>
+										<div class="item" data-value="0">Remove</div>
+									</div>
+								</div>
 							</div>
 							<div class="field" name="biography">
 								<label>Biography</label>
@@ -249,14 +268,8 @@ body {
 								</div>
 							</div>
 
-							<script src="../../assets/js/bandbrary.js"></script>
+							<script src="../../../assets/js/bandbrary.js"></script>
 							<script>
-							$('.profile-cov.modal')
-							.modal('attach events', '.profile-cov.button', 'show')
-							;
-							$('.profile-pic.modal')
-							.modal('attach events', '.profile-pic.button', 'show')
-							;
 							</script>
 						</body>
 						</html>
