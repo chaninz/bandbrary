@@ -25,7 +25,7 @@ class Post extends CI_Controller {
 			$data = array (
 			'band' => $this->band_model->get($band_id),
 			'band_post' => $this->post_model->getAllPost($band_id),
-			'user' => $this->user_model->getProfile($my_id)
+			'user' => $this->user_model->getProfile($my_id),
 		);
 			// $this->load->view('headerBar',$data);
 			$this->load->view('band/post',$data);
@@ -97,12 +97,14 @@ class Post extends CI_Controller {
 		// );
 		// $this->load->view('headerBar',$data);
 		// $this->load->view('coverSection');
+		$my_id = $this->session->userdata('id');
 		$data = array( 
 		'band' => $this->band_model->get($band_id),
 		'band_post' => $this->post_model->getAllPost($band_id),
 		'id' => $this->session->userdata('id'),
 		'name' => $this->session->userdata('name'),
-		'photo_url' => $this->session->userdata('photo_url')
+		'band_id' => $band_id,
+		'user' => $this->user_model->getProfile($my_id)
 		);
 
 		$this->load->view('band/post',$data);

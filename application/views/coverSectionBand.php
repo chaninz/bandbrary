@@ -75,3 +75,10 @@
 		</div>
 	</article>
 </section>
+<script type="text/javascript">
+	$(function(){
+		$("#greedd").click(function(){
+			location.href = '<?php echo base_url()."user/followBand/follow/".$band_id; ?>';
+		});
+	});
+</script>
