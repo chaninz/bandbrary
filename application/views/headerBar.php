@@ -7,7 +7,6 @@
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 
-
 </head>
 <body> -->
 	<header>
@@ -35,7 +34,7 @@
 							<div class="ui pointing dropdown link item">
 								<img src="<?php echo base_url().'images/'.$this->session->userdata('photo_url'); ?>" alt="" class="profile-pic1">
 								<div class="user-name">
-									<?php echo $this->session->userdata('name'); ?>;
+									<?php echo $this->session->userdata('name');; ?>
 								</div>
 								<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 								<div class="menu">

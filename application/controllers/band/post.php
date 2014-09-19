@@ -99,7 +99,10 @@ class Post extends CI_Controller {
 		// $this->load->view('coverSection');
 		$data = array( 
 		'band' => $this->band_model->get($band_id),
-		'band_post' => $this->post_model->getAllPost($band_id)
+		'band_post' => $this->post_model->getAllPost($band_id),
+		'id' => $this->session->userdata('id'),
+		'name' => $this->session->userdata('name'),
+		'photo_url' => $this->session->userdata('photo_url')
 		);
 
 		$this->load->view('band/post',$data);

@@ -92,25 +92,25 @@
                         <div class="field">
                             <label>Username</label>
                             <div class="ui left labeled icon input">
-                                <input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" readonly>
+                                <input type="text" placeholder="Username" name="username" value="<?php echo $user->username; ?>" readonly>
                                 <i class="user icon"></i>
                             </div>
                         </div>
                         <div class="field">
                             <label>Email address</label>
                             <div class="ui left labeled icon input">
-                                <input type="email" placeholder="Email address" name="email" value="<?php echo $email; ?>" readonly>
+                                <input type="email" placeholder="Email address" name="email" value="<?php echo $user->email; ?>" readonly>
                                 <i class="mail icon"></i>
                             </div>
                         </div>
                         <div class="two fields">
                             <div class="field">
                                 <label>First Name</label>
-                                <input placeholder="First Name" type="text" name="name" value="<?php echo $name; ?>" required>
+                                <input placeholder="First Name" type="text" name="name" value="<?php echo $user->name; ?>" required>
                             </div>
                             <div class="field">
                                 <label>Last Name</label>
-                                <input placeholder="Last Name" type="text" name="surname" value="<?php echo $surname; ?>" required>
+                                <input placeholder="Last Name" type="text" name="surname" value="<?php echo $user->surname; ?>" required>
                             </div>
                         </div>
                         <div class="field">
@@ -118,11 +118,11 @@
                             <div class="ui fluid selection dropdown">
                                 <div class="text">Select</div>
                                 <i class="dropdown icon"></i>
-                                <input type="hidden" name="province" value="<?php echo $province_id; ?>" >
+                                <input type="hidden" name="province" value="<?php echo $user->province_id; ?>" >
 
                                 <div class="menu">
-                                    <div class="item  <?php echo ($province_id ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
-                                    <div class="item <?php echo ($province_id ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Changmai</div>
+                                    <div class="item  <?php echo ($user->province_id ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
+                                    <div class="item <?php echo ($user->province_id ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Changmai</div>
                                 </div>
                             </div>
                         </div>
@@ -147,54 +147,54 @@
                         <p/>
                         <div class="field">
                             <label>Profile Photo</label>
-                            <img src="../images/<?php echo $photo_url; ?>" alt="" id="img-preview"/>
+                            <img src="<?php echo base_url().'images/'.$user->photo_url; ?>" alt="" id="img-preview"/>
                             <div class="ui selection dropdown" style="margin-left: 10px;">
                               <input type="hidden" name="profile-photo">
                               <div class="default text"><b>Change photo</b></div>
                               <i class="dropdown icon"></i>
                               <div class="menu">
-                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value="<?php echo $photo_url; ?>"></div>
+                                <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value="<?php echo $user->photo_url; ?>"></div>
                                 <div class="item" data-value="0">Remove</div>
                             </div>
                         </div>
                     </div>
                     <div class="field">
                         <label>Cover Photo</label>
-                        <img src="../images/Belleandbeast.png" alt="" id="img-preview">
+                        <img src="<?php echo base_url().'images/'.$user->cover_url; ?>" alt="" id="img-preview">
                         <div class="ui selection dropdown" style="margin-left: 10px;">
                           <input type="hidden" name="cover-photo">
                           <div class="default text"><b>Change cover</b></div>
                           <i class="dropdown icon"></i>
                           <div class="menu">
-                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value="<?php echo $cover_url; ?>"></div>
+                            <div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value="<?php echo $user->cover_url; ?>"></div>
                             <div class="item" data-value="0">Remove</div>
                         </div>
                     </div>
                 </div>
                 <div class="field" >
                     <label>Biography</label>
-                    <textarea name="biography" required><?php echo $biography; ?></textarea>
+                    <textarea name="biography" required><?php echo $user->biography; ?></textarea>
                 </div>
                 <div class="line"></div>
                 <p/>
                 <div class="field">
                     <label>Facebook URL</label>
                     <div class="ui left labeled icon input">
-                        <input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $fb_url; ?>">  
+                        <input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $user->fb_url; ?>">  
                         <i class="facebook icon"></i>
                     </div>
                 </div>
                 <div class="field">
                     <label>Twitter URL</label>
                     <div class="ui left labeled icon input">
-                        <input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $tw_url; ?>">
+                        <input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $user->tw_url; ?>">
                         <i class="twitter icon"></i>
                     </div>
                 </div>
                 <div class="field">
                     <label>Youtube URL</label>
                     <div class="ui left labeled icon input">
-                        <input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $yt_url; ?>">
+                        <input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $user->yt_url; ?>">
                         <i class="youtube icon"></i>
                     </div>
                 </div>

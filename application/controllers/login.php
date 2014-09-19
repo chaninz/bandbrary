@@ -30,24 +30,29 @@ class Login extends CI_Controller {
 					'email' => $result->email,
 					'name' => $result->name,
 					'surname' => $result->surname,
-					'biography' => $result->biography,
-					'fb_url' => $result->fb_url,
-					'tw_url' => $result->tw_url,
-					'yt_url' => $result->yt_url,
-					'cover_url' => $result->cover_url,
-					'photo_url' => $result->photo_url,
+					// 'biography' => $result->biography,
+					// 'fb_url' => $result->fb_url,
+					// 'tw_url' => $result->tw_url,
+					// 'yt_url' => $result->yt_url,
+					// 'cover_url' => $result->cover_url,
+					// 'photo_url' => $result->photo_url,
 					'band_id' => $bid->band_id,
-					'band' => $band
+					'band_name' => $band->name
+					 //'band' => $band
 					);
 				$this->session->set_userdata($user);
-				print_r($user);
-				// $this->load->view('feed');
+				//print_r($user);
+				//redirect('login/test');
+				//$this->load->view('feed');
 			}
 		} else {
+			//echo "mzxvzxv";
 			$this->load->view('login');
 		}
 	}
+
 }
 
 /* End of file login.php */
 /* Location: ./application/controllers/login.php */
+?>
