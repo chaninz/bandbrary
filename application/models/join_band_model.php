@@ -16,6 +16,14 @@ class Join_band_model extends CI_Model {
 		return $query->row();
 	}
 
+	function getMember($band_id){
+		$this->db->select('*');
+		$this->db->from('Join_Band');
+		$this->db->where('band_id',$band_i);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
 
 /* End of file album_model.php */

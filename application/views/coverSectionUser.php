@@ -20,7 +20,7 @@
 							<div id="pn1"><?php echo $user->name." ".$user->surname; ?></div>
 							<div id="pn2"><?php echo $band_name; ?></div>
 						</div>
-							<div id="greedd"class="ui button"><i class="add icon"></i>Follow</div>
+							<div id="greedd" class="ui button"><i class="add icon"></i>Follow</div>
 						</div>
 					</div>
 				</div>
@@ -52,3 +52,11 @@
 		</div>
 	</article>
 </section>
+
+<script type="text/javascript">
+	$(function(){
+		$("#greedd").click(function(){
+			location.href = '<?php echo base_url()."user/followUser/follow/".$user_id; ?>';
+		});
+	});
+</script>

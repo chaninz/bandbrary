@@ -87,7 +87,8 @@ class Event extends CI_Controller {
 		// 'yt_url' => $this->session->userdata('yt_url'),
 		'member' => $this->user_model->getProfile($id),
 		'band_name' => $this->session->userdata('band_name'),
-		'user' => $this->user_model->getProfile($my_id)
+		'user' => $this->user_model->getProfile($my_id),
+		'user_id' => $id
 
 		);
 		// $this->load->view('headerBar',$data);

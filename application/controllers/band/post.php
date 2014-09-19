@@ -6,11 +6,12 @@ class Post extends CI_Controller {
 		parent::__construct();
 		$this->load->model('post_model');
 		$this->load->model('band_model');
+		$this->load->model('user_model');
+
 	}
 
 	public function add() {
 		if ($this->input->post()) {
-
 			$post = array(
 				'band_id' => 1 ,
 				'topic' => $this->input->post('topic'),
@@ -19,13 +20,12 @@ class Post extends CI_Controller {
 			);
 			$this->post_model->add($post);
 		} else {
+			$my_id = $this->session->userdata('id');
 			$band_id = $this->session->userdata('band_id');
 			$data = array (
 			'band' => $this->band_model->get($band_id),
 			'band_post' => $this->post_model->getAllPost($band_id),
-			'id' => $this->session->userdata('id'),
-			'name' => $this->session->userdata('name'),
-			'photo_url' => $this->session->userdata('photo_url'),
+			'user' => $this->user_model->getProfile($my_id)
 		);
 			// $this->load->view('headerBar',$data);
 			$this->load->view('band/post',$data);

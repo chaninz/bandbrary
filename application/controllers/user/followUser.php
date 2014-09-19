@@ -1,28 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Follow extends CI_Controller {
+class Followuser extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('follow_model');
+		$this->load->model('follow_user_model');
 	}
 
-	public function add($follow_band) {
+	public function follow($follow_user) {
 			$data = array(
 				'user_id' => $this->session->userdata('id'),
-				'follow_band' => $follow_band;	
+				'follow_user' => $follow_user
 			);
-			$this->follow_model->add($data);
+			$this->follow_user_model->follow($data);
 		
 		
 	}
 
-	public function delete($follow_band) {
+	public function unfollow($follow_band) {
 			$data = array(
 				'id' => $this->session->userdata('id'),
-				'follow_band' => $follow_band;	
+				'follow_band' => $follow_user	
 			);
-			$this->follow_model->delete($data);
+			$this->follow_user_model->unfollow($data);
 		
 	}
 
