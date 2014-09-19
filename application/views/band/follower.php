@@ -58,38 +58,7 @@
 		font-size: 1em;
 	}
 	.center {
-		background-color: #F7F6F6;
-		padding: 20px;
 		margin-top: 15px;
-	}
-	.event-hea {
-		padding: 10px;
-		font-size: 16px;
-	}
-	.eh1 {
-		color: #D95C5C;
-		font-weight: bold;
-		padding-left: 35px;
-	}
-	.eh2 {
-		padding-left: 55px;
-		font-weight: 400;
-	}
-	.eh3 {
-		padding-left: 55px;
-		font-weight: bold;
-	}
-	.eh4 {
-		color: #D95C5C;
-		font-weight: bold;
-	}
-	.eh5 {
-		padding-left: 14px;
-		font-weight: 400;
-	}
-	.eh6 {
-		padding-left: 18px;
-		font-weight: bold;
 	}
 	</style>
 
@@ -110,7 +79,7 @@
 			</div>
 		</div>
 		<div class="bb-logo">
-			<img src="../../images/bangbrary_logo_16-9.png">
+			<img src="../../images/bandbrary_logo_16-9.png">
 		</div>
 		<div class="navbar-item3">
 			<div class="ui compact menu">
@@ -123,9 +92,9 @@
 					<div class="menu">
 						<a class="item"></i>Music</a>
 						<a class="item" href="post.html"></i>Post</a>
-						<a class="item"></i>Follower</a>
-						<a class="item"></i>Following</a>
-						<a class="item"></i>Event</a>
+						<a class="item" href="follower.html"></i>Follower</a>
+						<a class="item" href="following.html"></i>Following</a>
+						<a class="item" href="event.html"></i>Event</a>
 					</div>
 				</div>
 			</div>
@@ -168,8 +137,8 @@
 				</div>
 				<img src="" alt="" id="profile-pic2"class="img-thumbnail">
 				<div class="profile-name">
-					<div id="pn1">BANDBRARY</div>
-					<div id="pn2">Rock | Blues | Jazz</div>
+					<div id="pn1">Bandbrary</div>
+					<div id="pn2">Rock/Blues/Jazz</div>
 				</div>
 				<div id="greedd"class="ui button">
 					<i class="add icon"></i>Follow</div>
@@ -208,14 +177,14 @@
 									<li>
 										<a href="post.html"><span class="badge pull-right">0</span>Post</a>
 									</li>
-									<li>
-										<a href=""><span class="badge pull-right">0</span>Follower</a>
-									</li>
-									<li>
-										<a href=""><span class="badge pull-right">0</span>Following</a>
-									</li>
 									<li class="active">
-										<a href=""><span class="badge pull-right">0</span>Event</a>
+										<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
+									</li>
+									<li>
+										<a href="following.html"><span class="badge pull-right">0</span>Following</a>
+									</li>
+									<li>
+										<a href="event.html"><span class="badge pull-right">0</span>Event</a>
 									</li>
 								</ul>
 							</div>
@@ -248,28 +217,66 @@
 						</div>
 						<div class="col-md-7">
 							<div class="center">
-								<div class="ui fluid accordion">
-									<div class="event-hea">
-									<table>
-											<tbody>
-												<td class="eh1">DATE</td>
-												<td class="eh2">TIME</td>
-												<td class="eh3">EVENT</td>
-											</tbody>
-										</table>
+								<div class="ui five connected items">
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres4.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
 										</div>
-									<div class="active title">
-										<i class="dropdown icon"></i>
-										<table>
-											<tbody>
-												<td class="eh4">12 OCT 2014</td>
-												<td class="eh5">19:00-22.00</td>
-												<td class="eh6">ปรากฏการณ์ ดัม-มะ-ชา-ติ</td>
-											</tbody>
-										</table>
+										<div class="content">
+											<div class="name">Cute Dog</div>
+											<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+										</div>
 									</div>
-									<div class="active content">
-										<p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres5.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Faithful Dog</div>
+											<p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres3.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Silly Dog</div>
+											<p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres2.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Happy Dog</div>
+											<p class="description">Happy dogs are pretty interesting if you are an unhappy person.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Quiet Dog</div>
+											<p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
+										</div>
 									</div>
 								</div>
 							</div>

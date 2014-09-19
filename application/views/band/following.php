@@ -54,6 +54,12 @@
 	.ui.comments .reply.form {
 		max-width: 96%;
 	}
+	.ui.accordion, .ui.accordion .accordion {
+		font-size: 1em;
+	}
+	.center {
+		margin-top: 15px;
+	}
 	</style>
 
 </head>
@@ -73,7 +79,7 @@
 			</div>
 		</div>
 		<div class="bb-logo">
-			<img src="../../images/bangbrary_logo_16-9.png">
+			<img src="../../images/bandbrary_logo_16-9.png">
 		</div>
 		<div class="navbar-item3">
 			<div class="ui compact menu">
@@ -85,9 +91,9 @@
 					<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 					<div class="menu">
 						<a class="item"></i>Music</a>
-						<a class="item"></i>Post</a>
-						<a class="item"></i>Follower</a>
-						<a class="item"></i>Following</a>
+						<a class="item" href="post.html"></i>Post</a>
+						<a class="item" href="follower.html"></i>Follower</a>
+						<a class="item" href="following.html"></i>Following</a>
 						<a class="item" href="event.html"></i>Event</a>
 					</div>
 				</div>
@@ -131,8 +137,8 @@
 				</div>
 				<img src="" alt="" id="profile-pic2"class="img-thumbnail">
 				<div class="profile-name">
-					<div id="pn1">BANDBRARY</div>
-					<div id="pn2">Rock | Blues | Jazz</div>
+					<div id="pn1">Bandbrary</div>
+					<div id="pn2">Rock/Blues/Jazz</div>
 				</div>
 				<div id="greedd"class="ui button">
 					<i class="add icon"></i>Follow</div>
@@ -168,14 +174,14 @@
 									<li>
 										<a href=""><span class="badge pull-right">0</span>Music</a>
 									</li>
+									<li>
+										<a href="post.html"><span class="badge pull-right">0</span>Post</a>
+									</li>
+									<li>
+										<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
+									</li>
 									<li class="active">
-										<a href=""><span class="badge pull-right">0</span>Post</a>
-									</li>
-									<li>
-										<a href=""><span class="badge pull-right">0</span>Follower</a>
-									</li>
-									<li>
-										<a href=""><span class="badge pull-right">0</span>Following</a>
+										<a href="following.html"><span class="badge pull-right">0</span>Following</a>
 									</li>
 									<li>
 										<a href="event.html"><span class="badge pull-right">0</span>Event</a>
@@ -194,145 +200,100 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div id="status-button"class="ui icon button">
-							<i class="pencil icon" style="font-size: 1.5rem"></i>
+								<i class="pencil icon" style="font-size: 1.5rem"></i>
+							</div>
+							<div class="status">
+								<div class="body">
+									<div class="ui form">
+										<div class="field">
+											<textarea id="bg-status"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="about">
+								<div class="title-box">ABOUT</div>
+							</div>
 						</div>
-						<div class="status">
-							<div class="body">
-								<div class="ui form">
-									<div class="field">
-										<textarea id="bg-status"></textarea>
+						<div class="col-md-7">
+							<div class="center">
+								<div class="ui five connected items">
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres4.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Cute Dog</div>
+											<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres5.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Faithful Dog</div>
+											<p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres3.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Silly Dog</div>
+											<p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres2.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Happy Dog</div>
+											<p class="description">Happy dogs are pretty interesting if you are an unhappy person.</p>
+										</div>
+									</div>
+									<div class="item">
+										<div class="image">
+											<img src="/images/demo/highres.jpg">
+											<a class="star ui corner label">
+												<i class="star icon"></i>
+											</a>
+										</div>
+										<div class="content">
+											<div class="name">Quiet Dog</div>
+											<p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="about">
-							<div class="title-box">ABOUT</div>
-						</div>
-					</div>
-					<div class="col-md-7">
-						<div class="center">
-							<div class="create-post test1 nin">
-								<div id="create-post-button" class="ui icon button">
-								<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
-							</div>
-							<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
-						</div>
-						<div class="view-post test2 nin">
-							<div class="post-date">
-								<div class="post-day">14</div>
-								<div class="post-month">MAR</div>
-								<div class="post-white-line"></div>
-							</div>
-							<div class="post-heading">
-								หัวข้อเรื่อง
-							</div>
-							<div class="post-body">
-								เนื้อหา
-							</div>
-							<div class="icon-comment">
-								<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
-								<div class="amount-comment">0</div>
-							</div>
+						<div class="col-md-2">
+							<div class="advt"></div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-2">
-					<div class="advt"></div>
-				</div>
-			</div>
-		</div>
-	</article>
-</section>
+			</article>
+		</section>
 
-<!--Modal semantic-->
-
-<!--Create post modal-->
-<div class="ui form segment create modal">
-	<i class="close icon"></i>
-	<h3>Create a Post</h3>
-	<div class="line"></div>
-	<p/>
-	<div class="field">
-		<label>Title</label>
-		<input type="text" placeholder="" name="title" required>
-	</div>
-	<div class="line"></div>
-	<p/>
-	<div class="field">
-		<label>Description</label>
-		<textarea name="description"></textarea>
-	</div>
-	<div class="field">
-		<label>Profile Photo</label>
-		<input type="file">
-	</div>
-	<div class="line"></div>
-	<p/>
-	<div class="actions">
-		<div class="ui button">cancel</div>
-		<div class="ui red submit button">Create post</div>
-	</div>
-</div>
-</div>
-
-<!--View post Modal-->
-<div class="ui post modal">
-	<i class="close icon"></i>
-	<div class="header">
-		วันที่
-	</div>
-	<div class="content">
-		<div class="left">
-			<img src="" alt="" width="100px" height="100px">
-		</div>
-		<div class="right">
-			<div class="ui header">หัวข้อเรื่อง</div>
-			<p>เนื้อหา</p>
-		</div>
-	</div>
-	<div class="footer">
-		<div class="ui comments">
-			<div class="comment">
-				<a class="avatar">
-					<img src="">
-				</a>
-				<div class="content">
-					<a class="author">Dog Doggington</a>
-					<div class="metadata">
-						<div class="date">2 days ago</div>
-					</div>
-					<div class="text">
-						I think this is a great idea and i am voting on it
-					</div>
-					<div class="actions">
-						<a class="reply active">Reply</a>
-						<a class="delete">Delete</a>
-					</div>
-					<form class="ui reply form">
-						<div class="field">
-							<textarea></textarea>
-						</div>
-						<div class="ui button teal submit labeled icon">
-							<i class="icon edit"></i> Add Reply
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<script src="../../assets/js/bandbrary.js"></script>
-<script>
-$('.create.modal')
-.modal('attach events', '.test1.nin', 'show')
-;
-$('.post.modal')
-.modal('attach events', '.test2.nin', 'show')
-;
-document.getElementById("uploadBtn").onchange = function () {
-	document.getElementById("uploadFile").value = this.value;
-};
-</script>
-</body>
-</html>
+		<script src="../../assets/js/bandbrary.js"></script>
+		<script>
+		$('.ui.accordion')
+		.accordion()
+		;
+		</script>
+	</body>
+	</html>

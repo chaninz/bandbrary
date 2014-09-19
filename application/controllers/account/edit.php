@@ -8,7 +8,8 @@ class Edit extends CI_Controller {
 	}
 	public function index() {
 		if ($this->input->post()) {
-			$data = array(
+			$id = $this->session->userdata('id');
+			$newdata = array(
 				'name' => $this->input->post('name'),
 				'surname' => $this->input->post('surname'),
 				'province_id' => $this->input->post('province'),
@@ -20,9 +21,17 @@ class Edit extends CI_Controller {
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
 				'dob' => $this->input->post('dob'));
-			$this->user_model->updateProfile($data);
+			$this->user_model->updateProfile($newdata,$id);
+			$data = array(
+			'user' => $this->user_model->getProfile($id)
+			);
+
+			$this->load->view('account/edit', $data);
 		} else {
-			$data = $this->user_model->getProfile();
+			$id = $this->session->userdata('id');
+			$data = array(
+			'user' => $this->user_model->getProfile($id)
+			);
 			//echo print_r($data);
 			$this->load->view('account/edit', $data);
 		}

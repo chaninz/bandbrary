@@ -11488,9 +11488,8 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 /* Computer / Responsive */
 @media only screen and (min-width: 998px) {
   .ui.modal {
-    width: 74%;
-    margin-left: -37%;
-  }
+    width: 50%;
+    margin-left: -25%;  }
 }
 @media only screen and (min-width: 1500px) {
   .ui.modal {

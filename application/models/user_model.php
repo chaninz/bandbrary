@@ -87,8 +87,7 @@ class User_model extends CI_Model {
 		// return 1 person
 	}
 
-	function updateProfile($data){
-		$id = $this->session->userdata('id');
+	function updateProfile($data,$id){
 		$this->db->where('id',$id);
 		$this->db->update('Users',$data);
 	} // get data but do not care about type

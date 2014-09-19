@@ -5,20 +5,30 @@ class Post extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('post_model');
+		$this->load->model('band_model');
+		$this->load->model('user_model');
+
 	}
 
 	public function add() {
 		if ($this->input->post()) {
-
-			$post = array('id' => $this->session->userdata('id'),
+			$post = array(
 				'band_id' => 1 ,
 				'topic' => $this->input->post('topic'),
 				'post' => $this->input->post('post'),
 				'image_url' => $this->input->post('imageurl')
 			);
-			$this->band_model->addPost($post);
+			$this->post_model->add($post);
 		} else {
-			$this->load->view('temp/addPost');
+			$my_id = $this->session->userdata('id');
+			$band_id = $this->session->userdata('band_id');
+			$data = array (
+			'band' => $this->band_model->get($band_id),
+			'band_post' => $this->post_model->getAllPost($band_id),
+			'user' => $this->user_model->getProfile($my_id),
+		);
+			// $this->load->view('headerBar',$data);
+			$this->load->view('band/post',$data);
 			}
 	}
 
@@ -56,8 +66,15 @@ class Post extends CI_Controller {
 		// 	$data = $this->post_model->getPost(4);
 		// 	$this->load->view('temp/viewPost',$data);
 		// }
-		$data = $this->post_model->getPost($post_id);
-		$this->load->view('temp/viewPost',$data);
+		$band_id = $this->session->userdata('band_id');
+		$data = array (
+		'post' => $this->post_model->getPost($post_id),
+		'id' => $this->session->userdata('id'),
+		'name' => $this->session->userdata('name'),
+		'photo_url' => $this->session->userdata('photo_url')
+
+		);
+		$this->load->view('temp/viewPost');
 	}
 
 	public function viewAll($band_id){
@@ -69,8 +86,28 @@ class Post extends CI_Controller {
 		// 	$data = $this->post_model->getAllPost();
 		// 	$this->load->view('temp/getAllPost',$data);
 		// }
-		$this->post_model->getAllPost($band_id);
-		$this->load->view('temp/getAllPost',$data);
+		// $band_id = $this->session->userdata('band_id');
+
+		// $data = array (
+		// 'band_post' => $this->post_model->getAllPost($band_id),
+		// 'id' => $this->session->userdata('id'),
+		// 'name' => $this->session->userdata('name'),
+		// 'photo_url' => $this->session->userdata('photo_url'),
+		// 'band' => $this->band_model->get($band_id)
+		// );
+		// $this->load->view('headerBar',$data);
+		// $this->load->view('coverSection');
+		$my_id = $this->session->userdata('id');
+		$data = array( 
+		'band' => $this->band_model->get($band_id),
+		'band_post' => $this->post_model->getAllPost($band_id),
+		'id' => $this->session->userdata('id'),
+		'name' => $this->session->userdata('name'),
+		'band_id' => $band_id,
+		'user' => $this->user_model->getProfile($my_id)
+		);
+
+		$this->load->view('band/post',$data);
 
 	}
 

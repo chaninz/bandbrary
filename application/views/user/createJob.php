@@ -12,11 +12,11 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-				<form action="<?php echo base_url().'user/createJob'; ?>" method="post" > 
+				<form action="<?php echo base_url().'user/job/add'; ?>" method="post" > 
 				<div class="ui form segment">
 					<div class="field">
 						<label>Job Name</label>
-							<input type="text" placeholder="Job Name" name="event">
+							<input type="text" placeholder="Job Name" name="name">
 					</div>
 					<div class="field">
 						<label>Job Type</label>
