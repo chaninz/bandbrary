@@ -73,6 +73,7 @@ class Event extends CI_Controller {
 	// }
 
 	public function viewAll($id){
+		$my_id = $this->session->userdata('id');
 		$data = array (
 		'event' => $this->event->getAll($id),
 		// 'user_id' => $this->session->userdata('id'),
@@ -84,8 +85,10 @@ class Event extends CI_Controller {
 		// 'fb_url' => $this->session->userdata('fb_url'),
 		// 'tw_url' => $this->session->userdata('tw_url'),
 		// 'yt_url' => $this->session->userdata('yt_url'),
-		'user' => $this->user_model->getProfile($id),
-		'band_name' => $this->session->userdata('band_name')
+		'member' => $this->user_model->getProfile($id),
+		'band_name' => $this->session->userdata('band_name'),
+		'user' => $this->user_model->getProfile($my_id)
+
 		);
 		// $this->load->view('headerBar',$data);
 		$this->load->view('user/event',$data);

@@ -234,7 +234,7 @@ else
 										<i class="book icon"></i>
 										<div class="content">
 											<a class="header">Biography</a>
-											<div class="description"><?php echo $biography; ?></div>
+											<div class="description"><?php echo $member->biography; ?></div>
 										</div>
 									</div>
 									<div class="item">
@@ -244,30 +244,30 @@ else
 											<div class="description">Man i am so tired that walk today really was too far...</div>
 										</div>
 									</div>
-									<? if(strlen($fb_url)!=0  ){?>
+									<? if(strlen($member->fb_url)!=0  ){?>
 									<div class="item">
 										<i class="facebook sign icon"></i>
 										<div class="content">
 											<a class="header">Facebook</a>
-											<div class="description"><?php echo $fb_url; ?> <br></div>
+											<div class="description"><?php echo $member->fb_url; ?> <br></div>
 										</div>
 									</div>
 									<? } ?>
-									<? if(strlen($tw_url)!=0  ){?>
+									<? if(strlen($member->tw_url)!=0  ){?>
 									<div class="item">
 										<i class="twitter icon"></i>
 										<div class="content">
 											<a class="header">Twitter</a>
-											<div class="description"><?php echo $tw_url ; ?> </div>
+											<div class="description"><?php echo $member->tw_url ; ?> </div>
 										</div>
 									</div>
 								    <? } ?>
-								    <? if(strlen($tw_url)!=0  ){?>
+								    <? if(strlen($member->yt_url)!=0  ){?>
 									<div class="item">
 										<i class="youtube play icon"></i>
 										<div class="content">
 											<a class="header">Youtube</a>
-											<div class="description"><?php echo $yt_url ; ?></div>
+											<div class="description"><?php echo $member->yt_url ; ?></div>
 										</div>
 									</div>
 									<? } ?>
