@@ -21,7 +21,7 @@ class Followband extends CI_Controller {
 
 	public function unfollow($follow_band) {
 			$data = array(
-				'id' => $this->session->userdata('id'),
+				'user_id' => $this->session->userdata('id'),
 				'follow_band' => $follow_band	
 			);
 			$this->follow_band_model->unfollow($data);

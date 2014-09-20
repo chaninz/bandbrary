@@ -15,7 +15,7 @@ class Join extends CI_Controller {
 			$user_id = $this->session->userdata('id');
 			$data = array('band_id' => $this->input->get('band'),
 				'user_id' => $user_id,
-				'position' => 1/*$position*/,
+				'position' => $position/*$position*/,
 				'status' => 1);
 			$this->band_model->join($data);
 		} else {
