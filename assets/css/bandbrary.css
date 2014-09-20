@@ -1,8 +1,12 @@
 	.container{
 		width: 1170px !important;
 	}
-	body{
-		font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', Tahoma, Verdana, Arial, Sans-Serif;
+	html,
+	body {
+		font-size: 15px;
+	}
+	body {
+		font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		background: #FFFFFF url('../../images/noise-2.png');
 		-webkit-font-smoothing: antialiased;	
 	}

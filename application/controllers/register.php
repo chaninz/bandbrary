@@ -13,7 +13,7 @@ class Register extends CI_Controller {
 				'email' => $this->input->post('email'),
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
-				'user_type' => $this->input->post('usertype'),
+				'user_type' => $this->input->post('user-type'),
 				// 'name' => $this->input->post('name'),
 				// 'surname' => $this->input->post('surname')
 				// 'province_id' => $this->input->post('province'),
