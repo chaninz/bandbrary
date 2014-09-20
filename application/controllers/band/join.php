@@ -10,17 +10,22 @@ class Join extends CI_Controller {
 
 	public function index() {
 		// edit how to get position from user ?
+		// getting from query string
 		if ($this->input->get()) {
-			$band_id = $this->input->get('band');
-			$user_id = $this->session->userdata('user_id');
-			$data = array('band_id' => $band_id,
+			$user_id = $this->session->userdata('id');
+			$data = array('band_id' => $this->input->get('band'),
 				'user_id' => $user_id,
-				'position' => 1,
+				'position' => 1/*$position*/,
 				'status' => 1);
 			$this->band_model->join($data);
 		} else {
 			redirect('');
 		}
+	}
+
+	public function test() {
+		// echo $this->band_model->check_user_status($this->session->userdata('id'), 1);
+		$this->band_model->set_master($this->session->userdata('id'), 1, 3);
 	}
 
 }

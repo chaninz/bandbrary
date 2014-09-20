@@ -348,6 +348,30 @@
 		-webkit-box-shadow: none;
 	}
 
+	/*--- Setting -->*/
+	#join-rq {
+		height: 75px;
+		width: 570px;
+		border: 1px solid #EBEBEB;
+	}
+	.jb1 {
+		width: 73px;
+		height: 73px;
+		float: left;
+	}
+	.jb2 {
+		width: 73px;
+		height: 73px;
+		float: left;
+		margin-top: 7px;
+		margin-left: 9px;
+	}
+	.jb3 {
+		float: left;
+		margin-top: 21px;
+		margin-left: 200px;
+	}
+
 	/*--- Navigation ---*/
 
 	header .ui.basic.buttons {
