@@ -10,14 +10,15 @@ class Follow_Band_model extends CI_Model {
 		$this->db->insert('Follow_Bands',$data);	
 	}
 	
-	function get_follow_band(){
-		$id = $this->session->userdata('id');
+	function get_follow_band($band_id){
 		$this->db->select('*');
-		$this->db->from('Band_Posts');
-		$this->db->where('id',$id);
+		$this->db->from('Follow_Bands');
+		$this->db->join('Users', 'Follow_Bands.user_id = Users.id');
+		$this->db->where('follow_band',$band_id);
+
 
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 
 	function unfollow($data){
@@ -30,6 +31,16 @@ class Follow_Band_model extends CI_Model {
 		$this->db->select('COUNT (*)');
 		$this->db->from('Follow_Bands');
 		$this->db->where('music_id',$music_id);
+	}
+
+	function isFollow($band_id){
+		$id = $this->session->userdata('id');
+		$this->db->select('*');
+		$this->db->from('Follow_Bands');
+		$this->db->where('follow_band',$band_id);
+		$this->db->where('user_id',$id);
+		$query = $this->db->get();
+		return $query->num_rows();
 	}
 }
 

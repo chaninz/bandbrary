@@ -35,9 +35,9 @@ class Followband extends CI_Controller {
 		// 'band_name' => $this->session->userdata('band_name'),
 		'user' => $this->user_model->getProfile($my_id),
 		'band' => $this->band_model->get($band_id),
-		'band_id' => $band_id
+		'band_id' => $band_id,
+		'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
 		);
-		// print_r($data); 
 		$this->load->view('band/follower',$data);
 	}
 

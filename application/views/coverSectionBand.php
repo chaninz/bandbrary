@@ -1,4 +1,6 @@
+
 <section>
+	
 	<article>
 		<div class="top-bg">
 			<div class="container">
@@ -15,13 +17,22 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="punpun">
+
+						<? echo true == false;?>
 						<img src="<?php echo base_url().'images/'.$band->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
 						<div class="profile-name">
 							<div id="pn1"><?php echo $band->name; ?></div>
 							<div id="pn2">Rock/Blues/Jazz</div>
 						</div>
+						<?php if($isFollow){?>
+						<div id="ungreedd" class="ui button"><i class="add icon"></i>UnFollow</div>
+						<?php 
+						}else { ?>
 						<div id="greedd"class="ui button"><i class="add icon"></i>Follow</div>
+						<? } ?>
 						<div id="joinBand" class="ui red buttons">
+							<div id="greedd"class="ui button"><i class="add icon"></i>Follow</div>
+						
 							<div class="ui button" 
 							style="border-top-left-radius: 0em; 
 							border-bottom-left-radius: 0em; ">
@@ -79,6 +90,9 @@
 	$(function(){
 		$("#greedd").click(function(){
 			location.href = '<?php echo base_url()."user/followBand/follow/".$band_id; ?>';
+		});
+		$("#ungreedd").click(function(){
+			location.href = '<?php echo base_url()."user/followBand/unfollow/".$band_id; ?>';
 		});
 	});
 </script>

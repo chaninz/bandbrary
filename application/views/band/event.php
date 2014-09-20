@@ -274,7 +274,7 @@
 			</article>
 		</section>
 
-		<script src="../../assets/js/bandbrary.js"></script>
+  		<?php $this->load->view('footer'); ?>
 		<script>
 		$('.ui.accordion')
 		.accordion()

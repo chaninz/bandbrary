@@ -10,11 +10,10 @@ class Follow_User_model extends CI_Model {
 		$this->db->insert('Follow_Users',$data);	
 	}
 	
-	function get_follow_user(){
-		$id = $this->session->userdata('id');
+	function get_follow_user($user_id){
 		$this->db->select('*');
-		$this->db->from('Band_Posts');
-		$this->db->where('id',$id);
+		$this->db->from('Follow_Users');
+		$this->db->where('Follow_Users',$user_id);
 
 		$query = $this->db->get();
 		return $query->row();
