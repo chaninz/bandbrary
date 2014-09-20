@@ -24,7 +24,7 @@ class Login extends CI_Controller {
 			$result = $this->user_model->login($username, $password);
 			if ($result) {
 				$bid = $this->join_band_model->get($result->id);
-				$band =$this->band_model->get($bid->band_id);
+				$band = $this->band_model->get($bid->band_id);
 				$user = array('id' => $result->id,
 					'username' => $result->username,
 					'email' => $result->email,
