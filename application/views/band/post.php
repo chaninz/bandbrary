@@ -332,9 +332,6 @@
 								</div>
 								';
 							} ?>
-
-							<div class="view-post">
-							</div>
 						</div>
 					</div>
 					<div class="col-md-2">

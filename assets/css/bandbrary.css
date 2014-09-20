@@ -279,17 +279,20 @@
 		margin-top: 10px;
 		text-align: center;
 		padding-top: 12px;
+		word-wrap: break-word;
 	}
 	.post-day {
 		color: #FFFFFF;
 		font-size: 18px;
 		font-weight: 800;
+		word-wrap: break-word;
 	}
 	.post-month {
 		color: #FFFFFF;
 		font-size: 16px;
 		font-weight: 200;
 		margin-top: 5px;
+		word-wrap: break-word;
 	}
 	.post-heading {
 		float: left;
@@ -300,6 +303,7 @@
 		margin-top: 10px;
 		font-size: 18px;
 		font-weight: 600;
+		word-wrap: break-word;
 	}
 	.post-body {
 		float: left;
@@ -309,6 +313,7 @@
 		margin-left: 10px;
 		margin-top: 10px;
 		font-size: 14px;
+		word-wrap: break-word;
 	}
 	.post-white-line {
 		width: 60px;
