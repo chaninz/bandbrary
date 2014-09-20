@@ -7,6 +7,7 @@
 	<title>Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
+
 </head>
 <style>
 .col-xs-3 {
@@ -127,7 +128,7 @@
 		</div>
 	</div>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
+ 	 <?php $this->load->view('footer'); ?>
 	<script>
 	</script>
 </body>
