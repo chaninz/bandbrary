@@ -1,12 +1,12 @@
 	.container{
 		width: 1170px !important;
 	}
-	html,
-	body {
-		font-size: 15px;
+	html {
+		font-size: 10px;
 	}
 	body {
 		font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 14px;
 		background: #FFFFFF url('../../images/noise-2.png');
 		-webkit-font-smoothing: antialiased;	
 	}
