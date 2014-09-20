@@ -301,12 +301,14 @@
 					</div>
 					<div class="col-md-7">
 						<div class="center">
+							<?php if($this->session->userdata("band_id") == $band_id){ ?> 
 							<div class="create-post test nin">
 								<div id="create-post-button" class="ui icon button">
 									<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
 								</div>
 								<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
 							</div>
+							<?php }?>
 							<?php 
 							foreach ($band_post as $post) {
 

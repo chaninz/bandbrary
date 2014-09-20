@@ -5,15 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
-	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../assets/css/semantic.css">
-
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.address.min.js"></script>
-	<script src="../../assets/js/semantic.min.js"></script>
-
+	<?php $this->load->view('header'); ?>
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
@@ -64,7 +56,8 @@
 
 </head>
 <body>
-	<header>
+	<?php $this->load->view('headerBar'); ?>
+	<!-- <header>
 		<div class="navbar-item1">	
 			<i class="home icon" style="font-size: 2.7rem"></i>
 			<div class="ui basic buttons">
@@ -121,9 +114,9 @@
 				</div>
 			</div>
 		</div>
-	</header>
-
-	<section>
+	</header> -->
+ 	<?php $this->load->view('coverSectionBand'); ?>
+	<!-- <section>
 		<article>
 			<div class="top-bg">
 				<div class="container">
@@ -193,7 +186,7 @@
 				</div>
 			</article>
 		</section>
-
+ --> 
 		<section>
 			<article>
 				<div class="container">
@@ -218,6 +211,8 @@
 						<div class="col-md-7">
 							<div class="center">
 								<div class="ui five connected items">
+									<?php 
+									//foreach ($band_post as $post) { ?>
 									<div class="item">
 										<div class="image">
 											<img src="/images/demo/highres4.jpg">
@@ -226,7 +221,7 @@
 											</a>
 										</div>
 										<div class="content">
-											<div class="name">Cute Dog</div>
+											<div class="name"></div>
 											<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
 										</div>
 									</div>
@@ -289,7 +284,7 @@
 			</article>
 		</section>
 
-		<script src="../../assets/js/bandbrary.js"></script>
+  		<?php $this->load->view('footer'); ?>
 		<script>
 		$('.ui.accordion')
 		.accordion()

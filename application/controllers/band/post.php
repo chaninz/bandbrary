@@ -7,7 +7,7 @@ class Post extends CI_Controller {
 		$this->load->model('post_model');
 		$this->load->model('band_model');
 		$this->load->model('user_model');
-
+		$this->load->model('follow_band_model');
 	}
 
 	public function add() {
@@ -104,7 +104,8 @@ class Post extends CI_Controller {
 		'id' => $this->session->userdata('id'),
 		'name' => $this->session->userdata('name'),
 		'band_id' => $band_id,
-		'user' => $this->user_model->getProfile($my_id)
+		'user' => $this->user_model->getProfile($my_id),
+		'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
 		);
 
 		$this->load->view('band/post',$data);
