@@ -16,6 +16,24 @@
 				$("#errorMsg").text("");
 			}
 		});
+
+		/*********/
+		/* Home */
+		/*********/
+
+		/* Submit login form */
+		$( "#login-button" ).click(function() {
+			event.preventDefault();
+			$( ".login-form" ).submit();
+		});
+		$(".login-field").keypress(function(event) {
+			if (event.which == 13) {
+				event.preventDefault();
+				$(".login-form").submit();
+			}
+		});
+
+		/* Register form validation */
 		$('#register-form')
 		.form({
 			username: {
@@ -33,7 +51,7 @@
 				{
 					type   : 'empty',
 					prompt : 'Enter your password'
-				},
+				}
 				]
 			},
 			confirmPassword: {
@@ -42,6 +60,10 @@
 				{
 					type   : 'empty',
 					prompt : 'Re-enter your password'
+				},
+				{
+					type   : 'match[password]',
+					prompt : 'Passwords don\'t match'
 				},
 				]
 			},
@@ -52,6 +74,10 @@
 					type   : 'empty',
 					prompt : 'What is your email address?'
 				},
+				{
+					type   : 'email',
+					prompt : 'Invalid email address'
+				}
 				]
 			},
 			userType: {
@@ -60,14 +86,13 @@
 				{
 					type   : 'empty',
 					prompt : 'Please enter an email'
-				},
+				}
 				]
 			}
 		}, {
 			inline : true,
 			on     : 'blur'
 		});
-		$( "#tiny-test" ).click(function() {
-			$( "#register" ).submit();
-		});
+
+		/* Submit register form (Audience) */
 	});

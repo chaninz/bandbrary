@@ -8,6 +8,9 @@
 	<?php $this->load->view('header'); ?>
 	
 	<style>
+	html, body {
+		font-size: 15px;
+	}
 	body {
 		width: 100%;
 		display: table;
@@ -15,6 +18,15 @@
 	.container {
 		width: 1170px;
 		max-width: none !important;
+	}
+	.ui.label {
+		text-transform: none;
+	}
+	.text-bold {
+		font-weight: bold;
+	}
+	.text-center {
+		text-align: center;
 	}
 	.navigation {
 		background-color: #FFFFFF;
@@ -26,34 +38,28 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	.login-form {
-		padding:0em;
-		margin-top: 0.4em;
+		padding: 0em;
+		margin-top: 0.3em;
 	}
-	.welcome-msg {
+	.login-field {
+		height: 100%;
+		vertical-align: bottom;
+		margin-bottom: 5px !important;
+	}
+	#welcome-msg {
 		color:#FFFFFF;
 		margin-left: 60px;
 	}
-	.signup-msg {
+	#register-msg {
 		font-size: 16px;
 		font-weight: 10px;
-		margin-bottom: 5px;
+		margin-bottom: 15px;
 	}
-	/*.register-form {
-		padding: 20px 80px 20px 80px;
-	}*/
-	.text-bold {
-		font-weight: bold;
+	#login-button {
+		margin-top: 1.25rem;
 	}
-	h3.ui.header {
-		margin-bottom: 0.3em;
-		color: #555555;
-		/*font-size: 0.875em;*/
-	}
-	#submit-button {
-		text-align: center;
-	}
-	.ui.label {
-		text-transform: none;
+	#register-button {
+		margin-bottom: 0px;
 	}
 	</style>
 
@@ -79,22 +85,19 @@
 
 				<div class="col-xs-4">
 					<div class="login-form ui small form">
-						<form id="login" action="login" method="post">
+						<form class="login-form" action="login" method="post">
 							<div class="three fields">
-								<div class="field">
+								<div class="field login-field">
 									<label>Username</label>
-									<input placeholder="Username" type="text" name="username">
+									<input placeholder="" type="text" name="username">
 								</div>
-								<div class="field">
+								<div class="login-field field">
 									<label>Password</label>
-									<input placeholder="Password" type="password">
+									<input placeholder="" type="password">
 								</div>
-								<div class="field">
-									<input class="ui red tiny button" type="submit" style="font-size: 1rem !important; margin-top: 1.8em;" value="Sign in"/>
+								<div class="login-field field">
+									<div id="login-button" class="ui red small submit button">Login</div>
 								</div>
-								<div class="tiny ui button" id="tiny-test">
-  Tiny
-</div>
 							</div>
 							<div class="inline field">
 								<div class="ui checkbox">
@@ -112,18 +115,17 @@
 	<div class="container" style="margin-top:100px;">
 		<div class="row">
 			<div class="col-xs-7">
-				<div class="welcome-msg">
+				<div id="welcome-msg">
 					<h1>Welcome to Bandbrary.</h1>
 				</div>
 			</div>
 
 			<div class="col-xs-4">
 				<div id="register-form" class="ui form segment">
-					<div class="signup-msg">
+					<div id="register-msg">
 						<p><span class="text-bold">Register</span> to Bandbrary</p>
 					</div>
-					<!-- <div class="line"></div> -->
-					<form id="register" action="register" method="post">
+					<form class="register-form" action="register" method="post">
 						<div class="field">
 							<label>Username</label>
 							<div class="ui left labeled icon input">
@@ -150,34 +152,17 @@
 						<div class="field">
 							<label>Email Address</label>
 							<div class="ui left labeled icon input">
-								<input type="email" name="email"/>
+								<input type="text" name="email"/>
 								<i class="mail icon"></i>
 							</div>
 						</div>
-
-						<!-- <h3 class="ui header">Who are you?</h3> -->
-						<!-- <div class="inline fields">
-							<div class="field">
-								<div class="ui radio checkbox">
-									<input id="audience" type="radio" name="user-type" value="1">
-									<label for="audience">Audience</label>
-								</div>
-							</div>
-							<div class="field">
-								<div class="ui radio checkbox">
-									<input id="musician" type="radio" name="user-type" value="2">
-									<label for="musician">Musician</label>
-								</div>
-							</div>
-						</div> -->
-						<div id="submit-button" class="field">
+						<div id="register-button" class="text-center field">
 							<div class="ui large buttons" style="display: inline-block;">
-								<input class="ui button" type="submit" value="audience"/>
+								<input class="ui button" name="user-type" type="submit" value="audience"/>
 								<div class="or"></div>
-								<input class="ui button" type="submit" value="musician"/>
+								<input class="ui button" name="user-type" type="submit" value="musician"/>
 							</div>
 						</div>
-						<!-- <div class="ui error message"></div> -->
 						<div>
 						</div>
 					</form>

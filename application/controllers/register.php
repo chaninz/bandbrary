@@ -9,6 +9,7 @@ class Register extends CI_Controller {
 
 	public function index() {
 		if ($this->input->post()) {
+			
 			$data = array(
 				'email' => $this->input->post('email'),
 				'username' => $this->input->post('username'),
@@ -24,6 +25,11 @@ class Register extends CI_Controller {
 				// 'yt_url' => $this->input->post('yturl'),
 				// 'dob' => $this->input->post('dob')
 				);
+			$user_type = $this->input->post('user-type');
+			if ($user_type == 'audience')
+				$data['user_type'] = 1;
+			else if ($user_type == 'musician')
+				$data['user_type'] = 2;
 			$this->user_model->register($data);
 		} else {
 			$this->load->view('register');
