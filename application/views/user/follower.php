@@ -245,7 +245,7 @@
 									echo '
 								<div class="item">
 									<div class="image">
-											<img src="'.base_url().'images/'.$follow->photo_url.'">	
+											<img src="'.base_url().'uploads/profile/'.$follow->photo_url.'">	
 											<a class="star ui corner label">
 											<i class="star icon"></i>
 										</a>

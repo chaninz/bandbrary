@@ -56,7 +56,7 @@
 								<div class="item">Go to Profile</div>
 								<div class="line"></div>
 								<div class="item">Setting</div>
-								<div class="item">Sign out</div>
+								<div class="item"><a href="<? echo base_url().'logout' ?>">Sign out</a></div>
 								<div class="line"></div>
 								<div class="item">Help</div>
 								<div class="item">Report a Problem</div>
