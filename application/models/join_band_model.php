@@ -16,10 +16,20 @@ class Join_band_model extends CI_Model {
 		return $query->row();
 	}
 
+	function get_band($id){
+		$this->db->select('*');
+		$this->db->from('Join_Band');
+		$this->db->join('Bands', 'Bands.id = Join_Band.band_id');
+		$this->db->where('user_id',$id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	function getMember($band_id){
 		$this->db->select('*');
 		$this->db->from('Join_Band');
-		$this->db->where('band_id',$band_i);
+		$this->db->where('band_id',$band_id);
 
 		$query = $this->db->get();
 		return $query->row();

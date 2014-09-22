@@ -15,8 +15,6 @@ class Follow_Band_model extends CI_Model {
 		$this->db->from('Follow_Bands');
 		$this->db->join('Users', 'Follow_Bands.user_id = Users.id');
 		$this->db->where('follow_band',$band_id);
-
-
 		$query = $this->db->get();
 		return $query->result();
 	}

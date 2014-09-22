@@ -18,7 +18,7 @@
 						<img src="<?php echo base_url().'images/'.$user->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
 						<div class="profile-name">
 							<div id="pn1"><?php echo $user->name." ".$user->surname; ?></div>
-							<div id="pn2"><?php echo $band_name; ?></div>
+							<div id="pn2"><?php echo $band_profile_user->name; ?></div>
 						</div>
 							<div id="greedd" class="ui button"><i class="add icon"></i>Follow</div>
 						</div>

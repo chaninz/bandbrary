@@ -13,10 +13,11 @@ class Follow_User_model extends CI_Model {
 	function get_follow_user($user_id){
 		$this->db->select('*');
 		$this->db->from('Follow_Users');
-		$this->db->where('Follow_Users',$user_id);
+		$this->db->join('Users', 'Follow_Users.user_id = Users.id');
+		$this->db->where('follow_user',$user_id);
 
 		$query = $this->db->get();
-		return $query->row();
+		return $query->result();
 	}
 
 	function unfollow($data){
