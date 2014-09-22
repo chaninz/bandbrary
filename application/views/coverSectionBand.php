@@ -68,13 +68,10 @@
 								<a href=""><span class="badge pull-right">0</span>Music</a>
 							</li>
 							<li class="active">
-								<a href="post.html"><span class="badge pull-right">0</span>Post</a>
+								<a href="<? echo base_url().'band/post/viewAll/'.$band_id ?>"><span class="badge pull-right">0</span>Post</a>
 							</li>
 							<li>
-								<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
-							</li>
-							<li>
-								<a href="following.html"><span class="badge pull-right">0</span>Following</a>
+								<a href="<? echo base_url().'band/followBand/view/'.$band_id ?>"><span class="badge pull-right">0</span>Follower</a>
 							</li>
 							<li>
 								<a href="event.html"><span class="badge pull-right">0</span>Event</a>

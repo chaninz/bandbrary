@@ -6,6 +6,7 @@ class Event extends CI_Controller {
 		parent::__construct();
 		$this->load->model('user_events_model','event');
 		$this->load->model('user_model');
+		$this->load->model('join_band_model');
 	}
 
 	public function index() {
@@ -72,10 +73,11 @@ class Event extends CI_Controller {
 	// 	print_r($data);
 	// }
 
-	public function viewAll($id){
+	public function viewAll($user_id){
 		$my_id = $this->session->userdata('id');
+		$profile_user = $this->user_model->getProfile($user_id);
 		$data = array (
-		'event' => $this->event->getAll($id),
+		'event' => $this->event->getAll($user_id),
 		// 'user_id' => $this->session->userdata('id'),
 		// 'name' => $this->session->userdata('name'),
 		// 'surname' => $this->session->userdata('surname'),
@@ -85,11 +87,12 @@ class Event extends CI_Controller {
 		// 'fb_url' => $this->session->userdata('fb_url'),
 		// 'tw_url' => $this->session->userdata('tw_url'),
 		// 'yt_url' => $this->session->userdata('yt_url'),
-		'member' => $this->user_model->getProfile($id),
+		'member' => $this->user_model->getProfile($user_id),
 		'band_name' => $this->session->userdata('band_name'),
 		'user' => $this->user_model->getProfile($my_id),
-		'user_id' => $id
-
+		'user_id' => $user_id,
+		'profile_user' => $profile_user,
+		'band_profile_user' => $this->join_band_model->get_band($profile_user->id)
 		);
 		// $this->load->view('headerBar',$data);
 		$this->load->view('user/event',$data);

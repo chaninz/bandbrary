@@ -43,7 +43,7 @@
 								<a href="following.html"><span class="badge pull-right">0</span>Following</a>
 							</li>
 							<li>
-								<a href="event.html"><span class="badge pull-right">0</span>Event</a>
+								<a href="<? echo base_url().'user/event/viewAll/'.$user_id ?>"><span class="badge pull-right">0</span>Event</a>
 							</li>
 						</ul>
 					</div>
