@@ -31,6 +31,16 @@ class Follow_User_model extends CI_Model {
 		$this->db->from('Greedd');
 		$this->db->where('music_id',$music_id);
 	}
+	function get_following_user($user_id){
+		$this->db->select('*');
+		$this->db->from('Follow_Users');
+		$this->db->join('Users', 'Follow_Users.follow_user = Users.id');
+		$this->db->where('user_id',$user_id);
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+	
 }
 
 /* End of file post_model.php */

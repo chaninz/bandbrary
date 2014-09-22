@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="profile-cover">
-							<img src="<?php echo base_url().'images/'.$band->cover_url; ?>" alt="">
+							<img src="<?php echo base_url().'uploads/cover/'.$band->cover_url; ?>" alt="">
 						</div>
 					</div>	
 				</div>
@@ -19,7 +19,7 @@
 					<div class="punpun">
 
 						<? echo true == false;?>
-						<img src="<?php echo base_url().'images/'.$band->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
+						<img src="<?php echo base_url().'uploads/profile/'.$band->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
 						<div class="profile-name">
 							<div id="pn1"><?php echo $band->name; ?></div>
 							<div id="pn2">Rock/Blues/Jazz</div>

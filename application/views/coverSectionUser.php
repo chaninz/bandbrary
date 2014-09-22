@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="profile-cover">
-							<img src="<?php echo base_url().'images/'.$user->cover_url; ?>" alt="">
+							<img src="<?php echo base_url().'upload/cover/'.$user->cover_url; ?>" alt="">
 						</div>
 					</div>	
 				</div>
@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="punpun">
-						<img src="<?php echo base_url().'images/'.$user->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
+						<img src="<?php echo base_url().'uploads/profile/'.$user->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
 						<div class="profile-name">
 							<div id="pn1"><?php echo $user->name." ".$user->surname; ?></div>
 							<div id="pn2"><?php echo $band_profile_user->name; ?></div>

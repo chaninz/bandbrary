@@ -215,19 +215,24 @@
 					<div class="col-xs-7">
 						<div class="center">
 							<div class="ui five connected items">
+								<?php 
+									foreach ($following as $follow) { 
+									echo '
 								<div class="item">
 									<div class="image">
-										<img src="/images/demo/highres4.jpg">
-										<a class="star ui corner label">
+											<img src="'.base_url().'uploads/profile/'.$follow->photo_url.'">	
+											<a class="star ui corner label">
 											<i class="star icon"></i>
 										</a>
 									</div>
 									<div class="content">
-										<div class="name">Cute Dog</div>
-										<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+										<div class="name">'.$follow->name.' '.$follow->surname.'</div>
+											<p class="description"></p>
 									</div>
 								</div>
-								<div class="item">
+								';
+									} ?>
+								<!-- <div class="item">
 									<div class="image">
 										<img src="/images/demo/highres5.jpg">
 										<a class="star ui corner label">
@@ -274,7 +279,7 @@
 										<div class="name">Quiet Dog</div>
 										<p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>

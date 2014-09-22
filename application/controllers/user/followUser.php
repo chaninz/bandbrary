@@ -1,7 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Followuser extends CI_Controller {
-
+	
+	//This is use for follower
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('follow_user_model');

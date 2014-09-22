@@ -40,6 +40,16 @@ class Follow_Band_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
+
+	function get_following_band($user_id){
+		$this->db->select('*');
+		$this->db->from('Follow_Bands');
+		$this->db->join('Bands', 'Follow_Bands.follow_band = Bands.id');
+		$this->db->where('user_id',$user_id);
+
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 /* End of file post_model.php */
