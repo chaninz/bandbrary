@@ -1473,10 +1473,10 @@ body > .ui.grid {
     Colors
 ---------------*/
 /* Text Color */
-.ui.menu .item,
+/*.ui.menu .item,
 .ui.menu .item > a:not(.button) {
   color: rgba(0, 0, 0, 0.75);
-}
+}*/
 .ui.menu .item .item,
 .ui.menu .item .item > a:not(.button) {
   color: rgba(30, 30, 30, 0.7);
