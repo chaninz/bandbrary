@@ -5,14 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
+	<?php $this->load->view('header'); ?>
 
-	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../../assets/css/semantic.css">
-
-	<script src="../../../assets/js/jquery.min.js"></script>
-	<script src="../../../assets/js/jquery.address.min.js"></script>
-	<script src="../../../assets/js/semantic.min.js"></script>
 
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -63,22 +57,12 @@
 	#greedd {
 		left: 985px;
 	}
-	.ui.menu .item {
-		font-size: 1.3rem;
-		padding: 1em;
-	}
-	.follow-menu {
-		width: 277px;
-		margin-top: 14px;
-		background-color: #FFFFFF;
-		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
-		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
-	}
 	</style>
 
 </head>
 <body>
-	<header>
+	<?php $this->load->view('headerBar'); ?>
+	<!-- <header>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -141,9 +125,10 @@
 				</div>
 			</div>
 		</div>
-	</header>
+	</header> -->
 
-	<section>
+	 <?php $this->load->view('coverSectionUser'); ?>
+	<!-- <section>
 		<article>
 			<div class="top-bg">
 				<div class="container">
@@ -181,10 +166,10 @@
 								<li>
 									<a href=""><span class="badge pull-right">0</span>Music</a>
 								</li>
-								<li>
+								<li class="active">
 									<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
 								</li>
-								<li class="active">
+								<li>
 									<a href="following.html"><span class="badge pull-right">0</span>Following</a>
 								</li>
 								<li>
@@ -196,21 +181,58 @@
 				</div>
 			</div>
 		</article>
-	</section>
+	</section> -->
 
 	<section>
 		<article>
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-3">
-						<div class="follow-menu">
-							<div class="ui fluid vertical pointing menu">
-								<a class="active item">
-									<i class="user icon"></i> Member
-								</a>
-								<a class="item">
-									<i class="circle blank icon"></i> Band
-								</a>
+						<div id="status-button"class="ui icon button">
+							<i class="edit icon" style="font-size: 1.5rem"></i>
+						</div>
+						<div class="status">
+							<div class="body">
+								<div class="ui form">
+									<div class="field">
+										<textarea id="bg-status"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="about">
+							<div class="title-box">ABOUT</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<i class="book icon"></i>
+										<div class="content">
+											<a class="header">Biography</a>
+											<div class="description">Im so glad you chose to bring me home from the shelter...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="map marker icon"></i>
+										<div class="content">
+											<a class="header">Location</a>
+											<div class="description">Man i am so tired that walk today really was too far...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="users icon"></i>
+										<div class="content">
+											<a class="header">Social</a>
+											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="url icon"></i>
+										<div class="content">
+											<a class="header">Website</a>
+											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -218,19 +240,24 @@
 					<div class="col-xs-7">
 						<div class="center">
 							<div class="ui five connected items">
+								<?php 
+									foreach ($follower as $follow) { 
+									echo '
 								<div class="item">
 									<div class="image">
-										<img src="/images/demo/highres4.jpg">
-										<a class="star ui corner label">
+											<img src="'.base_url().'uploads/profile/'.$follow->photo_url.'">	
+											<a class="star ui corner label">
 											<i class="star icon"></i>
 										</a>
 									</div>
 									<div class="content">
-										<div class="name">Cute Dog</div>
-										<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+										<div class="name">'.$follow->name.' '.$follow->surname.'</div>
+											<p class="description"></p>
 									</div>
 								</div>
-								<div class="item">
+								';
+									} ?>
+								<!-- <div class="item">
 									<div class="image">
 										<img src="/images/demo/highres5.jpg">
 										<a class="star ui corner label">
@@ -277,7 +304,7 @@
 										<div class="name">Quiet Dog</div>
 										<p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -289,7 +316,7 @@
 		</article>
 	</section>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
+ 	 <?php $this->load->view('footer'); ?>
 	<script>
 	</script>
 </body>

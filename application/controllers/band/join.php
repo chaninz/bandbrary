@@ -8,7 +8,7 @@ class Join extends CI_Controller {
 		$this->load->model('band_model');
 	}
 
-	public function index() {
+	public function index($position) {
 		// edit how to get position from user ?
 		// getting from query string
 		if ($this->input->get()) {

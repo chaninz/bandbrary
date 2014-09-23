@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="profile-cover">
-							<img src="<?php echo base_url().'images/'.$band->cover_url; ?>" alt="">
+							<img src="<?php echo base_url().'uploads/cover/'.$band->cover_url; ?>" alt="">
 						</div>
 					</div>	
 				</div>
@@ -19,7 +19,7 @@
 					<div class="punpun">
 
 						<? echo true == false;?>
-						<img src="<?php echo base_url().'images/'.$band->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
+						<img src="<?php echo base_url().'uploads/profile/'.$band->photo_url; ?>" alt="" id="profile-pic2" class="img-thumbnail">
 						<div class="profile-name">
 							<div id="pn1"><?php echo $band->name; ?></div>
 							<div id="pn2">Rock/Blues/Jazz</div>
@@ -68,13 +68,10 @@
 								<a href=""><span class="badge pull-right">0</span>Music</a>
 							</li>
 							<li class="active">
-								<a href="post.html"><span class="badge pull-right">0</span>Post</a>
+								<a href="<? echo base_url().'band/post/viewAll/'.$band_id ?>"><span class="badge pull-right">0</span>Post</a>
 							</li>
 							<li>
-								<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
-							</li>
-							<li>
-								<a href="following.html"><span class="badge pull-right">0</span>Following</a>
+								<a href="<? echo base_url().'band/followBand/view/'.$band_id ?>"><span class="badge pull-right">0</span>Follower</a>
 							</li>
 							<li>
 								<a href="event.html"><span class="badge pull-right">0</span>Event</a>

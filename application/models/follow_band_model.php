@@ -15,8 +15,6 @@ class Follow_Band_model extends CI_Model {
 		$this->db->from('Follow_Bands');
 		$this->db->join('Users', 'Follow_Bands.user_id = Users.id');
 		$this->db->where('follow_band',$band_id);
-
-
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -41,6 +39,16 @@ class Follow_Band_model extends CI_Model {
 		$this->db->where('user_id',$id);
 		$query = $this->db->get();
 		return $query->num_rows();
+	}
+
+	function get_following_band($user_id){
+		$this->db->select('*');
+		$this->db->from('Follow_Bands');
+		$this->db->join('Bands', 'Follow_Bands.follow_band = Bands.id');
+		$this->db->where('user_id',$user_id);
+
+		$query = $this->db->get();
+		return $query->result();
 	}
 }
 

@@ -6,13 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 
-	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../../assets/css/semantic.css">
-
-	<script src="../../../assets/js/jquery.min.js"></script>
-	<script src="../../../assets/js/jquery.address.min.js"></script>
-	<script src="../../../assets/js/semantic.min.js"></script>
+	<?php $this->load->view('header'); ?>
 
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
@@ -78,7 +72,8 @@
 
 </head>
 <body>
-	<header>
+	<?php $this->load->view('headerBar'); ?>
+	<!-- <header>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -142,8 +137,10 @@
 			</div>
 		</div>
 	</header>
+ -->
+ 	 <?php $this->load->view('coverSectionUser'); ?>
 
-	<section>
+	<!-- <section>
 		<article>
 			<div class="top-bg">
 				<div class="container">
@@ -196,7 +193,7 @@
 				</div>
 			</div>
 		</article>
-	</section>
+	</section> -->
 
 	<section>
 		<article>
@@ -218,19 +215,24 @@
 					<div class="col-xs-7">
 						<div class="center">
 							<div class="ui five connected items">
+								<?php 
+									foreach ($following as $follow) { 
+									echo '
 								<div class="item">
 									<div class="image">
-										<img src="/images/demo/highres4.jpg">
-										<a class="star ui corner label">
+											<img src="'.base_url().'uploads/profile/'.$follow->photo_url.'">	
+											<a class="star ui corner label">
 											<i class="star icon"></i>
 										</a>
 									</div>
 									<div class="content">
-										<div class="name">Cute Dog</div>
-										<p class="description">This dog has some things going for it. Its pretty cute and looks like it'd be fun to cuddle up with.</p>
+										<div class="name">'.$follow->name.' '.$follow->surname.'</div>
+											<p class="description"></p>
 									</div>
 								</div>
-								<div class="item">
+								';
+									} ?>
+								<!-- <div class="item">
 									<div class="image">
 										<img src="/images/demo/highres5.jpg">
 										<a class="star ui corner label">
@@ -277,7 +279,7 @@
 										<div class="name">Quiet Dog</div>
 										<p class="description">A quiet dog is nice if you dont like a lot of upkeep for your dogs.</p>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -289,7 +291,7 @@
 		</article>
 	</section>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
+ 	 <?php $this->load->view('footer'); ?>
 	<script>
 	</script>
 </body>

@@ -32,7 +32,7 @@
 					<div class="navbar-item3">
 						<div class="ui compact menu">
 							<div class="ui pointing dropdown link item">
-								<img src="<?php echo base_url().'images/'.$user->photo_url; ?>" alt="" class="profile-pic1">
+								<img src="<?php echo base_url().'uploads/profile/'.$user->photo_url; ?>" alt="" class="profile-pic1">
 								<div class="user-name">
 									<?php echo $this->session->userdata('name'); ?>
 								</div>
@@ -56,7 +56,7 @@
 								<div class="item">Go to Profile</div>
 								<div class="line"></div>
 								<div class="item">Setting</div>
-								<div class="item">Sign out</div>
+								<div class="item"><a href="<? echo base_url().'logout' ?>">Sign out</a></div>
 								<div class="line"></div>
 								<div class="item">Help</div>
 								<div class="item">Report a Problem</div>
