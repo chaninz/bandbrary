@@ -6,10 +6,13 @@ class Edit extends CI_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 	}
+
 	public function index() {
+		$id = $this->session->userdata('id');
+		$data = array('user' => $this->user_model->get_profile($id));
+
 		if ($this->input->post()) {
-			$id = $this->session->userdata('id');
-			$newdata = array(
+			$new_data = array(
 				'name' => $this->input->post('name'),
 				'surname' => $this->input->post('surname'),
 				'province_id' => $this->input->post('province'),
@@ -21,23 +24,14 @@ class Edit extends CI_Controller {
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
 				'dob' => $this->input->post('dob'));
-			$this->user_model->updateProfile($newdata,$id);
-			$data = array(
-			'user' => $this->user_model->getProfile($id)
-			);
+			$this->user_model->update_profile($new_data, $id);
 
-			$this->load->view('account/edit', $data);
+			redirect('account/edit');
 		} else {
-			$id = $this->session->userdata('id');
-			$data = array(
-			'user' => $this->user_model->getProfile($id)
-			);
-			//echo print_r($data);
 			$this->load->view('account/edit', $data);
 		}
 	}
 	
-
 }
 
 /* End of file edit.php */

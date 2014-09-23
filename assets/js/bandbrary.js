@@ -21,20 +21,20 @@
 		/* Home */
 		/*********/
 
-		/* Submit login form */
-		$( "#login-button" ).click(function() {
+		/* Submit sign in form */
+		$( "#signin-button" ).click(function() {
 			event.preventDefault();
-			$( ".login-form" ).submit();
+			$( ".signin-form" ).submit();
 		});
-		$(".login-field").keypress(function(event) {
+		$(".signin-field").keypress(function(event) {
 			if (event.which == 13) {
 				event.preventDefault();
-				$(".login-form").submit();
+				$(".signin-form").submit();
 			}
 		});
 
-		/* Register form validation */
-		$('#register-form')
+		/* Sign up form validation */
+		$('#signup-form')
 		.form({
 			username: {
 				identifier : 'username',

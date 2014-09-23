@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>User Information | Bandbrary</title>
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/arimo.css'; ?>">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bandbrary.css'; ?>">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/arimo.css'; ?>">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bandbrary.css'; ?>">
 	<script src="<?php echo base_url().'assets/js/jquery.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/jquery.address.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/semantic.js'; ?>"></script>
@@ -98,7 +98,7 @@
 						<h3>User Profile</h3>
 						<p>Please complete the registration form </p>
 						<div class="ui form">
-							<form class="initial-form" action="initials" method="post">
+							<form class="initial-form" action="start" method="post">
 								<div class="two fields">
 									<div class="field">
 										<label>Name</label>
@@ -315,6 +315,6 @@
 	</div>
 
 	<?php $this->load->view('footer'); ?>
-	<script src="<?php echo base_url().'assets/js/jquery-ui.min.js'; ?>"></script>
+
 </body>
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bg-slide.css'; ?>">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/arimo.css'; ?>">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
+	<link type="text/css" type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bg-slide.css'; ?>">
+	<link type="text/css" type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/arimo.css'; ?>">
+	<link type="text/css" type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
+	<link type="text/css" type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
 	<script src="<?php echo base_url().'assets/js/jquery.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/jquery.address.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/semantic.js'; ?>"></script>
@@ -41,11 +41,11 @@
 	.text-bold {
 		font-weight: bold;
 	}
-	.login-form {
+	.signin-form {
 		padding: 0em;
 		margin-top: 0.3em;
 	}
-	.login-field {
+	.signin-field {
 		height: 100%;
 		vertical-align: bottom;
 		margin-bottom: 5px !important;
@@ -54,19 +54,18 @@
 		color:#FFFFFF;
 		margin-left: 60px;
 	}
-	#register-msg {
+	#signup-msg {
 		font-size: 16px;
 		font-weight: 10px;
 		margin-bottom: 15px;
 	}
-	#login-button {
+	#signin-button {
 		margin-top: 1.25rem;
 	}
-	#register-button {
+	#signup-button {
 		margin-bottom: 0px;
 	}
 	</style>
-
 </head>
 <body>
 	<ul class="cb-slideshow">
@@ -88,19 +87,19 @@
 				</div>
 
 				<div class="col-xs-4">
-					<div class="login-form ui small form">
-						<form class="login-form" action="login" method="post">
+					<div class="signin-form ui small form">
+						<form class="signin-form" action="account/signin" method="post">
 							<div class="three fields">
-								<div class="field login-field">
+								<div class="field signin-field">
 									<label>Username</label>
 									<input placeholder="" type="text" name="username">
 								</div>
-								<div class="login-field field">
+								<div class="signin-field field">
 									<label>Password</label>
 									<input placeholder="" type="password">
 								</div>
-								<div class="login-field field">
-									<div id="login-button" class="ui red small submit button">Login</div>
+								<div class="signin-field field">
+									<div id="signin-button" class="ui red small submit button">Sign in</div>
 								</div>
 							</div>
 							<div class="inline field">
@@ -125,11 +124,11 @@
 			</div>
 
 			<div class="col-xs-4">
-				<div id="register-form" class="ui form segment">
-					<div id="register-msg">
-						<p><span class="text-bold">Register</span> to Bandbrary</p>
+				<div id="signup-form" class="ui form segment">
+					<div id="signup-msg">
+						<p><span class="text-bold">Sign up</span> to Bandbrary</p>
 					</div>
-					<form class="register-form" action="register" method="post">
+					<form class="signup-form" action="<?php echo base_url().'account/signup'; ?>" method="post">
 						<div class="field">
 							<label>Username</label>
 							<div class="ui left labeled icon input">
@@ -160,7 +159,7 @@
 								<i class="mail icon"></i>
 							</div>
 						</div>
-						<div id="register-button" class="text-center field">
+						<div id="signup-button" class="text-center field">
 							<div class="ui large buttons" style="display: inline-block;">
 								<input class="ui button" name="user-type" type="submit" value="audience"/>
 								<div class="or"></div>

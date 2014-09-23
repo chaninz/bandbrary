@@ -1,6 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Initial extends CI_Controller {
+class Start extends CI_Controller {
+
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('user_model');
+		$this->load->model('skill_model');
+	}
 
 	public function index()	{
 		if ($this->input->post()) {
@@ -14,19 +20,20 @@ class Initial extends CI_Controller {
 			 'yt_url' => $this->input->post('yturl'));
 			$id = $this->session->userdata('id');
 
-			// Insert styles and skills to database
 			if ($this->session->userdata('user_type') == 2) {
+				// Insert styles and skills to database
 				$data['style_id'] = $this->input->post('style');
 				$this->skill_model->add($id, $this->input->post('skill'));
 			}
 
 			$this->user_model->update_profile($id, $data);
+			//redirect('')
 		} else {
-			$this->load->view('initial');
+			$this->load->view('account/start');
 		}
 	}
 
 }
 
-/* End of file initial.php */
-/* Location: ./application/controllers/initial.php */
+/* End of file start.php */
+/* Location: ./application/controllers/account/start.php */
