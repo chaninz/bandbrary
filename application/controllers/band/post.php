@@ -13,7 +13,7 @@ class Post extends CI_Controller {
 	public function add() {
 		if ($this->input->post()) {
 			$post = array(
-				'band_id' => 1 ,
+				'band_id' => $band_id ,
 				'topic' => $this->input->post('topic'),
 				'post' => $this->input->post('post'),
 				'image_url' => $this->input->post('imageurl')
@@ -25,7 +25,9 @@ class Post extends CI_Controller {
 			$data = array (
 			'band' => $this->band_model->get($band_id),
 			'band_post' => $this->post_model->getAllPost($band_id),
+			'band_id' => $band_id,
 			'user' => $this->user_model->getProfile($my_id),
+			'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
 		);
 			// $this->load->view('headerBar',$data);
 			$this->load->view('band/post',$data);
