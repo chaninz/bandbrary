@@ -5,15 +5,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-	<?php $this->load->view('header'); ?>
-	
+	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bg-slide.css'; ?>">
+	<link rel="stylesheet" href="<?php echo base_url().'assets/css/arimo.css'; ?>">
+	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
+	<link rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
+	<script src="<?php echo base_url().'assets/js/jquery.min.js'; ?>"></script>
+	<script src="<?php echo base_url().'assets/js/jquery.address.min.js'; ?>"></script>
+	<script src="<?php echo base_url().'assets/js/semantic.js'; ?>"></script>
+	<script src="<?php echo base_url().'assets/js/bg-slide.js'; ?>"></script>
 	<style>
 	html, body {
 		font-size: 15px;
+		font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
 	body {
 		width: 100%;
 		display: table;
+	}
+	header {
+		background-color: #FFFFFF;
+		width: 100%;
+		height: 80px;
+		z-index: 1000;
+		position: relative;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	.container {
 		width: 1170px;
@@ -24,18 +40,6 @@
 	}
 	.text-bold {
 		font-weight: bold;
-	}
-	.text-center {
-		text-align: center;
-	}
-	.navigation {
-		background-color: #FFFFFF;
-		height: 80px;
-		position: relative;
-		z-index: 10;
-		width: 100%;
-		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
-		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	.login-form {
 		padding: 0em;
@@ -74,7 +78,7 @@
 		<li><span></span><div><h3></h3></div></li>
 		<li><span></span><div><h3></h3></div></li>
 	</ul>
-	<div class="navigation">
+	<header>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-8">
@@ -110,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 
 	<div class="container" style="margin-top:100px;">
 		<div class="row">

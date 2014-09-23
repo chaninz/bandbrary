@@ -9,7 +9,6 @@ class Register extends CI_Controller {
 
 	public function index() {
 		if ($this->input->post()) {
-			
 			$data = array(
 				'email' => $this->input->post('email'),
 				'username' => $this->input->post('username'),
