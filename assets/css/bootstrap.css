@@ -2921,11 +2921,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #ffffff;
   cursor: not-allowed;
 }
-<<<<<<< HEAD
 .label {
-=======
-label {
->>>>>>> 472883254aec192e4252559a43c5bfd8af296d84
   display: inline;
 /*  padding: .2em .6em .3em;
   font-size: 75%;*/
