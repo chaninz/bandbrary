@@ -53,7 +53,7 @@
 	}
 	.bb-logo > img {
 		width: 165px;
-		height: 94px;
+		height: 70px;
 		margin-top: 19px;
 		margin-left: 5px;
 	}	
@@ -83,12 +83,14 @@
 		float: left;
 		font-size: 2.7rem;
 		color: #FFFFFF;
+		margin-top: 4px;
+		-webkit-font-smoothing: auto;
 	}
 	.navbar-item2 {
 		float:left;
 		height: 10px;
 		font-size: 1em;
-		margin-top: 5px;
+		margin-top: 6px;
 	}
 	.navbar-item3 {
 		float: left;
@@ -415,9 +417,6 @@
 		border-radius: 0px;
 		color: #FFFFFF;
 	}
-	header .ui.menu .item, .ui.menu .item>a:not(.button) {
-		color: #FFFFFF;
-	}
 	header .ui.menu .item {
 		font-size: 1.2rem;
 		font-weight: 400px;
@@ -432,6 +431,8 @@
 		float: left;
 		margin-top: 10px;
 		margin-left: 6px;
+		-webkit-font-smoothing: auto;
+
 	}
 	header .ui.dropdown .menu .item {
 		font-size: 1.2rem;
