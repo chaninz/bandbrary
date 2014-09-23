@@ -48,6 +48,11 @@ class User_model extends CI_Model {
 		return $result;
 	}
 	
+	function update_profile($id, $data){
+		$this->db->where('id', $id);
+		$this->db->update('Users', $data);
+	}
+
 	function post ($by_id,$username,$content,$type){
 		$id = $this->session->userdata('id');
 		$query = $this->db->query("insert into (by_id,username,content) values ($by_id,'$username','$content')");
@@ -91,6 +96,8 @@ class User_model extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->update('Users',$data);
 	} // get data but do not care about type
+
+
 
 	function getBiography(){
 		$id = $this->session->userdata('id');
