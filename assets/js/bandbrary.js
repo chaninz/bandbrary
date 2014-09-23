@@ -64,7 +64,7 @@
 				{
 					type   : 'match[password]',
 					prompt : 'Passwords don\'t match'
-				},
+				}
 				]
 			},
 			email: {
@@ -94,5 +94,13 @@
 			on     : 'blur'
 		});
 
-		/* Submit register form (Audience) */
+		/***********/
+		/* Initial */
+		/***********/
+
+		/* Submit Register form */
+		$( "#initial-button" ).click(function() {
+			event.preventDefault();
+			$( ".initial-form" ).submit();
+		});
 	});

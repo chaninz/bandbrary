@@ -13,8 +13,6 @@ class Greedd extends CI_Controller {
 				'music_id' => $music_id	
 			);
 			$this->greedd_model->add($data);
-		
-		
 	}
 
 	public function delete($music_id) {
