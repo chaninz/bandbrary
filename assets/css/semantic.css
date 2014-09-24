@@ -6036,7 +6036,7 @@ h5.ui.header {
 }
 i.icon {
   display: inline-block;
-  opacity: 0.75;
+/*  opacity: 0.75;*/
   margin: 0em 0.25em 0em 0em;
   width: 1.23em;
   height: 1em;
