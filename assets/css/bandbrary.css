@@ -382,7 +382,71 @@
 		margin-top: 21px;
 		margin-left: 200px;
 	}
-
+	
+	/*--- Job ---*/
+	#job-btn-add {
+		top: 500px;
+		position: fixed;
+		z-index: 100;
+		margin-left: 160px;
+		font-size: 16px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
+	}
+	#job-btn-menu {
+		top: 500px;
+		position: fixed;
+		z-index: 100;
+		margin-left: 160px;
+		margin-top: 55px;
+		font-size: 16px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
+	}
+	.job-top {
+		width: 100%;
+		height: 260px;
+		padding-top: 120px;
+		padding-left: 150px;
+		background: url('../../images/joblive.jpg');
+		border-top: 1px solid #E72A30;
+		border-bottom: 1px solid #E72A30;
+		opacity: 0.9;
+	}
+	.job-hea1 {
+		font-size: 50px;
+		font-weight: 900;
+		color: #FFFFFF;
+	}
+	.job-hea2 {
+		font-size: 22px;
+		margin-top: 50px;
+	}
+	.job-red-line {
+		width: 160px;
+		height: 6px;
+		background-color: #E72A30;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+	.job-location {
+		font-size: 12px;
+		opacity: 0.5;
+	}
+	#job-icon {
+		margin: 0px; 
+		opacity: 0.5; 
+		margin-left: 7px;
+	}
+	#preview-job {
+		word-wrap: break-word;
+	}
+	.job-total {
+		font-weight: 900;
+		color: #E72A30;
+	}
+	.job-img {
+		width: 214px; 
+		height: 214px;
+	}
 
 	/*--- Navigation ---*/
 
