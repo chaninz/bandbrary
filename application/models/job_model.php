@@ -11,10 +11,10 @@ class Job_Model extends CI_Model {
 	function add($data){
 		$this->db->insert('Jobs',$data);
 	}
-	function get($id){
+	function get($job_id){
 		$this->db->select('*');
 		$this->db->from('Jobs');
-		$this->db->where('id',$id);
+		$this->db->where('id',$job_id);
 
 		$query = $this->db->get();
 		return $query->row();
