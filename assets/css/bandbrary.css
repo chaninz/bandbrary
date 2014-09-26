@@ -82,7 +82,7 @@
 	}
 	.profile-cover img {
 		width: 1140px;
-		height: 448px;
+		height: 315px;
 	}
 	.navbar-item1 {
 		float: left;
@@ -152,7 +152,7 @@
 	.profile-name {
 		position: absolute;
 		top: -80px;
-		left: 250px;
+		left: 235px;
 		font-weight: bolder;
 		color: #FFFFFF;
 	}
@@ -161,10 +161,10 @@
 		z-index: 50;
 	}
 	#profile-pic2 {
-		height: 180px;
-		width: 180px;
+		height: 170px;
+		width: 170px;
 		position: absolute;
-		top: -155px;
+		top: -150px;
 		left: 40px;
 	}
 	.profile-name #pn1 {
