@@ -9,7 +9,7 @@ class Edit extends CI_Controller {
 
 	public function index() {
 		$id = $this->session->userdata('id');
-		$data = array('user' => $this->user_model->get_profile($id));
+		$data = array('user' => $this->user_model->get($id));
 
 		if ($this->input->post()) {
 			$new_data = array(
@@ -24,7 +24,7 @@ class Edit extends CI_Controller {
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
 				'dob' => $this->input->post('dob'));
-			$this->user_model->update_profile($new_data, $id);
+			$this->user_model->update($new_data, $id);
 
 			redirect('account/edit');
 		} else {

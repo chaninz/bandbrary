@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Followband extends CI_Controller {
-	//
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('follow_band_model');
@@ -38,7 +38,6 @@ class Followband extends CI_Controller {
 		'band_id' => $band_id,
 		'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
 		);
-		// print_r($data); 
 		$this->load->view('band/follower',$data);
 	}
 

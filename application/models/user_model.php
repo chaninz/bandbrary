@@ -50,14 +50,27 @@ class User_model extends CI_Model {
 		return $result;
 	}
 	
-	function get_profile($id){
+	function get($id){
+		$this->db->select('*');
+		$this->db->select('Users.id AS id');
+		$this->db->join('Provinces', 'Users.province_id = Provinces.id');
 		$query = $this->db->get_where('Users', array('id' => $id));
 		$result = $query->row();
 
 		return $result;
 	}
 
-	function update_profile($id, $data){
+	function get_by_username($username){
+		$this->db->select('*');
+		$this->db->select('Users.id AS id');
+		$this->db->join('Provinces', 'Users.province_id = Provinces.id');
+		$query = $this->db->get_where('Users', array('username' => $username));
+		$result = $query->row();
+
+		return $result;
+	}
+
+	function update($id, $data){
 		$this->db->where('id', $id);
 		$this->db->update('Users', $data);
 	}

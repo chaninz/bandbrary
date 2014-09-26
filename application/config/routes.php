@@ -40,6 +40,21 @@
 
 $route['default_controller'] = "index";
 $route['404_override'] = '';
+
+/* == User == */
+// Event
+$route['user/(:any)/event'] = 'user/event/index/$1';
+// Following
+$route['user/(:any)/following'] = 'user/following/index/$1';
+$route['user/(:any)/following/user'] = 'user/following/user/$1';
+$route['user/(:any)/following/band'] = 'user/following/band/$1';
+// Follower
+$route['user/(:any)/follower'] = 'user/follower/index/$1';
+// Index
+$route['user/(:any)'] = 'user/event/index/$1';
+
+
+//$route['user/(:any)/event'] = 'user/event/$1';
 //$route['band'] = 'band/band';
 
 // Band

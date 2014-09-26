@@ -9,21 +9,12 @@ class Signup extends CI_Controller {
 
 	public function index() {
 		if ($this->input->post()) {
+			$user_type = $this->input->post('user-type');
 			$data = array(
 				'email' => $this->input->post('email'),
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
-				'user_type' => $this->input->post('user-type'),
-				// 'name' => $this->input->post('name'),
-				// 'surname' => $this->input->post('surname')
-				// 'province_id' => $this->input->post('province'),
-				// 'biography' => $this->input->post('biography'),
-				// 'fb_url' => $this->input->post('fburl'),
-				// 'tw_url' => $this->input->post('twurl'),
-				// 'yt_url' => $this->input->post('yturl'),
-				// 'dob' => $this->input->post('dob')
-				);
-			$user_type = $this->input->post('user-type');
+				'user_type' => $user_type);
 			if ($user_type == 'audience')
 				$data['user_type'] = 1;
 			else if ($user_type == 'musician')

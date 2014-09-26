@@ -5,8 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
+
 	<?php $this->load->view('header'); ?>
-	
+
 	<style>
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
@@ -51,41 +52,21 @@
 		font-size: 1em;
 	}
 	.center {
-		background-color: #F7F6F6;
-		padding: 20px;
 		margin-top: 15px;
-	}
-	.event-hea {
-		padding: 10px;
-		font-size: 16px;
-	}
-	.eh1 {
-		color: #D95C5C;
-		font-weight: bold;
-		padding-left: 35px;
-	}
-	.eh2 {
-		padding-left: 55px;
-		font-weight: 400;
-	}
-	.eh3 {
-		padding-left: 55px;
-		font-weight: bold;
-	}
-	.eh4 {
-		color: #D95C5C;
-		font-weight: bold;
-	}
-	.eh5 {
-		padding-left: 14px;
-		font-weight: 400;
-	}
-	.eh6 {
-		padding-left: 18px;
-		font-weight: bold;
 	}
 	#greedd {
 		left: 985px;
+	}
+	.ui.menu .item {
+		font-size: 1.3rem;
+		padding: 1em;
+	}
+	.follow-menu {
+		width: 277px;
+		margin-top: 14px;
+		background-color: #FFFFFF;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
@@ -96,30 +77,33 @@
 		<article>
 			<div class="container">
 				<div class="row">
-					<?php $this->load->view('user/sidebar_left'); ?>
-					
+					<div class="col-xs-3">
+						<div class="follow-menu">
+							<div class="ui fluid vertical pointing menu">
+								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/following/user' ?>">
+									<i class="user icon"></i> Member
+								</a>
+								<a class="active item" href="<?= base_url().'user/'.$user_profile->username.'/following/band' ?>">
+									<i class="circle blank icon"></i> Band
+								</a>
+							</div>
+						</div>
+					</div>
+
 					<div class="col-xs-7">
 						<div class="center">
-							<div class="ui fluid accordion">
-								<div class="event-hea">
-									<table>
-										<tbody>
-											<td class="eh1">DATE</td>
-											<td class="eh2">TIME</td>
-											<td class="eh3">EVENT</td>
-										</tbody>
-									</table>
-								</div><?php foreach ($events as $event): ?>
-								<div class="title">
-									<table>
-										<tbody>
-											<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->start_time)) ?></td>
-											<td class="eh5"><?= mdate("%H:%i", strtotime($event->start_time)) ?></td>
-											<td class="eh6"><?= $event->event ?></td>
-										</tbody>
-									</table>
-								</div>
-								<div class="content">
+							<div class="ui five connected items"><?php foreach($following_bands as $following_band): ?>
+								<div class="item">
+									<div class="image">
+										<img src="<?= base_url().'uploads/profile/'.$following_band->photo_url ?>">	
+										<a class="star ui corner label">
+											<i class="star icon"></i>
+										</a>
+									</div>
+									<div class="content">
+										<div class="name"><a href="<?= base_url().'band/'.$following_band->id ?>"><?= $following_band->name ?></a></div>
+										<p class="description"></p>
+									</div>
 								</div><?php endforeach; ?>
 							</div>
 						</div>
@@ -133,10 +117,5 @@
 	</section>
 
 	<?php $this->load->view('footer'); ?>
-	<script>
-	$('.ui.accordion')
-	.accordion()
-	;
-	</script>
 </body>
 </html>

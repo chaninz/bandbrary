@@ -26,7 +26,7 @@ class Start extends CI_Controller {
 				$this->skill_model->add($id, $this->input->post('skill'));
 			}
 
-			$this->user_model->update_profile($id, $data);
+			$this->user_model->update($id, $data);
 			//redirect('')
 		} else {
 			$this->load->view('account/start');

@@ -30,7 +30,7 @@ class Signin extends CI_Controller {
 
 				if ($user['user_type'] == 2) {
 					// Check if he is a musician
-					$bid = $this->join_band_model->get($user['id']);
+					$bid = $this->join_band_model->get_current_band($user['id'])->band_id;
 
 					if ($bid) {
 						// If the user joined band, put id of his band to session

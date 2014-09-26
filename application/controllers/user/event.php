@@ -4,54 +4,54 @@ class Event extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('user_events_model','event');
 		$this->load->model('user_model');
+		$this->load->model('event_model');
 		$this->load->model('join_band_model');
 	}
 
-	public function index() {
-		redirect();
+	public function index($username) {
+		// Basic data for user profile page
+		$user_profile = $this->user_model->get_by_username($username);
+		$band_profile = $this->join_band_model->get_current_band($user_profile->id);
+
+		$data = array('user_profile' => $user_profile, 
+			'band_profile' => $band_profile,
+			'events' => $this->event_model->get_by_user($user_profile->id, 1));
+
+		$this->load->view('user/event', $data);
 	}
 
 	public function add() {
 		if ($this->input->post()) {
-			$user_data = array(
-			// edit user id to use session
-				'user_id' => $this->input->post('user_id'),
+			$user_id = $this->session->userdata('id');
+			$user_data = array('user_id' => $user_id,
 				'event' => $this->input->post('event'),
 				'description' => $this->input->post('description'),
 				'venue' => $this->input->post('venue'),
 				'start_time' => $this->input->post('start_time'),
 				'end_time' => $this->input->post('end_time'));
-			$user_type = 1;
-			$this->event->add($user_data, $user_type);
+			$this->event->add($user_data, 1);
 		} else {
 			redirect(base_url('user/event')); 
 		}
-		
 	}
 
 	public function edit() {
-		$id = array('id' => $this->input->post('id'),
-			// edit user id to use session
-			'user_id' => $this->input->post('user_id'));
+		$id = $this->input->post('id');
 		$data = array('event' => $this->input->post('event'),
 			'description' => $this->input->post('description'),
 			'venue' => $this->input->post('venue'),
 			'start_time' => $this->input->post('start_time'),
 			'end_time' => $this->input->post('end_time'));
-		$user_type = 1;
-		$this->event->edit($data, $user_type, $id);
+		$this->event->edit($id, $data, 1);
 	}
 
 	public function delete() {
-		$post_id = array('id' => $this->input->get('post_id'));
-		$user_type = 1;
-		$this->event->delete($post_id, $user_type);
+		$post_id = $this->input->get('id');
+		$this->event->delete($post_id, 1);
 	}
 
 	public function view() {
-		// edit user id to use session
 		$user_id = array('user_id' => $this->input->get('user_id'));
 		$user_type = 1;
 		$query = $this->event->get_by_user($user_id, $user_type);
@@ -72,34 +72,7 @@ class Event extends CI_Controller {
 	// 	);
 	// 	print_r($data);
 	// }
-
-	public function viewAll($user_id){
-		$my_id = $this->session->userdata('id');
-		$profile_user = $this->user_model->getProfile($user_id);
-		$data = array (
-		'event' => $this->event->getAll($user_id),
-		// 'user_id' => $this->session->userdata('id'),
-		// 'name' => $this->session->userdata('name'),
-		// 'surname' => $this->session->userdata('surname'),
-		// 'photo_url' => $this->session->userdata('photo_url'),
-		// 'cover_url' => $this->session->userdata('cover_url'),
-		// 'biography' => $this->session->userdata('biography'),
-		// 'fb_url' => $this->session->userdata('fb_url'),
-		// 'tw_url' => $this->session->userdata('tw_url'),
-		// 'yt_url' => $this->session->userdata('yt_url'),
-		'member' => $this->user_model->getProfile($user_id),
-		'band_name' => $this->session->userdata('band_name'),
-		'user' => $this->user_model->getProfile($my_id),
-		'user_id' => $user_id,
-		'profile_user' => $profile_user,
-		'band_profile_user' => $this->join_band_model->get_band($profile_user->id)
-		);
-		// $this->load->view('headerBar',$data);
-		$this->load->view('user/event',$data);
-		//$this->load->view('coverSection');
-		//$this->load->view('band/post',$data);
-
-	}
+	//}
 }
 
 /* End of file event.php */

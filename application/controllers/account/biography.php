@@ -7,7 +7,7 @@ class Biography extends CI_Controller {
 			$data = array(
 				'id' => $this->session->userdata('id'),
 				'biography' => $this->input->post('biography'));
-			$this->user->update_profile($data);
+			$this->user->update($data);
 		} else {
 			show_404();
 		}
