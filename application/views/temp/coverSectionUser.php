@@ -31,19 +31,19 @@
 					<div class="menu-profile">
 						<ul class="nav nav-tabs nav-justified" role="tablist">
 							<li>
-								<a href=""><span class="badge pull-right">0</span>Timeline</a>
+								<a href="">Timeline</a>
 							</li>
 							<li>
-								<a href=""><span class="badge pull-right">0</span>Music</a>
+								<a href="">Music</a>
 							</li>
 							<li>
-								<a href="<? echo base_url().'user/followUser/view/'.$user_id ?>"><span class="badge pull-right">0</span>Follower</a>
+								<a href="<? echo base_url().'user/followUser/view/'.$user_id ?>">Follower</a>
 							</li>
 							<li>
-								<a href="following.html"><span class="badge pull-right">0</span>Following</a>
+								<a href="following.html">Following</a>
 							</li>
 							<li>
-								<a href="<? echo base_url().'user/event/viewAll/'.$user_id ?>"><span class="badge pull-right">0</span>Event</a>
+								<a href="<? echo base_url().'user/event/viewAll/'.$user_id ?>">Event</a>
 							</li>
 						</ul>
 					</div>

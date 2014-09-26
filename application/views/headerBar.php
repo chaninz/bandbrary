@@ -29,6 +29,9 @@
 					<div class="bb-logo">
 						<img src="<?php echo base_url().'images/bandbrary_logo_16-9.png'; ?>">
 					</div>
+					<div class="bb-player">
+					<img src="../../../images/header_player.png" alt="">
+					</div>
 					<div class="navbar-item3">
 						<div class="ui compact menu">
 							<div class="ui pointing dropdown link item">

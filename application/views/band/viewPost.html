@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bandbrary</title>
+
+	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../../assets/css/semantic.css">
+
+	<script src="../../../assets/js/jquery.min.js"></script>
+	<script src="../../../assets/js/jquery.address.min.js"></script>
+	<script src="../../../assets/js/semantic.min.js"></script>
+	
+
+	<style>
+	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+		color: #E72A30;
+	}
+	.ui.segment {
+		padding: 2em;
+	}
+	.ui.form textarea, .ui.textarea {
+		height: 11.4em;
+		border-radius: 0px;
+	}
+	.ui.modal {
+		height: 470px;
+	}
+	.ui.modal > .header {
+		font-family: 'TH sarabunPSK';
+		font-size: 32px;
+	}
+	.ui.modal > .content {
+		font-family: 'TH sarabunPSK';
+		font-size: 22px;
+	}
+	.ui.comments .comment .actions {
+		text-align: left;
+	}
+	.ui.modal .actions {
+		padding: 1rem 0em;
+	}
+	.ui.comments .reply.form textarea {
+		height: 5em;
+	}
+	.ui.textarea, .ui.form textarea {
+		min-height: 0em;
+	}
+	.ui.comments .comment .reply.form {
+		margin:0em;
+	}
+	.ui.comments .reply.form {
+		max-width: 96%;
+	}
+	.full-post {
+		background-color: #F7F6F6; 
+		margin-top: 14px;
+		margin-left: 4px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+		word-wrap: break-word;
+		padding: 25px;
+	}
+	h2.ui.header {
+		font-size: 2.5rem;
+	}
+	.ui.header .sub.header {
+		font-size: 1.4rem;
+	}
+	</style>
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="bb-logo" style="margin-left: 482px;">
+						<img src="../../../images/bandbrary_logo_16-9.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<article>
+			<div class="top-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="profile-cover">
+								<img src="" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="../../../images/no_profile.jpg" alt="" id="profile-pic2" class="img-thumbnail">
+			<div class="profile-name">
+				<div id="pn1">Bandbrary</div>
+				<div id="pn2">Rock/Blues/Jazz</div>
+			</div>
+			<div id="greedd"class="ui button">
+				<i class="add icon"></i>Follow</div>
+				<div id="joinBand" class="ui red buttons">
+					<div class="ui button" 
+					style="border-top-left-radius: 0em; 
+					border-bottom-left-radius: 0em; ">
+					<i class="circle blank icon"></i>JOIN</div>
+					<div class="ui red floating dropdown icon button">
+						<i class="dropdown icon" style="font-size: 1.1em;"></i>
+						<div class="menu">
+							<div class="item"><i class="hide icon"></i>Vocal</div>
+							<div class="item"><i class="hide icon"></i>Guitar</div>
+							<div class="item"><i class="hide icon"></i>Bass</div>
+							<div class="item"><i class="hide icon"></i>Drum</div>
+							<div class="item"><i class="hide icon"></i>Piano</div>
+							<div class="item"><i class="hide icon"></i>Keybroad</div>
+							<div class="item"><i class="hide icon"></i>Saxophone</div>
+							<div class="item"><i class="hide icon"></i>Trumpets</div>
+							<div class="item"><i class="hide icon"></i>Violin</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="menu-profile">
+							<ul class="nav nav-tabs nav-justified" role="tablist">
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Timeline</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Music</a>
+								</li>
+								<li class="active">
+									<a href="post.html"><span class="badge pull-right">0</span>Post</a>
+								</li>
+								<li>
+									<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
+								</li>
+								<li>
+									<a href="following.html"><span class="badge pull-right">0</span>Following</a>
+								</li>
+								<li>
+									<a href="event.html"><span class="badge pull-right">0</span>Event</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+	<section>
+		<article>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-3">
+						<div id="status-button"class="ui icon button">
+							<i class="edit icon" style="font-size: 1.5rem"></i>
+						</div>
+						<div class="status">
+							<div class="body">
+								<div class="ui form">
+									<div class="field">
+										<textarea id="bg-status"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="about">
+							<div class="title-box">ABOUT</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<i class="book icon"></i>
+										<div class="content">
+											<a class="header">Biography</a>
+											<div class="description"></div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="attention icon"></i>
+										<div class="content">
+											<a class="header">Genre</a>
+											<div class="description">Im so glad you chose to bring me home from the shelter...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="map marker icon"></i>
+										<div class="content">
+											<a class="header">Location</a>
+											<div class="description">Man i am so tired that walk today really was too far...</div>
+										</div>
+									</div>
+
+									<div class="item">
+										<i class="facebook sign icon"></i>
+										<div class="content">
+											<a class="header">Facebook</a>
+											<div class="description"><br></div>
+										</div>
+									</div>
+									<? } ?>
+
+									<div class="item">
+										<i class="twitter icon"></i>
+										<div class="content">
+											<a class="header">Twitter</a>
+											<div class="description"></div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="youtube play icon"></i>
+										<div class="content">
+											<a class="header">Youtube</a>
+											<div class="description"> </div>
+										</div>
+									</div>
+									<? } ?>
+								</div>
+							</div>
+						</div>
+						<div class="member">
+							<div class="title-box">MEMBER</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Vocal
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Guitar
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Bass
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Drum
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Keyboard
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="center">
+							<div class="full-post">
+								<a class="ui red button" href="editPost.php" style="margin-left: 530px">
+									<i class="edit icon"></i>
+									Edit
+								</a>
+								<h2 class="ui header">
+									อัลบั้ม dharmajāti (ดัม-มะ-ชา-ติ) ผลงานใหม่ในรอบ 4 ปี ชุดที่ 6 ของ ≠ bodyslam เตรียมวางแผงให้แฟนๆได้จับจอง 25 กันยายนนี้ ทั่วประเทศ
+									<div class="sub header">14 March 2014</div>
+								</h2>
+								<h5>พิเศษ! ทุกแผ่นจะมีคูปองส่วนลด 
+									บัตรคอนเสิร์ต ปรากฏการณ์ ดัม-มะ-ชา-ติ ฿300 บาท จากราคาบัตรปกติ (1,500 บาท เหลือเพียง 1200 บาท)
+
+									[ คูปองนี้สามารถใช้ได้ตั้งแต่วันที่ 25 กันยายน 2557 เป็นต้นไป / คูปองนี้ไม่สามารถใช้รวมกับส่วนลดอื่นๆได้ / สามารถใช้ส่วนลดได้ที่เคานเตอร์จำหน่ายบัตรและที่หน้างานแสดงได้ ]
+								</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="advt"></div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+
+	<div class="footmix">
+		<div class="footleft"></div>
+		<div class="footright"></div>
+	</div>
+
+	<footer></footer>
+
+	<script src="../../../assets/js/bandbrary.js"></script>
+	<script>
+	</script>
+</body>
+</html>

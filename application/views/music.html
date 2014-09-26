@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bandbrary</title>
+
+	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../assets/css/semantic.css">
+
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.address.min.js"></script>
+	<script src="../../assets/js/semantic.min.js"></script>
+	
+
+	<style>
+	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
+		color: #E72A30;
+	}
+	.ui.segment {
+		padding: 2em;
+		-webkit-box-shadow: none; 
+		box-shadow: none; 
+		border-radius: 0px;
+	}
+	.center {
+		margin-top: 14px;
+		margin-left: 4px;
+		word-wrap: break-word;
+	}
+	h2.ui.header {
+		font-size: 2.5rem;
+	}
+	.ui.header .sub.header {
+		font-size: 1.4rem;
+	}
+	.ui.table thead {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+	}
+	.ui.table thead th:first-child {
+		border-radius: 0px;
+	}
+	.ui.table thead th:last-child {
+		border-radius: 0px;
+	}
+	.ui.table th {
+		background-color: rgba(0, 0, 50, 0.02);
+		padding: 0.7em 0.7em;
+	}
+	.ui.table td {
+		padding: 0.1em 0.7em;
+	}
+	</style>
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="bb-logo" style="margin-left: 482px;">
+						<img src="../../images/bandbrary_logo_16-9.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<article>
+			<div class="top-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="profile-cover">
+								<img src="" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="../../../images/no_profile.jpg" alt="" id="profile-pic2" class="img-thumbnail">
+			<div class="profile-name">
+				<div id="pn1">Bandbrary</div>
+				<div id="pn2">Rock/Blues/Jazz</div>
+			</div>
+			<div id="greedd"class="ui button">
+				<i class="add icon"></i>Follow</div>
+				<div id="joinBand" class="ui red buttons">
+					<div class="ui button" 
+					style="border-top-left-radius: 0em; 
+					border-bottom-left-radius: 0em; ">
+					<i class="circle blank icon"></i>JOIN</div>
+					<div class="ui red floating dropdown icon button">
+						<i class="dropdown icon" style="font-size: 1.1em;"></i>
+						<div class="menu">
+							<div class="item"><i class="hide icon"></i>Vocal</div>
+							<div class="item"><i class="hide icon"></i>Guitar</div>
+							<div class="item"><i class="hide icon"></i>Bass</div>
+							<div class="item"><i class="hide icon"></i>Drum</div>
+							<div class="item"><i class="hide icon"></i>Piano</div>
+							<div class="item"><i class="hide icon"></i>Keybroad</div>
+							<div class="item"><i class="hide icon"></i>Saxophone</div>
+							<div class="item"><i class="hide icon"></i>Trumpets</div>
+							<div class="item"><i class="hide icon"></i>Violin</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="menu-profile">
+							<ul class="nav nav-tabs nav-justified" role="tablist">
+								<li class="active">
+									<a href=""><span class="badge pull-right">0</span>Timeline</a>
+								</li>
+								<li>
+									<a href=""><span class="badge pull-right">0</span>Music</a>
+								</li>
+								<li>
+									<a href="post.html"><span class="badge pull-right">0</span>Post</a>
+								</li>
+								<li>
+									<a href="follower.html"><span class="badge pull-right">0</span>Follower</a>
+								</li>
+								<li>
+									<a href="following.html"><span class="badge pull-right">0</span>Following</a>
+								</li>
+								<li>
+									<a href="event.html"><span class="badge pull-right">0</span>Event</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+	<section>
+		<article>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-3">
+						<div id="status-button"class="ui icon button">
+							<i class="edit icon" style="font-size: 1.5rem"></i>
+						</div>
+						<div class="status">
+							<div class="body">
+								<div class="ui form">
+									<div class="field">
+										<textarea id="bg-status"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="about">
+							<div class="title-box">ABOUT</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<i class="book icon"></i>
+										<div class="content">
+											<a class="header">Biography</a>
+											<div class="description"></div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="attention icon"></i>
+										<div class="content">
+											<a class="header">Genre</a>
+											<div class="description">Im so glad you chose to bring me home from the shelter...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="map marker icon"></i>
+										<div class="content">
+											<a class="header">Location</a>
+											<div class="description">Man i am so tired that walk today really was too far...</div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="facebook sign icon"></i>
+										<div class="content">
+											<a class="header">Facebook</a>
+											<div class="description"><br></div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="twitter icon"></i>
+										<div class="content">
+											<a class="header">Twitter</a>
+											<div class="description"></div>
+										</div>
+									</div>
+									<div class="item">
+										<i class="youtube play icon"></i>
+										<div class="content">
+											<a class="header">Youtube</a>
+											<div class="description"> </div>
+										</div>
+									</div>
+									<? } ?>
+								</div>
+							</div>
+						</div>
+						<div class="member">
+							<div class="title-box">MEMBER</div>
+							<div class="ui list">
+								<div class="list">
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Vocal
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Guitar
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Bass
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Drum
+										</div>
+									</div>
+									<div class="item">
+										<img id="member-pic" class="ui avatar image" src="/images/demo/avatar2.jpg">
+										<div id="member-nam" class="content">
+											<div class="header">Schnoodle</div>
+											Keyboard
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="center">
+							<div class="album-group">
+								<img src="../../images/bodyslam.jpg" alt="" class="album-cover1">
+								<img src="../../images/drive.jpg" alt="" class="album-cover1">
+								<img src="../../images/believe.jpg" alt="" class="album-cover1">
+								<img src="../../images/kramm.jpg" alt="" class="album-cover1">
+								<img src="../../images/dharmajati.jpg" alt="" class="album-cover1">
+							</div>
+							<table class="ui table segment">
+								<thead>
+									<tr><th>#</th>
+										<th>Name</th>
+										<th>Artist</th>
+										<th>Genre</th>
+										<th>Rating</th>
+										<th>...</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											เตรียมตัวตาย
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											เรือเล็กควรออกจากฝั่ง
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											ชีวิตยังคงสวยงาม
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											ปลิดปลิว (feat. เมธี Labanoon)
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											dharmajāti (ดัม-มะ-ชา-ติ)
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td><img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											ครึ่งหลับครึ่งตื่น
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">คิดถึง
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>8</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											รักอยู่ข้างเธอ (feat. อัญชลี จงคดีกิจ)
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											ความฝันกับจักรวาล
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>10</td>
+										<td>
+											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
+											ช่างมันเถอะเหงา
+										</td>
+										<td>Bodyslam</td>
+										<td>Rock</td>
+										<td>
+											<div class="ui large rating">
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+												<i class="icon"></i>
+											</div>
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="advt"></div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+
+	<div class="footmix">
+		<div class="footleft"></div>
+		<div class="footright"></div>
+	</div>
+
+	<footer></footer>
+
+	<script src="../../assets/js/bandbrary.js"></script>
+	<script>
+	$('.ui.rating')
+	.rating()
+	;
+	</script>
+</body>
+</html>

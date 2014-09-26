@@ -5,6 +5,7 @@ class Job extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('job_model','job');
+		$this->load->model('user_model');
 	}
 
 	public function index() {
@@ -61,9 +62,18 @@ class Job extends CI_Controller {
 	}
 
 	// view only one job
-	public function view($id) {
-		$data = $this->job->get($id);
-		$this->load->view('temp/viewJob');
+	public function view() {
+		$my_id = $this->session->userdata('id');
+		$job = $this->job->get_all();
+		$data = array(
+		'name' => $this->session->userdata('name'),
+		'photo_url' => $this->session->userdata('photo_url'),
+		'user' => $this->user_model->getProfile($my_id),
+		'jobs' => $job,
+		'countJob' => $this->job->countJob()
+		);
+		//print_r($data);
+		$this->load->view('user/job',$data);
 	}
 
 	//view all job (all job in job's page)
@@ -72,6 +82,11 @@ class Job extends CI_Controller {
 		$this->load->view('temp/viewJob');
 	}
 
+	public function get(){
+		$job_id = $this->input->post('id');
+		$job = $this->job->get($job_id);
+		echo json_encode($job);
+	}
 }
 
 /* End of file event.php */

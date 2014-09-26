@@ -34,7 +34,7 @@ class Post extends CI_Controller {
 			}
 	}
 
-	public function edit() {
+	public function edit($post_id) {
 		if ($this->input->post()) {
 			// edit band to get band name from session
 			$post = array('post' => $this->input->post('post'),
@@ -42,9 +42,8 @@ class Post extends CI_Controller {
 			);
 			$this->post_model->editPost($post);
 		} else {
-			$this->load->model('user_model');
-			$data = $this->post_model->getPost();
-			$this->load->view('temp/editPost',$data);
+			$post = $this->post_model->getPost($post_id);
+			$this->load->view('temp/editPost',$post);
 		}
 	}
 
@@ -68,15 +67,19 @@ class Post extends CI_Controller {
 		// 	$data = $this->post_model->getPost(4);
 		// 	$this->load->view('temp/viewPost',$data);
 		// }
-		$band_id = $this->session->userdata('band_id');
+		$my_id = $this->session->userdata('id');
+		$post = $this->post_model->getPost($post_id);
 		$data = array (
-		'post' => $this->post_model->getPost($post_id),
-		'id' => $this->session->userdata('id'),
+		'post' => $post,
 		'name' => $this->session->userdata('name'),
-		'photo_url' => $this->session->userdata('photo_url')
-
+		'photo_url' => $this->session->userdata('photo_url'),
+		'user' => $this->user_model->getProfile($my_id),
+		'band_id' => $post->band_id,
+		'isFollow' => $this->follow_band_model-> isFollow($post->band_id,$my_id),
+		'band' => $this->band_model->get($post->band_id),
 		);
-		$this->load->view('temp/viewPost');
+		//print_r($data);
+		$this->load->view('band/viewPost',$data);
 	}
 
 	public function viewAll($band_id){

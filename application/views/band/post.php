@@ -16,38 +16,24 @@
 	.ui.segment {
 		padding: 2em;
 	}
-	.ui.form textarea, .ui.textarea {
-		height: 11.4em;
-		border-radius: 0px;
-	}
 	.ui.modal {
 		height: 470px;
 	}
 	.ui.modal > .header {
-		font-family: 'TH sarabunPSK';
 		font-size: 32px;
 	}
 	.ui.modal > .content {
-		font-family: 'TH sarabunPSK';
 		font-size: 22px;
-	}
-	.ui.comments .comment .actions {
-		text-align: left;
 	}
 	.ui.modal .actions {
 		padding: 1rem 0em;
 	}
-	.ui.comments .reply.form textarea {
-		height: 5em;
-	}
 	.ui.textarea, .ui.form textarea {
 		min-height: 0em;
 	}
-	.ui.comments .comment .reply.form {
-		margin:0em;
-	}
-	.ui.comments .reply.form {
-		max-width: 96%;
+	.ui.form textarea, .ui.textarea {
+		height: 11.4em;
+		border-radius: 0px;
 	}
 	</style>
 
@@ -313,7 +299,7 @@
 							foreach ($band_post as $post) {
 
 								echo '
-								<div class="view-post">
+								<div class="preview-post">
 								<div class="post-date">
 								<div class="post-day">'.'14'.'</div>
 								<div class="post-month">'.'MAR'.'</div>
