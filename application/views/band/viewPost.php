@@ -15,48 +15,6 @@
 	.ui.segment {
 		padding: 2em;
 	}
-	.ui.form textarea, .ui.textarea {
-		height: 11.4em;
-		border-radius: 0px;
-	}
-	.ui.modal {
-		height: 470px;
-	}
-	.ui.modal > .header {
-		font-family: 'TH sarabunPSK';
-		font-size: 32px;
-	}
-	.ui.modal > .content {
-		font-family: 'TH sarabunPSK';
-		font-size: 22px;
-	}
-	.ui.comments .comment .actions {
-		text-align: left;
-	}
-	.ui.modal .actions {
-		padding: 1rem 0em;
-	}
-	.ui.comments .reply.form textarea {
-		height: 5em;
-	}
-	.ui.textarea, .ui.form textarea {
-		min-height: 0em;
-	}
-	.ui.comments .comment .reply.form {
-		margin:0em;
-	}
-	.ui.comments .reply.form {
-		max-width: 96%;
-	}
-	.full-post {
-		background-color: #F7F6F6; 
-		margin-top: 14px;
-		margin-left: 4px;
-		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
-		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
-		word-wrap: break-word;
-		padding: 25px;
-	}
 	h2.ui.header {
 		font-size: 2.5rem;
 	}
@@ -271,7 +229,7 @@
 					</div>
 					<div class="col-xs-7">
 						<div class="center">
-							<div class="full-post">
+							<div class="view-post">
 								<a class="ui red button" href="<? echo base_url().'band/post/edit/'.$post->id ?>" style="margin-left: 530px">
 									<i class="edit icon"></i>
 									Edit
