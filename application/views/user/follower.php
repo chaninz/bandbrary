@@ -208,7 +208,7 @@
 										<i class="book icon"></i>
 										<div class="content">
 											<a class="header">Biography</a>
-											<div class="description">Im so glad you chose to bring me home from the shelter...</div>
+											<div class="description"><?php echo $member->biography; ?></div>
 										</div>
 									</div>
 									<div class="item">
@@ -218,20 +218,33 @@
 											<div class="description">Man i am so tired that walk today really was too far...</div>
 										</div>
 									</div>
+									<? if(strlen($member->fb_url)!=0  ){?>
 									<div class="item">
-										<i class="users icon"></i>
+										<i class="facebook sign icon"></i>
 										<div class="content">
-											<a class="header">Social</a>
-											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+											<a class="header">Facebook</a>
+											<div class="description"><?php echo $member->fb_url; ?> <br></div>
 										</div>
 									</div>
+									<? } ?>
+									<? if(strlen($member->tw_url)!=0  ){?>
 									<div class="item">
-										<i class="url icon"></i>
+										<i class="twitter icon"></i>
 										<div class="content">
-											<a class="header">Website</a>
-											<div class="description">Is this your address? I'm getting dropped off from the SPCA...</div>
+											<a class="header">Twitter</a>
+											<div class="description"><?php echo $member->tw_url ; ?> </div>
 										</div>
 									</div>
+								    <? } ?>
+								    <? if(strlen($member->yt_url)!=0  ){?>
+									<div class="item">
+										<i class="youtube play icon"></i>
+										<div class="content">
+											<a class="header">Youtube</a>
+											<div class="description"><?php echo $member->yt_url ; ?></div>
+										</div>
+									</div>
+									<? } ?>
 								</div>
 							</div>
 						</div>

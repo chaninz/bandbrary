@@ -202,10 +202,10 @@
 					<div class="col-xs-3">
 						<div class="follow-menu">
 							<div class="ui fluid vertical pointing menu">
-								<a class="active item">
+								<a class="active item" href="">
 									<i class="user icon"></i> Member
 								</a>
-								<a class="item">
+								<a class="item" href="">
 									<i class="circle blank icon"></i> Band
 								</a>
 							</div>

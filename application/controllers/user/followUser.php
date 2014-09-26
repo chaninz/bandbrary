@@ -38,6 +38,7 @@ class Followuser extends CI_Controller {
 		// 'band_name' => $this->session->userdata('band_name'),
 		'user' => $this->user_model->getProfile($my_id),
 		'profile_user' => $profile_user,
+		'member' => $this->user_model->getProfile($user_id),
 		'user_id' => $user_id,
 		'band_profile_user' => $this->join_band_model->get_band($profile_user->id)
 		);

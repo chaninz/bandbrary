@@ -20,6 +20,7 @@ class Following extends CI_Controller {
 		'user' => $this->user_model->getProfile($my_id),
 		'profile_user' => $profile_user,
 		'user_id' => $user_id,
+		'member' => $this->user_model->getProfile($user_id),
 		'band_profile_user' => $this->join_band_model->get_band($profile_user->id)
 		);
 		//print_r($data); 
