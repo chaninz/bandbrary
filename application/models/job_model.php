@@ -26,10 +26,11 @@ class Job_Model extends CI_Model {
 	}
 
 	public function get_all() {
-		$this->db->get('jobs');
-		foreach ($row as $query => $result) {
-			echo $row->description;
-		}
+		$this->db->select('*');
+		$this->db->from('Jobs');
+
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 	public function get_by_region($region) {
