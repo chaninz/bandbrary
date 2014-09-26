@@ -272,7 +272,7 @@
 					<div class="col-xs-7">
 						<div class="center">
 							<div class="full-post">
-								<a class="ui red button" href="editPost.php" style="margin-left: 530px">
+								<a class="ui red button" href="<? echo base_url().'band/post/edit/'.$post->id ?>" style="margin-left: 530px">
 									<i class="edit icon"></i>
 									Edit
 								</a>
