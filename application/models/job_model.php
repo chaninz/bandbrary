@@ -20,6 +20,14 @@ class Job_Model extends CI_Model {
 		return $query->row();
 	}
 
+	function countJob(){
+		$this->db->select('*');
+		$this->db->from('Jobs');
+
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
 	function edit($data,$id) {
 		$this->db->where('id',$id);
 		$this->db->update('Jobs',$data);

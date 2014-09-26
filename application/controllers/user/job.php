@@ -69,7 +69,8 @@ class Job extends CI_Controller {
 		'name' => $this->session->userdata('name'),
 		'photo_url' => $this->session->userdata('photo_url'),
 		'user' => $this->user_model->getProfile($my_id),
-		'jobs' => $job
+		'jobs' => $job,
+		'countJob' => $this->job->countJob()
 		);
 		//print_r($data);
 		$this->load->view('user/job',$data);

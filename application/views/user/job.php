@@ -67,7 +67,7 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="job-hea2">Explore <span class="job-total">6,834</span> Jobs</div>
+				<div class="job-hea2">Explore <span class="job-total"><?php  echo $countJob ?></span> Jobs</div>
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
