@@ -78,7 +78,7 @@
 					<?php 
 							foreach ($jobs as $job) {
 						echo '
-					<div id="preview-job" class="item view job">
+					<div id="preview-job" class="item view job" data-id="'.$job->id.'">
 						<div class="image">
 							<img src="../../../images/bass.jpg">
 							<a class="star ui corner label">
@@ -225,7 +225,7 @@
 	<div class="ui form segment create modal">
 		<i class="close icon"></i>
 		<div class="header">
-			<?php echo $job->name; ?>
+			<span id="jobname"></span>
 		</div>
 		<div class="content">
 			<div class="left" style="width: 60px">
@@ -234,13 +234,13 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Start Time</div>
-							He's also a dog
+							<span id="jobstart"></span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
 							<div class="header">End Time</div>
-							He's also a dog
+							<span id="jobend"></span>
 						</div>
 					</div>
 				</div>
@@ -262,7 +262,7 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Venue</div>
-							He's also a dog
+								<span id="jobvenue"></span>
 						</div>
 					</div>
 					<div class="item">
@@ -274,14 +274,13 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Budget</div>
-							He's also a dog
+								<span id="jobbudget"></span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
 							<div class="header">Description</div>
-							Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
-							Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+								<span id="jobdescription"></span>
 						</div>
 					</div>
 				</div>
@@ -295,10 +294,28 @@
 
 	<script src="../../../assets/js/bandbrary.js"></script>
 	<script>
-	$('.demo.sidebar').first()
-	.sidebar('attach events', '.toggle.button');
-	$('.create.modal')
-	.modal('attach events', '.view.job', 'show');
+	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
+	$(".view.job").click(function(){
+		var id = $(this).attr("data-id");
+		$.ajax({
+			type:'POST',
+			url:'<? echo base_url().'user/job/get'; ?>',
+			data:{id:id},
+			success:function(data){
+				console.log(data);
+				var job = JSON.parse(data);
+				$("#jobname").text(job.name);
+				$("#jobvenue").text(job.venue);
+				$("#jobstart").text(job.start);
+				$("#jobend").text(job.end);
+				$("#jobbudget").text(job.budget);
+				$("#jobdescription").text(job.description);
+				$('.create.modal').modal('show');
+			}
+		});
+		
+	})	
+	
 	</script>
 </body>
 </html>

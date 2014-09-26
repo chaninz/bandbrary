@@ -82,6 +82,11 @@ class Job extends CI_Controller {
 		$this->load->view('temp/viewJob');
 	}
 
+	public function get(){
+		$job_id = $this->input->post('id');
+		$job = $this->job->get($job_id);
+		echo json_encode($job);
+	}
 }
 
 /* End of file event.php */
