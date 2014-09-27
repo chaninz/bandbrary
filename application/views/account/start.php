@@ -139,8 +139,8 @@
 											<i class="dropdown icon"></i>
 											<input type="hidden" name="province">
 											<div class="menu">
-												<div class="item" data-value="01" style="font-size: 14px;">Bangkok</div>
-												<div class="item" data-value="02" style="font-size: 14px;">Changmai</div>
+												<div class="item" data-value="10" style="font-size: 14px;">Bangkok</div>
+												<div class="item" data-value="36" style="font-size: 14px;">Chaiyaphum</div>
 											</div>
 											<div class="ui corner label">
 												<i class="icon asterisk"></i>

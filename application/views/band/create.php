@@ -13,6 +13,7 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
+        <form action="<?php echo base_url().'band/create'; ?>" method="post" > 
         <div class="ui form segment">
           <div class="field">
             <label>Band Name</label>
@@ -20,7 +21,7 @@
           </div>
           <div class="field">
             <label>Biography</label>
-            <textarea></textarea>
+            <textarea name="biography"></textarea>
           </div>
           <div class="field">
             <label>Style</label>
@@ -40,42 +41,48 @@
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="3" name="style">
-                  <label>Hip Hop</label>
+                  <label>Country</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="4" name="style">
-                  <label>Jazz</label>
+                  <label>Hip Hop</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="5" name="style">
-                  <label>Latin</label>
+                  <label>Jazz</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="6" name="style">
-                  <label>Pop</label>
+                  <label>Latin</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="7" name="style">
-                  <label>Reggae</label>
+                  <label>Pop</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="8" name="style">
-                  <label>R&B</label>
+                  <label>Reggae</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" value="9" name="style">
+                  <label>R&B</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" value="10" name="style">
                   <label>Rock</label>
                 </div>
               </div>
@@ -102,8 +109,9 @@
               <i class="youtube icon"></i>
             </div>
           </div>
-          <div class="ui red submit button">Submit</div>
+          <input class="ui red submit button" type="submit" value="Submit">
         </div>
+      </form>
       </div>
       <div class="col-md-3"></div>
     </div>

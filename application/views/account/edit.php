@@ -120,8 +120,8 @@
 								<input type="hidden" name="province" value="<?php echo $user->province_id; ?>" >
 
 								<div class="menu">
-									<div class="item  <?php echo ($user->province_id ==1)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
-									<div class="item <?php echo ($user->province_id ==2)?'active':'';?>" data-value="2" style="font-size: 14px;">Changmai</div>
+									<div class="item  <?php echo ($user->province_id ==10)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
+									<div class="item <?php echo ($user->province_id ==36)?'active':'';?>" data-value="2" style="font-size: 14px;">Chaiyaphum</div>
 								</div>
 							</div>
 						</div>
