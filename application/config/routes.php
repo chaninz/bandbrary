@@ -42,6 +42,10 @@ $route['default_controller'] = "index";
 $route['404_override'] = '';
 
 /* == User == */
+// Timeline
+$route['user/(:any)/timeline'] = 'user/timeline/index/$1';
+// Music
+$route['user/(:any)/music'] = 'user/music/index/$1';
 // Event
 $route['user/(:any)/event'] = 'user/event/index/$1';
 // Following
@@ -51,7 +55,11 @@ $route['user/(:any)/following/band'] = 'user/following/band/$1';
 // Follower
 $route['user/(:any)/follower'] = 'user/follower/index/$1';
 // Index
-$route['user/(:any)'] = 'user/event/index/$1';
+$route['user/(:any)'] = 'user/index/index/$1';
+
+
+$route['job'] = 'job/index/view';
+
 
 
 //$route['user/(:any)/event'] = 'user/event/$1';

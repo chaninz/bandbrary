@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
 	<?php $this->load->view('header'); ?>
 
 	<style>
@@ -95,7 +94,9 @@
 							<div class="ui five connected items"><?php foreach($following_users as $following_user): ?>
 								<div class="item">
 									<div class="image">
-										<img src="<?= base_url().'uploads/profile/'.$following_user->photo_url ?>">	
+										<?php if($following_user->photo_url): ?>
+										<img src="<?= base_url().'uploads/profile/'.$following_user->photo_url ?>"><?php else: ?>
+										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 										<a class="star ui corner label">
 											<i class="star icon"></i>
 										</a>

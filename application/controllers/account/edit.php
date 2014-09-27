@@ -24,7 +24,7 @@ class Edit extends CI_Controller {
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'),
 				'dob' => $this->input->post('dob'));
-			$this->user_model->update($new_data, $id);
+			$this->user_model->update($id, $new_data);
 
 			redirect('account/edit');
 		} else {

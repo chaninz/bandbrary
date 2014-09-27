@@ -7,7 +7,7 @@ class Index extends CI_Controller {
 	}
 
 	public function index($username) {
-		redirect('/user/'.$username.'/event');
+		redirect('/user/'.$username.'/timeline');
 	}
 
 
