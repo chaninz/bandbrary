@@ -86,7 +86,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#greedd").click(function(){
-			location.href = '<?php echo base_url()."user/followBand/follow/".$band_id; ?>';
+			location.href = '<?php echo base_url()."following/band/follow/".$band_id; ?>';
 		});
 		$("#ungreedd").click(function(){
 			location.href = '<?php echo base_url()."user/followBand/unfollow/".$band_id; ?>';
