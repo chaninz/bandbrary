@@ -38,7 +38,7 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
-				<form action="<?php echo base_url().'user/job/add'; ?>" method="post" > 
+				<form action="<?php echo base_url().'job/job/add'; ?>" method="post" > 
 					<div class="ui form segment">
 						<div class="field">
 							<label>Job Name</label>

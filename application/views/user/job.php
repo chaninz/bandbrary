@@ -292,14 +292,14 @@
 		</div>
 	</div>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
+	<?php $this->load->view('footer'); ?>
 	<script>
 	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
 	$(".view.job").click(function(){
 		var id = $(this).attr("data-id");
 		$.ajax({
 			type:'POST',
-			url:'<? echo base_url().'user/job/get'; ?>',
+			url:'<? echo base_url().'job/job/get'; ?>',
 			data:{id:id},
 			success:function(data){
 				console.log(data);
