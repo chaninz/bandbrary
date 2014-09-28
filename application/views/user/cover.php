@@ -5,7 +5,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="profile-cover">
-							<img src="<?= base_url().'upload/cover/'.$user_profile->cover_url ?>" alt="">
+							<img src="<?= base_url('upload/cover/'.$user_profile->cover_url) ?>" alt="">
 						</div>
 					</div>	
 				</div>
@@ -14,12 +14,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
+
 					<div class="punpun"><?php if($user_profile->photo_url): ?>
-						<img src="<?= base_url().'uploads/profile/'.$user_profile->photo_url ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php else: ?>
-						<img src="<?= base_url().'images/no_profile.jpg' ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php endif; ?>
+						<img src="<?= base_url('uploads/profile/'.$user_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php else: ?>
+						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php endif; ?>
 						<div class="profile-name">
-							<div id="pn1"><?php echo $user_profile->name." ".$user_profile->surname; ?></div>
-							<div id="pn2"><?php echo $band_profile->name; ?></div>
+							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div>
+
+							<div id="pn2"><?= $band_profile->name ?></div>
 						</div><?php if(empty($is_follow_user)): ?>
 						<div id="follow" class="ui button"><a href="<?= base_url('following/user/follow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
 						<div id="follow" class="ui button"><a href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?>

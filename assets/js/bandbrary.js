@@ -6,6 +6,8 @@
 		.checkbox();
 		$('.ui.radio.checkbox')
 		.checkbox();
+		$('.ui.accordion')
+		.accordion();
 		$("#confirm-pass,#password").change(function() {
 			var confirmPass = $("#confirm-pass").val();
 			var password = $("#password").val();
@@ -103,4 +105,16 @@
 			event.preventDefault();
 			$( ".initial-form" ).submit();
 		});
+
+		/***********/
+		/* Cover */
+		/***********/
+
+		$("#follow").click(function() {
+			follow(url);
+		});
 	});
+
+	function follow(url) {
+		location.href = url;
+	}

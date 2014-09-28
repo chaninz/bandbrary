@@ -46,18 +46,34 @@ $route['404_override'] = '';
 $route['user/(:any)/timeline'] = 'user/timeline/index/$1';
 // Music
 $route['user/(:any)/music'] = 'user/music/index/$1';
-// Event
-$route['user/(:any)/event'] = 'user/event/index/$1';
 // Following
 $route['user/(:any)/following'] = 'user/following/index/$1';
 $route['user/(:any)/following/user'] = 'user/following/user/$1';
 $route['user/(:any)/following/band'] = 'user/following/band/$1';
 // Follower
 $route['user/(:any)/follower'] = 'user/follower/index/$1';
+// Event
+$route['user/(:any)/event'] = 'user/event/index/$1';
 // Index
-$route['user/(:any)'] = 'user/index/index/$1';
+$route['user/(:any)'] = 'user/index/user/$1';
 
+/* == Band == */
+// Timeline
+$route['band/(:num)/timeline'] = 'band/timeline/index/$1';
+// Music
+$route['band/(:any)/music'] = 'band/music/index/$1';
+// Post
+$route['band/(:num)/post'] = 'band/post/index/$1';
+// Follower
+$route['band/(:num)/follower'] = 'band/follower/index/$1';
+// Event
+$route['band/(:num)/event'] = 'band/event/index/$1';
 
+// Join band
+$route['band/join/(:num)'] = 'band/join/index/$1';
+$route['band/join/cancel/(:num)'] = 'band/join/cancel/$1';
+
+/* == Job == */
 $route['job'] = 'job/index/view';
 
 

@@ -4,10 +4,30 @@ class Post extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('post_model');
 		$this->load->model('band_model');
-		$this->load->model('user_model');
-		$this->load->model('follow_band_model');
+		$this->load->model('follow_model');
+		$this->load->model('join_band_model');
+		$this->load->model('post_model');
+	}
+
+	public function index($band_id) {
+		// Basic data for user profile page
+		$band_profile = $this->band_model->get($band_id);
+		$band_members = $this->join_band_model->get_current_member($band_id);
+		// Current user info
+		$current_user_id = $this->session->userdata('id');
+		$is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
+		$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
+
+		$posts = $this->post_model->get_band_post($band_id);
+
+		$data = array('band_profile' => $band_profile,
+			'is_follow_band' => $is_follow_band,
+			'user_status' => $user_status,
+			'band_members' => $band_members,
+			'posts' => $posts);
+
+		$this->load->view('band/post', $data);
 	}
 
 	public function add() {
@@ -83,37 +103,7 @@ class Post extends CI_Controller {
 	}
 
 	public function viewAll($band_id){
-		// if ($this->input->post()) {
-		// 	// edit band to get band name from session
-		// 	$band_id = $this->input->post('band_id');
-		// 	$this->post_model->getAllPost($band_id);
-		// } else {
-		// 	$data = $this->post_model->getAllPost();
-		// 	$this->load->view('temp/getAllPost',$data);
-		// }
-		// $band_id = $this->session->userdata('band_id');
-
-		// $data = array (
-		// 'band_post' => $this->post_model->getAllPost($band_id),
-		// 'id' => $this->session->userdata('id'),
-		// 'name' => $this->session->userdata('name'),
-		// 'photo_url' => $this->session->userdata('photo_url'),
-		// 'band' => $this->band_model->get($band_id)
-		// );
-		// $this->load->view('headerBar',$data);
-		// $this->load->view('coverSection');
-		$my_id = $this->session->userdata('id');
-		$data = array( 
-		'band' => $this->band_model->get($band_id),
-		'band_post' => $this->post_model->getAllPost($band_id),
-		'id' => $this->session->userdata('id'),
-		'name' => $this->session->userdata('name'),
-		'band_id' => $band_id,
-		'user' => $this->user_model->getProfile($my_id),
-		'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
-		);
-
-		$this->load->view('band/post',$data);
+		
 
 	}
 

@@ -10,7 +10,7 @@ class Band extends CI_Controller {
 	public function follow($user_id) {
 		$current_id = $this->session->userdata('id');
 		$ref = $this->input->get('ref');
-		$this->follow->follow_band($current_id, $user_id);
+		$this->follow_model->follow_band($current_id, $user_id);
 
 		redirect($ref);
 	}
@@ -18,7 +18,7 @@ class Band extends CI_Controller {
 	public function unfollow($user_id) {
 		$current_id = $this->session->userdata('id');
 		$ref = $this->input->get('ref');
-		$this->follow->unfollow_band($current_id, $user_id);
+		$this->follow_model->unfollow_band($current_id, $user_id);
 
 		redirect($ref);
 	}

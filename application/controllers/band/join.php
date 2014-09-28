@@ -2,24 +2,47 @@
 
 class Join extends CI_Controller {
 
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
-		$this->load->model('band_model');
+		$this->load->model('join_band_model');
 	}
 
-	public function index($position) {
+	public function index($band_id) {
 		// edit how to get position from user ?
 		// getting from query string
 		if ($this->input->get()) {
+			$position = $this->input->get('pos');
+			$ref = $this->input->get('ref');
 			$user_id = $this->session->userdata('id');
-			$data = array('band_id' => $this->input->get('band'),
+			$data = array('band_id' => $band_id,
 				'user_id' => $user_id,
-				'position' => $position/*$position*/,
+				'position' => $position,
 				'status' => 1);
-			$this->band_model->join($data);
+			$this->join_band_model->join($data);
+
+			redirect($ref);
 		} else {
 			redirect('');
+		}
+	}
+
+	public function cancel($band_id) {
+		if ($this->input->get()) {
+			$ref = $this->input->get('ref');
+			$user_id = $this->session->userdata('id');
+			$this->join_band_model->reject($user_id, $band_id);
+
+			redirect($ref);
+		}
+	}
+
+	public function leave($band_id) {
+		if ($this->input->get()) {
+			$ref = $this->input->get('ref');
+			$user_id = $this->session->userdata('id');
+			$this->join_band_model->leave($user_id, $band_id);
+
+			redirect($ref);
 		}
 	}
 

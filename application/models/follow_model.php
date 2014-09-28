@@ -90,11 +90,11 @@ class Follow_model extends CI_Model {
 	function get_follower($id, $user_type) {
 		// Get follower of user, band from their ID
 		if ($user_type == 1) {
-			$this->db->join('Users', 'Follow_Users.follow_user = Users.id');
-			$query = $this->db->get_where('Follow_Users', array('user_id' => $id));
+			$this->db->join('Users', 'Follow_Users.user_id = Users.id');
+			$query = $this->db->get_where('Follow_Users', array('follow_user' => $id));
 		} elseif ($user_type == 2) {
-			$this->db->join('Users', 'Follow_Bands.follow_band = Bands.id');
-			$query = $this->db->get_where('Follow_Bands', array('user_id' => $id));
+			$this->db->join('Users', 'Follow_Bands.user_id = Users.id');
+			$query = $this->db->get_where('Follow_Bands', array('follow_band' => $id));
 		}
 		$result = $query->result();
 

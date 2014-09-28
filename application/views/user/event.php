@@ -133,10 +133,5 @@
 	</section>
 
 	<?php $this->load->view('footer'); ?>
-	<script>
-	$('.ui.accordion')
-	.accordion()
-	;
-	</script>
 </body>
 </html>

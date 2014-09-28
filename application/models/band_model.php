@@ -3,11 +3,11 @@
 class Band_model extends CI_Model {
 
 	function create($band) {
-		$this->db->insert('Bands',$band);
+		$this->db->insert('Bands', $band);
 	}
 
-	// Check if band name is exist.
 	function is_exist($bandname) {
+		// Check if band name is exist.
 		$result = 0;
 		$this->db->or_where('name', $bandname);
 		$query = $this->db->get('Bands');
@@ -26,14 +26,15 @@ class Band_model extends CI_Model {
 		$this->db->update('Bands', $band);
 	}
 	
-
 	function get($band_id){
 		$this->db->select('*');
-		$this->db->from('Bands');
-		$this->db->where('id',$band_id);
+		$this->db->select('Bands.id AS id');
+		$this->db->join('Style', 'Bands.style_id = Style.id');
+		$this->db->join('Provinces', 'Bands.province_id = Provinces.id');
+		$query = $this->db->get_where('Bands', array('Bands.id' => $band_id));
+		$result = $query->row();
 
-		$query = $this->db->get();
-		return $query->row();
+		return $result;
 	}
 
 }
