@@ -10,10 +10,10 @@ class Follow_model extends CI_Model {
 	function follow($user_id, $followed_id, $follow_type) {
 		// Add follow for user and band
 		if ($follow_type == 1) {
-			$this->db->insert('Follow_Users', array('user_id' => $id,
+			$this->db->insert('Follow_Users', array('user_id' => $user_id,
 				'follow_user' => $followed_id));
 		} elseif ($follow_type == 2) {
-			$this->db->insert('Follow_Bands', array('user_id' => $id,
+			$this->db->insert('Follow_Bands', array('user_id' => $user_id,
 				'follow_band' => $followed_id));
 		}
 	}
@@ -26,12 +26,33 @@ class Follow_model extends CI_Model {
 		$this->follow($user_id, $followed_id, 2);
 	}
 
-	function unfollow($user_id, $followed_id, $follow_type) {
+	function is_follow($user_id, $followed_id, $follow_type) {
 		if ($follow_type == 1) {
-			$this->db->delete('Follow_Users', array('user_id' => $id,
+			$query = $this->db->get_where('Follow_Users', array('user_id' => $user_id,
 				'follow_user' => $followed_id));
 		} elseif ($follow_type == 2) {
-			$this->db->delete('Follow_Bands', array('user_id' => $id,
+			$query = $this->db->get_where('Follow_Bands', array('user_id' => $user_id,
+				'follow_band' => $followed_id));
+		}
+		$result = $query->row();
+
+		return $result;
+	}
+
+	function is_follow_user($user_id, $followed_id) {
+		return $this->is_follow($user_id, $followed_id, 1);
+	}
+
+	function is_follow_band($user_id, $followed_id) {
+		return $this->is_follow($user_id, $followed_id, 2);
+	}
+
+	function unfollow($user_id, $followed_id, $follow_type) {
+		if ($follow_type == 1) {
+			$this->db->delete('Follow_Users', array('user_id' => $user_id,
+				'follow_user' => $followed_id));
+		} elseif ($follow_type == 2) {
+			$this->db->delete('Follow_Bands', array('user_id' => $user_id,
 				'follow_band' => $followed_id));
 		}
 	}

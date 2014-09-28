@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Job extends CI_Controller {
+class Index extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -9,7 +9,7 @@ class Job extends CI_Controller {
 	}
 
 	public function index() {
-		redirect();
+		//redirect('job/view');
 	}
 
 	public function add() {
@@ -50,7 +50,7 @@ class Job extends CI_Controller {
 			$this->job->edit($data,$id);
 		} else {
 			$data = $this->job->get($id);
-			$this->load->view('user/editJob',$data);
+			$this->load->view('job/editJob',$data);
 		}
 
 
@@ -73,13 +73,13 @@ class Job extends CI_Controller {
 		'countJob' => $this->job->countJob()
 		);
 		//print_r($data);
-		$this->load->view('user/job',$data);
+		$this->load->view('job/job',$data);
 	}
 
 	//view all job (all job in job's page)
 	public function viewAll() {
 		$data = $this->job->get_all();
-		$this->load->view('temp/viewJob');
+		$this->load->view('job/job');
 	}
 
 	public function get(){

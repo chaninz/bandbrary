@@ -54,7 +54,7 @@ class User_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->select('Users.id AS id');
 		$this->db->join('Provinces', 'Users.province_id = Provinces.id');
-		$query = $this->db->get_where('Users', array('id' => $id));
+		$query = $this->db->get_where('Users', array('Users.id' => $id));
 		$result = $query->row();
 
 		return $result;

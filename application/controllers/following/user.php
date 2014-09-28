@@ -7,14 +7,20 @@ class User extends CI_Controller {
 		$this->load->model('follow_model');
 	}
 
-	public follow($user_id) {
+	public function follow($user_id) {
 		$current_id = $this->session->userdata('id');
-		$this->follow->follow_user($current_id, $user_id);
+		$ref = $this->input->get('ref');
+		$this->follow_model->follow_user($current_id, $user_id);
+
+		redirect($ref);
 	}
 
-	public unfollow($user_id) {
+	public function unfollow($user_id) {
 		$current_id = $this->session->userdata('id');
-		$this->follow->follow_user($current_id, $user_id);
+		$ref = $this->input->get('ref');
+		$this->follow_model->unfollow_user($current_id, $user_id);
+
+		redirect($ref);
 	}
 
 }

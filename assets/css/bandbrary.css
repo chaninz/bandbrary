@@ -254,6 +254,17 @@
 	#greedd .icon {
 		font-size: 1em;
 	}
+	#follow {
+		position: absolute;
+		top: -55px;
+		left: 865px;
+		font-size: 12px;
+		padding-left: 10px;
+		border-radius: 0em;
+	}
+	#follow .icon {
+		font-size: 1em;
+	}
 	#joinBand {
 		position: absolute;
 		top: -55px;
