@@ -11,42 +11,6 @@
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
 	}
-	.ui.segment {
-		padding: 2em;
-	}
-	.ui.form textarea, .ui.textarea {
-		height: 11.4em;
-		border-radius: 0px;
-	}
-	.ui.modal {
-		height: 500px;
-	}
-	.ui.modal > .header {
-		font-family: 'TH sarabunPSK';
-		font-size: 32px;
-	}
-	.ui.modal > .content {
-		font-family: 'TH sarabunPSK';
-		font-size: 22px;
-	}
-	.ui.comments .comment .actions {
-		text-align: left;
-	}
-	.ui.modal .actions {
-		padding: 1rem 0em;
-	}
-	.ui.comments .reply.form textarea {
-		height: 5em;
-	}
-	.ui.textarea, .ui.form textarea {
-		min-height: 0em;
-	}
-	.ui.comments .comment .reply.form {
-		margin:0em;
-	}
-	.ui.comments .reply.form {
-		max-width: 96%;
-	}
 	.ui.accordion, .ui.accordion .accordion {
 		font-size: 1em;
 	}
@@ -54,38 +18,8 @@
 		background-color: #F7F6F6;
 		padding: 20px;
 		margin-top: 15px;
-	}
-	.event-hea {
-		padding: 10px;
-		font-size: 16px;
-	}
-	.eh1 {
-		color: #D95C5C;
-		font-weight: bold;
-		padding-left: 35px;
-	}
-	.eh2 {
-		padding-left: 55px;
-		font-weight: 400;
-	}
-	.eh3 {
-		padding-left: 55px;
-		font-weight: bold;
-	}
-	.eh4 {
-		color: #D95C5C;
-		font-weight: bold;
-	}
-	.eh5 {
-		padding-left: 14px;
-		font-weight: 400;
-	}
-	.eh6 {
-		padding-left: 18px;
-		font-weight: bold;
-	}
-	#greedd {
-		left: 985px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
@@ -97,7 +31,6 @@
 			<div class="container">
 				<div class="row">
 					<?php $this->load->view('user/sidebar_left'); ?>
-					
 					<div class="col-xs-7">
 						<div class="center">
 							<div class="ui fluid accordion">
@@ -111,6 +44,7 @@
 									</table>
 								</div><?php foreach ($events as $event): ?>
 								<div class="title">
+									<i class="dropdown icon" style="float: left"></i>
 									<table>
 										<tbody>
 											<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->start_time)) ?></td>

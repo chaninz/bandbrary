@@ -10982,7 +10982,7 @@ body.ui.dimmed.dimmable > :not(.dimmer){
 ----------------------*/
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
-  background-color: rgba(0, 0, 0, 0.06) !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
   border-left: none;
   border-color: transparent !important;
   -webkit-box-shadow: none;

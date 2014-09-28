@@ -8,6 +8,9 @@
 	<?php $this->load->view('header'); ?>
 
 	<style>
+	.ui.button {
+		border-radius: 0px;
+	}
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
 	}
@@ -36,7 +39,6 @@
 		<article>
 			<div class="container">
 				<div class="row">
-				</div>
 					<?php $this->load->view('user/sidebar_left'); ?>
 					<div class="col-xs-7">
 						<div class="center">

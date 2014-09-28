@@ -59,7 +59,7 @@
 		float: left;
 	}
 	.bb-logo > img {
-		width: 165px;
+		width: 163px;
 		height: 70px;
 		margin-top: 19px;
 		margin-left: 5px;
@@ -159,7 +159,7 @@
 	/*--- Profile ---*/
 	.profile-name {
 		position: absolute;
-		top: -80px;
+		top: -70px;
 		left: 235px;
 		font-weight: bolder;
 		color: #FFFFFF;
@@ -252,6 +252,17 @@
 		border-radius: 0em;
 	}
 	#greedd .icon {
+		font-size: 1em;
+	}
+	#user-follow {
+		position: absolute;
+		top: -55px;
+		left: 985px;
+		font-size: 12px;
+		padding-left: 10px;
+		border-radius: 0em;
+	}
+	#user-follow .icon {
 		font-size: 1em;
 	}
 	#follow {
@@ -416,6 +427,33 @@
 		margin-left: 200px;
 	}
 
+	/*--- Feed ---*/
+	.feed-box {
+		background-color: #FFFFFF;
+		-webkit-box-shadow: 0 0 15px rgba(0,0,0,.08);
+		-moz-box-shadow: 0 0 15px rgba(0,0,0,.08);
+		box-shadow: 0 0 15px rgba(0,0,0,.08);
+		-webkit-border-radius: 3px 3px 3px 3px;
+		border-radius: 3px 3px 3px 3px;
+		border: 1px solid rgba(0,0,0,.35);
+	}
+	.feed-user {
+		margin-top: 110px;
+		margin-left: 140px;
+	}
+	.feed-name {
+		text-align: right;
+		float: left;
+	}
+	.user-avatar {
+		float: left;
+		margin-left: 7px;
+	}
+	.user-avatar > img {
+		width: 2.5em;
+		height: 2.5em;
+	}
+
 	/*--- Timeline --*/
 	.audio-player {
 		width: 614px;
@@ -517,6 +555,37 @@
 	.job-img {
 		width: 214px; 
 		height: 214px;
+	}
+
+	/*--- Event ---*/
+	.event-hea {
+		padding: 10px;
+		font-size: 16px;
+	}
+	.eh1 {
+		color: #D95C5C;
+		font-weight: bold;
+		padding-left: 29px;
+	}
+	.eh2 {
+		padding-left: 53px;
+		font-weight: 400;
+	}
+	.eh3 {
+		padding-left: 16px;
+		font-weight: bold;
+	}
+	.eh4 {
+		color: #D95C5C;
+		font-weight: bold;
+	}
+	.eh5 {
+		padding-left: 14px;
+		font-weight: 400;
+	}
+	.eh6 {
+		padding-left: 18px;
+		font-weight: bold;
 	}
 
 	/*--- Navigation ---*/
