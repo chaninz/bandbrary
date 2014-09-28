@@ -16,26 +16,26 @@
 					</div>
 				</div>	
 				<div class="bb-logo">
-					<img src="<?= base_url().'images/bandbrary_logo_16-9.png' ?>">
+					<img src="<?= base_url('images/bandbrary_logo_16-9.png') ?>">
 				</div>
 				<div class="bb-player">
-					<img src="<?= base_url().'images/header_player.png' ?>" alt="">
+					<img src="<?= base_url('images/header_player.png') ?>">
 				</div>
 				<div class="navbar-item3">
 					<div class="ui compact menu">
 						<div class="ui pointing dropdown link item"><?php if($this->session->userdata('photo_url')): ?>
-							<img src="<?= base_url().'uploads/profile/'.$this->session->userdata('photo_url') ?>" alt="" class="profile-pic1"/><?php else: ?>
-							<img src="<?= base_url().'images/no_profile.jpg' ?>" alt="" class="profile-pic1"/><?php endif; ?>
+							<img src="<?= base_url('uploads/profile/'.$this->session->userdata('photo_url')) ?>" alt="" class="profile-pic1"/><?php else: ?>
+							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" class="profile-pic1"/><?php endif; ?>
 							<div class="user-name">
 								<?= $this->session->userdata('name'); ?>
 							</div>
 							<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 							<div class="menu">
-								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/music' ?>"></i>Music</a>
-								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/post' ?>"></i>Post</a>
-								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>"></i>Follower</a>
-								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/following' ?>"></i>Following</a>
-								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>"></i>Event</a>
+								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/music') ?>"></i>Music</a>
+								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/post') ?>"></i>Post</a>
+								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/follower') ?>"></i>Follower</a>
+								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/following') ?>"></i>Following</a>
+								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/event') ?>"></i>Event</a>
 							</div>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 					<div class="ui pointing dropdown icon">
 						<i class="settings icon"></i>
 						<div class="menu" style="margin-top: 1.11em; border-top:0px;">
-							<div class="item"><?= base_url().'account/signout' ?>Go to Profile</div>
+							<div class="item"><a href="<?= base_url('user/'.$this->session->userdata('username')) ?>">Go to Profile</a></div>
 							<div class="line"></div>
 							<div class="item">Setting</div>
 							<div class="item"><a href="<?= base_url().'account/signout' ?>">Sign out</a></div>
