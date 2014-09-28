@@ -117,19 +117,19 @@
 					<input type="time" placeholder="" style="padding: .2em 1em;" name="time" required>
 				</div>
 			</div>
-					<div class="line"></div>
-					<p/>
-					<div class="actions">
-						<div class="ui button">cancel</div>
-						<input type="submit" class="ui red submit button" value="Add event">
-					</div>
-				</form>
+			<div class="line"></div>
+			<p/>
+			<div class="actions">
+				<div class="ui button">cancel</div>
+				<input type="submit" class="ui red submit button" value="Add event">
 			</div>
+		</form>
+	</div>
 
-			<?php $this->load->view('footer'); ?>
-			<script>
-			$('.create.modal')
-			.modal('attach events', '.test.event', 'show');
-			</script>
-		</body>
-		</html>
+	<?php $this->load->view('footer'); ?>
+	<script>
+	$('.create.modal')
+	.modal('attach events', '.test.event', 'show');
+	</script>
+</body>
+</html>

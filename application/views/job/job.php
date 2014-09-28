@@ -10,7 +10,7 @@
 
 	<style>
 	body {
-		background: #FFFFFF url('../../images/noise-2.png');
+		background: #FFFFFF url('images/noise-2.png');
 	}
 	.ui.menu .item {
 		font-size: 1.5rem;
@@ -54,7 +54,7 @@
 </head>
 <body>
 
-	<?php $this->load->view('headerBar'); ?>
+	<?php $this->load->view('navigation'); ?>
 
 	<div class="job-top">
 
@@ -67,84 +67,33 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="job-hea2">Explore <span class="job-total"><?php  echo $countJob ?></span> Jobs</div>
+				<div class="job-hea2">Explore <span class="job-total"><?= count($jobs) ?></span> Jobs</div>
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="ui four items">
-					<?php 
-							foreach ($jobs as $job) {
-						echo '
-					<div id="preview-job" class="item view job" data-id="'.$job->id.'">
+				<div class="ui four items"><?php foreach ($jobs as $job): ?>
+					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="image">
-							<img src="../../../images/bass.jpg">
-							<a class="star ui corner label">
-								<i class="star icon"></i>
-							</a>
-						</div>
-						
-						<div class="content">
-							<div class="name">'.$job->name.'</div>
-							<p class="description">'.$job->description.'</p>
-						</div>
-						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location">Bangkok, Thailand</span>
-						<div class="job-red-line"></div>
-					</div>
-					';
-							} ?>
-				<!-- 	<div id="preview-job" class="item view job">
-						<div class="image">
-							<img src="../../../images/drum.jpg">
+							<img src="images/bass.jpg">
 							<a class="star ui corner label">
 								<i class="star icon"></i>
 							</a>
 						</div>
 						<div class="content">
-							<div class="name">Faithful Dog</div>
-							<p class="description">Sometimes its more important to have a dog you know you can trust. But not every dog is trustworthy, you can tell by looking at its smile.</p>
+							<div class="name"><?= $job->name ?></div>
+							<p class="description"><?= $job->description ?></p>
 						</div>
 						<i id="job-icon" class="map marker icon"></i>
 						<span class="job-location">Bangkok, Thailand</span>
 						<div class="job-red-line"></div>
-					</div>
-					<div id="preview-job" class="item view job">
-						<div class="image">
-							<img src="../../../images/micro.jpg">
-							<a class="star ui corner label">
-								<i class="star icon"></i>
-							</a>
-						</div>
-						<div class="content">
-							<div class="name">Silly Dog</div>
-							<p class="description">Silly dogs can be quite fun to have as companions. You never know what kind of ridiculous thing they will do.</p>
-						</div>
-						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location">Bangkok, Thailand</span>
-						<div class="job-red-line"></div>
-					</div>
-					<div id="preview-job" class="item view job">
-						<div class="image">
-							<img src="../../../images/piano.jpg">
-							<a class="star ui corner label">
-								<i class="star icon"></i>
-							</a>
-						</div>
-						<div class="content">
-							<div class="name">Happy Dog</div>
-							<p class="description">Happy dogs are pretty interesting if you are an unhappy person.</p>
-						</div>
-						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location">Bangkok, Thailand</span>
-						<div class="job-red-line"></div>
-					</div> -->
+					</div><?php endforeach ?>
 				</div>
 			</div>
 			<div class="col-xs-2">
-				<a id="job-btn-add" class="circular ui red icon add button" href="createJob.php">
+				<a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
 					<i class="icon add"></i>
 				</a>
 				<div id="job-btn-menu" class="circular ui red icon toggle button">
@@ -299,7 +248,7 @@
 		var id = $(this).attr("data-id");
 		$.ajax({
 			type:'POST',
-			url:'<? echo base_url().'job/job/get'; ?>',
+			url:'<?= base_url('job/index/get'); ?>',
 			data:{id:id},
 			success:function(data){
 				console.log(data);

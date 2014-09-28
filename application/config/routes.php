@@ -68,13 +68,15 @@ $route['band/(:num)/post'] = 'band/post/index/$1';
 $route['band/(:num)/follower'] = 'band/follower/index/$1';
 // Event
 $route['band/(:num)/event'] = 'band/event/index/$1';
+// Index
+$route['band/(:num)'] = 'band/index/band/$1';
 
 // Join band
 $route['band/join/(:num)'] = 'band/join/index/$1';
 $route['band/join/cancel/(:num)'] = 'band/join/cancel/$1';
 
 /* == Job == */
-$route['job'] = 'job/index/view';
+//$route['job'] = 'job/index/index';
 
 
 

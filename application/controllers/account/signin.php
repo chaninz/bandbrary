@@ -11,8 +11,10 @@ class Signin extends CI_Controller {
 
 	public function index() {
 		if ($this->session->userdata('email')) {
-			print_r($this->session->all_userdata());
+			//print_r($this->session->all_userdata());
 			//redirect('');
+			$user_id = $this->session->userdata('username');
+			redirect('user/'.$user_id);
 		} else if ($this->input->post()) {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
@@ -44,6 +46,8 @@ class Signin extends CI_Controller {
 					// First time signin, forward to initial page to complete the profile
 					redirect('account/start');
 				}
+
+				redirect('user/'.$username);
 			} else {
 				$data = array('error_code' => 0,
 					'error_type' => 0);

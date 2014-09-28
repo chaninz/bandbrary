@@ -17,7 +17,6 @@ class Index extends CI_Controller {
 		
 	}
 
-
 }
 
 /* End of file index.php */
