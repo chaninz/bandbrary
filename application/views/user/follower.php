@@ -68,7 +68,6 @@
 			<div class="container">
 				<div class="row">
 					<?php $this->load->view('user/sidebar_left'); ?>
-
 					<div class="col-xs-7">
 						<div class="center">
 							<div class="ui five connected items"><?php foreach($followers as $follower): ?>

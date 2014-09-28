@@ -5,8 +5,8 @@
 				<div class="navbar-item1">	
 					<i class="home icon" style="font-size: 2.7rem"></i>
 					<div class="ui basic buttons">
-						<div class="ui button">Explore</div>
-						<div class="ui button"><a href="<?= base_url().'job' ?>">Jobs</a></div>
+						<div class="ui button">Discover</div>
+						<a class="ui button" href="<?= base_url().'job' ?>">Jobs</a>
 					</div>
 				</div>
 				<div class="navbar-item2">
