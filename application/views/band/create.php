@@ -34,12 +34,6 @@
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" value="2" name="style">
-                  <label>Country</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui checkbox">
                   <input type="checkbox" value="3" name="style">
                   <label>Country</label>
                 </div>

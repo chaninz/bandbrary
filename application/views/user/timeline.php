@@ -48,8 +48,14 @@
 								Greedd
 							</div>
 							<div id="timeline-btn" class="ui red button">
-								<i class="retweet icon"></i>
-								Repost
+								<i class="share icon"></i>
+								Share
+							</div>
+							<div class="line"></div>
+							<img src="../../images/audio_player.jpg" class="audio-player">
+							<div id="timeline-btn" class="ui red button">
+								<i class="heart icon"></i>
+								Greedd
 							</div>
 							<div id="timeline-btn" class="ui red button">
 								<i class="share icon"></i>
@@ -62,10 +68,6 @@
 								Greedd
 							</div>
 							<div id="timeline-btn" class="ui red button">
-								<i class="retweet icon"></i>
-								Repost
-							</div>
-							<div id="timeline-btn" class="ui red button">
 								<i class="share icon"></i>
 								Share
 							</div>
@@ -76,10 +78,6 @@
 								Greedd
 							</div>
 							<div id="timeline-btn" class="ui red button">
-								<i class="retweet icon"></i>
-								Repost
-							</div>
-							<div id="timeline-btn" class="ui red button">
 								<i class="share icon"></i>
 								Share
 							</div>
@@ -88,24 +86,6 @@
 							<div id="timeline-btn" class="ui red button">
 								<i class="heart icon"></i>
 								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="retweet icon"></i>
-								Repost
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="share icon"></i>
-								Share
-							</div>
-							<div class="line"></div>
-							<img src="../../images/audio_player.jpg" class="audio-player">
-							<div id="timeline-btn" class="ui red button">
-								<i class="heart icon"></i>
-								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="retweet icon"></i>
-								Repost
 							</div>
 							<div id="timeline-btn" class="ui red button">
 								<i class="share icon"></i>
