@@ -48,7 +48,7 @@
 						<div class="menu" style="margin-top: 1.11em; border-top:0px;">
 							<div class="item"><a href="<?= base_url('user/'.$this->session->userdata('username')) ?>">Go to Profile</a></div>
 							<div class="line"></div>
-							<div class="item">Setting</div>
+							<div class="item"><a href="<?= base_url().'account/edit' ?>">Setting</div>
 							<div class="item"><a href="<?= base_url().'account/signout' ?>">Sign out</a></div>
 							<div class="line"></div>
 							<div class="item">Help</div>
