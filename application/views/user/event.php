@@ -22,7 +22,7 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	#event-add-btn {
-		margin-left: 505px;
+		margin-left: 490px;
 		margin-bottom: 15px;
 		font-size: 1.1rem;
 	}

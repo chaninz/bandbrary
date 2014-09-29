@@ -31,8 +31,8 @@
 							</div>
 							<i class="dropdown icon" style="font-size: 1.2rem;"></i>
 							<div class="menu">
+								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/timeline') ?>"></i>Timeline</a>
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/music') ?>"></i>Music</a>
-								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/post') ?>"></i>Post</a>
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/follower') ?>"></i>Follower</a>
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/following') ?>"></i>Following</a>
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/event') ?>"></i>Event</a>

@@ -28,7 +28,7 @@
 		width: 100%;
 		height: 60px;
 		margin-top: 20px;
-		position: relative;
+		background-color: #121212;
 	}
 	.footleft {
 		width: 552px;
@@ -103,7 +103,7 @@
 		float:left;
 		height: 10px;
 		font-size: 1em;
-		margin-top: 6px;
+		margin-top: 4px;
 	}
 	.navbar-item3 {
 		float: left;
@@ -200,7 +200,7 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	#bg-status {
-		background-color: #FFFBC7;
+		background-color: #FFFBD3;
 	}
 	.title-box {
 		width: 277px;
@@ -265,21 +265,21 @@
 	#user-follow .icon {
 		font-size: 1em;
 	}
-	#follow {
+	#band-follow {
 		position: absolute;
 		top: -55px;
-		left: 865px;
+		left: 820px;
 		font-size: 12px;
 		padding-left: 10px;
 		border-radius: 0em;
 	}
-	#follow .icon {
+	#band-follow .icon {
 		font-size: 1em;
 	}
 	#joinBand {
 		position: absolute;
 		top: -55px;
-		left: 985px;
+		left: 945px;
 	}
 	#joinBand .icon {
 		font-size: 1.049em;
@@ -290,6 +290,8 @@
 		width: 114px;
 		border-radius: 0em;
 	}
+
+	/*--- Post ---*/
 	.create-post {
 		width: 204px;
 		height: 264px;

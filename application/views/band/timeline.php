@@ -13,7 +13,7 @@
 	}
 	.center {
 		background-color: #F7F6F6; 
-		margin-top: 14px;
+		margin-top: 15px;
 		margin-left: 4px;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
@@ -36,7 +36,7 @@
 		<article>
 			<div class="container">
 				<div class="row">
-				</div>
+			
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-7">
 						<div class="center">

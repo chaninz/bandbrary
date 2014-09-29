@@ -15,46 +15,11 @@
 		padding: 2em;
 	}
 	.ui.form textarea, .ui.textarea {
-		height: 11.4em;
+		height: 11.5em;
 		border-radius: 0px;
-	}
-	.ui.modal {
-		height: 500px;
-	}
-	.ui.modal > .header {
-		font-family: 'TH sarabunPSK';
-		font-size: 32px;
-	}
-	.ui.modal > .content {
-		font-family: 'TH sarabunPSK';
-		font-size: 22px;
-	}
-	.ui.comments .comment .actions {
-		text-align: left;
-	}
-	.ui.modal .actions {
-		padding: 1rem 0em;
-	}
-	.ui.comments .reply.form textarea {
-		height: 5em;
-	}
-	.ui.textarea, .ui.form textarea {
-		min-height: 0em;
-	}
-	.ui.comments .comment .reply.form {
-		margin:0em;
-	}
-	.ui.comments .reply.form {
-		max-width: 96%;
-	}
-	.ui.accordion, .ui.accordion .accordion {
-		font-size: 1em;
 	}
 	.center {
 		margin-top: 15px;
-	}
-	#greedd {
-		left: 985px;
 	}
 	</style>
 
