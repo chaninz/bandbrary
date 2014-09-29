@@ -23,8 +23,8 @@
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div>
 						<?php if(empty($is_follow_band)): ?>
-						<div id="follow" class="ui button"><a href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
-						<div id="follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?>
+						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
+						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?>
 						<div id="joinBand" class="ui red buttons">
 							<div class="ui button" 
 							style="border-top-left-radius: 0em; 
@@ -34,7 +34,7 @@
 							<div class="ui red floating dropdown icon button">
 								<i class="dropdown icon" style="font-size: 1.1em;"></i>
 								<div class="menu">
-									<a class="item" href="<?= base_url('band/join/cancel/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Cancel</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/cancel/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Cancel</a>
 								</div>
 							</div>
 							<?php elseif($user_status == 2): ?>
@@ -42,7 +42,7 @@
 							<div class="ui red floating dropdown icon button">
 								<i class="dropdown icon" style="font-size: 1.1em;"></i>
 								<div class="menu">
-									<a class="item" href="<?= base_url('band/join/leave/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Leave from band</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/leave/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Leave from band</a>
 								</div>
 							</div>
 							<?php else: ?>
@@ -50,15 +50,15 @@
 							<div class="ui red floating dropdown icon button">
 								<i class="dropdown icon" style="font-size: 1.1em;"></i>
 								<div class="menu">
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Vocal</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=2&ref='.uri_string()) ?>"><i class="hide icon"></i>Guitar</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=3&ref='.uri_string()) ?>"><i class="hide icon"></i>Bass</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=4&ref='.uri_string()) ?>"><i class="hide icon"></i>Drum</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=5&ref='.uri_string()) ?>"><i class="hide icon"></i>Piano</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=6&ref='.uri_string()) ?>"><i class="hide icon"></i>Keybroad</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=7&ref='.uri_string()) ?>"><i class="hide icon"></i>Saxophone</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=8&ref='.uri_string()) ?>"><i class="hide icon"></i>Trumpets</a>
-									<a class="item" href="<?= base_url('band/join/'.$band_profile->id.'?pos=9&ref='.uri_string()) ?>"><i class="hide icon"></i>Violin</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Vocal</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=2&ref='.uri_string()) ?>"><i class="hide icon"></i>Guitar</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=3&ref='.uri_string()) ?>"><i class="hide icon"></i>Bass</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=4&ref='.uri_string()) ?>"><i class="hide icon"></i>Drum</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=5&ref='.uri_string()) ?>"><i class="hide icon"></i>Piano</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=6&ref='.uri_string()) ?>"><i class="hide icon"></i>Keybroad</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=7&ref='.uri_string()) ?>"><i class="hide icon"></i>Saxophone</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=8&ref='.uri_string()) ?>"><i class="hide icon"></i>Trumpets</a>
+									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=9&ref='.uri_string()) ?>"><i class="hide icon"></i>Violin</a>
 								</div>
 							</div>
 							<?php endif; ?>

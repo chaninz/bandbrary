@@ -36,7 +36,7 @@
 		<article>
 			<div class="container">
 				<div class="row">
-				</div>
+			
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-7">
 						<div class="center">

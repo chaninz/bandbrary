@@ -200,7 +200,7 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	#bg-status {
-		background-color: #FFFBC7;
+		background-color: #FFFCDA;
 	}
 	.title-box {
 		width: 277px;
@@ -265,21 +265,21 @@
 	#user-follow .icon {
 		font-size: 1em;
 	}
-	#follow {
+	#band-follow {
 		position: absolute;
 		top: -55px;
-		left: 865px;
+		left: 820px;
 		font-size: 12px;
 		padding-left: 10px;
 		border-radius: 0em;
 	}
-	#follow .icon {
+	#band-follow .icon {
 		font-size: 1em;
 	}
 	#joinBand {
 		position: absolute;
 		top: -55px;
-		left: 985px;
+		left: 945px;
 	}
 	#joinBand .icon {
 		font-size: 1.049em;
