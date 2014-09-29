@@ -101,17 +101,17 @@
 							<input type="number" placeholder="Budget" name="budget">
 						</div>
 						<div class="field">
-							<label>Start Time</label>
+							<label>Date</label>
 							<div class="ui left labeled icon input">
-								<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time">
+								<input type="date" placeholder="" style="padding: .01em 1em;" name="start_time">
 								<i class="calendar icon"></i>
 							</div>
 						</div>
 						<div class="field">
-							<label>End Time</label>
+							<label>Time</label>
 							<div class="ui left labeled icon input">
-								<input type="date" placeholder="" style="padding: .2em 1em;" name="end_time">
-								<i class="calendar icon"></i>
+								<input type="time" placeholder="" style="padding: .01em 1em;" name="end_time">
+								<i class="time icon"></i>
 							</div>
 						</div>
 
