@@ -103,21 +103,24 @@
 			<div class="col-xs-7">
 				<div class="ui form segment"><p>
 					<h1>Join Band Request</h1>
-					<div class="line"></div><br><p>
+					<div class="line"></div><br><p><?php if ($band_requests): ?><?php foreach ($band_requests as $band_request) : ?>
 					<div id="join-rq" class="field">
-						<div class="jb1"><img src="../../../images/no_profile.jpg" alt="" id="img-preview"></div>
+						<div class="jb1"><?php if($band_request->photo_url): ?>
+						<img src="<?= base_url('uploads/profile/'.$band_request->photo_url) ?>" alt="" id="img-preview"/><?php else: ?>
+						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="img-preview"/><?php endif; ?>
+						</div>
 						<div class="jb2">
-							<span><label>Punpun Sa</label></span>
+							<span><label><?= $band_request->name.' '.$band_request->surname ?></label></span>
 						</div>
 						<div class="jb3">
-							<div class="ui red button">
+							<a class="ui red button" href="<?= base_url('band/request/accept/'.$band_request->id.'?ref='.uri_string()) ?>">
 								Confirm
-							</div>
-							<div class="ui button">
-								Delete Request
-							</div>
+							</a>
+							<a class="ui button" href="<?= base_url('band/request/reject/'.$band_request->id.'?ref='.uri_string()) ?>">
+								Reject
+							</a>
 						</div>
-					</div>
+					</div><?php endforeach; ?><?php endif; ?>
 				</div>
 			</div>
 			<div class="col-xs-2"></div>

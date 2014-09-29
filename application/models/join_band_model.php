@@ -37,13 +37,22 @@ class Join_band_model extends CI_Model {
 	}
 
 	function get_current_band($user_id) {
-		return $this->get_by_user($user_id, 2);
+		$result = $this->get_by_user($user_id, 2);
+		if ($result) {
+			return $this->get_by_user($user_id, 2)[0];
+		} else {
+			return $result;
+		}
 	}
 
 	function get_current_member($band_id) {
 		return $this->get_by_band($band_id, 2);
 	}
 
+	function get_join_request($band_id) {
+		return $this->get_by_band($band_id, 1);
+	}
+ 
 	function get_band($user_id){
 		$this->db->select('*');
 		$this->db->from('Join_Band');

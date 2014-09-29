@@ -38,10 +38,12 @@
 					<?php $this->load->view('user/sidebar_left'); ?>
 					<div class="col-xs-7">
 						<div class="center">
+							<?php if ($this->session->userdata('id') == $user_profile->id): ?>
 							<a id="event-add-btn" class="ui red button test event">
 								<i class="edit icon"></i>
 								Add event
 							</a>
+							<?php endif; ?>
 							<div class="ui fluid accordion">
 								<div class="event-hea">
 									<table>
@@ -62,7 +64,7 @@
 										</tbody>
 									</table>
 								</div>
-								<div class="content">
+								<div class="content"><?= $event->description ?>
 								</div><?php endforeach; ?>
 							</div>
 						</div>
@@ -78,23 +80,23 @@
 	<!--Add event modal-->
 	<div class="ui form segment create modal">
 		<i class="close icon"></i>
-		<form action="<?php echo base_url().'band/post/add'; ?>" method="post">
+		<form action="<?= base_url('event/user/add?ref='.uri_string()) ?>" method="post">
 			<h3>Add event</h3>
 			<div class="line"></div>
 			<p/>
 			<div class="field">
 				<label>Title</label>
-				<input type="text" placeholder="" name="topic" required>
+				<input type="text" placeholder="" name="event">
 			</div>
 			<div class="field">
 				<label>Province</label>
 				<div class="ui fluid selection dropdown">
 					<div class="text">Select</div>
 					<i class="dropdown icon"></i>
-					<input type="hidden" name="province">
+					<input type="hidden" name="venue">
 					<div class="menu">
-						<div class="item" data-value="1" style="font-size: 14px;">Bangkok</div>
-						<div class="item" data-value="2" style="font-size: 14px;">Changmai</div>
+						<div class="item" data-value="Bangkok" style="font-size: 14px;">Bangkok</div>
+						<div class="item" data-value="Changmai" style="font-size: 14px;">Changmai</div>
 					</div>
 				</div>
 			</div>
@@ -102,19 +104,19 @@
 			<p/>
 			<div class="field">
 				<label>Description</label>
-				<textarea name="post"></textarea>
+				<textarea name="description"></textarea>
 			</div>
 			<div class="two fields">
 				<div class="field">
 					<label>Date</label>
 					<div class="ui left labeled icon input">
-						<input type="date" placeholder="" style="padding: .2em 1em;" name="start_time">
+						<input type="date" placeholder="" style="padding: .2em 1em;" name="start_date">
 						<i class="calendar icon"></i>
 					</div>
 				</div>
 				<div class="field">
 					<label>Time</label>
-					<input type="time" placeholder="" style="padding: .2em 1em;" name="time" required>
+					<input type="time" placeholder="" style="padding: .2em 1em;" name="start_time">
 				</div>
 			</div>
 			<div class="line"></div>

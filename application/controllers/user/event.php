@@ -26,21 +26,6 @@ class Event extends CI_Controller {
 		$this->load->view('user/event', $data);
 	}
 
-	public function add() {
-		if ($this->input->post()) {
-			$user_id = $this->session->userdata('id');
-			$user_data = array('user_id' => $user_id,
-				'event' => $this->input->post('event'),
-				'description' => $this->input->post('description'),
-				'venue' => $this->input->post('venue'),
-				'start_time' => $this->input->post('start_time'),
-				'end_time' => $this->input->post('end_time'));
-			$this->event->add($user_data, 1);
-		} else {
-			redirect(base_url('user/event')); 
-		}
-	}
-
 	public function edit() {
 		$id = $this->input->post('id');
 		$data = array('event' => $this->input->post('event'),

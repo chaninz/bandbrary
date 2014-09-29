@@ -5,9 +5,38 @@ class Request extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('band_model');
+		$this->load->model('join_band_model');
 	}
 
 	public function index() {
+		$band_id = $this->session->userdata('band_id');
+		$band_requests = $this->join_band_model->get_join_request($band_id);
+		$data = array('band_requests' => $band_requests);
+		//print_r($band_requests);
+		$this->load->view('band/request', $data);
+	}
+
+	public function accept($user_id) {
+		if ($this->input->get()) {
+			$ref = $this->input->get('ref');
+			$band_id = $this->session->userdata('band_id');
+			$this->join_band_model->accept($user_id, $band_id);
+
+			redirect($ref);
+		}
+	}
+
+	public function reject($user_id) {
+		if ($this->input->get()) {
+			$ref = $this->input->get('ref');
+			$band_id = $this->session->userdata('band_id');
+			$this->join_band_model->reject($user_id, $band_id);
+
+			redirect($ref);
+		}
+	}
+
+	public function bak() {
 		if ($this->input->post()) {
 			$band = array('name' => $this->input->post('name'),
 				'biography' => $this->input->post('biography'),
@@ -22,7 +51,7 @@ class Request extends CI_Controller {
 				echo 'cannot create band';
 			}
 		} else {
-			$this->load->view('band/joinRequest');
+			$this->load->view('band/request');
 		}
 	}
 

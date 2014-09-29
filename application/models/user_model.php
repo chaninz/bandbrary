@@ -42,9 +42,9 @@ class User_model extends CI_Model {
 	}
 	
 	function signin($username, $password) {
-		$query = $this->db->get_where('Users', 
-			array('username' => $username,
+		$this->db->where(array('username' => $username,
 				'password' => $password));
+		$query = $this->db->get('Users');
 		$result = $query->row();
 
 		return $result;

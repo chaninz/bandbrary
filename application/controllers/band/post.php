@@ -32,6 +32,8 @@ class Post extends CI_Controller {
 
 	public function add() {
 		if ($this->input->post()) {
+			$band_id = $this->session->userdata('band_id');
+			$ref = $this->input->get('ref');
 			$post = array(
 				'band_id' => $band_id ,
 				'topic' => $this->input->post('topic'),
@@ -39,6 +41,8 @@ class Post extends CI_Controller {
 				'image_url' => $this->input->post('imageurl')
 			);
 			$this->post_model->add($post);
+
+			redirect($ref);
 		} else {
 			$my_id = $this->session->userdata('id');
 			$band_id = $this->session->userdata('band_id');

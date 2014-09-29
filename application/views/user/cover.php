@@ -20,8 +20,9 @@
 						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php endif; ?>
 						<div class="profile-name">
 							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div><?php if( ! empty($band_profile)): ?>
-							<div id="pn2"><?= $band_profile['0']->name ?></div><?php endif; ?>
-						</div><?php if(empty($is_follow_user)): ?>
+							<div id="pn2"><?= $band_profile->name ?></div><?php endif; ?>
+						</div>
+						<?php if ($user_profile->id == $this->session->userdata('id')): ?><?php elseif(empty($is_follow_user)): ?>
 						<div id="user-follow" class="ui button"><a href="<?= base_url('following/user/follow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
 						<div id="user-follow" class="ui button"><a href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?>
 					</div>

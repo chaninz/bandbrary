@@ -44,7 +44,6 @@
 			<div class="container">
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
-
 					<div class="col-md-7">
 						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
 							<div class="create-post test nin">
@@ -81,7 +80,7 @@
 	<!--Create post modal-->
 	<div class="ui form segment create modal">
 		<i class="close icon"></i>
-		<form action="<?php echo base_url().'band/post/add'; ?>" method="post">
+		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post">
 			<h3>Create a Post</h3>
 			<div class="line"></div>
 			<p/>

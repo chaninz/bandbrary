@@ -96,7 +96,7 @@
 								</div>
 								<div class="signin-field field">
 									<label>Password</label>
-									<input placeholder="" type="password">
+									<input placeholder="" type="password" name="password">
 								</div>
 								<div class="signin-field field">
 									<div id="signin-button" class="ui red small submit button">Sign in</div>
