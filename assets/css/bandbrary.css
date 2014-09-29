@@ -558,6 +558,12 @@
 		width: 214px; 
 		height: 214px;
 	}
+	.job-control {
+		position: fixed;
+		z-index: 100;
+		top: 300px;
+		right: 250px;
+	}
 
 	/*--- Event ---*/
 	.event-hea {

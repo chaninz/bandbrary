@@ -99,11 +99,23 @@
 				</div>
 			</div>
 			<div class="col-xs-2">
-				<a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
+				<!-- <a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
 					<i class="icon add"></i>
 				</a>
 				<div id="job-btn-menu" class="circular ui red icon toggle button">
 					<i class="icon reorder"></i>
+				</div> -->
+				<div class="job-control">
+					<div class="ui vertical labeled icon menu" style="background-color: #D95C5C">
+						<a class="red item" style="color: #FFFFFF" href="<?= base_url('job/add') ?>">
+							<i class="add icon"></i>
+							Add
+						</a>
+						<a class="red item toggle button" style="color: #FFFFFF">
+							<i class="reorder icon"></i>
+							Sidebar
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -120,7 +132,7 @@
 			<i class="heart icon"></i>
 			Near Jobs
 		</a>
-		<a class="item" href="pendingJob1.html">
+		<a class="item" href="myJob1.html">
 			<i class="heart icon"></i>
 			My Jobs
 		</a>
