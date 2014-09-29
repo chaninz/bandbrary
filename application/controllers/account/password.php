@@ -8,6 +8,9 @@ class Password extends CI_Controller {
 		
 	}
 
+	public function index(){
+		$this->load->view('account/changePassword');
+	}
 	public function change() {
 		
 	}

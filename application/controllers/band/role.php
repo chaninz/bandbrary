@@ -22,7 +22,7 @@ class Role extends CI_Controller {
 				echo 'cannot create band';
 			}
 		} else {
-			$this->load->view('band/create');
+			$this->load->view('band/role');
 		}
 	}
 

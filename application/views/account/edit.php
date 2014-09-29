@@ -77,7 +77,7 @@
 						Edit profile
 					</a>
 					<form action="<?php echo base_url().'account/edit'; ?>" method="post"/>  
-						<a class="item" href="changePassword.html">
+						<a class="item" href="<?php echo base_url().'account/password'; ?>">
 							<i class="angle right icon"></i> Change password
 						</a>
 					</div>

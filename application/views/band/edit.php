@@ -80,17 +80,17 @@
 						ACCOUNT
 					</div>
 					<div class="menu">
-						<a class="item">Genaral</a>
-						<a href="changePassword.html" class="item">Password</a>
+						<a href="<?= base_url('account/edit') ?>" class="item">Genaral</a>
+						<a href="<?= base_url('account/password') ?>" class="item">Password</a>
 					</div>
 					<div class="header item">
 						<i class="circle blank icon"></i>
 						BAND
 					</div>
 					<div class="menu">
-						<a href="bandInfo.html" class="item">Information</a>
-						<a href="joinRequest.html" class="item">Join Request</a>
-						<a href="roles.html" class="item">Roles</a>
+						<a href="<?= base_url('band/edit') ?>" class="item">Information</a>
+						<a href="<?= base_url('band/request') ?>" class="item">Join Request</a>
+						<a href="<?= base_url('band/role') ?>" class="item">Roles</a>
 					</div>
 				</div>
 			</div>
