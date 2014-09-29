@@ -56,53 +56,11 @@
 	.ui.items .item > .content > .description {
 		height: 130px;
 	}
-	.job-hea2 {
-		font-size: 22px;
-		margin-top: 50px;
-		font-weight: 600;
-	}
-	#job-pd {
-		height: 75px;
-		width: 570px;
-		border: 1px solid #EBEBEB;
-		margin-top: 10px;
-		margin-left: 30px;
-	}
-	.jp1 {
-		width: 73px;
-		height: 73px;
-		float: left;
-	}
-	.jp2 {
-		width: 73px;
-		height: 73px;
-		float: left;
-		margin-top: 7px;
-		margin-left: 9px;
-	}
-	.jp3 {
-		float: left;
-		margin-top: 21px;
-		margin-left: 250px;
-	}
-	.ui.buttons .button, .ui.button {
-		font-size: 1rem;
-	}
 	</style>
 </head>
 <body>
 
-	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="bb-logo" style="margin-left: 482px;">
-						<img src="../../images/bandbrary_logo_16-9.png">
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	<?php $this->load->view('navigation'); ?>
 
 	<div class="job-top">
 
@@ -115,89 +73,49 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="job-hea2">Jobs Name</div>
-				<div class="ui divided list">
-					<div class="item">
-						<div class="content">
-							<div class="header">Type</div>
-							An excellent companion
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Style</div>
-							A poodle, its pretty basic
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Venue</div>
-							<span id="jobvenue"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Province</div>
-							He's also a dog
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Budget</div>
-							<span id="jobbudget"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Description</div>
-							<span id="jobdescription"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Start Time</div>
-							<span id="jobstart"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">End Time</div>
-							<span id="jobend"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Pending</div>
-							<div id="job-pd" class="field">
-								<div class="jp1"><img src="../../images/no_profile.jpg" alt="" id="img-preview"></div>
-								<div class="jp2">
-									<span><label>Punpun Sa</label></span>
-								</div>
-								<div class="jp3">
-									<div class="ui red button">
-										Confirm
-									</div>
-									<div class="ui button">
-										Cancel
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<div class="job-hea2">Explore <span class="job-total"><?= count($jobs) ?></span> Jobs</div>
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
+				<div class="ui four items">
+					<div id="preview-job" class="item view job" data-id="">
+						<div class="image">
+							<img src="images/bass.jpg">
+							<a class="star ui corner label">
+								<i class="star icon"></i>
+							</a>
+						</div>
+						<a class="content" href="myJob2.html">
+							<div class="name"></div>
+							<p class="description"></p>
+						</a>
+						<i id="job-icon" class="map marker icon"></i>
+						<span class="job-location">Bangkok, Thailand</span>
+						<div class="job-red-line"></div>
+					</div>
+				</div>
 			</div>
 			<div class="col-xs-2">
-				<a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
+				<!-- <a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
 					<i class="icon add"></i>
 				</a>
 				<div id="job-btn-menu" class="circular ui red icon toggle button">
 					<i class="icon reorder"></i>
+				</div> -->
+				<div class="job-control">
+					<div class="ui vertical labeled icon menu" style="background-color: #D95C5C">
+						<a class="red item" style="color: #FFFFFF" href="<?= base_url('job/add') ?>">
+							<i class="add icon"></i>
+							Add
+						</a>
+						<a class="red item toggle button" style="color: #FFFFFF">
+							<i class="reorder icon"></i>
+							Sidebar
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -214,7 +132,7 @@
 			<i class="heart icon"></i>
 			Near Jobs
 		</a>
-		<a class="item" href="pendingJob1.html">
+		<a class="item" href="myJob1.html">
 			<i class="heart icon"></i>
 			My Jobs
 		</a>
@@ -315,7 +233,7 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Venue</div>
-							<span id="jobvenue"></span>
+								<span id="jobvenue"></span>
 						</div>
 					</div>
 					<div class="item">
@@ -327,13 +245,13 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Budget</div>
-							<span id="jobbudget"></span>
+								<span id="jobbudget"></span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
 							<div class="header">Description</div>
-							<span id="jobdescription"></span>
+								<span id="jobdescription"></span>
 						</div>
 					</div>
 				</div>

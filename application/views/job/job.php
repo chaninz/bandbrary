@@ -93,11 +93,23 @@
 				</div>
 			</div>
 			<div class="col-xs-2">
-				<a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
+				<!-- <a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
 					<i class="icon add"></i>
 				</a>
 				<div id="job-btn-menu" class="circular ui red icon toggle button">
 					<i class="icon reorder"></i>
+				</div> -->
+				<div class="job-control">
+					<div class="ui vertical labeled icon menu" style="background-color: #D95C5C">
+						<a class="red item" style="color: #FFFFFF" href="<?= base_url('job/add') ?>">
+							<i class="add icon"></i>
+							Add
+						</a>
+						<a class="red item toggle button" style="color: #FFFFFF">
+							<i class="reorder icon"></i>
+							Sidebar
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -214,7 +226,7 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Venue</div>
-								<span id="jobvenue"></span>
+							<span id="jobvenue"></span>
 						</div>
 					</div>
 					<div class="item">
@@ -226,13 +238,13 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">Budget</div>
-								<span id="jobbudget"></span>
+							<span id="jobbudget"></span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
 							<div class="header">Description</div>
-								<span id="jobdescription"></span>
+							<span id="jobdescription"></span>
 						</div>
 					</div>
 					<div class="item">
