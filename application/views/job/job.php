@@ -181,18 +181,17 @@
 			<span id="jobname"></span>
 		</div>
 		<div class="content">
-			<div class="left" style="width: 60px">
-				<img src="" alt="" class="job-img">
+			<div class="left" style="width: 120px">
 				<div class="ui divided list">
 					<div class="item">
 						<div class="content">
-							<div class="header">Start Time</div>
+							<div class="header">Date</div>
 							<span id="jobstart"></span>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">End Time</div>
+							<div class="header">Time</div>
 							<span id="jobend"></span>
 						</div>
 					</div>
@@ -236,11 +235,23 @@
 								<span id="jobdescription"></span>
 						</div>
 					</div>
+					<div class="item">
+						<div class="content">
+							<div class="header">Start Time</div>
+							<span id="jobstart"></span>
+						</div>
+					</div>
+					<div class="item">
+						<div class="content">
+							<div class="header">End Time</div>
+							<span id="jobend"></span>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="actions">
-			<div class="ui button">Pin Job</div>
+			<div class="ui button">Cancel</div>
 			<input type="submit" class="ui red submit button" value="Get job">
 		</div>
 	</div>
