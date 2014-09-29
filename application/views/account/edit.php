@@ -7,11 +7,11 @@
 	<title>User profile | Bandbrary</title>
 	<?php $this->load->view('header'); ?>  
 	<style>
-	.col-md-2 {
+	.col-xs-2 {
 		height: 1280px;
 		background-color: #FFFFFF;
 	}
-	.col-md-3 {
+	.col-xs-3 {
 		height: 1280px;
 		float: left;
 		background-color: #f7f7f7;
@@ -24,7 +24,7 @@
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-	.col-md-7 {
+	.col-xs-7 {
 		padding-left: 0px;
 		padding-right: 0px;
 		border: 0px solid #FFFFFF;
@@ -77,7 +77,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<div class="ui vertical menu">
 					<div class="header item">
 						<i class="user icon"></i>
@@ -98,7 +98,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-7">
+			<div class="col-xs-7">
 				<div class="ui form segment">
 					<p/>
 					<h1>Edit Profile</h1>
@@ -168,8 +168,8 @@
 							<div class="default text"><b>Change photo</b></div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
-								<div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value="<?php echo $user->photo_url; ?>"></div>
-								<div class="item" data-value="0">Remove</div>
+								<div class="fileUpload item" data-value="1" style="font-size: 14px;">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value="<?php echo $user->photo_url; ?>"></div>
+								<div class="item" data-value="0" style="font-size: 14px;">Remove</div>
 							</div>
 						</div>
 					</div>
@@ -181,8 +181,8 @@
 							<div class="default text"><b>Change cover</b></div>
 							<i class="dropdown icon"></i>
 							<div class="menu">
-								<div class="fileUpload item" data-value="1">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value="<?php echo $user->cover_url; ?>"></div>
-								<div class="item" data-value="0">Remove</div>
+								<div class="fileUpload item" data-value="1" style="font-size: 14px;">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value="<?php echo $user->cover_url; ?>"></div>
+								<div class="item" data-value="0" style="font-size: 14px;">Remove</div>
 							</div>
 						</div>
 					</div>
@@ -219,7 +219,7 @@
 					<input class="ui red submit button" type="submit" value="Save Change">
 				</div> 
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-xs-2"></div>
 		</div>
 	</div>
 

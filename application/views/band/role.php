@@ -110,17 +110,11 @@
 						<div class="line"></div><br><p>
 						<thead>
 							<tr><th>Name</th>
-								<th>Status</th>
 								<th>Position</th>
 							</tr></thead>
 							<tbody>
 								<tr>
 									<td>Cheniphat Varasai</td>
-									<td>
-										<a class="ui green label">
-											Approved
-										</a>
-									</td>
 									<td>
 										<div class="ui selection dropdown">
 											<input type="hidden" name="gender">
@@ -136,11 +130,6 @@
 								<tr>
 									<td>Punpun Sa</td>
 									<td>
-										<a class="ui blue label">
-											Pending
-										</a>
-									</td>
-									<td>
 										<div class="ui selection dropdown">
 											<input type="hidden" name="gender">
 											<div class="default text" style="font-size: 14px;">Position</div>
@@ -154,11 +143,6 @@
 								</tr>
 								<tr>
 									<td>Chanin Nualprasong</td>
-									<td>
-										<a class="ui red label">
-										Denied
-									</div>
-									</td>
 									<td>
 										<div class="ui selection dropdown">
 											<input type="hidden" name="gender">

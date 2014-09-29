@@ -116,7 +116,7 @@
 		</a>
 		<a class="item">
 			<i class="heart icon"></i>
-			Pending Jobs
+			My Jobs
 		</a>
 		<a class="item">
 			<i class="tasks icon"></i>
