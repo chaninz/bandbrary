@@ -11,20 +11,38 @@
 	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 		color: #E72A30;
 	}
-	.center {
-		background-color: #F7F6F6; 
-		margin-top: 14px;
-		margin-left: 4px;
-		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
-		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
-		word-wrap: break-word;
-		padding: 25px;
+	.ui.segment {
+		padding: 2em;
+		-webkit-box-shadow: none; 
+		box-shadow: none; 
+		border-radius: 0px;
 	}
 	h2.ui.header {
 		font-size: 2.5rem;
 	}
 	.ui.header .sub.header {
 		font-size: 1.4rem;
+	}
+	.ui.table thead {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+	}
+	.ui.table thead th:first-child {
+		border-radius: 0px;
+	}
+	.ui.table thead th:last-child {
+		border-radius: 0px;
+	}
+	.ui.table th {
+		background-color: rgba(0, 0, 50, 0.02);
+		padding: 0.7em 0.7em;
+	}
+	.ui.table td {
+		padding: 0.1em 0.7em;
+	}
+	.center {
+		margin-top: 14px;
+		margin-left: 4px;
+		word-wrap: break-word;
 	}
 	</style>
 
