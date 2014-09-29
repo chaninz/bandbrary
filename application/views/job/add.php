@@ -38,7 +38,7 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
-				<form action="<?php echo base_url().'job/job/add'; ?>" method="post" > 
+				<form action="<?php echo base_url().'job/add'; ?>" method="post" > 
 					<div class="ui form segment">
 						<div class="field">
 							<label>Job Name</label>
@@ -91,8 +91,9 @@
 								<i class="dropdown icon"></i>
 								<input type="hidden" name="province">
 								<div class="menu">
-									<div class="item" data-value="1" style="font-size: 14px;">Bangkok</div>
-									<div class="item" data-value="2" style="font-size: 14px;">Changmai</div>
+									<div class="item" data-value="10" style="font-size: 14px;">Bangkok</div>
+									<div class="item" data-value="36" style="font-size: 14px;">Chaiyaphum</div>
+									<div class="item" data-value="50" style="font-size: 14px;">Chiang Mai</div>
 								</div>
 							</div>
 						</div>

@@ -5,15 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
-	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../../assets/css/semantic.css">
-
-	<script src="../../../assets/js/jquery.min.js"></script>
-	<script src="../../../assets/js/jquery.address.min.js"></script>
-	<script src="../../../assets/js/semantic.min.js"></script>
-
+	<?php $this->load->view('header'); ?>
+	
 	<style>
 	body {
 		background: #FFFFFF url('images/noise-2.png');
@@ -91,18 +84,7 @@
 	</style>
 </head>
 <body>
-
-	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="bb-logo" style="margin-left: 482px;">
-						<img src="../../images/bandbrary_logo_16-9.png">
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	<?php $this->load->view('navigation'); ?>
 
 	<div class="job-top">
 
@@ -357,7 +339,7 @@
 		</div>
 	</div>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
+	<?php $this->load->view('footer'); ?>
 	<script>
 	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
 	</script>

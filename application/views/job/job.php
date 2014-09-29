@@ -10,7 +10,7 @@
 
 	<style>
 	body {
-		background: #FFFFFF url('images/noise-2.png');
+		background: #FFFFFF url('<?= base_url('images/noise-2.png') ?>');
 	}
 	.ui.menu .item {
 		font-size: 1.5rem;
@@ -77,7 +77,7 @@
 				<div class="ui four items"><?php foreach ($jobs as $job): ?>
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="image">
-							<img src="images/bass.jpg">
+							<img src="<?= base_url('images/bass.jpg') ?>">
 							<a class="star ui corner label">
 								<i class="star icon"></i>
 							</a>
@@ -87,7 +87,7 @@
 							<p class="description"><?= $job->description ?></p>
 						</div>
 						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location">Bangkok, Thailand</span>
+						<span class="job-location"><?= $job->province ?>, Thailand</span>
 						<div class="job-red-line"></div>
 					</div><?php endforeach ?>
 				</div>
@@ -116,75 +116,7 @@
 	</div>
 
 
-	<!-- Sidebar Job -->
-	<div class="ui red vertical demo sidebar menu">
-		<a class="item">
-			<i class="home icon"></i>
-			All Jobs
-		</a>
-		<a class="active item">
-			<i class="heart icon"></i>
-			Near Jobs
-		</a>
-		<a class="item">
-			<i class="heart icon"></i>
-			My Jobs
-		</a>
-		<a class="item">
-			<i class="tasks icon"></i>
-			Get Jobs
-		</a>
-		<div class="item">
-			<b>Search</b>
-			<p/>
-			<div class="ui icon input">
-				<input type="text" placeholder="Search...">
-				<i class="inverted search icon"></i>
-			</div>
-		</div>
-		<div class="item">
-			<b>Tag</b>
-			<p/>
-			<div class="ui red labels">
-				<a class="ui label">
-					Blues
-				</a>
-				<a class="ui label">
-					Country
-				</a>
-				<a class="ui label">
-					Hip Hop
-				</a>
-				<a class="ui label">
-					Jazz
-				</a>
-				<a class="ui label">
-					Latin
-				</a>
-				<a class="ui label">
-					Pop
-				</a>
-				<a class="ui label">
-					Reggae
-				</a>
-				<a class="ui label">
-					R&B
-				</a>
-				<a class="ui label">
-					Rock
-				</a>
-				<a class="ui label">
-					Wedding
-				</a>
-				<a class="ui label">
-					Restuarant
-				</a>
-				<a class="ui label">
-					Hotel
-				</a>
-			</div>
-		</div>
-	</div>
+	<?php $this->load->view('job/sidebar_left'); ?>
 
 	<!-- View job modal -->
 	<div class="ui form segment create modal">

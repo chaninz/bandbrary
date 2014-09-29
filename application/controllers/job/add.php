@@ -19,9 +19,8 @@ class Add extends CI_Controller {
 			'province_id' => $this->input->post('province'),
 			'budget' => $this->input->post('budget'),
 			'start_time' => $this->input->post('start_time'),
-			'end_time' => $this->input->post('end_time')
-		);
-			$this->job_model>add($data);
+			'end_time' => $this->input->post('end_time'));
+			$this->job_model->add($data);
 		} else {
 			$this->load->view('job/add');
 		}

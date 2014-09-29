@@ -30,7 +30,7 @@ class Index extends CI_Controller {
 			$this->job->edit($data,$id);
 		} else {
 			$data = $this->job->get($id);
-			$this->load->view('job/editJob',$data);
+			$this->load->view('job/edit',$data);
 		}
 
 	}

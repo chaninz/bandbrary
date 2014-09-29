@@ -22,7 +22,7 @@
 							<div id="pn1"><?= $band_profile->name ?></div>
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div><?php if($this->session->userdata('user_type') == 2): ?>
-						<?php if(empty($is_follow_band)2): ?>
+						<?php if(empty($is_follow_band)): ?>
 						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
 						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?><?php endif; ?>
 						<div id="joinBand" class="ui red buttons">

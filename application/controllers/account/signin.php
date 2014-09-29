@@ -28,6 +28,7 @@ class Signin extends CI_Controller {
 					'surname' => $result->surname,
 					'user_type' => $result->user_type,
 					'photo_url' => $result->photo_url,
+					'province_id' => $result->province_id,
 					'band_id' => NULL,
 					'is_master' => NULL);
 
