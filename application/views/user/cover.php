@@ -37,9 +37,11 @@
 							<li>
 								<a href="<?= base_url().'user/'.$user_profile->username.'/timeline' ?>">Timeline</a>
 							</li>
+							<?php if($user_profile->user_type == 2): ?>
 							<li>
 								<a href="<?= base_url().'user/'.$user_profile->username.'/music' ?>">Music</a>
 							</li>
+							<?php endif; ?>
 							<li>
 								<a href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">Follower</a>
 							</li>

@@ -21,14 +21,15 @@
 						<div class="profile-name">
 							<div id="pn1"><?= $band_profile->name ?></div>
 							<div id="pn2"><?= $band_profile->style ?></div>
-						</div>
-						<?php if(empty($is_follow_band)): ?>
+						</div><?php if($this->session->userdata('user_type') == 2): ?>
+						<?php if(empty($is_follow_band)2): ?>
 						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
-						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?>
+						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?><?php endif; ?>
 						<div id="joinBand" class="ui red buttons">
 							<div class="ui button" 
 							style="border-top-left-radius: 0em; 
 							border-bottom-left-radius: 0em; ">
+							<?php if($this->session->userdata('user_type') == 2): ?>
 							<?php if($user_status == 1): ?>
 							<i class="circle blank icon"></i>REQUESTED</div>
 							<div class="ui red floating dropdown icon button">
@@ -61,6 +62,7 @@
 									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=9&ref='.uri_string()) ?>"><i class="hide icon"></i>Violin</a>
 								</div>
 							</div>
+							<?php endif; ?>
 							<?php endif; ?>
 						</div>
 					</div>

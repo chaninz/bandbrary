@@ -28,16 +28,19 @@ class Signin extends CI_Controller {
 					'surname' => $result->surname,
 					'user_type' => $result->user_type,
 					'photo_url' => $result->photo_url,
-					'band_id' => NULL);
+					'band_id' => NULL,
+					'is_master' => NULL);
 
 				if ($user['user_type'] == 2) {
 					// Check if he is a musician
 					$bid = $this->join_band_model->get_current_band($user['id'])->band_id;
+					$is_master = $this->join_band_model->get_current_band($user['id'])->is_master;
 					
 					//print_r($this->join_band_model->get_current_band($user['id']));
 					if ($bid) {
 						// If the user joined band, put id of his band to session
 						$user['band_id'] = $bid;
+						$user['is_master'] = $is_master;
 					}
 				}
 

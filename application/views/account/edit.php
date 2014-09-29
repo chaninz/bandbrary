@@ -77,27 +77,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-3">
-				<div class="ui vertical menu">
-					<div class="header item">
-						<i class="user icon"></i>
-						ACCOUNT
-					</div>
-					<div class="menu">
-						<a href="<?= base_url('account/edit') ?>" class="item">Genaral</a>
-						<a href="<?= base_url('account/password') ?>" class="item">Password</a>
-					</div>
-					<div class="header item">
-						<i class="circle blank icon"></i>
-						BAND
-					</div>
-					<div class="menu">
-						<a href="<?= base_url('band/edit') ?>" class="item">Information</a>
-						<a href="<?= base_url('band/request') ?>" class="item">Join Request</a>
-						<a href="<?= base_url('band/role') ?>" class="item">Roles</a>
-					</div>
-				</div>
-			</div>
+			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
 				<div class="ui form segment">
 					<p/>

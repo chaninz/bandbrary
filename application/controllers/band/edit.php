@@ -13,15 +13,18 @@ class Edit extends CI_Controller {
 			$band = array(
 				'name' => $this->input->post('name'),
 				'biography' => $this->input->post('biography'),
-				'style' => $this->input->post('style'),
+				'style_id' => $this->input->post('style'),
 				'fb_url' => $this->input->post('fburl'),
 				'tw_url' => $this->input->post('twurl'),
 				'yt_url' => $this->input->post('yturl'));
 			$this->band_model->edit($band);
+
+			redirect(base_url('band/edit'));
 		} else {
 			$band_id = $this->session->userdata('band_id');
-			$data = $this->band_model->get($band_id);
-			$this->load->view('band/edit', $data);
+			$band_profile = $this->band_model->get($band_id);
+			
+			$this->load->view('band/edit', $band_profile);
 		}
 	}
 

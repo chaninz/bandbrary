@@ -79,93 +79,80 @@
 		
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-3">
-				<div class="ui vertical menu">
-					<div class="header item">
-						<i class="user icon"></i>
-						ACCOUNT
-					</div>
-					<div class="menu">
-						<a href="<?= base_url('account/edit') ?>" class="item">Genaral</a>
-						<a href="<?= base_url('account/password') ?>" class="item">Password</a>
-					</div>
-					<div class="header item">
-						<i class="circle blank icon"></i>
-						BAND
-					</div>
-					<div class="menu">
-						<a href="<?= base_url('band/edit') ?>" class="item">Information</a>
-						<a href="<?= base_url('band/request') ?>" class="item">Join Request</a>
-						<a href="<?= base_url('band/role') ?>" class="item">Roles</a>
-					</div>
-				</div>
-			</div>
+			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
+				<form action="<?= base_url('band/edit') ?>" method="post">
 				<div class="ui form segment"><p>
 					<h1>Edit Band Information</h1>
 					<div class="line"></div><br><p>
 					<div class="field">
 						<label>Band Name</label>
-						<input type="text" placeholder="" name="name" style="background-color: #EBEBEB;" readonly> 
+						<input type="text" placeholder="" name="name" style="background-color: #EBEBEB;" value="<?= $name ?>" readonly> 
 					</div>
 					<div class="field">
 						<label>Biography</label>
-						<textarea></textarea>
+						<textarea name="biography" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>><?= $biography ?></textarea>
 					</div>
 					<div class="field">
 						<label>Style</label>
 						<div class="grouped inline fields">
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="1" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="1" name="style" <?= $style_id == 1 ? 'checked' : '' ?>>
 									<label>Blues</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="2" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="2" name="style" <?= $style_id == 2 ? 'checked' : '' ?>>
 									<label>Country</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="3" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="3" name="style" <?= $style_id == 3 ? 'checked' : '' ?>>
+									<label>Electronic</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" value="4" name="style" <?= $style_id == 4 ? 'checked' : '' ?>>
 									<label>Hip Hop</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="4" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="5" name="style" <?= $style_id == 5 ? 'checked' : '' ?>>
 									<label>Jazz</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="5" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="6" name="style" <?= $style_id == 6 ? 'checked' : '' ?>>
 									<label>Latin</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="6" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="7" name="style" <?= $style_id == 7 ? 'checked' : '' ?>>
 									<label>Pop</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="7" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="8" name="style" <?= $style_id == 8 ? 'checked' : '' ?>>
 									<label>Reggae</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="8" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="9" name="style" <?= $style_id == 9 ? 'checked' : '' ?>>
 									<label>R&B</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui checkbox">
-									<input type="checkbox" value="9" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="10" name="style" <?= $style_id == 10 ? 'checked' : '' ?>>
 									<label>Rock</label>
 								</div>
 							</div>
@@ -174,34 +161,35 @@
 					<div class="field">
 						<label>Facebook URL</label>
 						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Facebook URL" name="fburl">
+							<input type="text" placeholder="Facebook URL" name="fburl" value="<?= $fb_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
 							<i class="facebook icon"></i>
 						</div>
 					</div>
 					<div class="field">
 						<label>Twitter URL</label>
 						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Twitter URL" name="twurl">
+							<input type="text" placeholder="Twitter URL" name="twurl" value="<?= $tw_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
 							<i class="twitter icon"></i>
 						</div>
 					</div>
 					<div class="field">
 						<label>Youtube URL</label>
 						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Youtube URL" name="yturl">
+							<input type="text" placeholder="Youtube URL" name="yturl" value="<?= $yt_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
 							<i class="youtube icon"></i>
 						</div>
 					</div>
 					<br><p><div class="line"></div><p>
-					<div class="ui red submit button">Save Change</div>
+					<?php if ($this->session->userdata('is_master') == 1): ?>
+					<input type="submit" class="ui red submit button" value="Save Change"/>
+					<?php endif; ?>
 				</div>
+			</form>
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
 	</div>
 
-	<script src="../../../assets/js/bandbrary.js"></script>
-	<script>
-	</script>
+	<?php $this->load->view('footer'); ?>
 </body>
 </html>

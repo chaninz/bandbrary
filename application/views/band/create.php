@@ -24,66 +24,144 @@
             <textarea name="biography"></textarea>
           </div>
           <div class="field">
+            <label>Province</label>
+            <div class="ui labeled icon input">
+              <div class="ui fluid selection dropdown">
+
+                <div class="text">Select</div>
+                <i class="dropdown icon"></i>
+                <input type="hidden" name="province">
+                <div class="menu">
+                  <div class="item" data-value="10" style="font-size: 14px;">Bangkok</div>
+                  <div class="item" data-value="36" style="font-size: 14px;">Chaiyaphum</div>
+                  <div class="item" data-value="50" style="font-size: 14px;">Chiang Mai</div>
+                </div>
+                <div class="ui corner label">
+                  <i class="icon asterisk"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
             <label>Style</label>
             <div class="grouped inline fields">
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="1" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="1" name="style">
                   <label>Blues</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="2" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="2" name="style">
                   <label>Country</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="3" name="style">
-                  <label>Country</label>
+                <div class="ui radio checkbox">
+                  <input type="radio" value="3" name="style">
+                  <label>Electronic</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="4" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="4" name="style">
                   <label>Hip Hop</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="5" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="5" name="style">
                   <label>Jazz</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="6" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="6" name="style">
                   <label>Latin</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="7" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="7" name="style">
                   <label>Pop</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="8" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="8" name="style">
                   <label>Reggae</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="9" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="9" name="style">
                   <label>R&B</label>
                 </div>
               </div>
               <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" value="10" name="style">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="10" name="style">
                   <label>Rock</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Your Position</label>
+            <div class="grouped inline fields">
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="1" name="position">
+                  <label>Vocal</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="2" name="position">
+                  <label>Guitar</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="3" name="position">
+                  <label>Bass</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="4" name="position">
+                  <label>Drum</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="5" name="position">
+                  <label>Piano</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="6" name="position">
+                  <label>Keyboard</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="7" name="position">
+                  <label>Saxophone</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="8" name="position">
+                  <label>Trumpets</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" value="9" name="position">
+                  <label>Violin</label>
                 </div>
               </div>
             </div>

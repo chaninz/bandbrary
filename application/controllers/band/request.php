@@ -12,7 +12,7 @@ class Request extends CI_Controller {
 		$band_id = $this->session->userdata('band_id');
 		$band_requests = $this->join_band_model->get_join_request($band_id);
 		$data = array('band_requests' => $band_requests);
-		//print_r($band_requests);
+		
 		$this->load->view('band/request', $data);
 	}
 

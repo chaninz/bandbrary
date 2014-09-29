@@ -5,25 +5,29 @@ class Role extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('band_model');
+		$this->load->model('join_band_model');
 	}
 
 	public function index() {
-		if ($this->input->post()) {
-			$band = array('name' => $this->input->post('name'),
-				'biography' => $this->input->post('biography'),
-				'style' => $this->input->post('style'),
-				'fb_url' => $this->input->post('fburl'),
-				'tw_url' => $this->input->post('twurl'),
-				'yt_url' => $this->input->post('yturl'));
-			if ($this->band_model->is_exist($band['name']) == 0) {
-				$this->band_model->create($band);
-				echo 'success';
-			} else {
-				echo 'cannot create band';
-			}
-		} else {
-			$this->load->view('band/role');
-		}
+		$band_id = $this->session->userdata('band_id');
+		$band_members = $this->join_band_model->get_current_member($band_id);
+		$data = array('band_members' => $band_members);
+
+		$this->load->view('band/role', $data);
+	}
+
+	public function master($user_id) {
+		$band_id = $this->session->userdata('band_id');
+		$this->join_band_model->master($user_id, $band_id);
+
+		redirect(base_url('band/role'));
+	}
+
+	public function unmaster($user_id) {
+		$band_id = $this->session->userdata('band_id');
+		$this->join_band_model->unmaster($user_id, $band_id);
+
+		redirect(base_url('band/role'));
 	}
 
 }

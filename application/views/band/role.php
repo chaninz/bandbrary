@@ -82,27 +82,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-3">
-				<div class="ui vertical menu">
-					<div class="header item">
-						<i class="user icon"></i>
-						ACCOUNT
-					</div>
-					<div class="menu">
-						<a href="<?= base_url('account/edit') ?>" class="item">Genaral</a>
-						<a href="<?= base_url('account/password') ?>" class="item">Password</a>
-					</div>
-					<div class="header item">
-						<i class="circle blank icon"></i>
-						BAND
-					</div>
-					<div class="menu">
-						<a href="<?= base_url('band/edit') ?>" class="item">Information</a>
-						<a href="<?= base_url('band/request') ?>" class="item">Join Request</a>
-						<a href="<?= base_url('band/role') ?>" class="item">Roles</a>>
-					</div>
-				</div>
-			</div>
+			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
 				<table class="ui table segment">
 					<p>
@@ -110,64 +90,44 @@
 						<div class="line"></div><br><p>
 						<thead>
 							<tr><th>Name</th>
-								<th>Position</th>
+								<th>Band Master</th>
 							</tr></thead>
 							<tbody>
+								<?php foreach ($band_members as $band_member): ?>
 								<tr>
-									<td>Cheniphat Varasai</td>
-									<td>
-										<div class="ui selection dropdown">
-											<input type="hidden" name="gender">
-											<div class="default text" style="font-size: 14px;">Position</div>
-											<i class="dropdown icon"></i>
-											<div class="menu">
-												<div class="item" data-value="1" style="font-size: 14px;">Band Master</div>
-												<div class="item" data-value="0" style="font-size: 14px;">Member</div>
-											</div>
-										</div>
+									<td><?= $band_member->name.' '.$band_member->surname ?></td>
+									<td><?php if ($this->session->userdata('is_master') == 1): ?>
+											<?php if ($band_member->is_master == 1): ?>
+											<a class="ui green submit button" href="<?= base_url('band/role/unmaster/'.$band_member->id) ?>">Yes</a>
+											<?php else: ?>
+											<a class="ui submit button" href="<?= base_url('band/role/master/'.$band_member->id) ?>">No</a>
+											<?php endif; ?>
+										<?php else: ?>
+											<?php if ($band_member->is_master == 1): ?>
+											<a class="ui submit button">Yes</a>
+											<?php else: ?>
+											<a class="ui submit button">No</a>
+											<?php endif; ?>
+										<?php endif; ?>
 									</td>
 								</tr>
-								<tr>
-									<td>Punpun Sa</td>
-									<td>
-										<div class="ui selection dropdown">
-											<input type="hidden" name="gender">
-											<div class="default text" style="font-size: 14px;">Position</div>
-											<i class="dropdown icon"></i>
-											<div class="menu">
-												<div class="item" data-value="1" style="font-size: 14px;">Band Master</div>
-												<div class="item" data-value="0" style="font-size: 14px;">Member</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>Chanin Nualprasong</td>
-									<td>
-										<div class="ui selection dropdown">
-											<input type="hidden" name="gender">
-											<div class="default text" style="font-size: 14px;">Position</div>
-											<i class="dropdown icon"></i>
-											<div class="menu">
-												<div class="item" data-value="1" style="font-size: 14px;">Band Master</div>
-												<div class="item" data-value="0" style="font-size: 14px;">Member</div>
-											</div>
-										</div>
-									</td>
-								</tr>
+								<?php endforeach; ?>
 							</tbody>
+							<?php if ($this->session->userdata('is_master') == 1): ?>
 							<tfoot>
 								<tr><th colspan="3">
 									<div class="ui form">
 										<div class="field">
-											<input type="text" placeholder="invite more member">
+											<input type="text" placeholder="Invite more member">
 										</div>
 									</div>
 								</th>
 							</tr></tfoot>
+							<?php endif; ?>
 						</table>
 						<br><p><div class="line"></div><p>
-					<div class="ui red submit button">Save Change</div>
+						<!-- <div class="ui red submit button">Save Change</div> -->
+					</form>
 					</div>
 					<div class="col-xs-2"></div>
 				</div>

@@ -5,14 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
-	<link rel="stylesheet" href="../../assets/css/bootstrap.css">
-	<link rel="stylesheet" href="../../assets/css/bandbrary.css">
-	<link rel="stylesheet" href="../../assets/css/semantic.css">
-
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="../../assets/js/jquery.address.min.js"></script>
-	<script src="../../assets/js/semantic.min.js"></script>
+	<?php $this->load->view('header'); ?>
 
 	<style>
 	.ui.button {
@@ -52,11 +45,11 @@
 	}
 	#feed-left {
 		height: 1000px;
-		background: #edeeef url('../../images/noise-2.png');
+		background: #edeeef url('<?= base_url('images/noise-2.png') ?>');
 	}
 	#feed-center {
 		height: 1000px;
-		background: #e0e1e2 url('../../images/noise-2.png');
+		background: #e0e1e2 url('<?= base_url('images/noise-2.png') ?>');
 		box-shadow: inset 1px 0 0 rgba(0,0,0,.05),inset -1px 0 0 rgba(0,0,0,.05);
 		border: 1px solid rgba(0,0,0,.1);
 		padding: 110px 30px 30px 30px;
@@ -64,7 +57,7 @@
 	}
 	#feed-right {
 		height: 1000px;
-		background: #edeeef url('../../images/noise-2.png');
+		background: #edeeef url('<?= base_url('/images/noise-2.png') ?>');
 	}
 	</style>
 </head>
@@ -74,7 +67,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="bb-logo" style="margin-left: 482px;">
-						<img src="../../images/bandbrary_logo_16-9.png">
+						<img src="../images/bandbrary_logo_16-9.png">
 					</div>
 				</div>
 			</div>
@@ -89,13 +82,13 @@
 				<div class="sub header">2 days ago</div>
 			</div>
 			<div class="user-avatar">
-					<img src="../../images/no_profile.jpg">
+					<img src="../images/no_profile.jpg">
 				</div>
 				</div>
 		</div>
 		<div id="feed-center" class="col-xs-6">
 			<div class="feed-box">
-				<img src="../../images/audio_player.jpg" alt="" class="audio-player">
+				<img src="../images/audio_player.jpg" alt="" class="audio-player">
 				<div class="ui red button">
 					<i class="heart icon"></i>
 					Greedd
@@ -112,7 +105,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/avatar.jpg">
+							<img src="../images/demo/avatar.jpg">
 						</a>
 						<div class="content">
 							<a class="author">Chetniphat Varasai</a>
@@ -135,7 +128,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/avatar.jpg">
+							<img src="../images/demo/avatar.jpg">
 						</a>
 						<div class="content">
 							<a class="author">Chanin N.</a>
@@ -158,7 +151,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/avatar.jpg">
+							<img src="../images/demo/avatar.jpg">
 						</a>
 						<div class="content">
 							<a class="author">Punpun Sa</a>
@@ -189,7 +182,6 @@
 		<div id="feed-right" class="col-xs-3"></div>
 	</div>
 
-	<script src="../../assets/js/bandbrary.js"></script>
-	<script></script>
+	<?php $this->load->view('footer'); ?>
 </body>
 </html>
