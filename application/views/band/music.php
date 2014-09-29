@@ -40,7 +40,7 @@
 		padding: 0.1em 0.7em;
 	}
 	.center {
-		margin-top: 14px;
+		margin-top: 15px;
 		margin-left: 4px;
 		word-wrap: break-word;
 	}
@@ -54,7 +54,7 @@
 		<article>
 			<div class="container">
 				<div class="row">
-					
+
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-7">
 						<div class="center">

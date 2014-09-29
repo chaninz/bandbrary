@@ -103,7 +103,7 @@
 		float:left;
 		height: 10px;
 		font-size: 1em;
-		margin-top: 6px;
+		margin-top: 4px;
 	}
 	.navbar-item3 {
 		float: left;
@@ -200,7 +200,7 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	#bg-status {
-		background-color: #FFFCDA;
+		background-color: #FFFBD3;
 	}
 	.title-box {
 		width: 277px;
@@ -290,6 +290,8 @@
 		width: 114px;
 		border-radius: 0em;
 	}
+
+	/*--- Post ---*/
 	.create-post {
 		width: 204px;
 		height: 264px;
