@@ -6,7 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 
-	<?php $this->load->view('header'); ?>
+	<link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../assets/css/bandbrary.css">
+	<link rel="stylesheet" href="../../../assets/css/semantic.css">
+
+	<script src="../../../assets/js/jquery.min.js"></script>
+	<script src="../../../assets/js/jquery.address.min.js"></script>
+	<script src="../../../assets/js/semantic.min.js"></script>
 
 	<style>
 	body {
@@ -59,7 +65,7 @@
 	<div class="job-top">
 
 		<div class="job-hea1">
-			All Jobs
+			Pending Jobs
 		</div>
 	</div>
 	
@@ -74,22 +80,22 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="ui four items"><?php foreach ($jobs as $job): ?>
-					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
+				<div class="ui four items">
+					<div id="preview-job" class="item view job" data-id="">
 						<div class="image">
 							<img src="images/bass.jpg">
 							<a class="star ui corner label">
 								<i class="star icon"></i>
 							</a>
 						</div>
-						<div class="content">
-							<div class="name"><?= $job->name ?></div>
-							<p class="description"><?= $job->description ?></p>
-						</div>
+						<a class="content" href="pendingJob2.html">
+							<div class="name"></div>
+							<p class="description"></p>
+						</a>
 						<i id="job-icon" class="map marker icon"></i>
 						<span class="job-location">Bangkok, Thailand</span>
 						<div class="job-red-line"></div>
-					</div><?php endforeach ?>
+					</div>
 				</div>
 			</div>
 			<div class="col-xs-2">
@@ -110,15 +116,15 @@
 			<i class="home icon"></i>
 			All Jobs
 		</a>
-		<a class="active item">
+		<a class="active item" href="nearJob.html">
 			<i class="heart icon"></i>
 			Near Jobs
 		</a>
-		<a class="item">
+		<a class="item" href="pendingJob1.html">
 			<i class="heart icon"></i>
 			Pending Jobs
 		</a>
-		<a class="item">
+		<a class="item" href="getJob.html">
 			<i class="tasks icon"></i>
 			Get Jobs
 		</a>
@@ -245,30 +251,9 @@
 		</div>
 	</div>
 
-	<?php $this->load->view('footer'); ?>
+	<script src="../../../assets/js/bandbrary.js"></script>
 	<script>
 	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
-	$(".view.job").click(function(){
-		var id = $(this).attr("data-id");
-		$.ajax({
-			type:'POST',
-			url:'<?= base_url('job/index/get'); ?>',
-			data:{id:id},
-			success:function(data){
-				console.log(data);
-				var job = JSON.parse(data);
-				$("#jobname").text(job.name);
-				$("#jobvenue").text(job.venue);
-				$("#jobstart").text(job.start);
-				$("#jobend").text(job.end);
-				$("#jobbudget").text(job.budget);
-				$("#jobdescription").text(job.description);
-				$('.create.modal').modal('show');
-			}
-		});
-		
-	})	
-	
 	</script>
 </body>
 </html>
