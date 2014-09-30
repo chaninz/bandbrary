@@ -56,6 +56,7 @@
 								<div class="post-date">
 									<div class="post-day"><?= mdate("%d", strtotime($post->timestamp)) ?></div>
 									<div class="post-month"><?= mdate("%M", strtotime($post->timestamp)) ?></div>
+									<div class="post-white-line"></div>
 								<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
 								</div>
 								<div class="post-heading"><?= $post->topic ?></div>
