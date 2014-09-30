@@ -74,6 +74,18 @@ class Job_model extends CI_Model {
 		return $result;
 	}
 
+	public function get_request_user($job_id){
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Employment', 'Employment.job_id = Jobs.id');
+		$this->db->join('Users', 'Users.id = Employment.user_id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$query = $this->db->get_where('Jobs', array('Employment.job_id' => $job_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
 	// requested = 1, joined = 2, leaved =4
 	function request($data) {
 		$this->db->insert('Employment', $data);

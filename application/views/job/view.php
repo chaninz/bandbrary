@@ -149,19 +149,24 @@
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Pending</div>
+							<div class="header">Pending</div> <?php if ($job_requests): ?><?php foreach ($job_requests as $job_request) : ?>
 							<div id="job-pd" class="field">
 								<div class="jp1"><img src="../../images/no_profile.jpg" alt="" id="img-preview"></div>
 								<div class="jp2">
 									<span><label><?= $job_request->name.' '.$job_request->surname ?></label></span>								</div>
 								<div class="jp3">
 									<div class="ui red button">
-										<a class="ui red button" href="<?= base_url('job/request/accept/'.$job_request->id.'?ref='.uri_string()) ?>">
+										 <a class="ui red button" href="<?= base_url('job/request/accept/'.$job_request->id.'?ref='.uri_string()) ?>"> 
+										Comfirm
 									</div>
 									<div class="ui button">
 										<a class="ui button" href="<?= base_url('job/request/reject/'.$job_request->id.'?ref='.uri_string()) ?>">
+										Cancle
 									</div>
 								</div>
+								<?php endforeach; ?><?php else: ?>
+							No request
+							<?php endif; ?>
 							</div>
 						</div>
 					</div>
