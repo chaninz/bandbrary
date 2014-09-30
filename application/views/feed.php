@@ -110,7 +110,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="images/demo/tle.jpg">
+							<img src="<?= base_url('images/tle.jpg') ?>">
 						</a>
 						<div class="content">
 							<a class="author">Chetniphat Varasai</a>
@@ -133,7 +133,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="images/demo/nin.jpg">
+							<img src="<?= base_url('images/nin.jpg') ?>">
 						</a>
 						<div class="content">
 							<a class="author">Chanin N.</a>
@@ -156,7 +156,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/pun.jpg">
+							<img src="<?= base_url('images/pun.jpg') ?>">
 						</a>
 						<div class="content">
 							<a class="author">Punpun Sa</a>
@@ -197,7 +197,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/pun.jpg">
+							<img src="<?= base_url('images/pun.jpg') ?>">
 						</a>
 						<div class="content">
 							<a class="author">Punpun Sa</a>
@@ -243,7 +243,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/tle.jpg">
+							<img src="<?= base_url('images/tle.jpg') ?>">
 						</a>
 						<div class="content">
 							<a class="author">Chetniphat Varasai</a>
