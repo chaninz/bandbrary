@@ -45,11 +45,11 @@
 	}
 	#feed-left {
 		height: 1280px;
-		background: #edeeef url('../images/noise-2.png');
+		background: #edeeef url('images/noise-2.png');
 	}
 	#feed-center {
 		height: 1280px;
-		background: #e0e1e2 url('../images/noise-2.png');
+		background: #e0e1e2 url('images/noise-2.png');
 		box-shadow: inset 1px 0 0 rgba(0,0,0,.05),inset -1px 0 0 rgba(0,0,0,.05);
 		border: 1px solid rgba(0,0,0,.1);
 		padding: 110px 30px 30px 30px;
@@ -57,7 +57,7 @@
 	}
 	#feed-right {
 		height: 1280px;
-		background: #edeeef url('../images/noise-2.png');
+		background: #edeeef url('images/noise-2.png');
 	}
 	</style>
 </head>
@@ -67,7 +67,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="bb-logo" style="margin-left: 482px;">
-						<img src="../images/bandbrary_logo_16-9.png">
+						<img src="images/bandbrary_logo_16-9.png">
 					</div>
 				</div>
 			</div>
@@ -82,22 +82,22 @@
 					<div class="sub header">2 days ago</div>
 				</div>
 				<div class="user-avatar">
-					<img src="../images/no_profile.jpg">
+					<img src="images/no_profile.jpg">
 				</div>
 			</div>
-			<div class="feed-user" style="margin-top: 459px; margin-left: 190px;">
+			<div class="feed-user" style="margin-top: 459px; margin-left: 180px;">
 				<div class="feed-name">
 					<a class="ui header">Punpun Sa</a>
 					<div class="sub header">1 days ago</div>
 				</div>
 				<div class="user-avatar">
-					<img src="../images/no_profile.jpg">
+					<img src="images/no_profile.jpg">
 				</div>
 			</div>
 		</div>
 		<div id="feed-center" class="col-xs-6">
 			<div class="feed-box">
-				<img src="../images/audio_player.jpg" alt="" class="audio-player">
+				<img src="images/audio_player.jpg" alt="" class="audio-player">
 				<div class="ui red button">
 					<i class="heart icon"></i>
 					Greedd
@@ -110,7 +110,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/avatar.jpg">
+							<img src="images/demo/avatar.jpg">
 						</a>
 						<div class="content">
 							<a class="author">Chetniphat Varasai</a>
@@ -133,7 +133,7 @@
 				<div class="ui comments">
 					<div class="comment">
 						<a class="avatar">
-							<img src="/images/demo/avatar.jpg">
+							<img src="images/demo/avatar.jpg">
 						</a>
 						<div class="content">
 							<a class="author">Chanin N.</a>
@@ -184,7 +184,7 @@
 				</div>
 			</div>
 			<div class="feed-box" style="width: 500px; margin-top: 48px; margin-left: 45px;">
-				<img src="../images/headphones.jpg" style="width: 498px;" alt="" class="audio-player">
+				<img src="images/headphones.jpg" style="width: 498px;" alt="" class="audio-player">
 				<div class="ui red button">
 					<i class="heart icon"></i>
 					Greedd
