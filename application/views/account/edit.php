@@ -80,6 +80,7 @@
 			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
 				<div class="ui form segment">
+					<form action="<?= base_url('account/edit') ?>" method="post">
 					<p/>
 					<h1>Edit Profile</h1>
 					<div class="line"></div>
@@ -197,6 +198,7 @@
 					<div class="line"></div>
 					<p/>
 					<input class="ui red submit button" type="submit" value="Save Change">
+				</form>
 				</div> 
 			</div>
 			<div class="col-xs-2"></div>

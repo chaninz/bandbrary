@@ -153,14 +153,13 @@
 							<div id="job-pd" class="field">
 								<div class="jp1"><img src="../../images/no_profile.jpg" alt="" id="img-preview"></div>
 								<div class="jp2">
-									<span><label>Punpun Sa</label></span>
-								</div>
+									<span><label><?= $job_request->name.' '.$job_request->surname ?></label></span>								</div>
 								<div class="jp3">
 									<div class="ui red button">
-										Confirm
+										<a class="ui red button" href="<?= base_url('job/request/accept/'.$job_request->id.'?ref='.uri_string()) ?>">
 									</div>
 									<div class="ui button">
-										Cancel
+										<a class="ui button" href="<?= base_url('job/request/reject/'.$job_request->id.'?ref='.uri_string()) ?>">
 									</div>
 								</div>
 							</div>

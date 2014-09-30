@@ -102,12 +102,12 @@ class Job_model extends CI_Model {
 		$this->db->delete('Employment', array('id', $job_id));
 	}
 
-	function accept($job_id) {
-		$this->set_status($user, $band, 2);
+	function accept($job_id,$user_id) {
+		$this->set_status($user, $job_id, 2);
 	}
 
-	function reject($job_id) {
-		$this->set_status($user, $band, 3);
+	function reject($job_id,$user_id) {
+		$this->set_status($user, $job_id, 3);
 	}
 
 	function get_user_status($job_id) {
