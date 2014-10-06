@@ -37,7 +37,7 @@
 		padding-top: 100px;
 	}
 	.ui.vertical.menu {
-		width: 29rem;
+		width: 17.33rem;
 		border-radius: 0px;
 		padding-top: 80px;
 	}
@@ -60,7 +60,7 @@
 		background-color: #F7F6F6;
 	}
 	.ui.menu .item {
-		font-size: 1.5rem;
+		font-size: 1rem;
 		padding: 1em 1em;
 	}
 	.ui.form.segment{
@@ -181,7 +181,7 @@
 					</div>
 					<br><p><div class="line"></div><p>
 					<?php if ($this->session->userdata('is_master') == 1): ?>
-					<input type="submit" class="ui red submit button" value="Save Change"/>
+					<input type="submit" class="ui small red submit button" value="Save Change"/>
 					<?php endif; ?>
 				</div>
 			</form>

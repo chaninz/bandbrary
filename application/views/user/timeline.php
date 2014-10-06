@@ -17,7 +17,6 @@
 	.center {
 		background-color: #F7F6F6; 
 		margin-top: 14px;
-		margin-left: 4px;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 		word-wrap: break-word;
@@ -40,7 +39,7 @@
 			<div class="container">
 				<div class="row">
 					<?php $this->load->view('user/sidebar_left'); ?>
-					<div class="col-xs-7">
+					<div class="col-xs-9">
 						<div class="center">
 							<img src="../../images/audio_player.jpg" class="audio-player">
 							<div id="timeline-btn" class="ui red button">
@@ -93,9 +92,6 @@
 							</div>
 							<div class="line"></div>
 						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="advt"></div>
 					</div>
 				</div>
 			</div>

@@ -14825,14 +14825,14 @@ ul.ui.list,
 ol.ui.list,
 .ui.list {
   list-style-type: none;
-  margin: 1em 0em;
+/*  margin: 1em 0em;*/
   padding: 0em;
 }
 ul.ui.list ul,
 ol.ui.list ol,
 .ui.list .list {
   margin: 0em;
-  padding: 0.5em 0em 0.5em 1em;
+  padding: 0.5em 0.9em 0.5em 1em;
 }
 ul.ui.list:first-child,
 ol.ui.list:first-child,

@@ -1,4 +1,4 @@
-<div class="col-xs-3">
+<div class="col-xs-3" style="padding-right: 0px">
 	<div id="status-button"class="ui icon button">
 		<i class="edit icon" style="font-size: 1.5rem"></i>
 	</div>

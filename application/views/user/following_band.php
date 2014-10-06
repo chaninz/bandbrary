@@ -57,7 +57,6 @@
 		left: 985px;
 	}
 	.ui.menu .item {
-		font-size: 1.3rem;
 		padding: 1em;
 	}
 	.follow-menu {
@@ -76,7 +75,7 @@
 		<article>
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-3">
+					<div class="col-xs-3" style="padding-right: 0px">
 						<div class="follow-menu">
 							<div class="ui fluid vertical pointing menu">
 								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/following/user' ?>">
@@ -89,7 +88,7 @@
 						</div>
 					</div>
 
-					<div class="col-xs-7">
+					<div class="col-xs-9">
 						<div class="center">
 							<div class="ui five connected items"><?php foreach($following_bands as $following_band): ?>
 								<div class="item">
@@ -108,9 +107,6 @@
 								</div><?php endforeach; ?>
 							</div>
 						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="advt"></div>
 					</div>
 				</div>
 			</div>

@@ -34,7 +34,7 @@
 		padding-top: 100px;
 	}
 	.ui.vertical.menu {
-		width: 29rem;
+		width: 17.33rem;
 		border-radius: 0px;
 		padding-top: 80px;
 	}
@@ -57,7 +57,7 @@
 		background-color: #F7F6F6;
 	}
 	.ui.menu .item {
-		font-size: 1.5rem;
+		font-size: 1rem;
 		padding: 1em 1em;
 	}
 	.ui.form.segment{
@@ -196,8 +196,8 @@
 					</div>
 					<br/><p/>
 					<div class="line"></div>
-					<p/>
-					<input class="ui red submit button" type="submit" value="Save Change">
+					<br><p/>
+					<input class="ui small red submit button" type="submit" value="Save Change">
 				</form>
 				</div> 
 			</div>
