@@ -6,14 +6,14 @@ class Band extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function index($post_id) {
+	public function index($band_id) {
 		if ($this->input->post()) {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
-			'band_id' => $post_id
+			'band_id' => $band_id,
 			'report_type' => $this->input->post('report_type')
 		);
-			$this->report_model->add($data);
+			$this->report_band_model->add($data);
 		}
 	}
 

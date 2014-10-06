@@ -6,14 +6,14 @@ class Music extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function index($post_id) {
+	public function index($music_id) {
 		if ($this->input->post()) {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
-			'music_id' => $post_id
+			'music_id' => $music_id,
 			'report_type' => $this->input->post('report_type')
 		);
-			$this->report_model->add($data);
+			$this->report_music_model->add($data);
 		}
 	}
 

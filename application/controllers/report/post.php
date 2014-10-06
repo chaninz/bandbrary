@@ -10,10 +10,10 @@ class Post extends CI_Controller {
 		if ($this->input->post()) {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
-			'post_id' => $post_id
+			'post_id' => $post_id,
 			'report_type' => $this->input->post('report_type')
 		);
-			$this->report_model->add($data);
+			$this->report_post_model->add($data);
 		}
 	}
 
