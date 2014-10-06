@@ -1,8 +1,8 @@
-	.container{
-		width: 1170px !important;
-	}
 	html {
-		font-size: 10px;
+		font-size: 0.875em;
+	}
+	.container{
+		width: 980px !important;
 	}
 	body {
 		font-family: Arimo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -50,7 +50,7 @@
 		left: 727px;
 	}
 	.bb-logo{
-		width: 177px;
+		width: 168px;
 		height: 65px;
 		background-color: #E72A30;
 		margin-left: 45px;
@@ -59,8 +59,8 @@
 		float: left;
 	}
 	.bb-logo > img {
-		width: 163px;
-		height: 70px;
+		width: 157px;
+		height: 67px;
 		margin-top: 19px;
 		margin-left: 5px;
 	}
@@ -94,21 +94,20 @@
 	}
 	.navbar-item1 {
 		float: left;
-		font-size: 2.7rem;
-		color: #FFFFFF;
 		margin-top: 4px;
+		color: #FFFFFF;
 		-webkit-font-smoothing: auto;
 	}
 	.navbar-item2 {
 		float:left;
 		height: 10px;
 		font-size: 1em;
-		margin-top: 4px;
+		margin-top: 7px;
 	}
 	.navbar-item3 {
 		float: left;
 		border-radius: 0px;
-		background-color: none;
+		background-color: transparent;
 		color: #FFFFFF;
 		margin-left: 10px;
 	}
@@ -121,8 +120,8 @@
 	}
 	.profile-pic1 {
 		float: left;
-		width: 31px;
-		height: 31px;
+		width: 28px;
+		height: 28px;
 		margin-right: 0.2em
 	}
 	.line {
@@ -605,16 +604,19 @@
 	header .ui.basic.button, .ui.basic.buttons .button {
 		color: white!important;
 	}
+	header .ui.button {
+		padding: 0.8em 1.3em!important;
+	}
 	header .ui.button, .ui.buttons .button {
-		font-size: 1.2rem!important;
+		font-size: 0.9em!important;
 	}
 	header i.icon {
 		margin: 0px;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 	header .ui.input input {
 		font-size: 0.7em;
-		width: 240px;
+		width: 220px;
 		margin-left: 20px;
 	}
 	header .ui.icon.input > .icon {
@@ -628,10 +630,10 @@
 		color: #FFFFFF;
 	}
 	header .ui.menu .item {
-		font-size: 1.2rem;
+		font-size: 0.9rem;
 		font-weight: 400px;
 		padding: 0px;
-		margin-top: 4px;
+		margin-top: 5px;
 	}
 	header .ui.menu .active.item {
 		color: #FFFFFF;
@@ -639,21 +641,31 @@
 	}
 	header .user-name {
 		float: left;
-		margin-top: 10px;
+		margin-top: 9px;
 		margin-left: 5px;
 		-webkit-font-smoothing: auto;
 
 	}
 	header .ui.dropdown .menu .item {
-		font-size: 1.2rem;
+		font-size: 1.1em;
 		border-top: 0px;
 	}
 	header .ui.dropdown .menu {
 		left: -43px;
 	}
 	header .ui.dropdown > .dropdown.icon {
-		margin: 0.8em 0 0 0.8em;
+		margin: 0.6em 0 0 0.7em;
 	}
 	header .ui.dropdown .menu .active.item {
 		background-color: rgba(0, 0, 0, 0.6) !important;
+	}
+	header .line {
+		width: 120px;
+	}
+	#setting-dd {
+		margin-top: 1em; 
+		margin-left: -5px;
+		border-top:0px; 
+		width: 120px; 
+		font-size: 0.76em;
 	}
