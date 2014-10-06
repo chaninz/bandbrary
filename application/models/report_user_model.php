@@ -6,6 +6,10 @@ class Report_User_model extends CI_Model {
 		parent::__construct();	
 	}
 
+	function add($data){
+		$this->db->insert('Report_User',$data);
+	}
+
 	function approve($report_id){
 		$this->db->where('id',$report_id);
 		$this->db->update('Report_User',array('status' => 2));

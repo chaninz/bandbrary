@@ -5,6 +5,9 @@ class Report_Music_model extends CI_Model {
 	function __construct(){
 		parent::__construct();	
 	}
+	function add($data){
+		$this->db->insert('Report_Music',$data);
+	}
 
 	function approve($report_id){
 		$this->db->where('id',$report_id);
