@@ -17,13 +17,6 @@ class Job extends CI_Controller {
 			$data = array(
 			'user_id' => $this->session->userdata('id'),
 			'name' => $this->input->post('name'),
-			'job_type' => $this->input->post('job_type'),
-			'style' => $this->input->post('style'),
-			'description' => $this->input->post('description'),
-			'venue' => $this->input->post('venue'),
-			'province_id' => $this->input->post('province'),
-			'budget' => $this->input->post('budget'),
-			'start_time' => $this->input->post('start_time'),
 			'end_time' => $this->input->post('end_time')
 		);
 			$this->job->add($data);
