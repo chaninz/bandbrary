@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Job extends CI_Controller {
+class pm extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -12,16 +12,15 @@ class Job extends CI_Controller {
 		redirect();
 	}
 
-	public function add() {
+	public function add($text,$target_user) {
 		if ($this->input->post()) {
 			$data = array(
 			'user_id' => $this->session->userdata('id'),
-			'name' => $this->input->post('name'),
-			'end_time' => $this->input->post('end_time')
+			'text'=> $text,
+			'target_user' = $target_user
 		);
-			$this->job->add($data);
+			$this->pm_model->add($data);
 		} else {
-			// redirect(base_url('user/add')); 
 			$this->load->view('user/createJob');
 		}
 		

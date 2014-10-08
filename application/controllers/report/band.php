@@ -17,6 +17,7 @@ class Band extends CI_Controller {
 		}
 	}
 
+
 }
 
 /* End of file add.php */
