@@ -9284,7 +9284,7 @@ a.ui.teal.label:hover:before {
           box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   margin: 1em 0em;
   padding: 1em;
-  border-radius: 5px 5px 5px 5px;
+/*  border-radius: 5px 5px 5px 5px;*/
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;

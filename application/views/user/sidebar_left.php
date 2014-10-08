@@ -3,14 +3,8 @@
 		<i class="edit icon" style="font-size: 1.5rem"></i>
 	</div>
 
-	<div class="status">
-		<div class="body">
-			<div class="ui form">
-				<div class="field">
-					<textarea id="bg-status"></textarea>
-				</div>
-			</div>
-		</div>
+	<div class="ui stacked segment" id="status">
+		<textarea id="status-msg"></textarea>
 	</div>
 
 	<div class="about">
