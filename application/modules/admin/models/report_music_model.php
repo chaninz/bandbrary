@@ -19,7 +19,7 @@ class Report_Music_model extends CI_Model {
 
 	function get_all_report(){
 		$this->db->select('*');
-		$this->db->from('Report');
+		$this->db->from('Report_Music');
 		$this->db->where('status',1);
 		$this->db->order_by("timestamp", "desc"); 
 
@@ -29,7 +29,7 @@ class Report_Music_model extends CI_Model {
 
 	function get_approved_report(){
 		$this->db->select('*');
-		$this->db->from('Report');
+		$this->db->from('Report_Music');
 		$this->db->where('status',2);
 		$this->db->order_by("timestamp", "desc"); 
 
@@ -39,7 +39,7 @@ class Report_Music_model extends CI_Model {
 
 	function get_not_approve_report(){
 		$this->db->select('*');
-		$this->db->from('Report');
+		$this->db->from('Report_Music');
 		$this->db->where('status',1);
 		$this->db->order_by("timestamp", "desc"); 
 
@@ -48,7 +48,7 @@ class Report_Music_model extends CI_Model {
 	}
 	function countReport(){
 		$this->db->select('COUNT (*)');
-		$this->db->from('Report');
+		$this->db->from('Report_Music');
 		$this->db->where('status',1);
 		// 1 is waiting admin approve
 		// for admin check thier job

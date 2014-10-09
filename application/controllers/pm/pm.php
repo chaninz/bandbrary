@@ -15,9 +15,9 @@ class pm extends CI_Controller {
 	public function add($text,$target_user) {
 		if ($this->input->post()) {
 			$data = array(
-			'user_id' => $this->session->userdata('id'),
+			'from_user_id' => $this->session->userdata('id'),
 			'text'=> $text,
-			'target_user' = $target_user
+			'to_user_id' = $target_user
 		);
 			$this->pm_model->add($data);
 		} else {
