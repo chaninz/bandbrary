@@ -44,7 +44,7 @@
 			<div class="container">
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
-					<div class="col-md-7">
+					<div class="col-md-9">
 						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
 							<div class="create-post test nin">
 								<div id="create-post-button" class="ui icon button">
@@ -67,9 +67,6 @@
 								</div>
 							</div><?php endforeach; ?>
 						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="advt"></div>
 					</div>
 				</div>
 			</div>

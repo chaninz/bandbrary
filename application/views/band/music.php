@@ -40,8 +40,6 @@
 		padding: 0.1em 0.7em;
 	}
 	.center {
-		margin-top: 15px;
-		margin-left: 4px;
 		word-wrap: break-word;
 	}
 	</style>
@@ -56,7 +54,7 @@
 				<div class="row">
 
 					<?php $this->load->view('band/sidebar_left'); ?>
-					<div class="col-xs-7">
+					<div class="col-xs-9">
 						<div class="center">
 							<div class="album-group">
 								<img src="../../images/bodyslam.jpg" alt="" class="album-cover1">
@@ -267,9 +265,6 @@
 								</tbody>
 							</table>
 						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="advt"></div>
 					</div>
 				</div>
 			</div>

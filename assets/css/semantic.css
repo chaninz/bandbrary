@@ -8544,7 +8544,7 @@ a.ui.teal.label:hover:before {
 -------------------*/
 .ui.floating.label {
   position: absolute;
-  z-index: 100;
+  z-index: 9;
   top: -1em;
   left: 100%;
   margin: 0em 0em 0em -1.5em !important;

@@ -1,20 +1,14 @@
-<div class="col-xs-3">
+<div class="col-xs-3" style="padding-right: 0px">
 	<div id="status-button"class="ui icon button">
-		<i class="edit icon" style="font-size: 1.5rem"></i>
+		<i class="edit icon"></i>
 	</div>
 
-	<div class="status">
-		<div class="body">
-			<div class="ui form">
-				<div class="field">
-					<textarea id="bg-status"></textarea>
-				</div>
-			</div>
-		</div>
+	<div class="ui stacked segment" id="status-band">
+		<textarea id="status-msg"></textarea>
 	</div>
 
 	<div class="about">
-		<div class="title-box">ABOUT</div>
+		<div class="title-box-band">ABOUT</div>
 		<div class="ui list">
 			<div class="list"><?php if( ! empty($band_profile->biography)): ?>
 				<div class="item">
@@ -55,7 +49,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="member">
+	<!-- <div class="member">
 		<div class="title-box">MEMBERS</div>
 		<div class="ui list">
 			<div class="list"><?php foreach ($band_members as $band_member): ?>
@@ -69,5 +63,5 @@
 				</div><?php endforeach; ?>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
