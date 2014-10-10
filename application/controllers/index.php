@@ -8,8 +8,25 @@ class Index extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('index');
+		if ($this->session->userdata('email')) {
+			// Check if signed in
+			$username = $this->session->userdata('username');
+			$name = $this->session->userdata('name');
+			$surname = $this->session->userdata('surname');
+
+			if (empty($name) && empty($surname)) {
+				// First time signin, forward to initial page to complete the profile
+				redirect('account/start');
+			} else {
+				redirect('user/'.$username);
+			}
+		} else {
+			$this->load->view('index');
+		}
 	}
+
+
+
 
 }
 

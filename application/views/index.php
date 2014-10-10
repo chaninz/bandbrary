@@ -92,11 +92,11 @@
 							<div class="three fields">
 								<div class="field signin-field">
 									<label>ชื่อผู้ใช้</label>
-									<input placeholder="" type="text" name="username">
+									<input placeholder="" type="text" name="username"/>
 								</div>
 								<div class="signin-field field">
 									<label>รหัสผ่าน</label>
-									<input placeholder="" type="password" name="password">
+									<input placeholder="" type="password" name="password"/>
 								</div>
 								<div class="signin-field field">
 									<div id="signin-button" class="ui red small submit button">เข้าสู่ระบบ</div>
@@ -104,7 +104,7 @@
 							</div>
 							<div class="inline field">
 								<div class="ui checkbox">
-									<input type="checkbox">
+									<input type="checkbox" name="remember"/>
 									<label>จำรหัสผ่าน</label>
 								</div>
 							</div>

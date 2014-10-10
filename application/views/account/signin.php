@@ -92,7 +92,14 @@
 								</div>
 							</div>
 						</div>
-						<div class="field text-center">
+						<div class="field">
+							<div class="ui checkbox">
+								<input type="checkbox" name="remember"/>
+								<label>จำรหัสผ่าน</label>
+							</div>
+						</div>
+						<div class="field text-center"><?php if( ! empty($ref)): ?>
+							<input type="hidden" name="ref" value="<?= $ref ?>"/><?php endif; ?>
 							<input class="ui button primary" type="submit" value="เข้าสู่ระบบ"/>
 						</div>
 					</form>
