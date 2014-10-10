@@ -32,7 +32,7 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	.container {
-		width: 1170px;
+		width: 980px;
 		max-width: none !important;
 	}
 	.ui.label {
@@ -80,32 +80,32 @@
 	<header>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-8">
+				<div class="col-xs-7">
 					<a href="<?php echo base_url(); ?>">
 						<img src="images/bandbrary_logo2.png" alt="" height="80px" style="margin-left:50px;">
 					</a>
 				</div>
 
-				<div class="col-xs-4">
+				<div class="col-xs-5">
 					<div class="signin-form ui small form">
 						<form class="signin-form" action="account/signin" method="post">
 							<div class="three fields">
 								<div class="field signin-field">
-									<label>Username</label>
+									<label>ชื่อผู้ใช้</label>
 									<input placeholder="" type="text" name="username">
 								</div>
 								<div class="signin-field field">
-									<label>Password</label>
+									<label>รหัสผ่าน</label>
 									<input placeholder="" type="password" name="password">
 								</div>
 								<div class="signin-field field">
-									<div id="signin-button" class="ui red small submit button">Sign in</div>
+									<div id="signin-button" class="ui red small submit button">เข้าสู่ระบบ</div>
 								</div>
 							</div>
 							<div class="inline field">
 								<div class="ui checkbox">
 									<input type="checkbox">
-									<label>Remember me</label>
+									<label>จำรหัสผ่าน</label>
 								</div>
 							</div>
 						</form>
@@ -119,33 +119,33 @@
 		<div class="row">
 			<div class="col-xs-7">
 				<div id="welcome-msg">
-					<h1>Welcome to Bandbrary.</h1>
+					<h1>ยินดีต้อนรับเข้าสู่แบนด์บรารี่</h1>
 				</div>
 			</div>
 
-			<div class="col-xs-4">
+			<div class="col-xs-5">
 				<div id="signup-form" class="ui form segment">
 					<div id="signup-msg">
-						<p><span class="text-bold">Sign up</span> to Bandbrary</p>
+						<p><span class="text-bold">สมัครสมาชิก</span> แบนด์บรารี่</p>
 					</div>
 					<form class="signup-form" action="<?php echo base_url().'account/signup'; ?>" method="post">
 						<div class="field">
-							<label>Username</label>
+							<label>ชื่อผู้ใช้</label>
 							<div class="ui left labeled icon input">
-								<input type="text" name="username"/>
+								<input type="text" name="username" id="username"/>
 								<i class="user icon"></i>
 							</div>
 						</div>
 						<div class="two fields">
 							<div class="field">
-								<label>Password</label>
+								<label>รหัสผ่าน</label>
 								<div class="ui left labeled icon input">
 									<input type="password" id="password" name="password"/>
 									<i class="lock icon"></i>
 								</div>
 							</div>
 							<div class="field">
-								<label>Confirm Password</label>
+								<label>ยืนยันรหัสผ่าน</label>
 								<div class="ui left labeled icon input">
 									<input type="password" id="confirm-password"/>
 									<i class="lock icon"></i>
@@ -153,20 +153,24 @@
 							</div>
 						</div>
 						<div class="field">
-							<label>Email Address</label>
+							<label>อีเมล</label>
 							<div class="ui left labeled icon input">
-								<input type="text" name="email"/>
+								<input type="text" id="email" name="email"/>
 								<i class="mail icon"></i>
 							</div>
 						</div>
-						<div id="signup-button" class="text-center field">
-							<div class="ui large buttons" style="display: inline-block;">
-								<input class="ui button" name="user-type" type="submit" value="audience"/>
-								<div class="or"></div>
-								<input class="ui button" name="user-type" type="submit" value="musician"/>
+						<div class="text-center">
+							<div class="field">
+								<label style="text-align: left">คุณเป็น</label>
+								<div class="ui large buttons" style="display: inline-block;">
+									<div class="ui button" data-value="1"><i class="headphones icon"></i>ผู้ฟัง</div>
+									<input type="hidden" id="user-type" name="user-type" value="0"/>
+									<div class="ui button" data-value="2"><i class="unmute icon"></i>นักดนตรี</div>
+								</div>
 							</div>
 						</div>
-						<div>
+						<div id="signup-button" class="field">
+							<input class="fluid ui button primary" type="submit" value="ลงทะเบียน"/>
 						</div>
 					</form>
 				</div>
@@ -175,6 +179,5 @@
 	</div>
 	
 	<?php $this->load->view('footer'); ?>
-
 </body>
 </html>

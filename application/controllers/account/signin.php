@@ -12,13 +12,16 @@ class Signin extends CI_Controller {
 	public function index() {
 		if ($this->session->userdata('email')) {
 			//print_r($this->session->all_userdata());
-			//redirect('');
-			$user_id = $this->session->userdata('username');
-			redirect('user/'.$user_id);
+
+			$username = $this->session->userdata('username');
+			redirect('user/'.$username);
+
 		} else if ($this->input->post()) {
+
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$result = $this->user_model->signin($username, $password);
+
 			if ($result) {
 				// If sign in complete
 				$user = array('id' => $result->id,
@@ -50,13 +53,14 @@ class Signin extends CI_Controller {
 				if (empty($user['name']) && empty($user['surname'])) {
 					// First time signin, forward to initial page to complete the profile
 					redirect('account/start');
+				} else {
+					redirect('user/'.$username);
 				}
-
-				redirect('user/'.$username);
 			} else {
-				$data = array('error_code' => 0,
-					'error_type' => 0);
-				$this->load->view('account/signin', $data);
+				$display = array('msg' => array('type' => 1, 
+				'header' => "",
+				'text' => "ไม่พบชื่อผู้ใช้ หรือ รหัสผ่าน"));
+				$this->load->view('account/signin', $display);
 			}
 		} else {
 			$this->load->view('account/signin');

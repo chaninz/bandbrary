@@ -10,19 +10,19 @@ class User_model extends CI_Model {
 		$this->db->insert('Users',$user);
 	}
 
-	function is_exist($user) {
+	function is_exist($username, $email) {
 		// Check if email or username are exist.
 
 		$result = 0;
 		$email_exist = FALSE;
 		$username_exist = FALSE;
-		$this->db->or_where($user);
+		$this->db->or_where($id);
 		$query = $this->db->get('Users');
 		if ($query->num_rows() > 0) {
 			foreach ($query->result() as $row) {
-				if ($row->username == $user['username'])
+				if ($row->username == $username)
 					$username_exist = TRUE;
-				if ($row->email == $user['email'])
+				if ($row->email == $email)
 					$email_exist = TRUE;
 			}
 
@@ -40,42 +40,62 @@ class User_model extends CI_Model {
 
 		return $result;
 	}
+
+	function is_username_exist($username) {
+		$user = $this->get_by_username($username);
+		$result = 0;
+		if ($user != NULL) {
+			$result = 1;
+		}
+
+		return $result;
+	}
+
+	function is_email_exist($email) {
+		$query = $this->db->get_where('Users', array('email' => $email));
+		$user = $query->row();
+		$result = 0;
+		if ($user != NULL) {
+			$result = 1;
+		}
+
+		return $result;
+	}
 	
 	function signin($username, $password) {
-		$this->db->where(array('username' => $username,
-				'password' => $password));
-		$query = $this->db->get('Users');
+		$query = $this->db->get_where('Users', array('username' => $username,
+			'password' => $password));
 		$result = $query->row();
 
 		return $result;
 	}
 	
-	function get($id){
+	function get($id) {
 		$this->db->select('*');
 		$this->db->select('Users.id AS id');
-		$this->db->join('Provinces', 'Users.province_id = Provinces.id');
+		$this->db->join('Provinces', 'Provinces.id = Users.province_id');
 		$query = $this->db->get_where('Users', array('Users.id' => $id));
 		$result = $query->row();
 
 		return $result;
 	}
 
-	function get_by_username($username){
+	function get_by_username($username) {
 		$this->db->select('*');
 		$this->db->select('Users.id AS id');
-		$this->db->join('Provinces', 'Users.province_id = Provinces.id');
+		$this->db->join('Provinces', 'Provinces.id = Users.province_id');
 		$query = $this->db->get_where('Users', array('username' => $username));
 		$result = $query->row();
 
 		return $result;
 	}
 
-	function update($id, $data){
+	function update($id, $data) {
 		$this->db->where('id', $id);
 		$this->db->update('Users', $data);
 	}
 
-	function get_biography($id){
+	function get_biography($id) {
 		$this->db->select('biography');
 		$query = $this->db->get_where('Users', array('id' => $id));
 		$result = $query->row();

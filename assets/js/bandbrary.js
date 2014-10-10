@@ -19,6 +19,25 @@
 			}
 		});
 
+		var
+		$buttons = $('.ui.buttons .button'),
+		$toggle  = $('.main .ui.toggle.button'),
+		$button  = $('.ui.button').not($buttons).not($toggle),
+		handler = {
+	      	activate: function() {
+		        $(this)
+		          .addClass('active')
+		          .siblings()
+		          .removeClass('active')
+		        ;
+		        $('#user-type').val($(this).data('value'));
+		    }
+		};
+
+		$buttons
+			.on('click', handler.activate)
+		;
+
 		/*********/
 		/* Home */
 		/*********/
@@ -36,6 +55,7 @@
 		});
 
 		/* Sign up form validation */
+
 		$('#signup-form')
 		.form({
 			username: {
@@ -43,7 +63,11 @@
 				rules: [
 				{
 					type   : 'empty',
-					prompt : 'Enter your username'
+					prompt : 'กรุณากรอกชื่อผู้ใช้'
+				},
+				{
+					type   : 'isNotExist[account/signup/check_username,username]',
+					prompt : 'ชื่อผู้ใช้นี้ถูกใช้แล้ว'
 				}
 				]
 			},
@@ -52,7 +76,7 @@
 				rules: [
 				{
 					type   : 'empty',
-					prompt : 'Enter your password'
+					prompt : 'กรุณากรอกรหัสผ่าน'
 				}
 				]
 			},
@@ -61,11 +85,11 @@
 				rules: [
 				{
 					type   : 'empty',
-					prompt : 'Re-enter your password'
+					prompt : 'กรุณากรอกรหัสผ่านอีกครั้ง'
 				},
 				{
 					type   : 'match[password]',
-					prompt : 'Passwords don\'t match'
+					prompt : 'รหัสผ่านไม่ตรงกัน'
 				}
 				]
 			},
@@ -74,11 +98,15 @@
 				rules: [
 				{
 					type   : 'empty',
-					prompt : 'What is your email address?'
+					prompt : 'กรุณากรอกอีเมล์ของคุณ'
 				},
 				{
 					type   : 'email',
-					prompt : 'Invalid email address'
+					prompt : 'อีเมล์ไม่ถูกต้อง'
+				},
+				{
+					type   : 'isNotExist[account/signup/check_email,email]',
+					prompt : 'อีเมลนี้ถูกใช้แล้ว'
 				}
 				]
 			},
@@ -86,14 +114,40 @@
 				identifier : 'user-type',
 				rules: [
 				{
-					type   : 'empty',
-					prompt : 'Please enter an email'
+					type   : 'not[0]',
+					prompt : 'กรุณาเลือกประเภทของสมาชิก'
 				}
 				]
 			}
 		}, {
 			inline : true,
 			on     : 'blur'
+		});
+
+		/***********/
+		/* Sign in */
+		/***********/
+
+		$('#signin-form')
+		.form({
+			username: {
+				identifier : 'username',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกชื่อผู้ใช้'
+				}
+				]
+			},
+			password: {
+				identifier : 'password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่าน'
+				}
+				]
+			}
 		});
 
 		/***********/
