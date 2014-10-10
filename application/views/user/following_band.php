@@ -60,7 +60,7 @@
 		padding: 1em;
 	}
 	.follow-menu {
-		width: 277px;
+		width: 100%;
 		margin-top: 14px;
 		background-color: #FFFFFF;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);

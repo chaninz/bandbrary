@@ -1,17 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Band extends CI_Controller {
+class Report extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 	}
 
-	public function index($band_id) {
+	public function index($type) {
 		if ($this->input->post()) {
-			$data = array(
-			'user_report' => $this->session->userdata('id'),
-			'band_id' => $band_id,
-			'report_type' => $this->input->post('report_type')
+			if ($type == 1){
+				
+			}
 		);
 			$this->report_band_model->add($data);
 		}

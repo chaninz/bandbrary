@@ -7,14 +7,15 @@ class Pm_model extends CI_Model {
 	}
 
 	function add($data){
-		$this->db->insert('private_message',$data);	
+		$this->db->insert('PM_Users',$data);	
 	}
 	
-	function getMessage(){
+	function getMessage($target_user){
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
-		$this->db->from('Band_Posts');
-		$this->db->where('id',$id);
+		$this->db->from('PM_Users');
+		$this->db->where('from_user_id',$id);
+		$this->db->where('to_user_id',$target_user);
 
 		$query = $this->db->get();
 		return $query->row();

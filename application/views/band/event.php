@@ -17,7 +17,6 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 	.center {
 		background-color: #F7F6F6;
 		padding: 20px;
-		margin-top: 15px;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
@@ -36,7 +35,7 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 			<div class="container">
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
-					<div class="col-xs-7">
+					<div class="col-xs-9">
 						<div class="center">
 							<?php if ($this->session->userdata('band_id') == $band_profile->id): ?>
 							<a id="event-add-btn" class="ui red button test event">
@@ -67,9 +66,6 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 								</div><?php endforeach; ?>
 							</div>
 						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="advt"></div>
 					</div>
 				</div>
 			</div>

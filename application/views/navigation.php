@@ -11,7 +11,7 @@
 				</div>
 				<div class="navbar-item2">
 					<div class="ui icon input">
-						<input type="text" placeholder="Search...">
+						<input type="text">
 						<i class="search icon" style="font-size: 0.8rem"></i>
 					</div>
 				</div>	

@@ -16,7 +16,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-
 					<div class="punpun"><?php if($user_profile->photo_url): ?>
 						<img src="<?= base_url('uploads/profile/'.$user_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php else: ?>
 						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php endif; ?>
@@ -30,30 +29,33 @@
 					</div>
 				</div>
 			</div>
-			</div>
-			<div class="container">
+		</div>
+		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="menu-profile">
-						<ul class="nav nav-tabs nav-justified" role="tablist">
-							<li>
-								<a href="<?= base_url().'user/'.$user_profile->username.'/timeline' ?>">Timeline</a>
-							</li>
-							<?php if($user_profile->user_type == 2): ?>
-							<li>
-								<a href="<?= base_url().'user/'.$user_profile->username.'/music' ?>">Music</a>
-							</li>
-							<?php endif; ?>
-							<li>
-								<a href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">Follower</a>
-							</li>
-							<li>
-								<a href="<?= base_url().'user/'.$user_profile->username.'/following' ?>">Following</a>
-							</li>
-							<li>
-								<a href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">Event</a>
-							</li>
-						</ul>
+						<div class="ui compact menu" style="border-radius: 0px">
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/timeline' ?>">
+								Timeline
+								<div class="floating ui red label">22</div>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/music' ?>">
+								Music
+								<div class="floating ui red label">22</div>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">
+								Follower
+								<div class="floating ui red label">22</div>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/following' ?>">
+								Following
+								<div class="floating ui red label">22</div>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">
+								Event
+								<div class="floating ui red label">22</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

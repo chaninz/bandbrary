@@ -18,9 +18,6 @@
 		height: 11.5em;
 		border-radius: 0px;
 	}
-	.center {
-		margin-top: 15px;
-	}
 	</style>
 
 </head>
@@ -53,9 +50,6 @@
 								</div><?php endforeach; ?>
 							</div>
 						</div>
-					</div>
-					<div class="col-xs-2">
-						<div class="advt"></div>
 					</div>
 				</div>
 			</div>
