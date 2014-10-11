@@ -21,14 +21,6 @@
 	.ui.modal {
 		height: 500px;
 	}
-	.ui.modal > .header {
-		font-family: 'TH sarabunPSK';
-		font-size: 32px;
-	}
-	.ui.modal > .content {
-		font-family: 'TH sarabunPSK';
-		font-size: 22px;
-	}
 	.ui.comments .comment .actions {
 		text-align: left;
 	}
@@ -79,10 +71,10 @@
 						<div class="follow-menu">
 							<div class="ui fluid vertical pointing menu">
 								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/following/user' ?>">
-									<i class="user icon"></i> Member
+									<i class="user icon"></i> บุคคล
 								</a>
 								<a class="active item" href="<?= base_url().'user/'.$user_profile->username.'/following/band' ?>">
-									<i class="circle blank icon"></i> Band
+									<i class="circle blank icon"></i> วงดนตรี
 								</a>
 							</div>
 						</div>

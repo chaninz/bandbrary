@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="about">
-		<div class="title-box-user">ABOUT</div>
+		<div class="title-box-user">เกี่ยวกับ</div>
 		<div class="ui list">
 			<div class="list"><?php if( ! empty($user_profile->biography)): ?>
 				<div class="item">

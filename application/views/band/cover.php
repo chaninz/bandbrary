@@ -23,41 +23,41 @@
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div><?php if($this->session->userdata('user_type') == 2): ?>
 						<?php if(empty($is_follow_band)): ?>
-						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>Follow</div></a><?php else: ?>
-						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>Unfollow</div></a><?php endif; ?><?php endif; ?>
+						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</div></a><?php else: ?>
+						<div id="band-follow" class="ui button"><a href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="minus icon"></i>เลิกติดตาม</div></a><?php endif; ?><?php endif; ?>
 						<div id="joinBand" class="ui red buttons">
-							<div class="ui button" style="border-top-left-radius: 0em; border-bottom-left-radius: 0em; font-size: 0.85em!important;">
+							<div class="ui button" style="border-top-left-radius: 0em; border-bottom-left-radius: 0em; font-size: 0.85em!important; padding: 0.8em 1em;">
 								<?php if($this->session->userdata('user_type') == 2): ?>
 								<?php if($user_status == 1): ?>
-								<i class="circle blank icon"></i>REQUESTED</div>
+								<i class="circle blank icon"></i>รอการตอบรับ</div>
 								<div class="ui red floating dropdown icon button" style="font-size: 0.86em!important;">
 									<i class="dropdown icon" style="font-size: 1em;"></i>
 									<div class="menu">
-										<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/cancel/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Cancel</a>
+										<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/cancel/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>ยกเลิกคำร้อง</a>
 									</div>
 								</div>
 							<?php elseif($user_status == 2): ?>
-							<i class="circle blank icon"></i>JOINED</div>
+							<i class="circle blank icon"></i>เข้ารว่มวงแล้ว</div>
 							<div class="ui red floating dropdown icon button" style="font-size: 0.86em!important;">
 								<i class="dropdown icon" style="font-size: 1em;"></i>
 								<div class="menu">
-									<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/leave/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Leave from band</a>
+									<a class="item" style="font-size: 0.85em;" href="<?= base_url('band/join/leave/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>ออกจากวง</a>
 								</div>
 							</div>
 						<?php else: ?>
-						<i class="circle blank icon"></i>JOIN</div>
+						<i class="circle blank icon"></i>ขอเข้าร่วมวง</div>
 						<div class="ui red floating dropdown icon button" style="font-size: 0.86em!important;">
 							<i class="dropdown icon" style="font-size: 1em;"></i>
 							<div class="menu">
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>Vocal</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=2&ref='.uri_string()) ?>"><i class="hide icon"></i>Guitar</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=3&ref='.uri_string()) ?>"><i class="hide icon"></i>Bass</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=4&ref='.uri_string()) ?>"><i class="hide icon"></i>Drum</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=5&ref='.uri_string()) ?>"><i class="hide icon"></i>Piano</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=6&ref='.uri_string()) ?>"><i class="hide icon"></i>Keybroad</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=7&ref='.uri_string()) ?>"><i class="hide icon"></i>Saxophone</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=8&ref='.uri_string()) ?>"><i class="hide icon"></i>Trumpets</a>
-								<a class="item" style="font-size: 14px;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=9&ref='.uri_string()) ?>"><i class="hide icon"></i>Violin</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>นักร้อง</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=2&ref='.uri_string()) ?>"><i class="hide icon"></i>กีต้าร์</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=3&ref='.uri_string()) ?>"><i class="hide icon"></i>เบส</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=4&ref='.uri_string()) ?>"><i class="hide icon"></i>กลอง</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=5&ref='.uri_string()) ?>"><i class="hide icon"></i>เปียโน</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=6&ref='.uri_string()) ?>"><i class="hide icon"></i>คีบอร์ด</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=7&ref='.uri_string()) ?>"><i class="hide icon"></i>แซกโซโฟน</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=8&ref='.uri_string()) ?>"><i class="hide icon"></i>ทรัมเป็ต</a>
+								<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=9&ref='.uri_string()) ?>"><i class="hide icon"></i>ไวโอลิน</a>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -73,23 +73,23 @@
 			<div class="menu-profile">
 				<div class="ui compact menu" style="border-radius: 0px">
 					<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/timeline') ?>">
-						Timeline
+						ไทม์ไลน์
 						<div class="floating ui red label">22</div>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/music') ?>">
-						Music
+						เพลง
 						<div class="floating ui red label">22</div>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/post') ?>">
-						Post
+						โพสต์
 						<div class="floating ui red label">22</div>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/follower') ?>">
-						Follower
+						ผู้ติดตาม
 						<div class="floating ui red label">22</div>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/event') ?>">
-						Event
+						ตารางงาน
 						<div class="floating ui red label">22</div>
 					</a>
 				</div>

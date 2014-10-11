@@ -191,7 +191,7 @@
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	#menu-items {
-		font-size: 1.09rem;
+		font-size: 1.04rem;
 		padding: 0.83em 2em 0.83em 2em;
 	}
 	#status-user {
@@ -285,10 +285,11 @@
 	#user-follow {
 		position: absolute;
 		top: -65px;
-		left: 800px;
+		left: 815px;
 		font-size: 12px;
 		padding-left: 10px;
 		border-radius: 0em;
+		padding: 0.8em 1em;
 	}
 	#user-follow .icon {
 		font-size: 1em;
@@ -296,10 +297,11 @@
 	#band-follow {
 		position: absolute;
 		top: -65px;
-		left: 640px;
+		left: 660px;
 		font-size: 12px;
 		padding-left: 10px;
 		border-radius: 0em;
+		padding: 0.8em 1em;
 	}
 	#band-follow .icon {
 		font-size: 1em;
@@ -307,7 +309,7 @@
 	#joinBand {
 		position: absolute;
 		top: -65px;
-		left: 745px;
+		left: 765px;
 	}
 	#joinBand .icon {
 		font-size: 1.049em;

@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="about">
-		<div class="title-box-band">ABOUT</div>
+		<div class="title-box-band">เกี่ยวกับ</div>
 		<div class="ui list">
 			<div class="list"><?php if( ! empty($band_profile->biography)): ?>
 				<div class="item">
