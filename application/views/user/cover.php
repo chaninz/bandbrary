@@ -5,7 +5,9 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="profile-cover">
-							<img src="<?= base_url('upload/cover/'.$user_profile->cover_url) ?>" alt="">
+							<?php if($user_profile->cover_url): ?>
+							<img src="<?= base_url('uploads/cover/'.$user_profile->cover_url) ?>" alt="" /><?php else: ?>
+							<img src="<?= base_url('images/cover.jpg') ?>" alt="" /><?php endif; ?>
 						</div>
 					</div>	
 				</div>

@@ -11,14 +11,19 @@ class Signin extends CI_Controller {
 
 	public function index() {
 		if ($this->session->userdata('email')) {
+			// If user signed in
 			//print_r($this->session->all_userdata());
-			//redirect('');
-			$user_id = $this->session->userdata('username');
-			redirect('user/'.$user_id);
+			$username = $this->session->userdata('username');
+
+			redirect('user/'.$username);
 		} else if ($this->input->post()) {
+			// When user send data from form
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
+			$is_remember = $this->input->post('remember');
+			$ref = $this->input->post('ref');
 			$result = $this->user_model->signin($username, $password);
+
 			if ($result) {
 				// If sign in complete
 				$user = array('id' => $result->id,
@@ -37,7 +42,6 @@ class Signin extends CI_Controller {
 					$bid = $this->join_band_model->get_current_band($user['id'])->band_id;
 					$is_master = $this->join_band_model->get_current_band($user['id'])->is_master;
 					
-					//print_r($this->join_band_model->get_current_band($user['id']));
 					if ($bid) {
 						// If the user joined band, put id of his band to session
 						$user['band_id'] = $bid;
@@ -45,21 +49,41 @@ class Signin extends CI_Controller {
 					}
 				}
 
+				if ($is_remember == 'on') {
+					// Set ID to cookie and send to client
+					$cookie_id = array('name' => 'id',
+						'value' => $user['id'],
+						'expire' => '86500');
+					set_cookie($cookie_id);
+				}
+
+				// Put user data to session
 				$this->session->set_userdata($user);
 
 				if (empty($user['name']) && empty($user['surname'])) {
 					// First time signin, forward to initial page to complete the profile
 					redirect('account/start');
+				} else if ( ! empty($ref)) {
+					// Redirect to requested page
+					redirect(base_url($ref));
+				} else {
+					// Redirect to profile page
+					redirect('user/'.$username);
 				}
-
-				redirect('user/'.$username);
 			} else {
-				$data = array('error_code' => 0,
-					'error_type' => 0);
-				$this->load->view('account/signin', $data);
+				// No user found
+				$display = array('msg' => array('type' => 1, 
+				'header' => "",
+				'text' => "ไม่พบชื่อผู้ใช้ หรือ รหัสผ่าน"));
+
+				$this->load->view('account/signin', $display);
 			}
 		} else {
-			$this->load->view('account/signin');
+			// If user not sign in
+			$ref = $this->input->get('ref');
+			$display = array('ref' => $ref);
+
+			$this->load->view('account/signin', $display);
 		}
 	}
 

@@ -1948,9 +1948,9 @@ $.fn.form.settings = {
   name              : 'Form',
   namespace         : 'form',
 
-  debug             : true,
-  verbose           : true,
-  performance       : true,
+  debug             : false,
+  verbose           : false,
+  performance       : false,
 
 
   keyboardShortcuts : true,
@@ -1958,7 +1958,7 @@ $.fn.form.settings = {
   inline            : false,
 
   delay             : 200,
-  revalidate        : true,
+  revalidate        : false,
 
   transition        : 'scale',
   duration          : 150,
@@ -2068,6 +2068,59 @@ $.fn.form.settings = {
         ? ( value.toString() == matchingValue.toString() )
         : false
       ;
+    },
+    notMatch: function(value, fieldIdentifier) {
+      // use either id or name of field
+      var
+        $form = $(this),
+        matchingValue
+      ;
+      if($form.find('#' + fieldIdentifier).size() > 0) {
+        matchingValue = $form.find('#' + fieldIdentifier).val();
+      }
+      else if($form.find('[name=' + fieldIdentifier +']').size() > 0) {
+        matchingValue = $form.find('[name=' + fieldIdentifier + ']').val();
+      }
+      else if( $form.find('[data-validate="'+ fieldIdentifier +'"]').size() > 0 ) {
+        matchingValue = $form.find('[data-validate="'+ fieldIdentifier +'"]').val();
+      }
+      return (matchingValue !== undefined)
+        ? ( value.toString() != matchingValue.toString() )
+        : false
+      ;
+    },
+    isNotExist: function(value, fieldAndUrl) {
+      // use either id or name of field
+      var
+        $form = $(this),
+        matchingValue,
+        fields = {},
+        result
+      ;
+
+      fieldAndUrl = fieldAndUrl.split(',');
+      fields[fieldAndUrl[1]] = value;
+
+      $.ajax({
+        type: "POST",
+        async: false,
+        url: fieldAndUrl[0],
+        data: fields,
+        success: function(data) {
+          matchingValue = data;
+          if (matchingValue == 0) {
+            result = true;
+          } else {
+            result = false;
+          } 
+          /* else if (matchingValue !== undefined && value.toString() == matchingValue.toString()) {
+            result = false;
+          } */
+        },
+        dataType: "text"
+      });
+
+      return result;
     },
     url: function(value) {
       var

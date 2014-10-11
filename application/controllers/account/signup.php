@@ -8,21 +8,42 @@ class Signup extends CI_Controller {
 	}
 
 	public function index() {
-		if ($this->input->post()) {
-			$user_type = $this->input->post('user-type');
-			$data = array(
-				'email' => $this->input->post('email'),
+		if ($this->input->post('username') != NULL &&
+			$this->input->post('password') != NULL &&
+			$this->input->post('email') != NULL &&
+			$this->input->post('user-type') != NULL) {
+
+			$data = array('email' => $this->input->post('email'),
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
-				'user_type' => $user_type);
-			if ($user_type == 'audience')
-				$data['user_type'] = 1;
-			else if ($user_type == 'musician')
-				$data['user_type'] = 2;
+				'user_type' => $this->input->post('user-type'));
 			$this->user_model->signup($data);
+
+			$display = array('msg' => array('type' => 3, 
+				'header' => "",
+				'text' => "สมัครสมาชิกเสร็จสมบูรณ์"));
+			$this->load->view('account/signin', $display);
 		} else {
-			redirect('');
+			show_404();
 		}	
+	}
+
+	public function check_username() {
+		$username = $this->input->post('username');
+		if ($username != NULL) {
+			echo $this->user_model->is_username_exist($username);
+		}
+	}
+
+	public function check_email() {
+		$email = $this->input->post('email');
+		if ($email != NULL) {
+			echo $this->user_model->is_email_exist($email);
+		}
+	}
+
+	public function test() {
+		echo random_string('alnum', 16);
 	}
 
 }
