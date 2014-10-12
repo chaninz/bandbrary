@@ -28,23 +28,14 @@ class pm extends CI_Controller {
 
 
 	// view only one job
-	public function view() {
-		$my_id = $this->session->userdata('id');
-		$job = $this->job->get_all();
-		$data = array(
-		'name' => $this->session->userdata('name'),
-		'photo_url' => $this->session->userdata('photo_url'),
-		'user' => $this->user_model->getProfile($my_id),
-		'jobs' => $job,
-		'countJob' => $this->job->countJob()
-		);
-		//print_r($data);
+	public function view($target_user) {
+		$this->pm_model->view($target_user);
 		$this->load->view('user/job',$data);
 	}
 
 	//view all job (all job in job's page)
-	public function viewAll() {
-		$data = $this->job->get_all();
+	public function allChat() {
+		$data = $this->pm_model->get_all();
 		$this->load->view('temp/viewJob');
 	}
 
