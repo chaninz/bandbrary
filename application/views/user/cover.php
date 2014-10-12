@@ -1,17 +1,9 @@
 <section>
 	<article>
-		<div class="top-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="profile-cover">
-							<?php if($user_profile->cover_url): ?>
-							<img src="<?= base_url('uploads/cover/'.$user_profile->cover_url) ?>" alt="" /><?php else: ?>
-							<img src="<?= base_url('images/cover.jpg') ?>" alt="" /><?php endif; ?>
-						</div>
-					</div>	
-				</div>
-			</div>
+		<div class="profile-cover">
+			<?php if($user_profile->cover_url): ?>
+			<img src="<?= base_url('uploads/cover/'.$user_profile->cover_url) ?>" alt="" /><?php else: ?>
+			<img src="<?= base_url('images/cover.jpg') ?>" alt="" /><?php endif; ?>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -36,24 +28,19 @@
 					<div class="menu-profile">
 						<div class="ui compact menu" style="border-radius: 0px">
 							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/timeline' ?>">
-								ไทม์ไลน์
-								<div class="floating ui red label">22</div>
+								ไทม์ไลน์ <span class="bb-count">22</span>
 							</a>
 							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/music' ?>">
-								เพลง
-								<div class="floating ui red label">22</div>
+								เพลง <span class="bb-count">22</span>
 							</a>
 							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">
-								ผู้ติดตาม
-								<div class="floating ui red label">22</div>
+								ผู้ติดตาม <span class="bb-count">22</span>
 							</a>
 							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/following' ?>">
-								กำลังติดตาม
-								<div class="floating ui red label">22</div>
+								กำลังติดตาม <span class="bb-count">22</span>
 							</a>
 							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">
-								ตารางงาน
-								<div class="floating ui red label">22</div>
+								ตารางงาน <span class="bb-count">22</span>
 							</a>
 						</div>
 					</div>

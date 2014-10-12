@@ -24,18 +24,18 @@
 		$toggle  = $('.main .ui.toggle.button'),
 		$button  = $('.ui.button').not($buttons).not($toggle),
 		handler = {
-	      	activate: function() {
-		        $(this)
-		          .addClass('active')
-		          .siblings()
-		          .removeClass('active')
-		        ;
-		        $('#user-type').val($(this).data('value'));
-		    }
+			activate: function() {
+				$(this)
+				.addClass('active')
+				.siblings()
+				.removeClass('active')
+				;
+				$('#user-type').val($(this).data('value'));
+			}
 		};
 
 		$buttons
-			.on('click', handler.activate)
+		.on('click', handler.activate)
 		;
 
 		/*********/
@@ -124,50 +124,66 @@
 			on     : 'blur'
 		});
 
-		/***********/
-		/* Sign in */
-		/***********/
+	/***********/
+	/* Sign in */
+	/***********/
 
-		$('#signin-form')
-		.form({
-			username: {
-				identifier : 'username',
-				rules: [
-				{
-					type   : 'empty',
-					prompt : 'กรุณากรอกชื่อผู้ใช้'
-				}
-				]
-			},
-			password: {
-				identifier : 'password',
-				rules: [
-				{
-					type   : 'empty',
-					prompt : 'กรุณากรอกรหัสผ่าน'
-				}
-				]
+	$('#signin-form')
+	.form({
+		username: {
+			identifier : 'username',
+			rules: [
+			{
+				type   : 'empty',
+				prompt : 'กรุณากรอกชื่อผู้ใช้'
 			}
-		});
+			]
+		},
+		password: {
+			identifier : 'password',
+			rules: [
+			{
+				type   : 'empty',
+				prompt : 'กรุณากรอกรหัสผ่าน'
+			}
+			]
+		}
+	});
 
-		/***********/
-		/* Initial */
-		/***********/
+	/***********/
+	/* Initial */
+	/***********/
 
-		/* Submit Register form */
-		$( "#initial-button" ).click(function() {
-			event.preventDefault();
-			$( ".initial-form" ).submit();
-		});
+	/* Submit Register form */
+	$( "#initial-button" ).click(function() {
+		event.preventDefault();
+		$( ".initial-form" ).submit();
+	});
 
-		/***********/
-		/* Cover */
-		/***********/
+	/***********/
+	/* Cover */
+	/***********/
 
-		$("#follow").click(function() {
-			follow(url);
+	$("#follow").click(function() {
+		follow(url);
+	});
+
+	/***********/
+	/* Change fixed to relative */
+	/***********/
+	$(document).ready(function() {
+		$('.navbar-item1')
+		$('.navbar-item2')
+		$('.bb-logo')
+		$('.navbar-item3')
+		$('.navbar-item4').click(function() {
+			if ($( document ).width() < 1024)
+				$('header').css('position', 'relative');
+			else
+				$('header').css('position', 'fixed');
 		});
 	});
+});
 
 	function follow(url) {
 		location.href = url;
