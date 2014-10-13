@@ -17,14 +17,15 @@ class pm extends CI_Controller {
 			$data = array(
 			'from_user_id' => $this->session->userdata('id'),
 			'text'=> $text,
-			'to_user_id' = $target_user
+			'to_user_id' => $target_user
 		);
 			$this->pm_model->add($data);
 		} else {
 			$this->load->view('user/createJob');
 		}
-		
 	}
+		
+	
 
 
 	// view only one job
@@ -34,16 +35,15 @@ class pm extends CI_Controller {
 	}
 
 	//view all job (all job in job's page)
-	public function allChat() {
-		$data = $this->pm_model->get_all();
-		$this->load->view('temp/viewJob');
+	public function allChat($username) {
+		$user_profile = $this->user_model->get_by_username($username);
+		$data = array('user_profile' => $user_profile,
+			'pm_users' => $this->pm_model->get_all() 
+		);
+
+		$this->load->view('user/privateMessage',$data);
 	}
 
-	public function get(){
-		$job_id = $this->input->post('id');
-		$job = $this->job->get($job_id);
-		echo json_encode($job);
-	}
 }
 
 /* End of file event.php */

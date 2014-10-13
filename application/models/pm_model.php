@@ -28,12 +28,12 @@ class Pm_model extends CI_Model {
 		$this->db->delete('Greedd',$data);
 	}
 
-	function AllChat(){
+	function get_all(){
 		$current_id = $this->session->userdata('id');
 		$this->db->select('*');
+		$this->db->distinct();
 		$this->db->from('PM_Users');
 		$this->db->join('Users', 'PM_Users.from_user_id = Users.id');
-		$this->db->where('to_user_id',$target_user);
 		$this->db->where('from_user_id',$current_id);
 
 		$query = $this->db->get();

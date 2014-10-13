@@ -11,17 +11,15 @@
 
     <?php $this->load->view('header'); ?>
 
-  <link rel="stylesheet" href="../../assets/css/pm.css">
-  <script src="../../assets/js/pm.js"></script>
-
   <link rel="stylesheet" type="text/css" href="feed.css">
   <script src="feed.js"></script>
 </head>
 <body id="feed">
+    <?php $this->load->view('navigation'); ?>
+
   <div class="ui large inverted vertical sidebar menu">
-    <a class="active item">
-      Dogs Weekly <span class="ui label">213</span>
-    </a>
+    
+    
     <a class="item">
       Joystiq <span class="ui label">113</span>
     </a>
@@ -62,17 +60,35 @@
         <a class="item" data-tab="saved">Saved</a>
         <a class="item" data-tab="all">All</a>
       </div>
+
+      <?php foreach($pm_users as $pm_user): ?>
+      <?php if($pm_user->photo_url): ?>
+      <a class="active item">
+          <img src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
+          <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
+          <div class="name"><a href="<?= base_url().'user/'.$pm_user->username ?>"><?= $pm_user->name.' '.$pm_user->surname ?></a></div>
+      </a>
+      <?php endforeach; ?>
+
+
       <div class="ui divided inbox selection list active tab" data-tab="unread">
         <a class="active item">
           <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Weekly Webcomic Wrapup fought the law, and the law won</div>
         </a>
-        <a class="item">
-          <div class="left floated ui star rating"><i class="icon"></i></div>
+          
+          <?php foreach($pm_users as $pm_user): ?>
+          <?php if($pm_user->photo_url): ?>
+          <a class="item">
+          <div class="left floated ui star rating"> <img src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
+          <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?></div>
+          <a href="<?= base_url().'user/'.$pm_user->username ?>"><?= $pm_user->name.' '.$pm_user->surname ?></a>
           <div class="right floated date">Sep 14, 2013</div>
           <div class="description">Scientists discover new breed of dog</div>
         </a>
+              <?php endforeach; ?>
+
         <a class="item">
           <div class="left floated ui star rating"><i class="icon"></i></div>
           <div class="right floated date">Sep 10, 2013</div>
@@ -132,16 +148,7 @@
         <a class="icon item"><i class="icon right arrow"></i></a>
       </div>
     </div>
-    <div class="nine wide right column">
-      <h1 class="ui header">Weekly Webcomic Wrapup fought the law, and the law won</h1>
-      Tags: <a class="ui red label">Unread</a> <a class="ui red label">Comics</a><p></p>
-      <p>So there's this video game coming out Tuesday called Grand Theft Auto 5. Don't know if you've heard of it. Anyways, it's all about crime and gangs and some roughneck ne'er-do-wells, so I thought this would be the perfect time to talk about times when we've been... well, less than perfect.</p>
-      <p>When I was a young'un, I was a frequent visitor to the local swimming pool. I was also a frequent lover of AirHeads candy, which the pool happened to sell. Waiting, watching, stalking the counter like a big cat in the savannah, I waited for the perfect opportunity to strike. While the lifeguards were busy, I snuck through the gate, reached up and took both cherry and "mystery white" AirHeads. I quickly ran out to the sidewalk and reveled in my sweet, delicious victory... for all of ten seconds, before I felt guilty enough to sneak back in and return the .20 worth of candy I had stolen.</p>
-      <p>While you confess your crimes - hopefully minor, and nothing you can be persecuted for - take a moment to enjoy this week's webcomics, and vote for your favorite after the jump.</p>
-      <div class="ui divider"></div>
-      <div class="ui basic button">Save</div>
-      <div class="ui basic button">Delete</div>
-    </div>
+
   </div>
   <script src="../../assets/js/bandbrary.js"></script>
 </body>
