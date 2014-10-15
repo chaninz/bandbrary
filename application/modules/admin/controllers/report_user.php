@@ -7,7 +7,9 @@ class Report_User extends CI_Controller {
 	}
 
 	public function getAll() {
-			$this->report_user_model->get_all_report();
+			$data = array('reports' => $this->report_user_model->get_all_report()
+			);
+			$this->load->view('reports/user',$data);
 	}
 
 	public function getApproved() {

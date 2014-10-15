@@ -18,18 +18,26 @@ class Report_Post_model extends CI_Model {
 	}
 
 	function get_all_report(){
-		$this->db->select('*');
+		$this->db->select('Report_Post.*,Users.name as username,Band_Posts.name as postname');
 		$this->db->from('Report_Post');
+		$this->db->join('Users', 'Report_Post.user_report = Users.id');
+		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
 		$this->db->where('status',1);
 		$this->db->order_by("timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();
+
+		$this->db->select('Report_Music.*,Users.name as username,Music.name as musicname');
+		$this->db->from('Report_Music');
+		
 	}	
 
 	function get_approved_report(){
-		$this->db->select('*');
+		$this->db->select('Report_Post.*,Users.name as username,Band_Posts.name as postname');
 		$this->db->from('Report_Post');
+		$this->db->join('Users', 'Report_Post.user_report = Users.id');
+		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
 		$this->db->where('status',2);
 		$this->db->order_by("timestamp", "desc"); 
 
@@ -38,8 +46,10 @@ class Report_Post_model extends CI_Model {
 	}
 
 	function get_not_approve_report(){
-		$this->db->select('*');
+		$this->db->select('Report_Post.*,Users.name as username,Band_Posts.name as postname');
 		$this->db->from('Report_Post');
+		$this->db->join('Users', 'Report_Post.user_report = Users.id');
+		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
 		$this->db->where('status',1);
 		$this->db->order_by("timestamp", "desc"); 
 

@@ -4,10 +4,14 @@ class Report_band extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('report_band_model');
+
 	}
 
 	public function getAll() {
-			$this->report_band_model->get_all_report();
+			$data = array('reports' => $this->report_band_model->get_all_report()
+			);
+			$this->load->view('reports/band',$data);
 	}
 
 	public function getApproved() {

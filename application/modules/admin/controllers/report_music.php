@@ -4,10 +4,14 @@ class Report_music extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('report_music_model');
 	}
 
 	public function getAll() {
-			$this->report_music_model->get_all_report();
+			$data = array('reports' => $this->report_music_model->get_all_report()
+			);
+			$this->load->view('reports/music',$data);
+			
 	}
 
 	public function getApproved() {
