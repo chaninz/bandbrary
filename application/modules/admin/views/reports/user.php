@@ -307,8 +307,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="simple.html"><i class="fa fa-angle-double-right"></i> Report</a></li>
-                                <li><a href="data.html"><i class="fa fa-angle-double-right"></i> New Upload</a></li>
+                                <li class="active"><a href="simple.html"><i class="fa fa-angle-double-right"></i> Band</a></li>
+                                <li><a href="data.html"><i class="fa fa-angle-double-right"></i> User</a></li>
+                                <li><a href="data.html"><i class="fa fa-angle-double-right"></i> Music</a></li>
+                                <li><a href="data.html"><i class="fa fa-angle-double-right"></i> Post</a></li>
                             </ul>
                         </li>
                         <li>
@@ -350,12 +352,18 @@
                                 <div class="box-header" style="margin-top: 20px">
                                     <h3 class="box-title">Copyright Infringement</h3>
                                     <div class="box-tools">
-                                        <div class="input-group">
-                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
+                                         <div class="btn-group" style="margin-left: 820px">
+                                        <button type="button" class="btn btn-default">Status</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Approved</a></li>
+                                            <li><a href="#">None</a></li>
+                                            <li><a href="#">None</a></li>
+                                        </ul>
+                                    </div>
                                     </div>
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive no-padding">

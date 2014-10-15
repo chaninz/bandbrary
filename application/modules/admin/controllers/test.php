@@ -4,7 +4,7 @@ class Test extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('tables/simple.html');
+		$this->load->view('mailbox.html');
 	}
 }
 
