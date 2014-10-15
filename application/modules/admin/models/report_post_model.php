@@ -18,11 +18,10 @@ class Report_Post_model extends CI_Model {
 	}
 
 	function get_all_report(){
-		$this->db->select('Report_Post.*,Users.name as username,Band_Posts.name as postname');
+		$this->db->select('Report_Post.*,Users.username as reporter,Band_Posts.topic as postname');
 		$this->db->from('Report_Post');
 		$this->db->join('Users', 'Report_Post.user_report = Users.id');
 		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
-		$this->db->where('status',1);
 		$this->db->order_by("timestamp", "desc"); 
 
 		$query = $this->db->get();

@@ -378,7 +378,7 @@
                                     <td><?= $report->id ?></td>
                                     <td><?= $report->bandname ?></td>
                                     <td><?= $report->type ?></td>
-                                    <td><?= $report->username ?></td>
+                                    <td><?= $report->reporter ?></td>
                                     <td><?= $report->reason ?></td>
                                     <td><?= $report->timestamp ?></td>
                                     <td><span class="label label-success">Approved</span></td>

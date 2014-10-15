@@ -1,15 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Report_post extends CI_Controller {
+class Post extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('report_post_model');
 	}
 
 	public function getAll() {
 			$data = array('reports' => $this->report_post_model->get_all_report()
 			);
-			$this->load->view('reports/user',$data);
+			$this->load->view('reports/post',$data);
 	}
 
 	public function getApproved() {

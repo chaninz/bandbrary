@@ -18,7 +18,7 @@ class Report_Music_model extends CI_Model {
 	}
 
 	function get_all_report(){
-		$this->db->select('Report_Music.*,Users.name as username,Music.name as musicname');
+		$this->db->select('Report_Music.*,Users.username as reporter,Music.name as musicname');
 		$this->db->from('Report_Music');
 		$this->db->join('Users', 'Report_Music.user_report = Users.id');
 		$this->db->join('Music', 'Report_Music.music_id = Music.id');
