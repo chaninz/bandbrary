@@ -10,15 +10,18 @@ class User extends CI_Controller {
 	public function getAll() {
 			$data = array('reports' => $this->report_user_model->get_all_report()
 			);
-			$this->load->view('reports/user',$data);
+			$this->load->view('reports/user/all',$data);
 	}
 
 	public function getApproved() {
-			$this->report_user_model->get_approved_report();
+			$data = array('reports' => $this->report_user_model->get_approved_report()
+			);
+			$this->load->view('reports/user/approved',$data);
 	}
 	public function getNotApprove() {
-			$this->report_user_model->get_not_approve_report();
-	}
+			$data = array('reports' => $this->report_user_model->get_not_approve_report()
+			);
+			$this->load->view('reports/user/notapprove',$data);
 
 
 }

@@ -10,14 +10,18 @@ class Post extends CI_Controller {
 	public function getAll() {
 			$data = array('reports' => $this->report_post_model->get_all_report()
 			);
-			$this->load->view('reports/post',$data);
+			$this->load->view('reports/post/all',$data);
 	}
 
 	public function getApproved() {
-			$this->report_post_model->get_approved_report();
+			$data = array('reports' => $this->report_post_model->get_approved_report()
+			);
+			$this->load->view('reports/post/approved',$data);
 	}
 	public function getNotApprove() {
-			$this->report_post_model->get_not_approve_report();
+			$data = array('reports' => $this->report_post_model->get_not_approve_report()
+			);
+			$this->load->view('reports/post/notapprove',$data);
 	}
 
 
