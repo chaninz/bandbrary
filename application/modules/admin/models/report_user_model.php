@@ -18,11 +18,10 @@ class Report_User_model extends CI_Model {
 	}
 
 	function get_all_report(){
-		$this->db->select('Report_User.*,u.name as username,r.name as reportname');
+		$this->db->select('Report_User.*,u.username as username,r.username as reporter');
 		$this->db->from('Report_User');
-		$this->db->join('Users AS u', 'Report_Post.user_id = u.id');
-		$this->db->join('Users AS r', 'Report_Post.user_report = r.id');
-		$this->db->where('status',1);
+		$this->db->join('Users AS u', 'Report_User.user_id = u.id');
+		$this->db->join('Users AS r', 'Report_User.user_report = r.id');
 		$this->db->order_by("timestamp", "desc"); 
 
 		$query = $this->db->get();

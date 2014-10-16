@@ -365,22 +365,22 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
-                                        <th>ID</th>
-                                        <th>Music</th>
-                                        <th>Type</th>
-                                        <th>From</th>
-                                        <th>Reason</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                    </tr>
-                                    <?php foreach($reports as $report): ?>
-                                    <tr>
-                                        <td><?= $report->id ?></td>
-                                        <td><?= $report->musicname ?></td>
-                                        <td><?= $report->type ?></td>
-                                        <td><?= $report->reporter ?></td>
-                                        <td><?= $report->reason ?></td>
-                                        <td><?= $report->timestamp ?></td>
+                                    <th>ID</th>
+                                    <th>Post</th>
+                                    <th>Type</th>
+                                    <th>From</th>
+                                    <th>Reason</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                                <?php foreach($reports as $report): ?>
+                                <tr>
+                                    <td><?= $report->id ?></td>
+                                    <td><?= $report->postname ?></td>
+                                    <td><?= $report->type ?></td>
+                                    <td><?= $report->reporter ?></td>
+                                    <td><?= $report->reason ?></td>
+                                    <td><?= $report->timestamp ?></td>
                                     <td><span class="label label-success">Approved</span></td>
                                 </tr>
                             <?php endforeach; ?>
