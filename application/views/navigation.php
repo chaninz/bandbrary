@@ -30,7 +30,7 @@
 								<?= $this->session->userdata('name'); ?>
 							</div>
 							<i class="dropdown icon" style="font-size: 1em;"></i>
-							<div class="menu">
+							<div class="menu" style="font-size: 1em;">
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/timeline') ?>"></i>Timeline</a>
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/music') ?>"></i>Music</a>
 								<a class="item" href="<?= base_url('user/'.$this->session->userdata('username').'/follower') ?>"></i>Follower</a>

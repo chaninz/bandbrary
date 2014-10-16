@@ -648,14 +648,14 @@ footer {
 .eh1 {
 	color: #D95C5C;
 	font-weight: bold;
-	padding-left: 29px;
+	padding-left: 31px;
 }
 .eh2 {
-	padding-left: 53px;
+	padding-left: 79px;
 	font-weight: 400;
 }
 .eh3 {
-	padding-left: 16px;
+	padding-left: 25px;
 	font-weight: bold;
 }
 .eh4 {
@@ -733,7 +733,7 @@ header .user-name {
 
 }
 header .ui.dropdown .menu .item {
-	font-size: 1.1em;
+	font-size: 1em;
 	border-top: 0px;
 }
 header .ui.dropdown .menu {

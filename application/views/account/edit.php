@@ -8,11 +8,11 @@
 	<?php $this->load->view('header'); ?>  
 	<style>
 	.col-xs-2 {
-		height: 1280px;
+		height: 1370px;
 		background-color: #FFFFFF;
 	}
 	.col-xs-3 {
-		height: 1280px;
+		height: 1370px;
 		float: left;
 		background-color: #f7f7f7;
 		border-left: 1px solid #C0C0C0;
@@ -30,11 +30,11 @@
 		border: 0px solid #FFFFFF;
 	}
 	.ui.form.segment {
-		height: 1280px;
+		height: 1370px;
 		padding-top: 100px;
 	}
 	.ui.vertical.menu {
-		width: 17.33rem;
+		width: 16.2rem;
 		border-radius: 0px;
 		padding-top: 80px;
 	}
@@ -65,12 +65,9 @@
 		box-shadow: none;
 	}
 	.line {
-		width: 750px;
+		width: 700px;
 	}
-	.footmix {
-		margin-top: 0px;
-	}
-	</style>
+</style>
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
@@ -204,8 +201,7 @@
 			<div class="col-xs-2"></div>
 		</div>
 	</div>
-
-	<?php $this->load->view('footer'); ?>
+	
 	<script>
 	$(document).ready(function() {
 		$('#entertain').mouseover(function(){
