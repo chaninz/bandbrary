@@ -22,14 +22,10 @@ class Report_Post_model extends CI_Model {
 		$this->db->from('Report_Post');
 		$this->db->join('Users', 'Report_Post.user_report = Users.id');
 		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->order_by("Report_Post.timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();
-
-		$this->db->select('Report_Music.*,Users.name as username,Music.name as musicname');
-		$this->db->from('Report_Music');
-		
 	}	
 
 	function get_approved_report(){
@@ -38,7 +34,7 @@ class Report_Post_model extends CI_Model {
 		$this->db->join('Users', 'Report_Post.user_report = Users.id');
 		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
 		$this->db->where('status',2);
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->order_by("Report_Post.timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();
@@ -50,7 +46,7 @@ class Report_Post_model extends CI_Model {
 		$this->db->join('Users', 'Report_Post.user_report = Users.id');
 		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
 		$this->db->where('status',1);
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->order_by("Report_Post.timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();

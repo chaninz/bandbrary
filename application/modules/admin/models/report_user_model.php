@@ -22,27 +22,31 @@ class Report_User_model extends CI_Model {
 		$this->db->from('Report_User');
 		$this->db->join('Users AS u', 'Report_User.user_id = u.id');
 		$this->db->join('Users AS r', 'Report_User.user_report = r.id');
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->order_by("Report_User.timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();
 	}	
 
 	function get_approved_report(){
-		$this->db->select('*');
+		$this->db->select('Report_User.*,u.username as username,r.username as reporter');
 		$this->db->from('Report_User');
+		$this->db->join('Users AS u', 'Report_User.user_id = u.id');
+		$this->db->join('Users AS r', 'Report_User.user_report = r.id');
 		$this->db->where('status',2);
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->order_by("Report_User.timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();
 	}
 
 	function get_not_approve_report(){
-		$this->db->select('*');
+		$this->db->select('Report_User.*,u.username as username,r.username as reporter');
 		$this->db->from('Report_User');
+		$this->db->join('Users AS u', 'Report_User.user_id = u.id');
+		$this->db->join('Users AS r', 'Report_User.user_report = r.id');
 		$this->db->where('status',1);
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->order_by("Report_User.timestamp", "desc"); 
 
 		$query = $this->db->get();
 		return $query->result();
