@@ -13,6 +13,10 @@ class Test extends CI_Controller {
 		echo $result;
 	}
 
+	public function email() {
+		$this->load->view('email.html');
+	}
+
 }
 
 /* End of file test.php */

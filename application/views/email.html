@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Shellshock Bash Security Update</title>
+
+  <?php $this->load->view('header'); ?>
+
+  <style>
+  .ExternalClass a {
+    color:#3686be;
+  }
+
+  .ExternalClass .ecxReadMsgBody {
+    width:100%;
+    background-color:#eeeeee;
+  }
+
+  .ExternalClass {
+    width:100%;
+    background-color:#eeeeee;
+  }
+
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+    line-height:100%;
+  }
+
+  .ExternalClass table {
+    border-spacing:0;
+  }
+
+  .ExternalClass table td {
+    border-collapse:collapse;
+  }
+
+  .ExternalClass .ecxyshortcuts a {
+    border-bottom:none !important;
+  }
+
+  @media screen and (max-device-width: 700px), screen and (max-width:700px) {
+    .ExternalClass table[class="ecxemail-container"] {
+      width:100% !important;
+    }
+    .ExternalClass table[class="ecxfluid"] {
+      width:100% !important;
+    }
+    .ExternalClass div[class="ecxcontent-block"] {
+      width:auto !important;
+      text-align:center;
+    }
+    .ExternalClass h1 {
+      font-size:30px !important;
+    }
+    .ExternalClass div[class="ecxcontainer-flex"] {
+      text-align:center;
+      padding-top:35px !important;
+    }
+    .ExternalClass div [class="ecxcontent-block"] h2 {
+    }
+    .ExternalClass img[class="ecximg-center-align"] {
+    }
+    .ExternalClass img[class="ecxforce-col-center"] {
+      width:100% !important;
+      max-width:100% !important;
+      height:auto !important;
+    }
+    .ExternalClass img[class="ecxforce-col-center"] {
+    }
+    .ExternalClass td[class="ecxforce-col"], .ExternalClass td[class="ecxforce-col-center"] {
+      display:block !important;
+      width:100% !important;
+      clear:both;
+    }
+    .ExternalClass td[class="ecxforce-col-center"] {
+      text-align:center !important;
+    }
+    .ExternalClass img[class="ecxcol-3-img-l"] {
+    }
+    .ExternalClass img[class="ecxcol-3-img-r"] {
+    }
+    .ExternalClass a[class="ecxbutton"] {
+      width:100% !important;
+    }
+    .ExternalClass td[class="ecxhide"] {
+      display:none;
+      visibility:hidden;
+      opacity:0;
+    }
+    .ExternalClass .ecxw-switch {
+      width:80% !important;
+    }
+  }
+
+  @media screen and (max-device-width: 470px), screen and (max-width:470px) {
+    .ExternalClass img[class="ecxfluid"] {
+      width:100% !important;
+      max-width:100% !important;
+      height:auto !important;
+    }
+  }
+  .email-table {
+    margin-top:0;
+    margin-bottom:0;
+    margin-right:0;margin-left:0;
+    padding-top:0;
+    padding-bottom:0;
+    padding-right:0;
+    padding-left:0;
+    -webkit-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    background-color:#f4f4f4;
+    background-image:none;
+    background-repeat:repeat;
+    background-position:top left;
+    background-attachment:scroll;
+  }
+  .email-logo {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:0;
+    padding-left:0;
+    text-align:left;
+    border-collapse:collapse;
+  }
+  #email-view {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:0;
+    padding-left:0;
+    text-align:right;
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:12px;
+    border-collapse:collapse;
+  }
+  #email-body {
+    background-color:#ffffff;
+    background-image:none;
+    background-repeat:repeat;
+    background-position:top left;
+    background-attachment:scroll;
+    border-width:1px;border-style:solid;
+    border-color:#eeeeee;border-spacing:0; 
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+  .email-content1 {
+    padding-top:35px;
+    padding-bottom:0;
+    padding-right:40px;
+    padding-left:40px;
+    font-family:sans-serif;
+    font-size:16px;
+    line-height:27px;
+    border-collapse:collapse;
+  }
+  .email-content2 {
+    padding-top:10px;
+    padding-bottom:20px;
+    padding-right:40px;
+    padding-left:40px;
+    font-family:sans-serif;
+    font-size:16px;
+    line-height:27px;
+    color:#333;
+    border-collapse:collapse;
+  }
+  .email-button {
+    background-color:#222222;
+    color:#fff;
+    border-radius:4px;
+    display:block;
+    text-decoration:none;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:20px;
+    padding-left:20px;
+    text-align:center;
+  }
+  .email-footer {
+    text-align:center;
+    padding-top:40px;
+    padding-bottom:0px;
+    padding-right:0px;
+    padding-left:0px;
+    font-family:sans-serif;
+    font-size:12px;
+    line-height:18px;
+    color:#888888;
+    border-collapse:collapse;
+  }
+  .email-link1 {
+    font-weight:bold;
+    color:#8a929f;
+  }
+  .email-link2 {
+    font-weight:bold;
+    color:#8a929f;
+    padding-top:0;
+    padding-bottom:0;
+    padding-right:0;
+    padding-left:0;
+    text-decoration:underline;
+  }
+  .email-social {
+    text-align:center;
+    padding-top:10px;
+    padding-bottom: 40px;
+    padding-right:0px;
+    padding-left:0px;
+    font-family:sans-serif;
+    font-size:12px;
+    line-height:18px;
+    color:#888888;
+    border-collapse:collapse;
+  }
+
+  </style>
+</head>
+<body bgcolor="#f4f4f4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" class="email-table">
+
+  <table border="0" width="700" cellpadding="0" cellspacing="0" align="center" class="ecxemail-container" style="border-spacing:0;">
+    <tbody>
+      <tr>
+        <td height="30" style="font-size:0;line-height:0;border-collapse:collapse;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="ecxforce-col-center" valign="middle" class="email-logo">
+          <a href="http://emailcampaigns.cmail1.com/t/i-l-edrkrt-atlttttl-r/" target="_blank" style="display:inline-block;color:#3686be;">
+            <img src="<?= base_url('assets/images/bandbrary_logo_16-9.png') ?>" alt="alt text" border="0" style="width: 180px; height: 80px">
+          </a>
+        </td>
+        <td class="ecxhide" id="email-view" valign="middle">
+          <a href="#" style="font-size:13px;color:#999;" class="">
+            View in browser
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td height="10" style="font-size:0;line-height:0;border-collapse:collapse;">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table border="0" width="700" cellpadding="0" cellspacing="0" align="center" class="ecxemail-container" id="email-body">
+
+    <tbody>
+      <tr>
+        <td style="border-collapse:collapse;">
+        </td>
+      </tr>
+
+      <tr>
+        <td style="border-collapse:collapse;">
+          <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="border-spacing:0;">
+            <tbody>
+              <tr>
+               <td style="border-collapse:collapse;">
+
+                <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-spacing:0;">
+
+                  <tbody>
+                    <tr>
+                      <td class="email-content1">
+                        <h3>"Shellshock" Bash Security Update</h3>
+                        Security researchers have recently discovered vulnerabilities in Bash, referred to as Shellshock or the Bash bug. The problem is serious. Bash is used in millions of computers, giving attackers the opportunity to execute arbitrary commands on web servers and potentially access confidential information.
+                      </td>
+                    </tr>     
+
+                    <tr>
+                      <td class="email-content2">
+                        <p>We’ve written up a guide to help you check whether your server is vulnerable and fix the issue. If you have any questions, please ask them in the comments section and we’ll respond quickly.</p>
+                        <a href="http://emailcampaigns.cmail1.com/t/i-l-edrkrt-atlttttl-y/" class="email-button" target="_blank">Read The Shellshock Tutorial</a>
+                        <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-spacing:0;">
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="email-footer">
+                        © DigitalOcean ™ Inc.<br>
+                        <a href="mailto:contact@digitalocean.com" class="email-link1">contact@digitalocean.com</a> &nbsp; | &nbsp; 
+                        <a href="http://emailcampaigns.cmail1.com/t/i-u-edrkrt-atlttttl-d/" class="email-link2" target="_blank">Unsubscribe</a><br>
+                        <br>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="email-social">
+                        <a href="http://emailcampaigns.cmail1.com/t/i-l-edrkrt-atlttttl-j/" style="color:#3686be;" target="_blank"><img src="https://assets.digitalocean.com/email/twitter-icon.png"></a>&nbsp; &nbsp;
+                        <a href="http://emailcampaigns.cmail1.com/t/i-l-edrkrt-atlttttl-t/" style="color:#3686be;" target="_blank"><img src="https://assets.digitalocean.com/email/google-plus-icon.png"></a>&nbsp; &nbsp;
+                        <a href="http://emailcampaigns.cmail1.com/t/i-l-edrkrt-atlttttl-i/" style="color:#3686be;" target="_blank"><img src="https://assets.digitalocean.com/email/facebook-icon.png"></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+                <!--    <img src="https://cmail1.com/t/i-o-edrkrt-atlttttl/o.gif" width="1" height="1" border="0" alt="" style="height:1px !important;width:1px !important;border-width:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"> -->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
