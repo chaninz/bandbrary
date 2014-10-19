@@ -9573,8 +9573,8 @@ a.ui.teal.label:hover:before {
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #222222;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #222222;
 }
 /*-------------------
      Ordinality
@@ -15222,10 +15222,10 @@ ol.ui.horizontal.list li:before,
 /* Inverted */
 .ui.divided.inverted.list > .item,
 .ui.divided.inverted.list > .list {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 .ui.divided.inverted.horizontal.list .item {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 /*-------------------
         Celled

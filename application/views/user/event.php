@@ -76,7 +76,6 @@
 
 <!--Add event modal-->
 <div class="ui form segment create modal">
-	<i class="close icon"></i>
 	<form action="<?= base_url('event/user/add?ref='.uri_string()) ?>" method="post">
 		<h3>เพิ่มกิจกรรม</h3>
 		<br/><p/>
