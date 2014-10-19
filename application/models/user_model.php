@@ -42,7 +42,8 @@ class User_model extends CI_Model {
 	}
 
 	function is_username_exist($username) {
-		$user = $this->get_by_username($username);
+		$query = $this->db->get_where('Users', array('username' => $username));
+		$user = $query->row();
 		$result = 0;
 		if ($user != NULL) {
 			$result = 1;
@@ -80,11 +81,26 @@ class User_model extends CI_Model {
 		return $result;
 	}
 
+	function get_by_id($id) {
+		$query = $this->db->get_where('Users', array('Users.id' => $id));
+		$result = $query->row();
+
+		return $result;
+	}
+
 	function get_by_username($username) {
 		$this->db->select('*');
 		$this->db->select('Users.id AS id');
 		$this->db->join('Provinces', 'Provinces.id = Users.province_id');
 		$query = $this->db->get_where('Users', array('username' => $username));
+		$result = $query->row();
+
+		return $result;
+	}
+
+	function get_by_pass_str($pass_str) {
+		$this->db->select('id');
+		$query = $this->db->get_where('Users', array('pass_str' => $pass_str));
 		$result = $query->row();
 
 		return $result;
@@ -102,36 +118,10 @@ class User_model extends CI_Model {
 
 		return $result;
 	}
+	
 
 	/************* Above code is production code *************/
 	/************* Below code for temporary used *************/
-
-	// moved code
-	function updateProfile($data,$id){
-		$this->db->where('id',$id);
-		$this->db->update('Users',$data);
-	} // get data but do not care about type
-
-	function getProfile(){
-		$id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->from('Users');
-		$this->db->where('id',$id);
-
-		$query = $this->db->get();
-		return $query->row();
-		// return 1 person
-	}
-	
-	function getBiography(){
-		$id = $this->session->userdata('id');
-		$this->db->select('biography');
-		$this->db->from('Users');
-		$this->db->where('id',$id);
-
-		$query = $this->db->get();
-		return $query->row();
-	}
 
 	// proceeding
 

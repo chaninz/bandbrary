@@ -25,12 +25,14 @@
 		$button  = $('.ui.button').not($buttons).not($toggle),
 		handler = {
 			activate: function() {
-				$(this)
-				.addClass('active')
-				.siblings()
-				.removeClass('active')
-				;
-				$('#user-type').val($(this).data('value'));
+				if ( ! $(this).hasClass('disabled')) {
+					$(this)
+					.addClass('active')
+					.siblings()
+					.removeClass('active')
+					;
+					$('#user-type').val($(this).data('value'));
+				}
 			}
 		};
 
@@ -124,66 +126,260 @@
 			on     : 'blur'
 		});
 
-	/***********/
-	/* Sign in */
-	/***********/
+		/***********/
+		/* Sign in */
+		/***********/
 
-	$('#signin-form')
-	.form({
-		username: {
-			identifier : 'username',
-			rules: [
-			{
-				type   : 'empty',
-				prompt : 'กรุณากรอกชื่อผู้ใช้'
+		$('#signin-form')
+		.form({
+			username: {
+				identifier : 'username',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกชื่อผู้ใช้'
+				}
+				]
+			},
+			password: {
+				identifier : 'password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่าน'
+				}
+				]
 			}
-			]
-		},
-		password: {
-			identifier : 'password',
-			rules: [
-			{
-				type   : 'empty',
-				prompt : 'กรุณากรอกรหัสผ่าน'
-			}
-			]
-		}
-	});
-
-	/***********/
-	/* Initial */
-	/***********/
-
-	/* Submit Register form */
-	$( "#initial-button" ).click(function() {
-		event.preventDefault();
-		$( ".initial-form" ).submit();
-	});
-
-	/***********/
-	/* Cover */
-	/***********/
-
-	$("#follow").click(function() {
-		follow(url);
-	});
-
-	/***********/
-	/* Change fixed to relative */
-	/***********/
-	$(document).ready(function() {
-		$('.navbar-item1')
-		$('.navbar-item2')
-		$('.bb-logo')
-		$('.navbar-item3')
-		$('.navbar-item4').click(function() {
-			if ($( document ).width() < 1024)
-				$('header').css('position', 'relative');
-			else
-				$('header').css('position', 'fixed');
 		});
+
+		/***********/
+		/* Initial */
+		/***********/
+
+		$('.initial-form')
+		.form({
+			name: {
+				identifier : 'name',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			surName: {
+				identifier : 'surname',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			dob: {
+				identifier : 'dob',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			province: {
+				identifier : 'province',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			style: {
+				identifier : 'style',
+				rules: [
+				{
+					type   : 'checked'
+				}
+				]
+			},
+			skill: {
+				identifier : 'skill',
+				rules: [
+				{
+					type   : 'checked'
+				}
+				]
+			}
+		});
+
+		/* Submit initial form */
+		$( "#initial-button" ).click(function() {
+			event.preventDefault();
+			$( ".initial-form" ).submit();
+		});
+
+
+		/***********/
+		/* Cover */
+		/***********/
+
+		$("#follow").click(function() {
+			follow(url);
+		});
+
+		/****************************/
+		/* Change fixed to relative */
+		/****************************/
+
+		$(document).ready(function() {
+			$('.navbar-item1')
+			$('.navbar-item2')
+			$('.bb-logo')
+			$('.navbar-item3')
+			$('.navbar-item4').click(function() {
+				if ($( document ).width() < 1024)
+					$('header').css('position', 'relative');
+				else
+					$('header').css('position', 'fixed');
+			});
+		});
+
+		/*******************/
+		/* Change Password */
+		/*******************/
+
+		$('#change-password-form')
+		.form({
+			currentPassword: {
+				identifier : 'current-password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่านปัจจุบัน'
+				}
+				]
+			},
+			newPassword: {
+				identifier : 'new-password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่านใหม่'
+				}
+				]
+			},
+			confirmPassword: {
+				identifier : 'confirm-password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่านใหม่อีกครั้ง'
+				},
+				{
+					type   : 'match[new-password]',
+					prompt : 'รหัสผ่านใหม่ไม่ตรงกัน'
+				}
+				]
+			}
+		});
+
+		/*******************/
+		/* Forgot Password */
+		/*******************/
+
+		$('#forgot-password-form')
+		.form({
+			username: {
+				identifier : 'username',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกชื่อผู้ใช้'
+				}
+				]
+			}
+		});
+
+		/******************/
+		/* Reset Password */
+		/******************/
+
+		$('#reset-password-form')
+		.form({
+			newPassword: {
+				identifier : 'new-password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่านใหม่'
+				}
+				]
+			},
+			confirmPassword: {
+				identifier : 'confirm-password',
+				rules: [
+				{
+					type   : 'empty',
+					prompt : 'กรุณากรอกรหัสผ่านใหม่อีกครั้ง'
+				},
+				{
+					type   : 'match[new-password]',
+					prompt : 'รหัสผ่านใหม่ไม่ตรงกัน'
+				}
+				]
+			}
+		});
+
+		/****************/
+		/* Edit Account */
+		/****************/
+
+		$('#edit-account')
+		.form({
+			name: {
+				identifier : 'name',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			surName: {
+				identifier : 'surname',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			province: {
+				identifier : 'province',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			style: {
+				identifier : 'style',
+				rules: [
+				{
+					type   : 'checked'
+				}
+				]
+			},
+			skill: {
+				identifier : 'skill',
+				rules: [
+				{
+					type   : 'checked'
+				}
+				]
+			}
+		});
+		$("#edit-account").keypress(function(event) {
+			if (event.which == 13) {
+				event.preventDefault();
+			}
+		});
+
 	});
-});
 
 	function follow(url) {
 		location.href = url;

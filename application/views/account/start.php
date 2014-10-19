@@ -4,7 +4,7 @@
 	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>User Information | Bandbrary</title>
+	<title>ข้อมูลสมาชิก | Bandbrary</title>
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/arimo.css'; ?>">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
@@ -43,10 +43,6 @@
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
-	.container {
-		width: 1170px;
-		max-width: none !important;
-	}
 	.ui.label {
 		text-transform: none;
 	}
@@ -75,6 +71,9 @@
 		text-align: center;
 		margin-left: 0px;
 	}
+	#biography {
+		height: initial;
+	}
 	</style>
 
 </head>
@@ -95,13 +94,13 @@
 			<div class="content-wrapper col-xs-10 col-centered">
 				<div class="col-xs-8 col-centered">
 					<div class="content col-xs-10">
-						<h3>User Profile</h3>
-						<p>Please complete the registration form </p>
-						<div class="ui form">
-							<form class="initial-form" action="start" method="post">
+						<h2>ข้อมูลสมาชิก</h2>
+						<h4>ข้อมูลทั่วไป<div class="line"></div></h4>
+						<form class="initial-form" action="start" method="post">
+							<div class="ui form">
 								<div class="two fields">
 									<div class="field">
-										<label>Name</label>
+										<label>ชื่อ</label>
 										<div class="ui labeled icon input">
 											<input type="text" name="name"/>
 											<div class="ui corner label">
@@ -110,7 +109,7 @@
 										</div>
 									</div>
 									<div class="field">
-										<label>Surname</label>
+										<label>นามสกุล</label>
 										<div class="ui labeled icon input">
 											<input type="text" name="surname"/>
 											<div class="ui corner label">
@@ -120,38 +119,34 @@
 									</div>
 								</div>
 								<div class="date field">
-									<label>Date of Birth</label>
+									<label>วันเกิด</label>
 									<div class="ui left labeled icon input">
 										<i class="icon calendar"></i>
-										<input type="text" placeholder="YYYY-MM-DD" name="dob" id="dob"/>
+										<input type="text" placeholder="ปปปป-ดด-วว" name="dob" id="dob"/>
 										<div class="ui corner label">
 											<i class="icon asterisk"></i>
 										</div>
 									</div>
-
 								</div>
 								<div class="field">
-									<label>Province</label>
+									<label>จังหวัด</label>
 									<div class="ui labeled icon input">
 										<div class="ui fluid selection dropdown">
-
-											<div class="text">Select</div>
+											<div class="text">เลือก</div>
 											<i class="dropdown icon"></i>
 											<input type="hidden" name="province">
-											<div class="menu">
-												<div class="item" data-value="10" style="font-size: 14px;">Bangkok</div>
-												<div class="item" data-value="36" style="font-size: 14px;">Chaiyaphum</div>
-												<div class="item" data-value="50" style="font-size: 14px;">Chiang Mai</div>
+											<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
+												<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province_th ?></div><?php endforeach; endif; ?>
 											</div>
-											<div class="ui corner label">
-												<i class="icon asterisk"></i>
-											</div>
+										</div>
+										<div class="ui corner label" style="top: 0px; right: 0px;">
+											<i class="icon asterisk"></i>
 										</div>
 									</div>
 								</div>
 								<div class="field">
-									<label>Biography</label>
-									<textarea name="biography"></textarea>
+									<label>ประวัติ</label>
+									<textarea id="biography" name="biography"></textarea>
 								</div>
 								<div class="field">
 									<label>Facebook URL</label>
@@ -173,142 +168,142 @@
 										<input type="text" placeholder="youtube.com/user/bandbrary" name="yturl">
 										<i class="youtube icon"></i>
 									</div>
-								</div>
-
-								<?php if ($this->session->userdata('user_type') == 2) {
-									echo '<div class="field">
-									<label>Style*</label>
+								</div><?php if ($this->session->userdata('user_type') == 2): ?>
+								<h4>ข้อมูลด้านดนตรี<div class="line"></div></h4>
+								<div class="field">
+									<label>สไตล์ *</label>
+									<input type="hidden" data-validate="style"/>
 									<div class="ui three fields">
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="1">
-												<label>Blues</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="1">
+												<label>บลูส์</label>
 											</div>
 										</div>
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="2"> 
-												<label>Country</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" alue="2"> 
+												<label>คันทรี</label>
 											</div>
 										</div>
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="3">
-												<label>Hip Hop</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="3">
+												<label>ฮิปฮอป</label>
 											</div>
 										</div>
 									</div>
 									<div class="ui three fields">
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="4">
-												<label>Jazz</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="4">
+												<label>แจ๊ส</label>
 											</div>
 										</div>
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="5">
-												<label>Latin</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="5">
+												<label>ลาติน</label>
 											</div>
 										</div>
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="6">
-												<label>Pop</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="6">
+												<label>ป็อป</label>
 											</div>
 										</div>
 									</div>
 									<div class="ui three fields">
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="7">
-												<label>Reggae</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="7">
+												<label>เร้กเก้</label>
 											</div>
 										</div>
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="8">
-												<label>R&B</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="8">
+												<label>อาร์แอนด์บี</label>
 											</div>
 										</div>
 										<div class="field">
-											<div class="ui radio checkbox">
-												<input type="radio" name="style" value="9">
-												<label>Rock</label>
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="9">
+												<label>ร็อก</label>
 											</div>
 										</div>
 									</div>
 								</div>
 
 								<div class="field groupped inline">
-									<label>Skill*</label>
+									<label>ความสามารถ *</label>
+									<input type="hidden" data-validate="skill"/>
 									<div class="ui three fields">
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="1">
-												<label>Vocal</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="1">
+												<label>ร้องเพลง</label>
 											</div>
 										</div>
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="2">
-												<label>Guitar</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="2">
+												<label>กีตาร์</label>
 											</div>
 										</div>
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="3">
-												<label>Bass</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="3">
+												<label>เบส</label>
 											</div>
 										</div>
 									</div>
 									<div class="ui three fields">
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="4">
-												<label>Drum</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="4">
+												<label>กลองชุด</label>
 											</div>
 										</div>
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="5">
-												<label>Piano</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="5">
+												<label>เปียโน</label>
 											</div>
 										</div>
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="6">
-												<label>Keyboard</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="6">
+												<label>คีย์บอร์ด</label>
 											</div>
 										</div>
 									</div>
 									<div class="ui three fields">
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="7">
-												<label>Saxophone</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="7">
+												<label>แซกโซโฟน</label>
 											</div>
 										</div>
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="8">
-												<label>Trumpets</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="8">
+												<label>ทรัมเป็ต</label>
 											</div>
 										</div>
 										<div class="field">
 											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" value="9">
-												<label>Violin</label>
+												<input type="checkbox" name="skill[]" data-validate="skill" value="9">
+												<label>ไวโอลิน</label>
 											</div>
 										</div>
 									</div>
-								</div>';
-								} ?>
+								</div><?php endif; ?>
 								<div class="field text-center">
-									<div id="initial-button" class="ui red small submit button">Finish</div>
+									<div id="initial-button" class="ui red submit button">บันทึก</div>
 								</div>
-							</form>
-						</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

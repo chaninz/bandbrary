@@ -24,7 +24,7 @@
 				<div class="navbar-item3">
 					<div class="ui compact menu">
 						<div class="ui pointing dropdown link item"><?php if($this->session->userdata('photo_url')): ?>
-							<img src="<?= base_url('uploads/profile/'.$this->session->userdata('photo_url')) ?>" alt="" class="profile-pic1"/><?php else: ?>
+							<img src="<?= base_url('uploads/images/profile/'.$this->session->userdata('photo_url')) ?>" alt="" class="profile-pic1"/><?php else: ?>
 							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" class="profile-pic1"/><?php endif; ?>
 							<div class="user-name">
 								<?= $this->session->userdata('name'); ?>
