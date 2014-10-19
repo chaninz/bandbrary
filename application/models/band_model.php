@@ -29,7 +29,7 @@ class Band_model extends CI_Model {
 	function get($band_id){
 		$this->db->select('*');
 		$this->db->select('Bands.id AS id');
-		$this->db->join('Style', 'Bands.style_id = Style.id');
+		$this->db->join('Styles', 'Bands.style_id = Styles.id');
 		$this->db->join('Provinces', 'Bands.province_id = Provinces.id');
 		$query = $this->db->get_where('Bands', array('Bands.id' => $band_id));
 		$result = $query->row();
