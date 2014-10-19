@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Report_music extends CI_Controller {
+class Music extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -10,15 +10,20 @@ class Report_music extends CI_Controller {
 	public function getAll() {
 			$data = array('reports' => $this->report_music_model->get_all_report()
 			);
-			$this->load->view('reports/music',$data);
+			$this->load->view('reports/music/all',$data);
 			
 	}
 
 	public function getApproved() {
-			$this->report_music_model->get_approved_report();
+			$data = array('reports' => $this->report_music_model->get_approved_report()
+			);
+			$this->load->view('reports/music/approved',$data);
+
 	}
 	public function getNotApprove() {
-			$this->report_music_model->get_not_approve_report();
+			$data = array('reports' => $this->report_music_model->get_not_approve_report()
+			);
+			$this->load->view('reports/music/notapprove',$data);
 	}
 
 

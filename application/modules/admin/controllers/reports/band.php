@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Report_band extends CI_Controller {
+class Band extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -11,14 +11,18 @@ class Report_band extends CI_Controller {
 	public function getAll() {
 			$data = array('reports' => $this->report_band_model->get_all_report()
 			);
-			$this->load->view('reports/band',$data);
+			$this->load->view('reports/band/all',$data);
 	}
 
 	public function getApproved() {
-			$this->report_band_model->get_approved_report();
+			$data = array('reports' => $this->report_band_model->get_approved_report()
+			);
+			$this->load->view('reports/band/approved',$data);
 	}
 	public function getNotApprove() {
-			$this->report_band_model->get_not_approve_report();
+			$data = array('reports' => $this->report_band_model->get_not_approve_report()
+			);
+			$this->load->view('reports/band/notapprove',$data);
 	}
 
 

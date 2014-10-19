@@ -40,7 +40,7 @@
 		padding-top: 100px;
 	}
 	.ui.vertical.menu {
-		width: 17.33rem;
+		width: 16.2rem;
 		border-radius: 0px;
 		padding-top: 80px;
 	}
@@ -71,7 +71,7 @@
 		box-shadow: none;
 	}
 	.line {
-		width: 750px;
+		width: 700px;
 	}
 	.footmix {
 		margin-top: 0px;

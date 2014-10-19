@@ -41,16 +41,16 @@
 							<?php if ($this->session->userdata('id') == $user_profile->id): ?>
 							<a id="event-add-btn" class="ui red button test event">
 								<i class="edit icon"></i>
-								Add event
+								เพิ่มกิจกรรม
 							</a>
 						<?php endif; ?>
 						<div class="ui fluid accordion">
 							<div class="event-hea">
 								<table>
 									<tbody>
-										<td class="eh1">DATE</td>
-										<td class="eh2">TIME</td>
-										<td class="eh3">EVENT</td>
+										<td class="eh1">วัน</td>
+										<td class="eh2">เวลา</td>
+										<td class="eh3">ชื่องาน</td>
 									</tbody>
 								</table>
 							</div><?php foreach ($events as $event): ?>
@@ -78,49 +78,50 @@
 <div class="ui form segment create modal">
 	<i class="close icon"></i>
 	<form action="<?= base_url('event/user/add?ref='.uri_string()) ?>" method="post">
-		<h3>Add event</h3>
+		<h3>เพิ่มกิจกรรม</h3>
+		<br/><p/>
 		<div class="line"></div>
 		<p/>
 		<div class="field">
-			<label>Title</label>
+			<label>ชื่องาน</label>
 			<input type="text" placeholder="" name="event">
 		</div>
 		<div class="field">
-			<label>Province</label>
+			<label>จังหวัด</label>
 			<div class="ui fluid selection dropdown">
-				<div class="text">Select</div>
+				<div class="text">ตัวเลือก</div>
 				<i class="dropdown icon"></i>
 				<input type="hidden" name="venue">
 				<div class="menu">
-					<div class="item" data-value="Bangkok" style="font-size: 14px;">Bangkok</div>
-					<div class="item" data-value="Changmai" style="font-size: 14px;">Changmai</div>
+					<div class="item" data-value="Bangkok" style="font-size: 14px;">กรุงเทพมหานคร</div>
+					<div class="item" data-value="Changmai" style="font-size: 14px;">เชียงใหม่</div>
 				</div>
 			</div>
 		</div>
 		<div class="line"></div>
 		<p/>
 		<div class="field">
-			<label>Description</label>
-			<textarea name="description"></textarea>
+			<label>คำอธิบาย</label>
+			<textarea name="description" class="ckeditor"></textarea>
 		</div>
 		<div class="two fields">
 			<div class="field">
-				<label>Date</label>
+				<label>วัน/เดือน/ปี</label>
 				<div class="ui left labeled icon input">
 					<input type="date" placeholder="" style="padding: .2em 1em;" name="start_date">
 					<i class="calendar icon"></i>
 				</div>
 			</div>
 			<div class="field">
-				<label>Time</label>
+				<label>เวลา</label>
 				<input type="time" placeholder="" style="padding: .2em 1em;" name="start_time">
 			</div>
 		</div>
 		<div class="line"></div>
 		<p/>
 		<div class="actions">
-			<div class="ui small button">cancel</div>
-			<input type="submit" class="ui small red submit button" value="Add event">
+			<div class="ui small button">ยกเลิก</div>
+			<input type="submit" class="ui small red submit button" value="เพิ่มกิจกรรม">
 		</div>
 	</form>
 </div>

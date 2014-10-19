@@ -60,7 +60,8 @@
 		margin-bottom: 15px;
 	}
 	#signin-button {
-		margin-top: 1.25rem;
+		margin-top: 1.45rem;
+		padding: 0.67em 1.5em;
 	}
 	#signup-button {
 		margin-bottom: 0px;
@@ -92,11 +93,11 @@
 							<div class="three fields">
 								<div class="field signin-field">
 									<label>ชื่อผู้ใช้</label>
-									<input placeholder="" type="text" name="username"/>
+									<input placeholder="" type="text" name="username" style="padding: 0.55em 1em;"/>
 								</div>
 								<div class="signin-field field">
 									<label>รหัสผ่าน</label>
-									<input placeholder="" type="password" name="password"/>
+									<input placeholder="" type="password" name="password" style="padding: 0.55em 1em;"/>
 								</div>
 								<div class="signin-field field">
 									<div id="signin-button" class="ui red small submit button">เข้าสู่ระบบ</div>
@@ -115,7 +116,7 @@
 		</div>
 	</header>
 
-	<div class="container" style="margin-top:100px;">
+	<div class="container" style="margin-top: 40px;">
 		<div class="row">
 			<div class="col-xs-7">
 				<div id="welcome-msg">
