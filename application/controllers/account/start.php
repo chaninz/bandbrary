@@ -5,31 +5,54 @@ class Start extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('style_model');
 		$this->load->model('skill_model');
+		$this->load->model('province_model');
 	}
 
 	public function index()	{
-		if ($this->input->post()) {
-			$data = array('name' => $this->input->post('name'),
-			 'surname' => $this->input->post('surname'),
-			 'dob' => $this->input->post('dob'),
-			 'province_id' => $this->input->post('province'),
-			 'biography' => $this->input->post('biography'),
-			 'fb_url' => $this->input->post('fburl'),
-			 'tw_url' => $this->input->post('twurl'),
-			 'yt_url' => $this->input->post('yturl'));
+		$name = $this->session->userdata('name');
+		$surname = $this->session->userdata('surname');
+
+		if ( ! empty($name) && ! empty($surname)) {
+			// Initialized
+			redirect('');
+		} else if ($this->input->post()) {
+			// Receive data from form
 			$id = $this->session->userdata('id');
+			$name = $this->input->post('name');
+			$surname = $this->input->post('surname');
+			$dob = $this->input->post('dob');
+			$province_id = $this->input->post('province');
+			$user_type = $this->session->userdata('user_type');
 
-			if ($this->session->userdata('user_type') == 2) {
-				// Insert styles and skills to database
-				$data['style_id'] = $this->input->post('style');
-				$this->skill_model->add($id, $this->input->post('skill'));
+			if ( ! empty($name) && ! empty($surname) && ! empty($dob) && ! empty($province_id)) {
+				$data = array('name' => $name,
+					'surname' => $surname,
+					'dob' => $dob,
+					'province_id' => $province_id,
+					'biography' => $this->input->post('biography'),
+					'fb_url' => $this->input->post('fburl'),
+					'tw_url' => $this->input->post('twurl'),
+					'yt_url' => $this->input->post('yturl'));
+
+				$styles = $this->input->post('style');
+				$skills = $this->input->post('skill');
+
+				if ($user_type == 2 && ! empty($styles) && ! empty($skills)) {
+					// Insert styles and skills to database
+					$this->style_model->add($id, $styles);
+					$this->skill_model->add($id, $skills);
+				} else {
+					show_404();
+				}
+				$this->user_model->update($id, $data);
+
+				redirect('');
 			}
-
-			$this->user_model->update($id, $data);
-			//redirect('')
 		} else {
-			$this->load->view('account/start');
+			$provinces = $this->province_model->get_th_all();
+			$this->load->view('account/start', array('provinces' => $provinces));
 		}
 	}
 

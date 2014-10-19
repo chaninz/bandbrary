@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>เข้าสู่ระบบ | Bandbrary</title>
+	<title>ลืมรหัสผ่าน | Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>  
 	<style>
@@ -54,7 +54,7 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<div id="login-form-full" class="ui form segment">
-					<h3 id="login-hea-text">เข้าสู่ระบบ</h3>
+					<h3 id="login-hea-text">ลืมรหัสผ่าน</h3>
 					<p></p>
 					<div class="line"></div>
 					<p></p><?php if ( ! empty($msg)): if ($msg['type'] == 1): ?>
@@ -71,35 +71,19 @@
 						<i class="icon ok sign"></i> <?= $msg['text'] ?>
 					</div><?php endif; endif; ?>
 
-					<form id="signin-form" action="<?php echo base_url().'account/signin'; ?>" method="post">
+					<form id="forgot-password-form" action="<?php echo base_url().'account/password/forgot'; ?>" method="post">
 						<div class="field">
 							<label>ชื่อผู้ใช้</label>
 							<div class="ui left labeled icon input">
-								<input type="text" name="username">
+								<input type="text" name="username"/>
 								<i class="user icon"></i>
-							</div>
-						</div>
-						<div class="field">
-							<label>รหัสผ่าน</label>
-							<div class="ui left labeled icon input">
-								<input type="password" name="password">
-								<i class="lock icon"></i>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui checkbox">
-								<input type="checkbox" name="remember"/>
-								<label>จำรหัสผ่าน</label>
 							</div>
 						</div>
 						<div class="field text-center"><?php if( ! empty($ref)): ?>
 							<input type="hidden" name="ref" value="<?= $ref ?>"/><?php endif; ?>
-							<input class="ui button primary" type="submit" value="เข้าสู่ระบบ"/>
+							<input class="ui button primary" type="submit" value="รีเซ็ต"/>
 						</div>
 					</form>
-					<div class="small text-center">
-						<p><a href="<?= base_url('account/password/forgot')?>">ลืมรหัสผ่าน</a></p>
-					</div>
 				</div>
 			</div>
 			<div class="col-md-3"></div>

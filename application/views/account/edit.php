@@ -4,7 +4,7 @@
 	<meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>User profile | Bandbrary</title>
+	<title>แก้ไขข้อมูลส่วนตัว | Bandbrary</title>
 	<?php $this->load->view('header'); ?>  
 	<style>
 	.col-xs-2 {
@@ -79,145 +79,262 @@
 		<div class="row">
 			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
-				<div class="ui form segment">
-					<form action="<?= base_url('account/edit') ?>" method="post">
-					<p/>
-					<h1>Edit Profile</h1>
-					<div class="line"></div>
-					<br/><p/>
-					<div class="field">
-						<label>Username</label>
-						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Username" name="username" value="<?php echo $user->username; ?>" readonly>
-							<i class="user icon"></i>
-						</div>
-					</div>
-					<div class="field">
-						<label>Email address</label>
-						<div class="ui left labeled icon input">
-							<input type="email" placeholder="Email address" name="email" value="<?php echo $user->email; ?>" readonly>
-							<i class="mail icon"></i>
-						</div>
-					</div>
-					<div class="two fields">
+				<form id="edit-account" action="<?= base_url('account/edit') ?>" method="post" enctype="multipart/form-data">
+					<div class="ui form segment">
+						<p/>
+						<h2>แก้ไขข้อมูลส่วนตัว</h2>
+						<div class="line"></div>
+						<br/><p/>
 						<div class="field">
-							<label>First Name</label>
-							<input placeholder="First Name" type="text" name="name" value="<?php echo $user->name; ?>" required>
+							<label>ชื่อผู้ใช้</label>
+							<div class="ui left labeled icon input">
+								<input type="text" value="<?= $user->username; ?>" disabled/>
+								<i class="user icon"></i>
+							</div>
 						</div>
 						<div class="field">
-							<label>Last Name</label>
-							<input placeholder="Last Name" type="text" name="surname" value="<?php echo $user->surname; ?>" required>
+							<label>อีเมล</label>
+							<div class="ui left labeled icon input">
+								<input type="email" value="<?= $user->email; ?>" disabled/>
+								<i class="mail icon"></i>
+							</div>
 						</div>
-					</div>
-					<div class="field">
-						<label>Province</label>
-						<div class="ui fluid selection dropdown">
-							<div class="text">Select</div>
-							<i class="dropdown icon"></i>
-							<input type="hidden" name="province" value="<?php echo $user->province_id; ?>" >
+						<div class="two fields">
+							<div class="field">
+								<label>ชื่อ</label>
+								<input type="text" name="name" value="<?= $user->name; ?>"/>
+							</div>
+							<div class="field">
+								<label>นามสกุล</label>
+								<input type="text" name="surname" value="<?= $user->surname; ?>" required>
+							</div>
+						</div>
+						<div class="field">
+							<label>จังหวัด</label>
+							<div class="ui fluid selection dropdown">
+								<div class="text">Select</div>
+								<i class="dropdown icon"></i>
+								<input type="hidden" name="province" value="<?= $user->province_id; ?>" >
+								<div class="menu"><?php if ( ! empty($provinces)): foreach ($provinces as $province): ?>
+									<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province_th ?></div><?php endforeach; endif; ?>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label>ประเภทผู้ใช้</label>
+							<div class="ui large buttons" style="display: inline-block;">
+									<div class="ui button <?= $user->user_type == 1 ? 'active' : 'disabled' ?>" data-value="1"><i class="headphones icon"></i>ผู้ฟัง</div>
+									<input type="hidden" id="user-type" name="user-type" value="<?= $user->user_type ?>"/>
+									<div class="ui button <?= $user->user_type == 2 ? 'active' : '' ?>" data-value="2"><i class="unmute icon"></i>นักดนตรี</div>
+							</div>
+							<div>* เมื่อเปลี่ยนประเภทผู้ใช้เป็นนักดนตรีแล้วจะไม่สามารถกลับมาเป็นผู้ฟังได้</div>
+						</div>
+						<div class="line"></div>
+						<p/>
+						<div class="field">
+							<label>รูปโปรไฟล์</label><?php if($user->photo_url): ?>
+							<img src="<?= base_url('uploads/images/profile/thumb/'.$user->photo_url) ?>" alt="" id="img-preview"/><?php else: ?>
+							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="img-preview"/><?php endif; ?>
+							<div class="ui selection dropdown" style="margin-left: 10px;">
+								<div class="default text"><b>เปลี่ยนรูปโปรไฟล์</b></div>
+								<i class="dropdown icon"></i>
+								<div class="menu">
+									<div class="file-upload item" data-value="2" style="font-size: 14px;">อัพโหลดรูป<input class="upload" type="file" id="profile-photo" name="profile-photo"></div>
+									<div class="item" data-value="1" style="font-size: 14px;">ลบ</div>
+								</div>
+								<input type="hidden" name="profile-photo-upload" value="0"/>
+							</div><?php if ( ! empty($msg_photo)): ?>
+							<div><?= $msg_photo ?></div><?php endif; ?>
+						</div>
+						<div class="field">
+							<label>รูปภาพปก</label>
+							<img src="<?= base_url('uploads/images/cover/thumb/'.$user->cover_url) ?>" alt="" id="img-preview">
+							<div class="ui selection dropdown" style="margin-left: 10px;">
+								<div class="default text"><b>เปลี่ยนรูปภาพปก</b></div>
+								<i class="dropdown icon"></i>
+								<div class="menu">
+									<div class="file-upload item" data-value="2" style="font-size: 14px;">อัพโหลดรูป<input class="upload" type="file" id="cover-photo" name="cover-photo"></div>
+									<div class="item" data-value="1" style="font-size: 14px;">ลบ</div>
+								</div>
+								<input type="hidden" name="cover-photo-upload" value="0"/>
+							</div><?php if ( ! empty($msg_cover)): ?>
+							<div><?= $msg_cover ?></div><?php endif; ?>
+						</div>
+						<div class="field" >
+							<label>ประวัติ</label>
+							<textarea name="biography"><?php echo $user->biography; ?></textarea>
+						</div>
+						<div class="line"></div>
+						<p/>
+						<div class="field">
+							<label>Facebook</label>
+							<div class="ui left labeled icon input">
+								<input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $user->fb_url; ?>">  
+								<i class="facebook icon"></i>
+							</div>
+						</div>
+						<div class="field">
+							<label>Twitter</label>
+							<div class="ui left labeled icon input">
+								<input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $user->tw_url; ?>">
+								<i class="twitter icon"></i>
+							</div>
+						</div>
+						<div class="field">
+							<label>Youtube</label>
+							<div class="ui left labeled icon input">
+								<input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $user->yt_url; ?>">
+								<i class="youtube icon"></i>
+							</div>
+						</div>
+						<?php if ($this->session->userdata('user_type') == 2): ?>
+								<h4>ข้อมูลด้านดนตรี<div class="line"></div></h4>
+								<div class="field">
+									<label>สไตล์ *</label>
+									<input type="hidden" data-validate="style"/>
+									<div class="ui three fields">
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="1" <?= ! empty($styles[1]) ? 'checked' : '' ?> />
+												<label>บลูส์</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="2" <?= ! empty($styles[2]) ? 'checked' : '' ?> /> 
+												<label>คันทรี</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="3" <?= ! empty($styles[3]) ? 'checked' : '' ?> />
+												<label>ฮิปฮอป</label>
+											</div>
+										</div>
+									</div>
+									<div class="ui three fields">
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="4" <?= ! empty($styles[4]) ? 'checked' : '' ?> />
+												<label>แจ๊ส</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="5" <?= ! empty($styles[5]) ? 'checked' : '' ?> />
+												<label>ลาติน</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="6" <?= ! empty($styles[6]) ? 'checked' : '' ?> />
+												<label>ป็อป</label>
+											</div>
+										</div>
+									</div>
+									<div class="ui three fields">
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="7" <?= ! empty($styles[7]) ? 'checked' : '' ?> />
+												<label>เร้กเก้</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="8" <?= ! empty($styles[8]) ? 'checked' : '' ?> />
+												<label>อาร์แอนด์บี</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="style[]" data-validate="style" value="9" <?= ! empty($styles[9]) ? 'checked' : '' ?> />
+												<label>ร็อก</label>
+											</div>
+										</div>
+									</div>
+								</div>
 
-							<div class="menu">
-								<div class="item  <?php echo ($user->province_id ==10)?'active':'';?>" data-value="1" style="font-size: 14px;">Bangkok</div>
-								<div class="item <?php echo ($user->province_id ==36)?'active':'';?>" data-value="2" style="font-size: 14px;">Chaiyaphum</div>
-							</div>
-						</div>
-					</div>
-					<div class="field">
-						<label>Member Type</label>
-						<div class="grouped inline fields">
-							<div class="field">
-								<div class="ui slider checkbox">
-									<input type="radio" name="usertype" value="1">
-									<label>Audience</label>
-								</div>
-							</div>
-							<div class="field">
-								<div class="ui slider checkbox">
-									<input type="radio" name="usertype" value="2">
-									<label>Musician</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="line"></div>
-					<p/>
-					<div class="field">
-						<label>Profile Photo</label>
-						<img src="<?php echo base_url().'images/'.$user->photo_url; ?>" alt="" id="img-preview"/>
-						<div class="ui selection dropdown" style="margin-left: 10px;">
-							<input type="hidden" name="profile-photo">
-							<div class="default text"><b>Change photo</b></div>
-							<i class="dropdown icon"></i>
-							<div class="menu">
-								<div class="fileUpload item" data-value="1" style="font-size: 14px;">Upload photo<input id="uploadBtn" type="file" class="upload" name="photo" value="<?php echo $user->photo_url; ?>"></div>
-								<div class="item" data-value="0" style="font-size: 14px;">Remove</div>
-							</div>
-						</div>
-					</div>
-					<div class="field">
-						<label>Cover Photo</label>
-						<img src="<?php echo base_url().'images/'.$user->cover_url; ?>" alt="" id="img-preview">
-						<div class="ui selection dropdown" style="margin-left: 10px;">
-							<input type="hidden" name="cover-photo">
-							<div class="default text"><b>Change cover</b></div>
-							<i class="dropdown icon"></i>
-							<div class="menu">
-								<div class="fileUpload item" data-value="1" style="font-size: 14px;">Upload photo<input id="uploadBtn" type="file" class="upload" name="cover" value="<?php echo $user->cover_url; ?>"></div>
-								<div class="item" data-value="0" style="font-size: 14px;">Remove</div>
-							</div>
-						</div>
-					</div>
-					<div class="field" >
-						<label>Biography</label>
-						<textarea name="biography" required><?php echo $user->biography; ?></textarea>
-					</div>
-					<div class="line"></div>
-					<p/>
-					<div class="field">
-						<label>Facebook URL</label>
-						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Facebook URL" name="fburl" value="<?php echo $user->fb_url; ?>">  
-							<i class="facebook icon"></i>
-						</div>
-					</div>
-					<div class="field">
-						<label>Twitter URL</label>
-						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Twitter URL" name="twurl" value="<?php echo $user->tw_url; ?>">
-							<i class="twitter icon"></i>
-						</div>
-					</div>
-					<div class="field">
-						<label>Youtube URL</label>
-						<div class="ui left labeled icon input">
-							<input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $user->yt_url; ?>">
-							<i class="youtube icon"></i>
-						</div>
-					</div>
-					<br/><p/>
-					<div class="line"></div>
-					<br><p/>
-					<input class="ui small red submit button" type="submit" value="Save Change">
+								<div class="field groupped inline">
+									<label>ความสามารถ *</label>
+									<input type="hidden" data-validate="skill"/>
+									<div class="ui three fields">
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="1" <?= ! empty($skills[1]) ? 'checked' : '' ?> />
+												<label>ร้องเพลง</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="2" <?= ! empty($skills[2]) ? 'checked' : '' ?> />
+												<label>กีตาร์</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="3" <?= ! empty($skills[3]) ? 'checked' : '' ?> />
+												<label>เบส</label>
+											</div>
+										</div>
+									</div>
+									<div class="ui three fields">
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="4" <?= ! empty($skills[4]) ? 'checked' : '' ?> />
+												<label>กลองชุด</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="5" <?= ! empty($skills[5]) ? 'checked' : '' ?> />
+												<label>เปียโน</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="6" <?= ! empty($skills[6]) ? 'checked' : '' ?> />
+												<label>คีย์บอร์ด</label>
+											</div>
+										</div>
+									</div>
+									<div class="ui three fields">
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="7" <?= ! empty($skills[7]) ? 'checked' : '' ?> />
+												<label>แซกโซโฟน</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="8" <?= ! empty($skills[8]) ? 'checked' : '' ?> />
+												<label>ทรัมเป็ต</label>
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui checkbox">
+												<input type="checkbox" name="skill[]" data-validate="skill" value="9" <?= ! empty($skills[9]) ? 'checked' : '' ?> />
+												<label>ไวโอลิน</label>
+											</div>
+										</div>
+									</div>
+								</div><?php endif; ?>
+						<div class="line"></div>
+
+						<br/>
+						<input class="ui red submit button" type="submit" value="บันทึก">
+					</div> 
 				</form>
-				</div> 
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
 	</div>
 
 	<?php $this->load->view('footer'); ?>
-	<script>
-	$(document).ready(function() {
-		$('#entertain').mouseover(function(){
-			$('#content').load('entertainment.html').hide(0).fadeIn(1000);
-		});
-		$('#sports').mouseover(function(){
-			$('#content').load('Sport.html').hide(0).fadeIn(1000);
-		});
-		document.getElementById("uploadBtn").onchange = function () {
-			document.getElementById("uploadFile").value = this.value;
-		};
-		</script>
+	<script type="text/javascript">
+	$("#uploadBtn").change(function() {
+		alert("dasdas");
+	});
+	</script>
 
 	</body>
 	</html>

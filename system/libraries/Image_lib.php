@@ -296,8 +296,8 @@ class CI_Image_lib {
 			$this->quality = 90;
 
 		// Set the x/y coordinates
-		$this->x_axis = ($this->x_axis == '' OR ! is_numeric($this->x_axis)) ? 0 : $this->x_axis;
-		$this->y_axis = ($this->y_axis == '' OR ! is_numeric($this->y_axis)) ? 0 : $this->y_axis;
+		$this->x_axis = ($this->x_axis == '' OR ! is_numeric($this->x_axis)) ? ($this->orig_width/2)-($this->width/2) : $this->x_axis;
+		$this->y_axis = ($this->y_axis == '' OR ! is_numeric($this->y_axis)) ? ($this->orig_height/2)-($this->height/2) : $this->y_axis;
 
 		// Watermark-related Stuff...
 		if ($this->wm_font_color != '')

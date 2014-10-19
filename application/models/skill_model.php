@@ -6,21 +6,33 @@ class Skill_model extends CI_Model {
 		parent::__construct();
 	}
 
-	function add($id, $data) {
-		foreach ($data as $skill) {
-			$this->db->insert('Has_Skills', array('user_id' => $id,
+	function add($user_id, $skills) {
+		foreach ($skills as $skill) {
+			$this->db->insert('Has_Skills', array('user_id' => $user_id,
 				'skill_id' => $skill));
 		}
 	}
 
-	function edit($id, $data) {
-		$this->delete($id);
-		$this->add($id, $data);
+	function edit($user_id, $skills) {
+		$this->delete($user_id);
+		$this->add($user_id, $skills);
 	}
 
-	function delete($id) {
-		$this->db->where('user_id', $id);
+	function delete($user_id) {
+		$this->db->where('user_id', $user_id);
 		$this->db->delete('Has_Skills');
+	}
+	
+	function get_by_user($user_id) {
+		$query = $this->db->get_where('Has_Skills', array('user_id' => $user_id));
+		$result_set = $query->result();
+		$result = array();
+
+		foreach ($result_set as $row) {
+			$result[$row->skill_id] = TRUE;
+		}
+
+		return $result;
 	}
 	
 }

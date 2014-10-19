@@ -26,28 +26,7 @@ class Signin extends CI_Controller {
 
 			if ($result) {
 				// If sign in complete
-				$user = array('id' => $result->id,
-					'username' => $result->username,
-					'email' => $result->email,
-					'name' => $result->name,
-					'surname' => $result->surname,
-					'user_type' => $result->user_type,
-					'photo_url' => $result->photo_url,
-					'province_id' => $result->province_id,
-					'band_id' => NULL,
-					'is_master' => NULL);
-
-				if ($user['user_type'] == 2) {
-					// Check if he is a musician
-					$bid = $this->join_band_model->get_current_band($user['id'])->band_id;
-					$is_master = $this->join_band_model->get_current_band($user['id'])->is_master;
-					
-					if ($bid) {
-						// If the user joined band, put id of his band to session
-						$user['band_id'] = $bid;
-						$user['is_master'] = $is_master;
-					}
-				}
+				$user = $this->utils->refresh_user($result->id);
 
 				if ($is_remember == 'on') {
 					// Set ID to cookie and send to client
@@ -56,9 +35,6 @@ class Signin extends CI_Controller {
 						'expire' => '86500');
 					set_cookie($cookie_id);
 				}
-
-				// Put user data to session
-				$this->session->set_userdata($user);
 
 				if (empty($user['name']) && empty($user['surname'])) {
 					// First time signin, forward to initial page to complete the profile
@@ -73,8 +49,8 @@ class Signin extends CI_Controller {
 			} else {
 				// No user found
 				$display = array('msg' => array('type' => 1, 
-				'header' => "",
-				'text' => "ไม่พบชื่อผู้ใช้ หรือ รหัสผ่าน"));
+				'header' => '',
+				'text' => 'ไม่พบชื่อผู้ใช้ หรือ รหัสผ่าน'));
 
 				$this->load->view('account/signin', $display);
 			}
