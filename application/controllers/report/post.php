@@ -11,7 +11,7 @@ class Post extends CI_Controller {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
 			'post_id' => $post_id,
-			'report_type' => $this->input->post('report_type')
+			'type' => $this->input->post('type')
 		);
 			$this->report_post_model->add($data);
 		}

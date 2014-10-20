@@ -107,28 +107,29 @@
 			<div class="right">
 				<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
 				<div class="ui form">
+				<form action="<?= base_url('report/post/'.$posts->$id.'') ?>" method="post">	
 					<div class="grouped inline fields">
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="fruit" checked="">
+								<input type="radio" name="type" value="1">
 								<label>Apples</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="fruit">
+								<input type="radio" name="type" value="2">
 								<label>Oranges</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="fruit">
+								<input type="radio" name="type" value="3">
 								<label>Pears</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="fruit">
+								<input type="radio" name="type" value="4">
 								<label>Grapefruit</label>
 							</div>
 						</div>
@@ -140,9 +141,10 @@
 			<div class="ui black small button">
 				ยกเลิก
 			</div>
-			<div class="ui red icon small button">
+			<input type="submit" class="ui red submit small button" value="โพสต์">
+
 				ส่งรายงาน
-			</div>
+			</form>
 		</div>
 	</div>
 
