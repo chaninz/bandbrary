@@ -353,40 +353,43 @@ footer {
 #user-follow {
 	position: absolute;
 	top: -65px;
-	left: 815px;
-	font-size: 12px;
-	padding-left: 10px;
-	border-radius: 0em;
-	padding: 0.8em 1em;
-}
-#user-follow .icon {
-	font-size: 1em;
+	left: 660px;
 }
 #band-follow {
 	position: absolute;
 	top: -65px;
 	left: 660px;
-	font-size: 12px;
-	padding-left: 10px;
-	border-radius: 0em;
-	padding: 0.8em 1em;
 }
-#band-follow .icon {
-	font-size: 1em;
-}
-#joinBand {
+#join-band {
 	position: absolute;
-	top: -65px;
+	top: -145px;
 	left: 765px;
 }
-#joinBand .icon {
-	font-size: 1.049em;
+#join-band .icon {
+	font-size: 1em;
 	border-top-right-radius: 0em;
 	border-bottom-right-radius: 0em;
 }
-#joinBand .menu {
-	width: 114px;
+#join-band .menu {
+	width: 141px;
 	border-radius: 0em;
+}
+#band-member {
+	width: 100%;
+	float: left;
+	padding: 15px;
+	position: relative;
+	z-index: 100;
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+	box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+}
+#band-member .item {
+	float: left; text-align: center; margin-left: 25px;
+}
+#band-member .ui.avatar.image {
+	width: 80px;
+	height: 80px;
 }
 
 /*--- follow ---*/
@@ -405,7 +408,6 @@ footer {
 	background-color: #F7F6F6;
 	float: left;
 	margin-left: 15px;
-	margin-top: 14px;
 	border: 2px dashed #D6D6D6;
 	-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 	box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
@@ -420,7 +422,7 @@ footer {
 	padding: 25px;
 }
 .preview-post {
-	width: 204px;
+	width: 224px;
 	height: 264px;
 	background-color: #FFFFFF;
 	float: left;
@@ -493,7 +495,7 @@ footer {
 	font-size: 0.85em;
 }
 #create-post-button {
-	margin-left: 70px; 
+	margin-left: 60px; 
 	margin-top: 75px; 
 	border-radius: 15px; 
 	background-color: transparent; 

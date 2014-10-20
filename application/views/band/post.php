@@ -6,35 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
-
 	<style>
-	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-		color: #E72A30;
-	}
-	.ui.segment {
-		padding: 2em;
-	}
-	.ui.modal {
-		height: 470px;
-	}
-	.ui.modal > .header {
-		font-size: 32px;
-	}
-	.ui.modal > .content {
-		font-size: 22px;
-	}
-	.ui.modal .actions {
-		padding: 1rem 0em;
-	}
-	.ui.textarea, .ui.form textarea {
-		min-height: 0em;
-	}
-	.ui.form textarea, .ui.textarea {
-		height: 11.4em;
-		border-radius: 0px;
+	#angle-bth {
+		font-size: 1.3em;
+		margin-top: 5px;
+		margin-left: 2px;
+		float: left;
+		color: #929292;
 	}
 	</style>
-
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
@@ -48,18 +28,26 @@
 						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
 							<div class="create-post test nin">
 								<div id="create-post-button" class="ui icon button">
-									<i class="add sign icon" style="font-size: 3.7rem; color: #D6D6D6;"></i>
+									<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
 								</div>
-								<h4 style="color: #D6D6D6; margin-left: 40px; margin-top: 10px;">Create a post</h4>
+								<div style="color: #D6D6D6; margin-left: 60px; margin-top: 10px; font-size: 1.2em; font-weight: 600;">สร้างโพสต์</div>
 							</div><?php endif; ?><?php foreach($posts as $post): ?>
 							<div class="preview-post">
 								<div class="post-date">
 									<div class="post-day"><?= mdate("%d", strtotime($post->timestamp)) ?></div>
 									<div class="post-month"><?= mdate("%M", strtotime($post->timestamp)) ?></div>
 									<div class="post-white-line"></div>
-								<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
+									<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
 								</div>
 								<div class="post-heading"><?= $post->topic ?></div>
+								<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
+									<i class="angle down icon" style="margin: 0px;"></i>
+									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
+										<div class="item">แก้ไขโพสต์</div>
+										<div class="item">ลบ</div>
+										<div class="item">แจ้งโพสต์ไม่เหมาะสม</div>
+									</div>
+								</div>
 								<div class="post-body"><?= $post->post ?></div>
 								<div class="icon-comment">
 									<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
@@ -77,30 +65,30 @@
 
 	<!--Create post modal-->
 	<div class="ui form segment create modal">
-		<i class="close icon"></i>
 		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post">
-			<h3>Create a Post</h3>
+			<h3>สร้างโพสต์</h3>
+			<br/><p/>
 			<div class="line"></div>
 			<p/>
 			<div class="field">
-				<label>Title</label>
+				<label>ชื่อเรื่อง</label>
 				<input type="text" placeholder="" name="topic" required>
 			</div>
 			<div class="line"></div>
 			<p/>
 			<div class="field">
-				<label>Description</label>
-				<textarea name="post"></textarea>
+				<label>คำอธิบาย</label>
+				<textarea name="post" class="ckeditor"></textarea>
 			</div>
 			<div class="field">
-				<label>Profile Photo</label>
+				<label>รูปภาพประกอบ</label>
 				<input type="file" name="image_url">
 			</div>
 			<div class="line"></div>
 			<p/>
 			<div class="actions">
-				<div class="ui button">cancel</div>
-				<input type="submit" class="ui red submit button" value="Create Post">
+				<div class="ui small button">ยกเลิก</div>
+				<input type="submit" class="ui red submit small button" value="โพสต์">
 			</div>
 		</form>
 	</div>

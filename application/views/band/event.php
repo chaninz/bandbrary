@@ -8,22 +8,20 @@
 	<?php $this->load->view('header'); ?>
 	
 	<style>
-a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-		color: #E72A30;
-	}
 	.ui.accordion, .ui.accordion .accordion {
 		font-size: 1em;
 	}
 	.center {
 		background-color: #F7F6F6;
 		padding: 20px;
+		margin-top: 15px;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	#event-add-btn {
-		margin-left: 505px;
+		margin-left: 544px;
 		margin-bottom: 15px;
-		font-size: 1.1rem;
+		font-size: 0.8rem;
 	}
 	</style>
 </head>
@@ -40,93 +38,93 @@ a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
 							<?php if ($this->session->userdata('band_id') == $band_profile->id): ?>
 							<a id="event-add-btn" class="ui red button test event">
 								<i class="edit icon"></i>
-								Add event
+								เพื่มกิจกรรม
 							</a>
-							<?php endif; ?>
-							<div class="ui fluid accordion">
-								<div class="event-hea">
-									<table>
-										<tbody>
-											<td class="eh1">DATE</td>
-											<td class="eh2">TIME</td>
-											<td class="eh3">EVENT</td>
-										</tbody>
-									</table>
-								</div><?php foreach ($events as $event): ?>
-								<div class="title">
-									<table>
-										<tbody>
-											<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->start_time)) ?></td>
-											<td class="eh5"><?= mdate("%H:%i", strtotime($event->start_time)) ?></td>
-											<td class="eh6"><?= $event->event ?></td>
-										</tbody>
-									</table>
-								</div>
-								<div class="content"><?= $event->description ?>
-								</div><?php endforeach; ?>
+						<?php endif; ?>
+						<div class="ui fluid accordion">
+							<div class="event-hea">
+								<table>
+									<tbody>
+										<td class="eh1">DATE</td>
+										<td class="eh2">TIME</td>
+										<td class="eh3">EVENT</td>
+									</tbody>
+								</table>
+							</div><?php foreach ($events as $event): ?>
+							<div class="title">
+								<table>
+									<tbody>
+										<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->start_time)) ?></td>
+										<td class="eh5"><?= mdate("%H:%i", strtotime($event->start_time)) ?></td>
+										<td class="eh6"><?= $event->event ?></td>
+									</tbody>
+								</table>
 							</div>
+							<div class="content"><?= $event->description ?>
+							</div><?php endforeach; ?>
 						</div>
 					</div>
 				</div>
 			</div>
-		</article>
-	</section>
-	
-	<!--Add event modal-->
-	<div class="ui form segment create modal">
-		<i class="close icon"></i>
-		<form action="<?= base_url('event/band/add?ref='.uri_string()) ?>" method="post">
-			<h3>Add event</h3>
-			<div class="line"></div>
-			<p/>
-			<div class="field">
-				<label>Title</label>
-				<input type="text" placeholder="" name="event">
-			</div>
-			<div class="field">
-				<label>Province</label>
-				<div class="ui fluid selection dropdown">
-					<div class="text">Select</div>
-					<i class="dropdown icon"></i>
-					<input type="hidden" name="venue">
-					<div class="menu">
-						<div class="item" data-value="Bangkok" style="font-size: 14px;">Bangkok</div>
-						<div class="item" data-value="Changmai" style="font-size: 14px;">Changmai</div>
-					</div>
-				</div>
-			</div>
-			<div class="line"></div>
-			<p/>
-			<div class="field">
-				<label>Description</label>
-				<textarea name="description"></textarea>
-			</div>
-			<div class="two fields">
-				<div class="field">
-					<label>Date</label>
-					<div class="ui left labeled icon input">
-						<input type="date" placeholder="" style="padding: .2em 1em;" name="start_date">
-						<i class="calendar icon"></i>
-					</div>
-				</div>
-				<div class="field">
-					<label>Time</label>
-					<input type="time" placeholder="" style="padding: .2em 1em;" name="start_time">
-				</div>
-			</div>
-			<div class="line"></div>
-			<p/>
-			<div class="actions">
-				<div class="ui button">cancel</div>
-				<input type="submit" class="ui red submit button" value="Add event">
-			</div>
-		</form>
-	</div>
+		</div>
+	</article>
+</section>
 
-	<?php $this->load->view('footer'); ?>
-	<script>
-	$('.create.modal')
-	.modal('attach events', '.test.event', 'show');
-	</script>
+<!--Add event modal-->
+<div class="ui form segment create modal">
+	<form action="<?= base_url('event/band/add?ref='.uri_string()) ?>" method="post">
+		<h3>เพิ่มกิจกรรม</h3>
+		<br/><p/>
+		<div class="line"></div>
+		<p/>
+		<div class="field">
+			<label>ชื่องาน</label>
+			<input type="text" placeholder="" name="event">
+		</div>
+		<div class="field">
+			<label>จังหวัด</label>
+			<div class="ui fluid selection dropdown">
+				<div class="text">ตัวเลือก</div>
+				<i class="dropdown icon"></i>
+				<input type="hidden" name="venue">
+				<div class="menu">
+					<div class="item" data-value="Bangkok" style="font-size: 14px;">กรุงเทพมหานคร</div>
+					<div class="item" data-value="Changmai" style="font-size: 14px;">เชียงใหม่</div>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>
+		<p/>
+		<div class="field">
+			<label>คำอธิบาย</label>
+			<textarea name="description" class="ckeditor"></textarea>
+		</div>
+		<div class="two fields">
+			<div class="field">
+				<label>วัน/เดือน/ปี</label>
+				<div class="ui left labeled icon input">
+					<input type="date" placeholder="" style="padding: .2em 1em;" name="start_date">
+					<i class="calendar icon"></i>
+				</div>
+			</div>
+			<div class="field">
+				<label>เวลา</label>
+				<input type="time" placeholder="" style="padding: .2em 1em;" name="start_time">
+			</div>
+		</div>
+		<div class="line"></div>
+		<p/>
+		<div class="actions">
+			<div class="ui small button">ยกเลิก</div>
+			<input type="submit" class="ui small red submit button" value="เพิ่มกิจกรรม">
+		</div>
+	</form>
+</div>
+
+<?php $this->load->view('footer'); ?>
+<script>
+$('.create.modal')
+.modal('attach events', '.test.event', 'show');
+</script>
 </body>
 </html>

@@ -8,9 +8,6 @@
 	<?php $this->load->view('header'); ?>
 	
 	<style>
-	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-		color: #E72A30;
-	}
 	.ui.accordion, .ui.accordion .accordion {
 		font-size: 1em;
 	}
