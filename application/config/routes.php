@@ -71,6 +71,9 @@ $route['band/(:num)/event'] = 'band/event/index/$1';
 // Index
 $route['band/(:num)'] = 'band/index/band/$1';
 
+// PM
+$route['pm/(:num)'] = 'pm/index/$1';
+
 // Join band
 $route['band/join/(:num)'] = 'band/join/index/$1';
 $route['band/join/cancel/(:num)'] = 'band/join/cancel/$1';

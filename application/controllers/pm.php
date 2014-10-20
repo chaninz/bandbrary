@@ -1,15 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class pm extends CI_Controller {
+class Pm extends CI_Controller {
 
-	public function __construct() {
+public function __construct() {
 		parent::__construct();
 		$this->load->model('pm_model');
 		$this->load->model('user_model');
 	}
 
-	public function index() {
-		redirect();
+	public function index($id) {
+		$user_profile = $this->user_model->get_by_id($id);
+		$data = array('user_profile' => $user_profile,
+			'pm_users' => $this->pm_model->get_all() );
+
+		$this->load->view('private_message',$data);
 	}
 
 	public function add($text,$target_user) {
@@ -25,12 +29,7 @@ class pm extends CI_Controller {
 		}
 	}
 		
-	
-
-
-	// view only one job
 	public function view($target_user) {
-
 		// $user_profile = $this->user_model->get_by_username($username);
 		$data = array( //'user_profile' => $user_profile,
 			'pm_users' => $this->pm_model->view($target_user)
@@ -39,18 +38,7 @@ class pm extends CI_Controller {
 		print_r($data);
 	}
 
-	//view all job (all job in job's page)
-	public function allChat($username) {
-		$user_profile = $this->user_model->get_by_username($username);
-		$data = array('user_profile' => $user_profile,
-			'pm_users' => $this->pm_model->get_all() 
-		);
-
-		//print_r($data);
-		$this->load->view('user/privateMessage',$data);
-	}
-
 }
 
-/* End of file event.php */
-/* Location: ./application/controllers/user/event.php */
+/* End of file pm.php */
+/* Location: ./application/controllers/pm.php */
