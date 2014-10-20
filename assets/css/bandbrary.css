@@ -403,11 +403,12 @@ footer {
 
 /*--- Post ---*/
 .create-post {
-	width: 204px;
-	height: 264px;
+	width: 224px;
+	height: 300px;
 	background-color: #F7F6F6;
 	float: left;
-	margin-left: 15px;
+	margin-top: 20px;
+	margin-left: 11px;
 	border: 2px dashed #D6D6D6;
 	-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 	box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
@@ -423,12 +424,21 @@ footer {
 }
 .preview-post {
 	width: 224px;
-	height: 264px;
+	height: 300px;
 	background-color: #FFFFFF;
 	float: left;
-	margin-left: 15px;
+	margin-top: 20px;
+	margin-left: 11px;
 	-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 	box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+}
+@media all and (max-width: 980px) {
+	.create-post {
+		margin-left: 16px;
+	}
+	.preview-post {
+		margin-left: 16px;
+	}
 }
 .post-date {
 	float: left;
@@ -467,7 +477,7 @@ footer {
 .post-body {
 	float: left;
 	width: 185px;
-	height: 100px;
+	height: 138px;
 	margin-left: 10px;
 	margin-top: 10px;
 	font-size: 14px;
@@ -495,12 +505,19 @@ footer {
 	font-size: 0.85em;
 }
 #create-post-button {
-	margin-left: 60px; 
-	margin-top: 75px; 
+	margin-left: 70px; 
+	margin-top: 85px; 
 	border-radius: 15px; 
 	background-color: transparent; 
 	background-image: none;
 	-webkit-box-shadow: none;
+}
+.create-post-text {
+	color: #D6D6D6; 
+	margin-left: 70px; 
+	margin-top: 10px; 
+	font-size: 1.2em; 
+	font-weight: 600;
 }
 
 /*--- Setting -->*/

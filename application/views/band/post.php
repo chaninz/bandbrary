@@ -14,6 +14,9 @@
 		float: left;
 		color: #929292;
 	}
+	.center {
+		margin-top: 0px;
+	}
 	</style>
 </head>
 <body>
@@ -30,7 +33,7 @@
 								<div id="create-post-button" class="ui icon button">
 									<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
 								</div>
-								<div style="color: #D6D6D6; margin-left: 60px; margin-top: 10px; font-size: 1.2em; font-weight: 600;">สร้างโพสต์</div>
+								<div class="create-post-text">สร้างโพสต์</div>
 							</div><?php endif; ?><?php foreach($posts as $post): ?>
 							<div class="preview-post">
 								<div class="post-date">
@@ -45,7 +48,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<div class="item">แจ้งโพสต์ไม่เหมาะสม</div>
+										<div class="item userreport post">รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -87,16 +90,68 @@
 			<div class="line"></div>
 			<p/>
 			<div class="actions">
-				<div class="ui small button">ยกเลิก</div>
+				<div class="ui black small button">ยกเลิก</div>
 				<input type="submit" class="ui red submit small button" value="โพสต์">
 			</div>
 		</form>
+	</div>
+
+	<!--Report post modal-->
+	<div class="ui transition visible scrolling userreport modal">
+		<div class="header">
+			ช่วยให้เราเข้าใจปัญหานี้
+		</div>
+		<div class="content">
+			<div class="left">
+			</div>
+			<div class="right">
+				<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
+				<div class="ui form">
+					<div class="grouped inline fields">
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="fruit" checked="">
+								<label>Apples</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="fruit">
+								<label>Oranges</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="fruit">
+								<label>Pears</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="fruit">
+								<label>Grapefruit</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui black small button">
+				ยกเลิก
+			</div>
+			<div class="ui red icon small button">
+				ส่งรายงาน
+			</div>
+		</div>
 	</div>
 
 	<?php $this->load->view('footer'); ?>
 	<script>
 	$('.create.modal')
 	.modal('attach events', '.test.nin', 'show');
+	$('.userreport.modal')
+	.modal('attach events', '.userreport.post', 'show');
 	</script>
 </body>
 </html>
