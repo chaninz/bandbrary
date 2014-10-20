@@ -30,8 +30,13 @@ class pm extends CI_Controller {
 
 	// view only one job
 	public function view($target_user) {
-		$this->pm_model->view($target_user);
-		$this->load->view('user/job',$data);
+
+		// $user_profile = $this->user_model->get_by_username($username);
+		$data = array( //'user_profile' => $user_profile,
+			'pm_users' => $this->pm_model->view($target_user)
+
+		);
+		print_r($data);
 	}
 
 	//view all job (all job in job's page)
@@ -41,6 +46,7 @@ class pm extends CI_Controller {
 			'pm_users' => $this->pm_model->get_all() 
 		);
 
+		//print_r($data);
 		$this->load->view('user/privateMessage',$data);
 	}
 

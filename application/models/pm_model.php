@@ -12,11 +12,23 @@ class Pm_model extends CI_Model {
 	
 	function view($target_user){
 		$current_id = $this->session->userdata('id');
-		$this->db->select('*');
+		$array = array(
+			'from_user_id' => $current_id,
+			'to_user_id' => $target_user
+		);
+
+		$array2 = array(
+			'from_user_id' => $target_user,
+			'to_user_id' => $current_id
+		);
+		
+		$this->db->select('PM_Users.*,f.username as from_user ,t.username as target');
 		$this->db->from('PM_Users');
-		$this->db->where('from_user_id',$current_id);
-		$this->db->where('to_user_id',$target_user);
-		$this->db->order_by("timestamp", "desc"); 
+		$this->db->join('Users AS f', 'PM_Users.from_user_id = f.id');
+		$this->db->join('Users AS t', 'PM_Users.to_user_id = t.id');
+		$this->db->where($array);
+		$this->db->or_where($array2);
+		$this->db->order_by("PM_Users.timestamp", "asc"); 
 
 		$query = $this->db->get();
 		return $query->result();
@@ -29,14 +41,28 @@ class Pm_model extends CI_Model {
 	}
 
 	function get_all(){
-		$current_id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->distinct();
-		$this->db->from('PM_Users');
-		$this->db->join('Users', 'PM_Users.from_user_id = Users.id');
-		$this->db->where('from_user_id',$current_id);
+		// $current_id = $this->session->userdata('id');
+		// $this->db->select('*');
+		// $this->db->distinct();
+		// $this->db->from('PM_Users');
+		// $this->db->join('Users', 'PM_Users.from_user_id = Users.id');
+		// $this->db->where('from_user_id',$current_id);
 
-		$query = $this->db->get();
+		// $query = $this->db->get();
+		// return $query->result();
+
+
+		$current_id = $this->session->userdata('id');
+		
+		$query = $this->db->query('select pm1.text,pm1.timestamp,u.* 
+							from PM_Users pm1
+                            join Users u on pm1.from_user_id  = u.id
+							where pm1.timestamp =
+							(select max(pm2.timestamp) 
+							from PM_Users pm2
+							where pm1.from_user_id = pm2.from_user_id)
+							and pm1.to_user_id='.$current_id .'
+							order by pm1.timestamp desc');
 		return $query->result();
 	}
 	
