@@ -22,7 +22,7 @@ class Pm_model extends CI_Model {
 			'to_user_id' => $current_id
 		);
 		
-		$this->db->select('PM_Users.*,f.username as from_user ,t.username as target');
+		$this->db->select('PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,t.username as target');
 		$this->db->from('PM_Users');
 		$this->db->join('Users AS f', 'PM_Users.from_user_id = f.id');
 		$this->db->join('Users AS t', 'PM_Users.to_user_id = t.id');

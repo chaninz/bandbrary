@@ -32,7 +32,7 @@ public function __construct() {
 	public function view($target_user) {
 		// $user_profile = $this->user_model->get_by_username($username);
 		$data = array( //'user_profile' => $user_profile,
-			'pm_users' => $this->pm_model->view($target_user)
+			'chats' => $this->pm_model->view($target_user)
 
 		);
 		print_r($data);
