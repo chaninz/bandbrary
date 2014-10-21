@@ -8,11 +8,10 @@
 	<?php $this->load->view('header'); ?>  
 	<style>
 	.col-xs-2 {
-		height: 1370px;
 		background-color: #FFFFFF;
 	}
 	.col-xs-3 {
-		height: 1370px;
+		height: 1790px;
 		float: left;
 		background-color: #f7f7f7;
 		border-left: 1px solid #C0C0C0;
@@ -25,7 +24,7 @@
 		padding-right: 0px;
 	}
 	.col-xs-7 {
-		padding-left: 0px;
+		padding-left: 10px;
 		padding-right: 0px;
 		border: 0px solid #FFFFFF;
 	}
@@ -88,14 +87,14 @@
 						<div class="field">
 							<label>ชื่อผู้ใช้</label>
 							<div class="ui left labeled icon input">
-								<input type="text" value="<?= $user->username; ?>" disabled/>
+								<input type="text" style="background-color: #EBEBEB;" value="<?= $user->username; ?>" disabled/>
 								<i class="user icon"></i>
 							</div>
 						</div>
 						<div class="field">
 							<label>อีเมล</label>
 							<div class="ui left labeled icon input">
-								<input type="email" value="<?= $user->email; ?>" disabled/>
+								<input type="email" style="background-color: #EBEBEB;" value="<?= $user->email; ?>" disabled/>
 								<i class="mail icon"></i>
 							</div>
 						</div>
@@ -121,12 +120,12 @@
 							</div>
 						</div>
 						<div class="field">
-							<label>ประเภทผู้ใช้</label>
+							<label>ประเภทผู้ใช้</label><p/>
 							<div class="ui large buttons" style="display: inline-block;">
 									<div class="ui button <?= $user->user_type == 1 ? 'active' : 'disabled' ?>" data-value="1"><i class="headphones icon"></i>ผู้ฟัง</div>
 									<input type="hidden" id="user-type" name="user-type" value="<?= $user->user_type ?>"/>
 									<div class="ui button <?= $user->user_type == 2 ? 'active' : '' ?>" data-value="2"><i class="unmute icon"></i>นักดนตรี</div>
-							</div>
+							</div><p/>
 							<div>* เมื่อเปลี่ยนประเภทผู้ใช้เป็นนักดนตรีแล้วจะไม่สามารถกลับมาเป็นผู้ฟังได้</div>
 						</div>
 						<div class="line"></div>
@@ -186,11 +185,12 @@
 								<input type="text" placeholder="Youtube URL" name="yturl" value="<?php echo $user->yt_url; ?>">
 								<i class="youtube icon"></i>
 							</div>
-						</div>
+						</div><p/><br/>
 						<?php if ($this->session->userdata('user_type') == 2): ?>
-								<h4>ข้อมูลด้านดนตรี<div class="line"></div></h4>
-								<div class="field">
-									<label>สไตล์ *</label>
+								<h4>ข้อมูลด้านดนตรี</h4>
+								<div class="line"></div><p/>
+								<div class="field" style="margin-bottom: 1px; margin-top: 30px;">
+									<label>สไตล์ *</label><p/>
 									<input type="hidden" data-validate="style"/>
 									<div class="ui three fields">
 										<div class="field">
@@ -254,8 +254,8 @@
 									</div>
 								</div>
 
-								<div class="field groupped inline">
-									<label>ความสามารถ *</label>
+								<div class="field">
+									<label>ความสามารถ *</label><p/>
 									<input type="hidden" data-validate="skill"/>
 									<div class="ui three fields">
 										<div class="field">
@@ -318,9 +318,7 @@
 										</div>
 									</div>
 								</div><?php endif; ?>
-						<div class="line"></div>
-
-						<br/>
+						<div class="line"></div><br/>
 						<input class="ui red submit button" type="submit" value="บันทึก">
 					</div> 
 				</form>
@@ -328,8 +326,6 @@
 			<div class="col-xs-2"></div>
 		</div>
 	</div>
-
-	<?php $this->load->view('footer'); ?>
 
 	</body>
 	</html>
