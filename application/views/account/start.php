@@ -9,11 +9,10 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.cus.css'; ?>">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/semantic.css'; ?>">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bandbrary.css'; ?>">
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	<script src="<?php echo base_url().'assets/js/jquery.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/jquery.address.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/semantic.js'; ?>"></script>
-
-	<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	<script>
 	$(function() {
 		$( "#dob" ).datepicker({
@@ -149,21 +148,21 @@
 									<textarea id="biography" name="biography"></textarea>
 								</div>
 								<div class="field">
-									<label>Facebook URL</label>
+									<label>Facebook</label>
 									<div class="ui left labeled icon input">
 										<input type="text" placeholder="facebook.com/bandbrary" name="fburl">
 										<i class="facebook icon"></i>
 									</div>
 								</div>
 								<div class="field">
-									<label>Twitter URL</label>
+									<label>Twitter</label>
 									<div class="ui left labeled icon input">
 										<input type="text" placeholder="twitter.com/bandbrary" name="twurl">
 										<i class="twitter icon"></i>
 									</div>
 								</div>
 								<div class="field">
-									<label>Youtube URL</label>
+									<label>Youtube</label>
 									<div class="ui left labeled icon input">
 										<input type="text" placeholder="youtube.com/user/bandbrary" name="yturl">
 										<i class="youtube icon"></i>

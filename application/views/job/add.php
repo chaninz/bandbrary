@@ -6,28 +6,38 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
+	<script>
+	$(function() {
+		$( "#date" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			dateFormat: "yy-mm-dd",
+			minDate: "Date()",
+		});
+	});
+	</script>
+	<style>
+	.ui.header {
+		font-size: 2.4em;
+		margin-left: 60px;
+		font-weight: bold;
+	}
+	.col-xs-8 {
+		padding-top: 70px;
+	}
+	.col-xs-6 {
+		padding-bottom: 70px;
+	}
+	</style>
 </head>
-
-<style>
-.ui.header {
-	font-size: 2.4em;
-	margin-left: 60px;
-	font-weight: bold;
-}
-.col-xs-8 {
-	padding-top: 70px;
-}
-.col-xs-6 {
-	padding-bottom: 70px;
-}
-</style>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<div class="ui header">
-					Create Job
+					เพิ่มงาน
 				</div>
 				<p/>
 				<div class="line"></div>
@@ -38,85 +48,124 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
-				<form action="<?php echo base_url().'job/add'; ?>" method="post" > 
+				<form id="add-job" action="<?php echo base_url().'job/add'; ?>" method="post"> 
 					<div class="ui form segment">
 						<div class="field">
-							<label>Job Name</label>
-							<input type="text" placeholder="Job Name" name="name">
-						</div>
-						<div class="field">
-							<label>Job Type</label>
+							<label>เจ้าของงาน</label>
 							<div class="ui fluid selection dropdown">
-								<div class="text">Select</div>
+								<div class="text">เลือก</div>
 								<i class="dropdown icon"></i>
-								<input type="hidden" name="job_type">
+								<input type="hidden" name=""/>
 								<div class="menu">
-									<div class="item" data-value="1" style="font-size: 14px;">Wedding</div>
-									<div class="item" data-value="2" style="font-size: 14px;">Restuarant</div>
-									<div class="item" data-value="3" style="font-size: 14px;">Hotel</div>
+									<div class="item" data-value="1">สมาชิก</div>
+									<div class="item" data-value="2">วงดนตรี</div>
 								</div>
 							</div>
 						</div>
 						<div class="field">
-							<label>Style</label>
+							<label>ชื่องาน</label>
+							<input type="text" name="name"/>
+						</div>
+						<div class="field">
+							<label>ประเภท</label>
 							<div class="ui fluid selection dropdown">
-								<div class="text">Select</div>
+								<div class="text">เลือก</div>
 								<i class="dropdown icon"></i>
-								<input type="hidden" name="style">
+								<input type="hidden" name="job-type"/>
 								<div class="menu">
-									<div class="item" data-value="1" style="font-size: 14px;">Blues</div>
-									<div class="item" data-value="2" style="font-size: 14px;">Country</div>
-									<div class="item" data-value="3" style="font-size: 14px;">Hip Hop</div>
-									<div class="item" data-value="4" style="font-size: 14px;">Jazz</div>
-									<div class="item" data-value="5" style="font-size: 14px;">Latin</div>
-									<div class="item" data-value="6" style="font-size: 14px;">Pop</div>
-									<div class="item" data-value="7" style="font-size: 14px;">Reggae</div>
-									<div class="item" data-value="8" style="font-size: 14px;">R&B</div>
-									<div class="item" data-value="9" style="font-size: 14px;">Rock</div>
+									<div class="item" data-value="1">คอนเสิร์ต</div>
+									<div class="item" data-value="2">ร้านอาหาร</div>
+									<div class="item" data-value="3">งานแต่งงาน</div>
 								</div>
 							</div>
 						</div>
 						<div class="field">
-							<label>Description</label>
+							<label>สไตล์</label>
+							<div class="ui fluid selection dropdown">
+								<div class="text">เลือก</div>
+								<i class="dropdown icon"></i>
+								<input type="hidden" name="style"/>
+								<div class="menu">
+									<div class="item" data-value="1">บลูส์</div>
+									<div class="item" data-value="2">คันทรี</div>
+									<div class="item" data-value="3">ฮิปฮอป</div>
+									<div class="item" data-value="4">แจ๊ส</div>
+									<div class="item" data-value="5">ลาติน</div>
+									<div class="item" data-value="6">ป็อป</div>
+									<div class="item" data-value="7">เร้กเก้</div>
+									<div class="item" data-value="8">อาร์แอนด์บี</div>
+									<div class="item" data-value="9">ร็อก</div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label>รายละเอียด</label>
 							<textarea name="description"></textarea>
 						</div>
 						<div class="field">
-							<label>Venue</label>
-							<input type="text" placeholder="Location" name="venue">
+							<label>สถานที่</label>
+							<input type="text" name="venue"/>
 						</div>
 						<div class="field">
-							<label>Province</label>
-							<div class="ui fluid selection dropdown">
-								<div class="text">Select</div>
-								<i class="dropdown icon"></i>
-								<input type="hidden" name="province">
-								<div class="menu">
-									<div class="item" data-value="10" style="font-size: 14px;">Bangkok</div>
-									<div class="item" data-value="36" style="font-size: 14px;">Chaiyaphum</div>
-									<div class="item" data-value="50" style="font-size: 14px;">Chiang Mai</div>
+							<label>จังหวัด</label>
+							<div class="ui labeled icon input">
+								<div class="ui fluid selection dropdown">
+									<div class="text">เลือก</div>
+									<i class="dropdown icon"></i>
+									<input type="hidden" name="province">
+									<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
+										<div class="item" data-value="<?= $province->id ?>"><?= $province->province_th ?></div><?php endforeach; endif; ?>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="field">
-							<label>Budget</label>					
-							<input type="number" placeholder="Budget" name="budget">
+							<label>ค่าจ้าง (บาท/งาน)</label>					
+							<input type="number" name="budget"/>
 						</div>
-						<div class="field">
-							<label>Date</label>
+						<div class="date field">
+							<label>วันที่</label>
 							<div class="ui left labeled icon input">
-								<input type="date" placeholder="" style="padding: .01em 1em;" name="start_time">
-								<i class="calendar icon"></i>
+								<i class="icon calendar"></i>
+								<input type="text" placeholder="ปปปป-ดด-วว" name="date" id="date"/>
 							</div>
 						</div>
-						<div class="field">
-							<label>Time</label>
-							<div class="ui left labeled icon input">
-								<input type="time" placeholder="" style="padding: .01em 1em;" name="end_time">
-								<i class="time icon"></i>
+							
+							<div class="two fields">
+								<div class="field">
+									<label>เวลา</label>
+									<div class="ui left labeled icon input">
+										<input type="text" placeholder="ชม:นท" name="start-time"/>
+										<i class="time icon"></i>
+									</div>
+								</div>
+								<div class="field">
+									<label>ระยะเวลา</label>
+									<div class="ui fluid selection dropdown">
+										<div class="text">เลือก</div>
+										<i class="dropdown icon"></i>
+										<input type="hidden" name="duration"/>
+										<div class="menu">
+											<div class="item" data-value="0.5">30 นาที</div>
+											<div class="item" data-value="1">1 ชั่วโมง</div>
+											<div class="item" data-value="1.5">1 ชั่วโมง 30 นาที</div>
+											<div class="item" data-value="2">2 ชั่วโมง</div>
+											<div class="item" data-value="2.5">2 ชั่วโมง 30 นาที</div>
+											<div class="item" data-value="3">3 ชั่วโมง</div>
+											<div class="item" data-value="3.5">3 ชั่วโมง 30 นาที</div>
+											<div class="item" data-value="4">4 ชั่วโมง</div>
+											<div class="item" data-value="4.5">4 ชั่วโมง 30 นาที</div>
+											<div class="item" data-value="5">5 ชั่วโมง</div>
+											<div class="item" data-value="5.5">5 ชั่วโมง 30 นาที</div>
+											<div class="item" data-value="6">6 ชั่วโมง</div>
+											<div class="item" data-value="0">มากกว่า 6 ชั่วโมง</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 
-						<input class="ui red submit button" type="submit" value="register">
+						<input class="ui red submit button" type="submit" value="บันทึก">
 
 					</div>
 				</form>

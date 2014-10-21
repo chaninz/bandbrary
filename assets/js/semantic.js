@@ -2033,6 +2033,12 @@ $.fn.form.settings = {
         : false
       ;
     },
+    time: function(value){
+      var
+        timeRegExp = new RegExp("[0-23]{2}:[0-23]{2}", "i")
+      ;
+      return timeRegExp.test(value);
+    },
     not: function(value, notValue) {
       return (value != notValue);
     },

@@ -379,6 +379,102 @@
 			}
 		});
 
+		/***********/
+		/* Add Job */
+		/***********/
+
+		$('#add-job')
+		.form({
+			name: {
+				identifier : 'name',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			jobType: {
+				identifier : 'job-type',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			style: {
+				identifier : 'style',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			description: {
+				identifier : 'description',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			venue: {
+				identifier : 'venue',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			skill: {
+				identifier : 'skill',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			province: {
+				identifier : 'province',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			budget: {
+				identifier : 'budget',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			date: {
+				identifier : 'date',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			startTime: {
+				identifier : 'start-time',
+				rules: [
+				{
+					type   : 'time'
+				}
+				]
+			},
+			duration: {
+				identifier : 'duration',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			}
+		});
+
 	});
 
 	function follow(url) {
