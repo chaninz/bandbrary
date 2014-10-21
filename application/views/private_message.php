@@ -58,11 +58,15 @@ padding-right: 1rem;
           กล่องข้อความ
         </h2>
         <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="unread">
+          <?php foreach($pm_users as $pm_user): ?>
           <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 14, 2013</div>
-            <div class="description">Weekly Webcomic Wrapup fought the law, and the law won</div>
+            <div class="left floated ui star rating"><i class="icon"><?php if($pm_user->photo_url): ?><img class="icon" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
+          <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?></i></div>
+            <div class="right floated date"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
+           
+            <div class="description"><?= $pm_user->name ?> <?= $pm_user->surname ?> <?= $pm_user->text ?></div>
           </a>
+          <?php endforeach; ?>
           <a class="item">
             <div class="left floated ui star rating"><i class="icon"></i></div>
             <div class="right floated date">Sep 14, 2013</div>
@@ -112,55 +116,27 @@ padding-right: 1rem;
       </div>
       <div class="col-xs-8" style="padding: 0px 0px 0px 0px;">
        <div id="pm-msg" class="ui feed segment">
-        <div class="event">
-          <div class="label">
-            <img src="/images/demo/avatar.jpg">
-          </div>
-          <div class="content">
-            <div class="date">
-              3 days ago
-            </div>
-            <div class="summary">
-             <a>Sally Poodle</a> added 2 photos of you
-           </div>
-           <div class="extra images">
-            <img src="/images/demo/item1.jpg">
-            <img src="/images/demo/item2.jpg">
-          </div>
-        </div>
-      </div>
-      <div class="event">
-        <div class="label">
-          <img src="/images/demo/avatar.jpg">
-        </div>
-        <div class="content">
-          <div class="date">
-            3 days ago
-          </div>
-          <div class="summary">
-           <a>Sally Poodle</a> created a post
-         </div>
-         <div class="extra text">
-          I am a dog and I do not know how to make a post
-        </div>
-      </div>
-    </div>
+    <?php foreach($chats as $chat): ?>
     <div class="event">
         <div class="label">
-          <img src="/images/demo/avatar.jpg">
-        </div>
+           <?php if($chat->photo_url): ?>
+                <img src="<?= base_url().'uploads/profile/'.$chat->photo_url ?>"><?php else: ?>
+                <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
         <div class="content">
           <div class="date">
-            3 days ago
+             <?= mdate("%d", strtotime($chat->timestamp)) ?> 
+             <?= mdate("%M", strtotime($chat->timestamp)) ?> 
+             <?= mdate("%Y", strtotime($chat->timestamp)) ?>          
           </div>
           <div class="summary">
-           <a>Sally Poodle</a> created a post
+           <a><?= $chat->from_user_name  ?> <?= $chat->from_user_surname  ?></a> created a post
          </div>
          <div class="extra text">
-          I am a dog and I do not know how to make a post
-        </div>
+            <?= $chat->text  ?>        
+         </div>
       </div>
     </div>
+    <?php endforeach; ?>
     <div class="event">
         <div class="label">
           <img src="/images/demo/avatar.jpg">
