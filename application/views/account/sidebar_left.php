@@ -2,23 +2,23 @@
 	<div class="ui vertical menu">
 		<div class="header item">
 			<i class="user icon"></i>
-			ACCOUNT
+			บัญชีผู้ใช้
 		</div>
 		<div class="menu">
-			<a href="<?= base_url('account/edit') ?>" class="item">Genaral</a>
-			<a href="<?= base_url('account/password') ?>" class="item">Password</a>
+			<a href="<?= base_url('account/edit') ?>" class="item">ทั่วไป</a>
+			<a href="<?= base_url('account/password') ?>" class="item">รหัสผ่าน</a>
 		</div>
 		<div class="header item">
 			<i class="circle blank icon"></i>
-			BAND
+			วงดนตรี
 		</div>
 		<div class="menu">
 			<?php if ($this->session->userdata('user_type') == 2 && $this->session->userdata('band_id') == NULL): ?>
-			<a href="<?= base_url('band/create') ?>" class="item">Create Band</a>
+			<a href="<?= base_url('band/create') ?>" class="item">คุณยังไม่มีวงดนตรี</a>
 			<?php else: ?>
-			<a href="<?= base_url('band/edit') ?>" class="item">Information</a>
-			<a href="<?= base_url('band/request') ?>" class="item">Join Request</a>
-			<a href="<?= base_url('band/role') ?>" class="item">Roles</a>
+			<a href="<?= base_url('band/edit') ?>" class="item">ข้อมูล</a>
+			<a href="<?= base_url('band/request') ?>" class="item">คำร้องขอเข้าร่วมวง</a>
+			<a href="<?= base_url('band/role') ?>" class="item">สิทธิการใช้งาน</a>
 			<?php endif; ?>
 		</div>
 	</div>

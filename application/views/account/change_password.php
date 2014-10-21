@@ -15,7 +15,7 @@
 		background-color: #FFFFFF;
 	}
 	.col-xs-3 {
-		/*height: 1280px;*/
+		height: 800px;
 		float: left;
 		background-color: #f7f7f7;
 		border-left: 1px solid #C0C0C0;
@@ -28,12 +28,11 @@
 		padding-right: 0px;
 	}
 	.col-xs-7 {
-		padding-left: 0px;
+		padding-left: 10px;
 		padding-right: 0px;
 		border: 0px solid #FFFFFF;
 	}
 	.ui.form.segment {
-		/*height: 1280px;*/
 		padding-top: 100px;
 	}
 	.ui.vertical.menu {
@@ -119,15 +118,14 @@
 								<i class="lock icon"></i>
 							</div>
 						</div>
+						<br/><p/><div class="line"></div/><p/><br/>
 						<input class="ui red submit button" type="submit" value="บันทึก"/>
 					</form>
 				</div>
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
-	</div>
-
-	<?php $this->load->view('footer'); ?>  
+	</div>  
 	<script>
 	</script>
 </body>
