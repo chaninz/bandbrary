@@ -48,7 +48,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<div class="item userreport post">รายงานปัญหาโพสต์นี้</div>
+										<div class="item userreport post" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -107,53 +107,57 @@
 			<div class="right">
 				<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
 				<div class="ui form">
-				<form action="<?= base_url('report/post/'.$posts->$id.'') ?>" method="post">	
-					<div class="grouped inline fields">
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="type" value="1">
-								<label>Apples</label>
+					<form action="<?= base_url().'report/post' ?>" method="post">
+						<input type="hidden" name="postid" value="" id="postid">
+						<div class="grouped inline fields">
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="type" value="1">
+									<label>พบการใช้ถ้อยคำรุนแรงหรือไม่เหมาะคม</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="type" value="2">
+									<label>โพสต์นี้น่ารำคาญหรือไม่น่าสนใจ</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="type" value="3">
+									<label>ฉันคิดว่าโพสต์นี้ไม่ควรอยู่บน Bandbrary</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="type" value="4">
+									<label>โพสต์นี้เป็นแสปม</label>
+								</div>
 							</div>
 						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="type" value="2">
-								<label>Oranges</label>
+						<div class="actions">
+							<div class="ui black small button">
+								ยกเลิก
 							</div>
+							<input type="submit" class="ui red submit small button" value="โพสต์">
+							ส่งรายงาน
 						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="type" value="3">
-								<label>Pears</label>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="type" value="4">
-								<label>Grapefruit</label>
-							</div>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
-		<div class="actions">
-			<div class="ui black small button">
-				ยกเลิก
-			</div>
-			<input type="submit" class="ui red submit small button" value="โพสต์">
 
-				ส่งรายงาน
-			</form>
-		</div>
 	</div>
 
 	<?php $this->load->view('footer'); ?>
 	<script>
-	$('.create.modal')
-	.modal('attach events', '.test.nin', 'show');
-	$('.userreport.modal')
-	.modal('attach events', '.userreport.post', 'show');
+	$('.create.modal').modal('attach events', '.test.nin', 'show');
+	$(".userreport").click(function(){
+		$('.userreport.modal').modal('show');
+		var id = $(this).attr("post-id");
+		$('#post_id').val(id);
+	});
+
 	</script>
 </body>
 </html>
