@@ -97,6 +97,15 @@
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<div class="job-hea2"><?= $job->name ?></div>
+				<?php if ($current_employment_status == 2): ?>
+					<div class="ui visible success message">
+						<i class="icon ok sign"></i> ยินดีด้วย คุณได้งานนี้
+					</div>
+				<?php elseif ($job->status == 0): ?>
+					<div class="ui visible info message">
+						<i class="icon info"></i> ขออภัย งานนี้ปิดรับสมัครแล้ว
+					</div>
+				<?php endif; ?>
 				<div class="ui divided list">
 					<div class="item">
 						<div class="content">
@@ -136,8 +145,14 @@
 					</div>
 					<div class="item">
 						<div class="content">
+							<div class="header">วันที่</div>
+							<?= mdate("%d/%n/%Y", strtotime($job->date)) ?>
+						</div>
+					</div>
+					<div class="item">
+						<div class="content">
 							<div class="header">เวลา</div>
-							<?= $job->time ?>
+							<?= mdate("%H:%i", strtotime($job->time)) ?> น.
 						</div>
 					</div>
 					<div class="item">
@@ -151,11 +166,24 @@
 							<div class="header">ผู้สนใจ</div>
 							<?php if ($job_requests): ?><?php foreach ($job_requests as $job_request) : ?>
 							<div id="job-pd" class="field">
-								<div class="jp1"><img src="../../images/no_profile.jpg" alt="" id="img-preview"></div>
+								<div class="jp1"><?php if($this->session->userdata('photo_url')): ?>
+									<img src="<?= base_url('uploads/images/profile/'.$this->session->userdata('photo_url')) ?>" class="img-preview"/><?php else: ?>
+									<img src="<?= base_url('images/no_profile.jpg') ?>" class="img-preview"/><?php endif; ?>
+								</div>
 								<div class="jp2"><?= $job_request->name.' '.$job_request->surname ?></div>
 								<div class="jp3">
-									<a class="ui red button" href="<?= base_url('job/request/accept/'.$job_request->id.'?ref='.uri_string()) ?>">ยืนยัน</a>
-									<a class="ui button" href="<?= base_url('job/request/reject/'.$job_request->id.'?ref='.uri_string()) ?>">ยกเลิก</a>
+									<?php if ($job->status == 1): ?>
+										<?php if ($job_request->status == 1): ?>
+											<a class="ui green button" href="<?= base_url('job/accept/'.$job->id.'?user='.$job_request->user_id) ?>">ยืนยัน</a>
+											<a class="ui red button" href="<?= base_url('job/reject/'.$job->id.'?user='.$job_request->user_id) ?>">ปฏิเสธ</a>
+										<?php elseif ($job_request->status == 2): ?>
+											<a class="ui green active button">ยืนยันแล้ว</a>
+											<a class="ui button" href="<?= base_url('job/reset/'.$job->id.'?user='.$job_request->user_id) ?>">ยกเลิก</a>
+										<?php elseif ($job_request->status == 3): ?>
+											<a class="ui red active button">ปฏิเสธแล้ว</a>
+											<a class="ui button" href="<?= base_url('job/reset/'.$job->id.'?user='.$job_request->user_id) ?>">ยกเลิก</a>
+										<?php endif; ?>	
+									<?php endif; ?>
 								</div>
 							</div>
 							<?php endforeach; ?><?php else: ?>
@@ -164,22 +192,32 @@
 						</div>
 					</div>
 				</div>
-				<a class="ui button">รับงานนี้</a>
+				<?php if ($job->status == 1): ?>
+					<?php if ($current_employment_status == 0): ?>
+						<a class="ui red button" href="<?= base_url('job/request/'.$job->id) ?>">รับงานนี้</a>
+					<?php elseif ($current_employment_status == 1): ?>
+						<a class="ui button" href="<?= base_url('job/cancel/'.$job->id) ?>">ยกเลิกงานนี้</a>
+					<?php elseif ($current_employment_status == 2): ?>
+						<a class="ui button" href="<?= base_url('job/cancel/'.$job->id) ?>">ยกเลิกงานนี้</a>
+					<?php elseif ($current_employment_status == 3): ?>
+						<a class="ui disabled button" href="<?= base_url('job/cancel/'.$job->id) ?>">ถูกปฏิเสธแล้ว</a>
+					<?php endif; ?>
+				<?php else: ?>
+					<?php if ($current_employment_status == 3): ?>
+						<a class="ui disabled button" href="<?= base_url('job/cancel/'.$job->id) ?>">ถูกปฏิเสธแล้ว</a>
+					<?php else: ?>
+						<a class="ui disabled button">ปิดรับสมัครแล้ว</a>
+					<?php endif; ?>
+				<?php endif; ?>
+				<a class="ui button">ปิดรับสมัคร</a>
 			</div>
 
 			<div class="col-xs-2"></div>
 		</div>
 		<div class="row">
 			<div class="col-xs-2"></div>
-			<div class="col-xs-8">
-			</div>
+			<div class="col-xs-8"></div>
 			<div class="col-xs-2">
-				<!-- <a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
-					<i class="icon add"></i>
-				</a>
-				<div id="job-btn-menu" class="circular ui red icon toggle button">
-					<i class="icon reorder"></i>
-				</div> -->
 				<div class="job-control">
 					<div class="ui vertical labeled icon menu" style="background-color: #D95C5C">
 						<a class="red item" style="color: #FFFFFF" href="<?= base_url('job/add') ?>">
@@ -198,146 +236,7 @@
 
 
 	<!-- Sidebar Job -->
-	<div class="ui red vertical demo sidebar menu">
-		<a class="item">
-			<i class="home icon"></i>
-			All Jobs
-		</a>
-		<a class="active item" href="nearJob.html">
-			<i class="heart icon"></i>
-			Near Jobs
-		</a>
-		<a class="item" href="myJob1.html">
-			<i class="heart icon"></i>
-			My Jobs
-		</a>
-		<a class="item" href="getJob.html">
-			<i class="tasks icon"></i>
-			Get Jobs
-		</a>
-		<div class="item">
-			<b>Search</b>
-			<p/>
-			<div class="ui icon input">
-				<input type="text" placeholder="Search...">
-				<i class="inverted search icon"></i>
-			</div>
-		</div>
-		<div class="item">
-			<b>Tag</b>
-			<p/>
-			<div class="ui red labels">
-				<a class="ui label">
-					Blues
-				</a>
-				<a class="ui label">
-					Country
-				</a>
-				<a class="ui label">
-					Hip Hop
-				</a>
-				<a class="ui label">
-					Jazz
-				</a>
-				<a class="ui label">
-					Latin
-				</a>
-				<a class="ui label">
-					Pop
-				</a>
-				<a class="ui label">
-					Reggae
-				</a>
-				<a class="ui label">
-					R&B
-				</a>
-				<a class="ui label">
-					Rock
-				</a>
-				<a class="ui label">
-					Wedding
-				</a>
-				<a class="ui label">
-					Restuarant
-				</a>
-				<a class="ui label">
-					Hotel
-				</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- View job modal -->
-	<div class="ui form segment create modal">
-		<i class="close icon"></i>
-		<div class="header">
-			<span id="jobname"></span>
-		</div>
-		<div class="content">
-			<div class="left" style="width: 60px">
-				<img src="" alt="" class="job-img">
-				<div class="ui divided list">
-					<div class="item">
-						<div class="content">
-							<div class="header">Start Time</div>
-							<span id="jobstart"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">End Time</div>
-							<span id="jobend"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="right">
-				<div class="ui divided list">
-					<div class="item">
-						<div class="content">
-							<div class="header">Type</div>
-							An excellent companion
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Style</div>
-							A poodle, its pretty basic
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Venue</div>
-							<span id="jobvenue"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Province</div>
-							He's also a dog
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Budget</div>
-							<span id="jobbudget"></span>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-							<div class="header">Description</div>
-							<span id="jobdescription"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="actions">
-			<div class="ui button">Pin Job</div>
-			<input type="submit" class="ui red submit button" value="Get job">
-		</div>
-	</div>
-
+	<?php $this->load->view('job/sidebar_left'); ?>
 	<?php $this->load->view('footer'); ?>
 	<script>
 	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');

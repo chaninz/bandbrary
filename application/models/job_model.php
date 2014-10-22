@@ -8,6 +8,7 @@ class Job_model extends CI_Model {
 
 	function get($job_id){
 		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
 		$this->db->select('Jobs.name AS name');
 		$this->db->select('Users.name AS users_name');
 		$this->db->join('Users', 'Users.id = Jobs.user_id');
@@ -19,6 +20,21 @@ class Job_model extends CI_Model {
 
 		return $result;
 	}
+
+	function set_status($job_id, $status) {
+		$this->db->where(array('id' => $job_id));
+		$this->db->update('Jobs', array('status' => $status));
+	}
+
+	function open($job_id) {
+		$this->set_status($job_id, 1);
+	}
+
+	function close($job_id) {
+		$this->set_status($job_id, 0);
+	}
+
+//-------------------------------------------------
 
 	function countJob(){
 		$this->db->select('*');
@@ -79,65 +95,7 @@ class Job_model extends CI_Model {
 		return $result;
 	}
 
-	public function get_request_user($job_id){
-		$this->db->select('*');
-		//$this->db->select('Jobs.id AS id');
-		//$this->db->join('Employment', 'Employment.job_id = Jobs.id');
-		$this->db->join('Users', 'Users.id = Employment.user_id');
-		//$this->db->join('Provinces', 'Provinces.id = Jobs.province_id');
-		$query = $this->db->get_where('Employment', array('Employment.job_id' => $job_id));
-		$result = $query->result();
-
-		return $result;
-	}
-
-	// requested = 1, joined = 2, leaved =4
-	function request($data) {
-		$this->db->insert('Employment', $data);
-	}
-
-	function join($data) {
-		$user_status = $this->get_user_status($data['user_id'], $data['band_id']);
-		if ($user_status == 0) {
-			// if never join
-			$this->db->insert('Employment', $data);
-		} elseif ($user_status == 3 || $user_status == 4) {
-			// if leaved
-			$this->set_status($data['user_id'], $data['band_id'], 1);
-		} else {
-			// if joining other band
-			return -1;
-		}
-	}
-
-	function set_status($job_id, $status) {
-		$this->db->where('user_id', $status);
-		$this->db->update('Employment', array('status' => $status));
-	}
-
-	function cancel($job_id) {
-		$this->db->delete('Employment', array('id', $job_id));
-	}
-
-	function accept($job_id,$user_id) {
-		$this->set_status($user, $job_id, 2);
-	}
-
-	function reject($job_id,$user_id) {
-		$this->set_status($user, $job_id, 3);
-	}
-
-	function get_user_status($job_id) {
-		$result = 0;
-		$query = $this->db->get_where('Employment', array('id', $job_id));
-		if ($query->num_rows() == 0) {
-			return;
-		} else {
-			$result = $query->row()->status;
-		}
-
-		return $result;
-	}
+	
 
 }
 

@@ -81,6 +81,12 @@ $route['band/join/cancel/(:num)'] = 'band/join/cancel/$1';
 /* == Job == */
 //$route['job'] = 'job/index/index';
 $route['job/request/(:num)'] = 'job/request/index/$1';
+$route['job/cancel/(:num)'] = 'job/cancel/index/$1';
+$route['job/accept/(:num)'] = 'job/accept/index/$1';
+$route['job/reject/(:num)'] = 'job/reject/index/$1';
+$route['job/reset/(:num)'] = 'job/reset/index/$1';
+$route['job/open/(:num)'] = 'job/open/index/$1';
+$route['job/close/(:num)'] = 'job/close/index/$1';
 $route['job/view/(:num)'] = 'job/view/index/$1';
 
 
