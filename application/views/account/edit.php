@@ -83,7 +83,19 @@
 						<p/>
 						<h2>แก้ไขข้อมูลส่วนตัว</h2>
 						<div class="line"></div>
-						<br/><p/>
+						<br/><p/><?php if ( ! empty($msg)): if ($msg['type'] == 1): ?>
+						<div class="ui visible error message">
+							<div class="header"><?= $msg['header'] ?></div>
+							<i class="icon attention"></i> <?= $msg['text'] ?>
+						</div><?php elseif ($msg['type'] == 2): ?>
+						<div class="ui visible info message">
+							<div class="header"><?= $msg['header'] ?></div>
+							<i class="icon info"></i> <?= $msg['text'] ?>
+						</div><?php elseif ($msg['type'] == 3): ?>
+						<div class="ui visible success message">
+							<div class="header"><?= $msg['header'] ?></div>
+							<i class="icon ok sign"></i> <?= $msg['text'] ?>
+						</div><?php endif; endif; ?>
 						<div class="field">
 							<label>ชื่อผู้ใช้</label>
 							<div class="ui left labeled icon input">
@@ -115,7 +127,7 @@
 								<i class="dropdown icon"></i>
 								<input type="hidden" name="province" value="<?= $user->province_id; ?>" >
 								<div class="menu"><?php if ( ! empty($provinces)): foreach ($provinces as $province): ?>
-									<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province_th ?></div><?php endforeach; endif; ?>
+									<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province ?></div><?php endforeach; endif; ?>
 								</div>
 							</div>
 						</div>

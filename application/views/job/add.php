@@ -71,7 +71,7 @@
 							<div class="ui fluid selection dropdown">
 								<div class="text">เลือก</div>
 								<i class="dropdown icon"></i>
-								<input type="hidden" name="job-type"/>
+								<input type="hidden" name="type"/>
 								<div class="menu">
 									<div class="item" data-value="1">คอนเสิร์ต</div>
 									<div class="item" data-value="2">ร้านอาหาร</div>
@@ -114,7 +114,7 @@
 									<i class="dropdown icon"></i>
 									<input type="hidden" name="province">
 									<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
-										<div class="item" data-value="<?= $province->id ?>"><?= $province->province_th ?></div><?php endforeach; endif; ?>
+										<div class="item" data-value="<?= $province->id ?>"><?= $province->province ?></div><?php endforeach; endif; ?>
 									</div>
 								</div>
 							</div>
@@ -135,7 +135,7 @@
 								<div class="field">
 									<label>เวลา</label>
 									<div class="ui left labeled icon input">
-										<input type="text" placeholder="ชม:นท" name="start-time"/>
+										<input type="text" placeholder="ชม.นท" name="time"/>
 										<i class="time icon"></i>
 									</div>
 								</div>

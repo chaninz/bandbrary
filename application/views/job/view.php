@@ -74,7 +74,6 @@
 		margin-left: 9px;
 	}
 	.jp3 {
-		float: left;
 		margin-top: 21px;
 		margin-left: 250px;
 	}
@@ -89,7 +88,7 @@
 	<div class="job-top">
 
 		<div class="job-hea1">
-			My Jobs
+			ดูงาน
 		</div>
 	</div>
 	
@@ -97,81 +96,77 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="job-hea2">Jobs Name</div>
+				<div class="job-hea2"><?= $job->name ?></div>
 				<div class="ui divided list">
 					<div class="item">
 						<div class="content">
-							<div class="header">Type</div>
-							An excellent companion
+							<div class="header">ประเภทงาน</div>
+							<?= $job->job_type ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Style</div>
-							A poodle, its pretty basic
+							<div class="header">สไตล์</div>
+							<?= $job->style ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Venue</div>
-							<span id="jobvenue"></span>
+							<div class="header">สถานที่</div>
+							<?= $job->venue ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Province</div>
-							He's also a dog
+							<div class="header">จังหวัด</div>
+							<?= $job->province ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Budget</div>
-							<span id="jobbudget"></span>
+							<div class="header">ค่าจ้าง</div>
+							<?= $job->budget ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Description</div>
-							<span id="jobdescription"></span>
+							<div class="header">รายละเอียด</div>
+							<?= $job->description ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Start Time</div>
-							<span id="jobstart"></span>
+							<div class="header">เวลา</div>
+							<?= $job->time ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">End Time</div>
-							<span id="jobend"></span>
+							<div class="header">ระยะเวลา</div>
+							<?= $this->utils->duration_text($job->duration) ?>
 						</div>
 					</div>
 					<div class="item">
 						<div class="content">
-							<div class="header">Pending</div> <?php if ($job_requests): ?><?php foreach ($job_requests as $job_request) : ?>
+							<div class="header">ผู้สนใจ</div>
+							<?php if ($job_requests): ?><?php foreach ($job_requests as $job_request) : ?>
 							<div id="job-pd" class="field">
 								<div class="jp1"><img src="../../images/no_profile.jpg" alt="" id="img-preview"></div>
-								<div class="jp2">
-									<span><label><?= $job_request->name.' '.$job_request->surname ?></label></span>								</div>
+								<div class="jp2"><?= $job_request->name.' '.$job_request->surname ?></div>
 								<div class="jp3">
-									<div class="ui red button">
-										 <a class="ui red button" href="<?= base_url('job/request/accept/'.$job_request->id.'?ref='.uri_string()) ?>"> 
-										Comfirm
-									</div>
-									<div class="ui button">
-										<a class="ui button" href="<?= base_url('job/request/reject/'.$job_request->id.'?ref='.uri_string()) ?>">
-										Cancle
-									</div>
+									<a class="ui red button" href="<?= base_url('job/request/accept/'.$job_request->id.'?ref='.uri_string()) ?>">ยืนยัน</a>
+									<a class="ui button" href="<?= base_url('job/request/reject/'.$job_request->id.'?ref='.uri_string()) ?>">ยกเลิก</a>
 								</div>
-								<?php endforeach; ?><?php else: ?>
-							No request
-							<?php endif; ?>
 							</div>
+							<?php endforeach; ?><?php else: ?>
+							ไม่มีผู้สนใจ
+						<?php endif; ?>
 						</div>
 					</div>
 				</div>
+				<a class="ui button">รับงานนี้</a>
 			</div>
+
 			<div class="col-xs-2"></div>
 		</div>
 		<div class="row">

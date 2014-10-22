@@ -7,8 +7,8 @@ class Province_model extends CI_Model {
 	}
 
 	function get_th_all() {
-		$this->db->select('id, region, province_th');
-		$this->db->order_by('province_th');
+		$this->db->select('id, region, province');
+		$this->db->order_by('province');
 		$query = $this->db->get('Provinces');
 		$result = $query->result();
 

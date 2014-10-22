@@ -14,11 +14,17 @@ class View extends CI_Controller {
 	// }
 
 	public function index($job_id) {
+		$job = $this->job_model->get($job_id);
 		$job_requests = $this->job_model->get_request_user($job_id);
-		$data = array('job_requests' => $job_requests);
-		
-		//print_r($job_requests);
-		$this->load->view('job/view', $data);
+		print_r($job_requests);
+		if ( ! empty($job)) {
+			$display = array('job' => $job,
+				'job_requests' => $job_requests);
+			print_r($display);
+			$this->load->view('job/view', $display);
+		} else {
+			show_404();
+		}
 	}
 
 	public function accept($user_id) {

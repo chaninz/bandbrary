@@ -9,6 +9,7 @@ class Index extends CI_Controller {
 
 	public function band($band_id) {
 		$band_profile = $this->band_model->get($band_id);
+		print_r($band_profile);
 		if ($band_profile) {
 			redirect('/band/'.$band_id.'/timeline');
 		} else {

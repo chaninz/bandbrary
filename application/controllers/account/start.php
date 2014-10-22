@@ -49,6 +49,8 @@ class Start extends CI_Controller {
 				$this->user_model->update($id, $data);
 
 				redirect('');
+			} else {
+				show_404();
 			}
 		} else {
 			$provinces = $this->province_model->get_th_all();

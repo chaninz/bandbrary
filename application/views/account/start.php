@@ -135,7 +135,7 @@
 											<i class="dropdown icon"></i>
 											<input type="hidden" name="province">
 											<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
-												<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province_th ?></div><?php endforeach; endif; ?>
+												<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province ?></div><?php endforeach; endif; ?>
 											</div>
 										</div>
 										<div class="ui corner label" style="top: 0px; right: 0px;">

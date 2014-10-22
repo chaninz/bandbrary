@@ -2035,7 +2035,7 @@ $.fn.form.settings = {
     },
     time: function(value){
       var
-        timeRegExp = new RegExp("[0-23]{2}:[0-23]{2}", "i")
+        timeRegExp = new RegExp("^([0-1]?[0-9]|[2][0-3])[:.]([0-5][0-9])$", "i")
       ;
       return timeRegExp.test(value);
     },

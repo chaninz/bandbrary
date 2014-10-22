@@ -43,6 +43,53 @@ class Utils {
 		return $user;
 	}
 
+	public function duration_text($duration) {
+		$result = '';
+		switch ($duration) {
+			case 0.5:
+				$result = '30 นาที';
+				break;
+			case '1':
+				$result = '1 ชั่วโมง';
+				break;
+			case 1.5:
+				$result = '1 ชั่วโมง 30 นาที';
+				break;
+			case 2:
+				$result = '2 ชั่วโมง';
+				break;
+			case 2.5:
+				$result = '2 ชั่วโมง 30 นาที';
+				break;
+			case 3:
+				$result = '3 ชั่วโมง';
+				break;
+			case 3.5:
+				$result = '3 ชั่วโมง 30 นาที';
+				break;
+			case 4:
+				$result = '4 ชั่วโมง';
+				break;
+			case 4.5:
+				$result = '4 ชั่วโมง 30 นาที';
+				break;
+			case 5:
+				$result = '5 ชั่วโมง';
+				break;
+			case 5.5:
+				$result = '5 ชั่วโมง 30 นาที';
+				break;
+			case 6:
+				$result = '6 ชั่วโมง';
+				break;
+			case 0:
+				$result = 'มากกว่า 6 ชั่วโมง';
+				break;
+		}
+
+		return $result;
+	}
+
 }
 
 /* End of file Utils.php */

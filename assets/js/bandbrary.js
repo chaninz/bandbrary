@@ -394,7 +394,7 @@
 				]
 			},
 			jobType: {
-				identifier : 'job-type',
+				identifier : 'type',
 				rules: [
 				{
 					type   : 'empty'
@@ -458,7 +458,7 @@
 				]
 			},
 			startTime: {
-				identifier : 'start-time',
+				identifier : 'time',
 				rules: [
 				{
 					type   : 'time'

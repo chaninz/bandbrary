@@ -8,11 +8,16 @@ class Job_model extends CI_Model {
 
 	function get($job_id){
 		$this->db->select('*');
-		$this->db->from('Jobs');
-		$this->db->where('id',$job_id);
+		$this->db->select('Jobs.name AS name');
+		$this->db->select('Users.name AS users_name');
+		$this->db->join('Users', 'Users.id = Jobs.user_id');
+		$this->db->join('Job_Types', 'Job_Types.id = Jobs.type_id');
+		$this->db->join('Styles', 'Styles.id = Jobs.style_id');
+		$this->db->join('Provinces', 'Provinces.id = Jobs.province_id');
+		$query = $this->db->get_where('Jobs', array('Jobs.id' => $job_id));
+		$result = $query->row();
 
-		$query = $this->db->get();
-		return $query->row();
+		return $result;
 	}
 
 	function countJob(){
@@ -76,11 +81,11 @@ class Job_model extends CI_Model {
 
 	public function get_request_user($job_id){
 		$this->db->select('*');
-		$this->db->select('Jobs.id AS id');
-		$this->db->join('Employment', 'Employment.job_id = Jobs.id');
+		//$this->db->select('Jobs.id AS id');
+		//$this->db->join('Employment', 'Employment.job_id = Jobs.id');
 		$this->db->join('Users', 'Users.id = Employment.user_id');
-		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
-		$query = $this->db->get_where('Jobs', array('Employment.job_id' => $job_id));
+		//$this->db->join('Provinces', 'Provinces.id = Jobs.province_id');
+		$query = $this->db->get_where('Employment', array('Employment.job_id' => $job_id));
 		$result = $query->result();
 
 		return $result;

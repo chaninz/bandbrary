@@ -75,6 +75,7 @@
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<div class="ui four items"><?php foreach ($jobs as $job): ?>
+					
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="image">
 							<img src="<?= base_url('images/bass.jpg') ?>">

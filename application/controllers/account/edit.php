@@ -155,12 +155,16 @@ class Edit extends CI_Controller {
 			$provinces = $this->province_model->get_th_all();
 			$skills = $this->skill_model->get_by_user($id);
 			$styles = $this->style_model->get_by_user($id);
+			$msg = array('type' => 3, 
+				'header' => '',
+				'text' => 'บันทึกข้อมูลเรียบร้อย');
 			$display = array('user' => $user,
 				'provinces' => $provinces,
 				'skills' => $skills,
 				'styles' => $styles,
 				'msg_photo' => $msg_photo,
-				'msg_cover' => $msg_cover);
+				'msg_cover' => $msg_cover,
+				'msg' => $msg);
 
 			$this->utils->refresh_user($user->id);
 			$this->load->view('account/edit', $display);
