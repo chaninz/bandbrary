@@ -2,25 +2,25 @@
 	<div class="ui red vertical demo sidebar menu">
 		<a class="item" href="<?= base_url('job') ?>">
 			<i class="home icon"></i>
-			All Jobs
+			งานทั้งหมด
 		</a>
 		<a class="item" href="<?= base_url('job/near') ?>">
 			<i class="heart icon"></i>
-			Near Jobs
+			งานใกล้บ้าน
 		</a>
 		<a class="item" href="<?= base_url('job/my') ?>">
 			<i class="heart icon"></i>
-			My Jobs
+			งานที่คุณสนใจ
 		</a>
 		<a class="item">
 			<i class="tasks icon"></i>
-			Get Jobs
+			งานที่รับแล้ว
 		</a>
 		<div class="item">
-			<b>Search</b>
+			<b>ค้นหางาน</b>
 			<p/>
 			<div class="ui icon input">
-				<input type="text" placeholder="Search...">
+				<input type="text" placeholder="ใส่คำค้นหา...">
 				<i class="inverted search icon"></i>
 			</div>
 		</div>

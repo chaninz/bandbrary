@@ -62,8 +62,7 @@ padding-right: 1rem;
           <a class="item">
             <div class="left floated ui star rating"><i class="icon"><?php if($pm_user->photo_url): ?><img class="icon" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
           <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?></i></div>
-            <div class="right floated date"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
-           
+            <div class="right floated date"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>           
             <div class="description"><?= $pm_user->name ?> <?= $pm_user->surname ?> <?= $pm_user->text ?></div>
           </a>
           <?php endforeach; ?>

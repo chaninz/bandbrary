@@ -12,14 +12,8 @@
 	body {
 		background: #FFFFFF url('<?= base_url('images/noise-2.png') ?>');
 	}
-	.ui.menu .item {
-		font-size: 1.5rem;
-	}
-	.ui.buttons .button, .ui.button {
-		font-size: 1.3rem;
-	}
 	.ui.items .item > .image > img {
-		height: 120px;
+		height: 130px;
 	}
 	.ui.items:first-child {
 		margin-top: 2em;
@@ -40,15 +34,17 @@
 	i.inverted.icon {
 		background-color: #E72A30;
 	}
-	.ui.label {
-		font-size: 1.1rem;
-	}
 	.ui.red.labels .label, .ui.red.label {
 		margin-top: 4px;
 		margin-left: 2px;
 	}
+	.ui.items .item > .content > .name {
+		font-size: 1.1em;
+		height: 40px;
+	}
 	.ui.items .item > .content > .description {
-		height: 130px;
+		font-size: 1em;
+		height: 115px;
 	}
 	</style>
 </head>
@@ -57,23 +53,20 @@
 	<?php $this->load->view('navigation'); ?>
 
 	<div class="job-top">
-
 		<div class="job-hea1">
-			All Jobs
+			งาน
 		</div>
 	</div>
 	
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-2"></div>
-			<div class="col-xs-8">
-				<div class="job-hea2">Explore <span class="job-total"><?= count($jobs) ?></span> Jobs</div>
-			</div>
-			<div class="col-xs-2"></div>
+		<div class="col-xs-10">
+			<div class="job-hea2">ทั้งหมด <span class="job-total"><?= count($jobs) ?></span> งาน</div>
+		</div>
+		<div class="col-xs-2"></div>
 		</div>
 		<div class="row">
-			<div class="col-xs-2"></div>
-			<div class="col-xs-8">
+			<div class="col-xs-10">
 				<div class="ui four items"><?php foreach ($jobs as $job): ?>
 					
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
@@ -94,21 +87,15 @@
 				</div>
 			</div>
 			<div class="col-xs-2">
-				<!-- <a id="job-btn-add" class="circular ui red icon add button" href="<?= base_url('job/add') ?>">
-					<i class="icon add"></i>
-				</a>
-				<div id="job-btn-menu" class="circular ui red icon toggle button">
-					<i class="icon reorder"></i>
-				</div> -->
 				<div class="job-control">
-					<div class="ui vertical labeled icon menu" style="background-color: #D95C5C">
-						<a class="red item" style="color: #FFFFFF" href="<?= base_url('job/add') ?>">
+					<div class="ui vertical labeled icon menu" style="background-color: #232323">
+						<a class="item button" style="color: #FFFFFF" href="<?= base_url('job/add') ?>">
 							<i class="add icon"></i>
-							Add
+							สร้างงาน
 						</a>
-						<a class="red item toggle button" style="color: #FFFFFF">
+						<a class="item toggle button" style="color: #FFFFFF">
 							<i class="reorder icon"></i>
-							Sidebar
+							เมนู
 						</a>
 					</div>
 				</div>
@@ -201,7 +188,6 @@
 		</div>
 	</div>
 
-	<?php $this->load->view('footer'); ?>
 	<script>
 	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
 	$(".view.job").click(function(){
