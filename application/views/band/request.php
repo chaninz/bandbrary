@@ -10,6 +10,9 @@
 
 </head>
 <style>
+body {
+	background: #FFFFFF;
+}
 .col-xs-2 {
 	background-color: #FFFFFF;
 }
@@ -35,7 +38,7 @@
 	padding-top: 100px;
 }
 .ui.vertical.menu {
-	width: 16.2rem;
+	width: 15.2rem;
 	border-radius: 0px;
 	padding-top: 80px;
 }
@@ -68,9 +71,6 @@
 .ui.small.button {
 	font-size: 0.8rem;
 }
-.line {
-	width: 700px;
-}
 </style>
 <body>
 	<?php $this->load->view('navigation'); ?>
@@ -91,10 +91,10 @@
 							<span><?= $band_request->name.' '.$band_request->surname ?></span>
 						</div>
 						<div class="jb3">
-							<a class="ui small red button" href="<?= base_url('band/request/accept/'.$band_request->id.'?ref='.uri_string()) ?>">
+							<a class="ui small green button" href="<?= base_url('band/request/accept/'.$band_request->id.'?ref='.uri_string()) ?>">
 								ยืนยัน
 							</a>
-							<a class="ui small button" href="<?= base_url('band/request/reject/'.$band_request->id.'?ref='.uri_string()) ?>">
+							<a class="ui small red button" href="<?= base_url('band/request/reject/'.$band_request->id.'?ref='.uri_string()) ?>">
 								ปฏิเสธ
 							</a>
 						</div>
