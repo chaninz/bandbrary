@@ -10,7 +10,7 @@ class Employment_model extends CI_Model {
 		return $result;
 	}
 
-	// requested = 1, accpeted = 2, rejected = 3
+	// requested = 1, confirmed = 2, rejected = 3
 	function request($job_id, $user_id) {
 		$this->db->insert('Employment', array('job_id' => $job_id,
 			'user_id' => $user_id,

@@ -152,7 +152,7 @@ class Edit extends CI_Controller {
 
 			// Retrieve data for refresh page
 			$user = $this->user_model->get($id);
-			$provinces = $this->province_model->get_th_all();
+			$provinces = $this->province_model->get_all();
 			$skills = $this->skill_model->get_by_user($id);
 			$styles = $this->style_model->get_by_user($id);
 			$msg = array('type' => 3, 
@@ -170,7 +170,7 @@ class Edit extends CI_Controller {
 			$this->load->view('account/edit', $display);
 		} else {
 			$user = $this->user_model->get($id);
-			$provinces = $this->province_model->get_th_all();
+			$provinces = $this->province_model->get_all();
 			$skills = $this->skill_model->get_by_user($id);
 			$styles = $this->style_model->get_by_user($id);
 

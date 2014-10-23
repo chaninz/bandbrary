@@ -3,7 +3,12 @@
 class Job_model extends CI_Model {
 
 	function add($data){
-		$this->db->insert('Jobs',$data);
+		$this->db->insert('Jobs', $data);
+	}
+
+	function edit($job_id, $data) {
+		$this->db->where('id', $job_id);
+		$this->db->update('Jobs', $data);
 	}
 
 	function get($job_id){
@@ -21,8 +26,92 @@ class Job_model extends CI_Model {
 		return $result;
 	}
 
+	function get_near($province_id) {
+		$query = $this->db->query('SELECT *, CASE WHEN province_id = '.$province_id.' THEN 1 ELSE 0 END AS my_province 
+			FROM Jobs 
+			JOIN Provinces ON Jobs.province_id = Provinces.id 
+			WHERE Provinces.region = (SELECT Provinces.region FROM Provinces WHERE Provinces.id = '.$province_id.') 
+			AND date > CURDATE() 
+			ORDER BY my_province DESC, Jobs.date ASC');
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_by_province($province_id) {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$query = $this->db->get_where('Jobs', array('province_id' => $province_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_by_region($region) {
+		$query = $this->db->get_where('Jobs', array('region_id' => $region));
+
+		return $query->result();
+	}
+
+	function get_by_user($user_id) {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$query = $this->db->get_where('Jobs', array('user_id' => $user_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_by_user_employment($user_id, $status) {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Employment', 'Employment.job_id = Jobs.id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$query = $this->db->get_where('Jobs', array('Employment.user_id' => $user_id,
+			'Employment.status' => $status));
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_request($user_id) {
+		return $this->get_by_user_employment($user_id, 1);
+	}
+
+	function get_confirm($user_id) {
+		return $this->get_by_user_employment($user_id, 2);
+	}
+
+	function get_reject($user_id) {
+		return $this->get_by_user_employment($user_id, 3);
+	}
+
+	function get_all() {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$this->db->where('date > CURDATE()');
+		$query = $this->db->get('Jobs');
+		$result = $query->result();
+		
+		return $result;
+	}
+
+	function get_current_all() {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$this->db->where('date > CURDATE()');
+		$query = $this->db->get('Jobs');
+		$result = $query->result();
+		
+		return $result;
+	}
+
 	function set_status($job_id, $status) {
-		$this->db->where(array('id' => $job_id));
+		$this->db->where('id', $job_id);
 		$this->db->update('Jobs', array('status' => $status));
 	}
 
@@ -34,6 +123,10 @@ class Job_model extends CI_Model {
 		$this->set_status($job_id, 0);
 	}
 
+	function delete($job_id) {
+		$this->db->delete('Jobs', array('id' => $job_id));
+	}
+
 //-------------------------------------------------
 
 	function countJob(){
@@ -43,59 +136,6 @@ class Job_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
-
-	function edit($data,$id) {
-		$this->db->where('id',$id);
-		$this->db->update('Jobs',$data);
-	}
-
-	public function get_all() {
-		$this->db->select('*');
-		$this->db->select('Jobs.id AS id');
-		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
-
-		$query = $this->db->get('Jobs');
-		return $query->result();
-	}
-
-	public function get_by_region($region) {
-		$query = $this->db->get_where('Jobs', array('region_id' => $region));
-
-		return $query->result();
-	}
-
-	public function get_by_province($province) {
-		$this->db->select('*');
-		$this->db->select('Jobs.id AS id');
-		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
-		$query = $this->db->get_where('Jobs', array('province_id' => $province));
-		$result = $query->result();
-
-		return $result;
-	}
-
-	public function get_by_user($user_id) {
-		$this->db->select('*');
-		$this->db->select('Jobs.id AS id');
-		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
-		$query = $this->db->get_where('Jobs', array('user_id' => $user_id));
-		$result = $query->result();
-
-		return $result;
-	}
-
-	public function get_get_job($user_id) {
-		$this->db->select('*');
-		$this->db->select('Jobs.id AS id');
-		$this->db->join('Employment', 'Employment.job_id = Jobs.id');
-		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
-		$query = $this->db->get_where('Jobs', array('Employment.user_id' => $user_id));
-		$result = $query->result();
-
-		return $result;
-	}
-
-	
 
 }
 

@@ -39,7 +39,7 @@ class Add extends CI_Controller {
 			$this->job_model->add($data);
 			redirect(base_url('job/my'));
 		} else {
-			$provinces = $this->province_model->get_th_all();
+			$provinces = $this->province_model->get_all();
 			$this->load->view('job/add', array('provinces' => $provinces));
 		}
 		
