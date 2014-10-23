@@ -75,7 +75,7 @@
 							<a class="ui corner label">
 								<div class="ui labeled icon top right pointing dropdown">
 									<i class="angle down icon"></i>
-									<div class="menu" style="margin-top: 0.4em; margin-right: -0.99em;">
+									<div class="menu" style="margin: 0.1em -1em 0em 0em;">
 										<div class="item">แก้ไขงาน</div>
 										<div class="item">ลบ</div>
 										<div class="item"> รายงานปัญหางานนี้</div>

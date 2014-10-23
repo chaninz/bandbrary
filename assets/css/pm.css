@@ -2,7 +2,7 @@
             Global
 *******************************/
 
-html,
+/*html,
 body {
   font-size: 15px;
   height: 100%;
@@ -16,11 +16,11 @@ body {
   color: #555555;
   text-rendering: optimizeLegibility;
   min-width: 320px;
-}
+}*/
 
-.ui.header {
+/*.ui.header {
   font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
+}*/
 
 /*******************************
             Global

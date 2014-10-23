@@ -81,7 +81,7 @@
 				</div>
 				<div id="navbar-item5" class="ui top pointing dropdown icon">
 					<i id="navbar-reorder" class="reorder icon"></i>
-					<div class="menu" style="margin-left: -33px;">
+					<div class="menu" style="margin-left: -37px;">
 						<div class="item"><a href="<?= base_url('user/'.$this->session->userdata('username')) ?>">เข้าสู่วงดนตรี</a></div>
 						<div class="line"></div>
 						<div class="item"><a href="<?= base_url().'account/edit' ?>">การตั้งค่า</div>
