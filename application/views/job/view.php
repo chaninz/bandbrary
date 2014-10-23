@@ -37,7 +37,7 @@
 	.jp3 {
 		float: left;
 		margin-top: 21px;
-		margin-left: 125px;
+		margin-left: 90px;
 	}
 	.job-control {
 		margin-top: 70px;

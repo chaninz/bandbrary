@@ -24,7 +24,7 @@
 		font-weight: bold;
 	}
 	.col-xs-8 {
-		padding-top: 70px;
+		padding-top: 140px;
 	}
 	.col-xs-6 {
 		padding-bottom: 70px;
@@ -32,6 +32,8 @@
 	</style>
 </head>
 <body>
+	<?php $this->load->view('navigation'); ?>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
