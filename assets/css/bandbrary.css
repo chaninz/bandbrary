@@ -182,7 +182,7 @@ footer {
 }
 .navbar-username {
 	float: left;
-	margin-left: 7px;
+	margin-left: 9px;
 	margin-top: 7px;
 	font-weight: 500;
 	-webkit-font-smoothing: auto;
@@ -201,7 +201,8 @@ footer {
 	float: left;
 	width: 28px;
 	height: 28px;
-	margin-right: 0.2em
+	border: 1px solid #FFFFFF;
+	border-radius: 1px;
 }
 .line {
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
