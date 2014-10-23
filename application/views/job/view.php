@@ -32,7 +32,7 @@
 		float: left;
 		margin-top: 7px;
 		margin-left: 9px;
-		font-weight: 500;
+		font-weight: 600;
 	}
 	.jp3 {
 		float: left;
