@@ -9,16 +9,12 @@
 	<?php $this->load->view('header'); ?>
 
 	<style>
-	body {
-		background: #FFFFFF url('<?= base_url('images/noise-2.png') ?>');
-	}
 	.ui.items .item > .image > img {
 		height: 130px;
 	}
 	.ui.items:first-child {
 		margin-top: 2em;
 	}
-	
 	.ui.items > .row > .item, .ui.items > .item {
 		padding: 0px;
 	}
@@ -46,6 +42,10 @@
 		font-size: 1em;
 		height: 115px;
 	}
+	.ui.corner.label .icon {
+		font-size: 1.4em;
+		margin: 0em 0em 0em 0.35em;
+	}
 	</style>
 </head>
 <body>
@@ -60,10 +60,10 @@
 	
 	<div class="container">
 		<div class="row">
-		<div class="col-xs-10">
-			<div class="job-hea2">ทั้งหมด <span class="job-total"><?= count($jobs) ?></span> งาน</div>
-		</div>
-		<div class="col-xs-2"></div>
+			<div class="col-xs-10">
+				<div class="job-hea2">ทั้งหมด <span class="job-total"><?= count($jobs) ?></span> งาน</div>
+			</div>
+			<div class="col-xs-2"></div>
 		</div>
 		<div class="row">
 			<div class="col-xs-10">
@@ -72,8 +72,15 @@
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="image">
 							<img src="<?= base_url('images/bass.jpg') ?>">
-							<a class="star ui corner label">
-								<i class="star icon"></i>
+							<a class="ui corner label">
+								<div class="ui labeled icon top right pointing dropdown">
+									<i class="angle down icon"></i>
+									<div class="menu" style="margin-top: 0.4em; margin-right: -0.99em;">
+										<div class="item">แก้ไขงาน</div>
+										<div class="item">ลบ</div>
+										<div class="item"> รายงานปัญหางานนี้</div>
+									</div>
+								</div>
 							</a>
 						</div>
 						<div class="content">
@@ -94,7 +101,7 @@
 							สร้างงาน
 						</a>
 						<a class="item toggle button" style="color: #FFFFFF">
-							<i class="reorder icon"></i>
+							<i class="list layout icon"></i>
 							เมนู
 						</a>
 					</div>
@@ -105,35 +112,32 @@
 
 
 	<?php $this->load->view('job/sidebar_left'); ?>
-		<div class="actions">
-			<div class="ui button">Cancel</div>
-			<input type="submit" class="ui red submit button" value="Get job">
-		</div>
-	</div>
+	<?php $this->load->view('footer'); ?>
+</div>
 
-	<script>
-	$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
-	$(".view.job").click(function(){
-		var id = $(this).attr("data-id");
-		$.ajax({
-			type:'POST',
-			url:'<?= base_url('job/index/get'); ?>',
-			data:{id:id},
-			success:function(data){
-				console.log(data);
-				var job = JSON.parse(data);
-				$("#jobname").text(job.name);
-				$("#jobvenue").text(job.venue);
-				$("#jobstart").text(job.start);
-				$("#jobend").text(job.end);
-				$("#jobbudget").text(job.budget);
-				$("#jobdescription").text(job.description);
-				$('.create.modal').modal('show');
-			}
-		});
-		
-	})	
-	
-	</script>
+<script>
+$('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
+$(".view.job").click(function(){
+	var id = $(this).attr("data-id");
+	$.ajax({
+		type:'POST',
+		url:'<?= base_url('job/index/get'); ?>',
+		data:{id:id},
+		success:function(data){
+			console.log(data);
+			var job = JSON.parse(data);
+			$("#jobname").text(job.name);
+			$("#jobvenue").text(job.venue);
+			$("#jobstart").text(job.start);
+			$("#jobend").text(job.end);
+			$("#jobbudget").text(job.budget);
+			$("#jobdescription").text(job.description);
+			$('.create.modal').modal('show');
+		}
+	});
+
+})	
+
+</script>
 </body>
 </html>
