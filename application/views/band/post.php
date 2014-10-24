@@ -29,7 +29,7 @@
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-md-9">
 						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-							<div class="create-post test nin">
+							<div class="create-post test createpost">
 								<div id="create-post-button" class="ui icon button">
 									<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
 								</div>
@@ -48,7 +48,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<div class="item userreport post" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+										<div class="item test reportpost" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -64,10 +64,8 @@
 		</article>
 	</section>
 
-	<!--Modal semantic-->
-
 	<!--Create post modal-->
-	<div class="ui form segment create modal">
+	<div class="ui form segment createpost modal">
 		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post">
 			<h3>สร้างโพสต์</h3>
 			<br/><p/>
@@ -97,7 +95,7 @@
 	</div>
 
 	<!--Report post modal-->
-	<div class="ui transition visible scrolling userreport modal">
+	<div class="ui transition visible scrolling reportpost modal">
 		<div class="header">
 			ช่วยให้เราเข้าใจปัญหานี้
 		</div>
@@ -135,30 +133,28 @@
 								</div>
 							</div>
 						</div>
-						<div class="actions">
-							<div class="ui black small button cancel">
-								ยกเลิก
-							</div>
-							<input type="submit" class="ui red submit small button" value="โพสต์">
-							ส่งรายงาน
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
-		</div>
+			<div class="actions">
+				<div class="ui black small button">
+					ยกเลิก
+				</div>
+				<input type="submit" class="ui red submit small button" value="ส่งรายงาน">
+			</div>
+		</form>
 	</div>
 
 	<?php $this->load->view('footer'); ?>
+
 	<script>
-	$('.create.modal').modal('attach events', '.test.nin', 'show');
-	$(".userreport#postreport").click(function(){
-		$('.userreport.modal').modal('show');
-		var id = $(this).attr("post-id");
-		$('.postid').val(id);
+	$(".reportpost").click(function(){
+		$(".userreport#postreport").click(function(){
+			$('.userreport.modal').modal('show');
+			var id = $(this).attr("post-id");
+			$('.postid').val(id);
+		});
 	});
-	$(".actions .cancel").click(function(){
-		$('.userreport.modal').modal('hide');
-	});
-    </script>
+	</script>
 </body>
 </html>
