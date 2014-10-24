@@ -17,26 +17,26 @@
 							<div id="pn2"><?= $band_profile->name ?></div><?php endif; ?>
 						</div>
 						<?php if ($user_profile->id == $this->session->userdata('id')): ?><?php elseif(empty($is_follow_user)): ?>
-						<div id="user-follow" class="ui black buttons">
+						<div id="user-follow" class="ui small black buttons">
 							<a class="ui button" href="<?= base_url('following/user/follow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a>
-							<div class="ui button"></i>ข้อความ</div>
-							<div class="ui labeled top right pointing dropdown black button"></i>...
+							<div class="ui button">ข้อความ</div>
+							<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
-									<div class="item"><i class="edit icon"></i>test1</div>
-									<div class="item"><i class="delete icon"></i>test2</div>
-									<div class="item"><i class="hide icon"></i>test3</div>
+									<div class="item test reportuser">รายงานปัญหาบุคคล</div>
+									<div class="item">emtry</div>
+									<div class="item">emtry</div>
 								</div>
 							</div>
 						</div>
 					<?php else: ?>
-					<div id="user-follow" class="ui black buttons">
+					<div id="user-follow" class="ui small black buttons">
 						<a class="ui button" href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
 						<div class="ui button">ข้อความ</div>
-						<div class="ui labeled top right pointing dropdown black button">...
+						<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 							<div class="menu">
-								<div class="item"><i class="edit icon"></i>test1</div>
-								<div class="item"><i class="delete icon"></i>test2</div>
-								<div class="item"><i class="hide icon"></i>test3</div>
+								<div class="item test reportuser">รายงานปัญหาบุคคล</div>
+								<div class="item">emtry</div>
+								<div class="item">emtry</div>
 							</div>
 						</div>
 					</div>
@@ -72,3 +72,53 @@
 </div>
 </article>
 </section>
+
+<!--Report user modal-->
+<div class="ui transition visible scrolling reportuser modal">
+	<div class="header">
+		ช่วยให้เราเข้าใจปัญหานี้
+	</div>
+	<div class="content">
+		<div class="left"></div>
+		<div class="right">
+			<div class="ui header">บุคคลนี้ผิดปกติอย่างไร ?</div>
+			<div class="ui form">
+				<form action="<?= base_url().'report/post' ?>" method="post">
+					<input type="hidden" name="postid" value="" id="postid">
+					<div class="grouped inline fields">
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="type" value="1">
+								<label>ฉันแค่ไม่ชอบบุคลลนี้</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="type" value="2">
+								<label>บุคคลนี้ก่อกวนฉัน</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="type" value="3">
+								<label>ฉันคิดว่าบุคคลนี้ไม่ควรอยู่บน Bandbrary</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="type" value="4">
+								<label>บุคคลนี้เป็นสแปม</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+		<div class="actions">
+			<div class="ui black small button">
+				ยกเลิก
+			</div>
+			<input type="submit" class="ui red submit small button" value="ส่งรายงาน">
+		</div>
+	</form>
+</div>

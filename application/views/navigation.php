@@ -75,7 +75,7 @@
 					<a class="item" style="padding: 0px;">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
-					<a class="item test add" style="padding: 0px;">
+					<a class="item test createall" style="padding: 0px;">
 						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
 				</div>
@@ -96,8 +96,8 @@
 	</div>
 </header>
 
-<!--Report modal-->
-<div class="ui add basic modal transition selection list">
+<!--Create modal-->
+<div class="ui basic transition selection list createall modal">
 	<div class="header">
 		การสร้าง
 	</div>
