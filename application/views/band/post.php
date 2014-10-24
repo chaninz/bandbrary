@@ -48,7 +48,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<div class="item userreport post" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+										<div class="item userreport post" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -108,7 +108,7 @@
 				<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
 				<div class="ui form">
 					<form action="<?= base_url().'report/post' ?>" method="post">
-						<input type="hidden" name="postid" value="" id="postid">
+						<input type="hidden" name="postid" value="" class="postid">
 						<div class="grouped inline fields">
 							<div class="field">
 								<div class="ui radio checkbox">
@@ -136,7 +136,7 @@
 							</div>
 						</div>
 						<div class="actions">
-							<div class="ui black small button">
+							<div class="ui black small button cancel">
 								ยกเลิก
 							</div>
 							<input type="submit" class="ui red submit small button" value="โพสต์">
@@ -146,18 +146,19 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 	<?php $this->load->view('footer'); ?>
 	<script>
 	$('.create.modal').modal('attach events', '.test.nin', 'show');
-	$(".userreport").click(function(){
+	$(".userreport#postreport").click(function(){
 		$('.userreport.modal').modal('show');
 		var id = $(this).attr("post-id");
-		$('#post_id').val(id);
+		$('.postid').val(id);
 	});
-
-	</script>
+	$(".actions .cancel").click(function(){
+		$('.userreport.modal').modal('hide');
+	});
+    </script>
 </body>
 </html>
