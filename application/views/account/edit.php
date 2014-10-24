@@ -7,6 +7,9 @@
 	<title>แก้ไขข้อมูลส่วนตัว | Bandbrary</title>
 	<?php $this->load->view('header'); ?>  
 	<style>
+	body {
+		background: #FFFFFF;
+	}
 	.col-xs-2 {
 		background-color: #FFFFFF;
 	}
@@ -33,7 +36,7 @@
 		padding-top: 100px;
 	}
 	.ui.vertical.menu {
-		width: 16.2rem;
+		width: 15.2rem;
 		border-radius: 0px;
 		padding-top: 80px;
 	}
@@ -63,12 +66,6 @@
 		-webkit-box-shadow: none;
 		box-shadow: none;
 	}
-	.line {
-		width: 700px;
-	}
-	.footmix {
-		margin-top: 0px;
-	}
 	</style>
 </head>
 <body>
@@ -81,7 +78,7 @@
 				<form id="edit-account" action="<?= base_url('account/edit') ?>" method="post" enctype="multipart/form-data">
 					<div class="ui form segment">
 						<p/>
-						<h2>แก้ไขข้อมูลส่วนตัว</h2>
+						<h1>แก้ไขข้อมูลส่วนตัว</h1>
 						<div class="line"></div>
 						<br/><p/><?php if ( ! empty($msg)): if ($msg['type'] == 1): ?>
 						<div class="ui visible error message">
@@ -134,9 +131,9 @@
 						<div class="field">
 							<label>ประเภทผู้ใช้</label><p/>
 							<div class="ui large buttons" style="display: inline-block;">
-									<div class="ui button <?= $user->user_type == 1 ? 'active' : 'disabled' ?>" data-value="1"><i class="headphones icon"></i>ผู้ฟัง</div>
-									<input type="hidden" id="user-type" name="user-type" value="<?= $user->user_type ?>"/>
-									<div class="ui button <?= $user->user_type == 2 ? 'active' : '' ?>" data-value="2"><i class="unmute icon"></i>นักดนตรี</div>
+								<div class="ui button <?= $user->user_type == 1 ? 'active' : 'disabled' ?>" data-value="1"><i class="headphones icon"></i>ผู้ฟัง</div>
+								<input type="hidden" id="user-type" name="user-type" value="<?= $user->user_type ?>"/>
+								<div class="ui button <?= $user->user_type == 2 ? 'active' : '' ?>" data-value="2"><i class="unmute icon"></i>นักดนตรี</div>
 							</div><p/>
 							<div>* เมื่อเปลี่ยนประเภทผู้ใช้เป็นนักดนตรีแล้วจะไม่สามารถกลับมาเป็นผู้ฟังได้</div>
 						</div>
@@ -199,137 +196,137 @@
 							</div>
 						</div><p/><br/>
 						<?php if ($this->session->userdata('user_type') == 2): ?>
-								<h4>ข้อมูลด้านดนตรี</h4>
-								<div class="line"></div><p/>
-								<div class="field" style="margin-bottom: 1px; margin-top: 30px;">
-									<label>สไตล์ *</label><p/>
-									<input type="hidden" data-validate="style"/>
-									<div class="ui three fields">
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="1" <?= ! empty($styles[1]) ? 'checked' : '' ?> />
-												<label>บลูส์</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="2" <?= ! empty($styles[2]) ? 'checked' : '' ?> /> 
-												<label>คันทรี</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="3" <?= ! empty($styles[3]) ? 'checked' : '' ?> />
-												<label>ฮิปฮอป</label>
-											</div>
-										</div>
-									</div>
-									<div class="ui three fields">
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="4" <?= ! empty($styles[4]) ? 'checked' : '' ?> />
-												<label>แจ๊ส</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="5" <?= ! empty($styles[5]) ? 'checked' : '' ?> />
-												<label>ลาติน</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="6" <?= ! empty($styles[6]) ? 'checked' : '' ?> />
-												<label>ป็อป</label>
-											</div>
-										</div>
-									</div>
-									<div class="ui three fields">
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="7" <?= ! empty($styles[7]) ? 'checked' : '' ?> />
-												<label>เร้กเก้</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="8" <?= ! empty($styles[8]) ? 'checked' : '' ?> />
-												<label>อาร์แอนด์บี</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="style[]" data-validate="style" value="9" <?= ! empty($styles[9]) ? 'checked' : '' ?> />
-												<label>ร็อก</label>
-											</div>
-										</div>
+						<h4>ข้อมูลด้านดนตรี</h4>
+						<div class="line"></div><p/>
+						<div class="field" style="margin-bottom: 1px; margin-top: 30px;">
+							<label>สไตล์ *</label><p/>
+							<input type="hidden" data-validate="style"/>
+							<div class="ui three fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="1" <?= ! empty($styles[1]) ? 'checked' : '' ?> />
+										<label>บลูส์</label>
 									</div>
 								</div>
-
 								<div class="field">
-									<label>ความสามารถ *</label><p/>
-									<input type="hidden" data-validate="skill"/>
-									<div class="ui three fields">
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="1" <?= ! empty($skills[1]) ? 'checked' : '' ?> />
-												<label>ร้องเพลง</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="2" <?= ! empty($skills[2]) ? 'checked' : '' ?> />
-												<label>กีตาร์</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="3" <?= ! empty($skills[3]) ? 'checked' : '' ?> />
-												<label>เบส</label>
-											</div>
-										</div>
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="2" <?= ! empty($styles[2]) ? 'checked' : '' ?> /> 
+										<label>คันทรี</label>
 									</div>
-									<div class="ui three fields">
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="4" <?= ! empty($skills[4]) ? 'checked' : '' ?> />
-												<label>กลองชุด</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="5" <?= ! empty($skills[5]) ? 'checked' : '' ?> />
-												<label>เปียโน</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="6" <?= ! empty($skills[6]) ? 'checked' : '' ?> />
-												<label>คีย์บอร์ด</label>
-											</div>
-										</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="3" <?= ! empty($styles[3]) ? 'checked' : '' ?> />
+										<label>ฮิปฮอป</label>
 									</div>
-									<div class="ui three fields">
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="7" <?= ! empty($skills[7]) ? 'checked' : '' ?> />
-												<label>แซกโซโฟน</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="8" <?= ! empty($skills[8]) ? 'checked' : '' ?> />
-												<label>ทรัมเป็ต</label>
-											</div>
-										</div>
-										<div class="field">
-											<div class="ui checkbox">
-												<input type="checkbox" name="skill[]" data-validate="skill" value="9" <?= ! empty($skills[9]) ? 'checked' : '' ?> />
-												<label>ไวโอลิน</label>
-											</div>
-										</div>
+								</div>
+							</div>
+							<div class="ui three fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="4" <?= ! empty($styles[4]) ? 'checked' : '' ?> />
+										<label>แจ๊ส</label>
 									</div>
-								</div><?php endif; ?>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="5" <?= ! empty($styles[5]) ? 'checked' : '' ?> />
+										<label>ลาติน</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="6" <?= ! empty($styles[6]) ? 'checked' : '' ?> />
+										<label>ป็อป</label>
+									</div>
+								</div>
+							</div>
+							<div class="ui three fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="7" <?= ! empty($styles[7]) ? 'checked' : '' ?> />
+										<label>เร้กเก้</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="8" <?= ! empty($styles[8]) ? 'checked' : '' ?> />
+										<label>อาร์แอนด์บี</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="style[]" data-validate="style" value="9" <?= ! empty($styles[9]) ? 'checked' : '' ?> />
+										<label>ร็อก</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="field">
+							<label>ความสามารถ *</label><p/>
+							<input type="hidden" data-validate="skill"/>
+							<div class="ui three fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="1" <?= ! empty($skills[1]) ? 'checked' : '' ?> />
+										<label>ร้องเพลง</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="2" <?= ! empty($skills[2]) ? 'checked' : '' ?> />
+										<label>กีตาร์</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="3" <?= ! empty($skills[3]) ? 'checked' : '' ?> />
+										<label>เบส</label>
+									</div>
+								</div>
+							</div>
+							<div class="ui three fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="4" <?= ! empty($skills[4]) ? 'checked' : '' ?> />
+										<label>กลองชุด</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="5" <?= ! empty($skills[5]) ? 'checked' : '' ?> />
+										<label>เปียโน</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="6" <?= ! empty($skills[6]) ? 'checked' : '' ?> />
+										<label>คีย์บอร์ด</label>
+									</div>
+								</div>
+							</div>
+							<div class="ui three fields">
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="7" <?= ! empty($skills[7]) ? 'checked' : '' ?> />
+										<label>แซกโซโฟน</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="8" <?= ! empty($skills[8]) ? 'checked' : '' ?> />
+										<label>ทรัมเป็ต</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui checkbox">
+										<input type="checkbox" name="skill[]" data-validate="skill" value="9" <?= ! empty($skills[9]) ? 'checked' : '' ?> />
+										<label>ไวโอลิน</label>
+									</div>
+								</div>
+							</div>
+						</div><?php endif; ?>
 						<div class="line"></div><br/>
 						<input class="ui red submit button" type="submit" value="บันทึก">
 					</div> 
@@ -339,5 +336,5 @@
 		</div>
 	</div>
 
-	</body>
-	</html>
+</body>
+</html>

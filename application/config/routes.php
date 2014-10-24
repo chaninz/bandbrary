@@ -87,7 +87,9 @@ $route['job/reject/(:num)'] = 'job/reject/index/$1';
 $route['job/reset/(:num)'] = 'job/reset/index/$1';
 $route['job/open/(:num)'] = 'job/open/index/$1';
 $route['job/close/(:num)'] = 'job/close/index/$1';
+$route['job/delete/(:num)'] = 'job/delete/index/$1';
 $route['job/view/(:num)'] = 'job/view/index/$1';
+$route['job/edit/(:num)'] = 'job/edit/index/$1';
 
 
 

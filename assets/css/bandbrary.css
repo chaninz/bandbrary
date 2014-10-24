@@ -15,7 +15,7 @@ header{
 	z-index: 150;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 	position: fixed;
-	opacity: 0.9;
+	/*	opacity: 0.9;*/
 }
 
 @media all and (max-width: 980px) {
@@ -86,19 +86,19 @@ footer {
 	}
 }
 .bb-logo{
-	width: 168px;
+	width: 165px;
 	height: 65px;
 	background-color: #E72A30;
-	margin-left: 10px;
+	margin-left: 35px;
 	margin-right: auto;
 	-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 	float: left;
 }
 .bb-logo > img {
-	width: 157px;
-	height: 67px;
-	margin-top: 19px;
-	margin-left: 5px;
+	width: 152px;
+	height: 65px;
+	margin-top: 22px;
+	margin-left: 5px
 }
 .bb-player {
 	float: left;
@@ -152,37 +152,57 @@ footer {
 		width: 980px;
 	}
 }
-.navbar-item1 {
+#bb-feed {
 	float: left;
-	margin-top: 3px;
+	-webkit-font-smoothing: auto;
+	border-radius: 0px;
+	margin-top: 7px;
+}
+#navbar-item1 {
+	float: left;
+	margin: 0px;
 	color: #FFFFFF;
 	-webkit-font-smoothing: auto;
+	border-radius: 0px;
+	background-color: transparent;
+	font-weight: bold;
 }
-.navbar-item2 {
+#navbar-item2 {
 	float:left;
 	height: 10px;
 	font-size: 1em;
-	margin-top: 7px;
+	margin-top: 6px;
 }
-.navbar-item3 {
+#navbar-item3 {
 	float: left;
 	border-radius: 0px;
 	background-color: transparent;
 	color: #FFFFFF;
-	margin-left: 10px;
+	margin: 0px 0px 0px 80px;
 }
-.navbar-item4 {
+.navbar-username {
+	float: left;
+	margin-left: 9px;
+	margin-top: 7px;
+	font-weight: 500;
+	-webkit-font-smoothing: auto;
+}
+#navbar-item4 {
 	float: left;
 	color: #FFFFFF;
 	margin-top: 9px;
-	margin-left: 11px;
-	border-left: 1px solid rgba(0,0,0,.1);
+	margin-left: 5px;
+}
+#navbar-item5 {
+	margin-top: 10px;
+	margin-left: 14px;
 }
 .profile-pic1 {
 	float: left;
 	width: 28px;
 	height: 28px;
-	margin-right: 0.2em
+	border: 1px solid #FFFFFF;
+	border-radius: 1px;
 }
 .line {
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -537,7 +557,7 @@ footer {
 	float: left;
 	margin-top: 7px;
 	margin-left: 9px;
-	font-weight: 500;
+	font-weight: 600;
 }
 .jb3 {
 	float: left;
@@ -749,85 +769,17 @@ footer {
 
 /*--- Navigation ---*/
 
-header .ui.basic.buttons {
-	-webkit-box-shadow: none; 
-	box-shadow: none; 
-	border-radius: 0px;
-	margin-bottom: 3px;
-}
-header .ui.basic.button, .ui.basic.buttons .button {
-	color: white!important;
-}
-header .ui.button {
-	padding: 0.8em 1.3em!important;
-}
-header .ui.button, .ui.buttons .button {
-	font-size: 0.9em!important;
-}
-header i.icon {
-	margin: 0px;
-	font-size: 1.6em;
-}
-header .ui.input {
-	color: #FFFFFF;
-}
-header .ui.input input {
-	font-size: 0.7em;
-	width: 220px;
-	margin-left: 20px;
-	background-color: transparent;
-	border: 1px solid #FFFFFF;
-	color: #FFFFFF;
+#bb-search {
+	width: 200px;
+	margin-left: 7px;
 	border-radius: 0px;
 }
-header .ui.icon.input > .icon {
-	padding-top: 0.5em;
-	opacity: 1;
-}
-header .ui.menu {
-	background-color: transparent;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	border-radius: 0px;
+#navbar-reorder {
+	font-size: 1.4em;
 	color: #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	padding-left: 10px;
 }
-header .ui.menu .item {
-	font-size: 0.8rem;
-	font-weight: 400px;
-	padding: 0px;
-	margin-top: 5px;
-}
-header .ui.menu .active.item {
-	color: #FFFFFF;
-	background-color: none;
-}
-header .user-name {
-	float: left;
-	margin-top: 9px;
-	margin-left: 5px;
-	-webkit-font-smoothing: auto;
-
-}
-header .ui.dropdown .menu .item {
-	font-size: 1em;
-	border-top: 0px;
-}
-header .ui.dropdown .menu {
-	left: -43px;
-}
-header .ui.dropdown > .dropdown.icon {
-	margin: 0.6em 0 0 0.7em;
-}
-header .ui.dropdown .menu .active.item {
-	background-color: rgba(0, 0, 0, 0.6) !important;
-}
-header .line {
-	width: 120px;
-}
-#setting-dd {
-	margin-top: 1em; 
-	margin-left: -5px;
-	border-top:0px; 
-	width: 120px; 
-	font-size: 0.76em;
+header .ui.menu .item:before {
+	width: 0px;
 }

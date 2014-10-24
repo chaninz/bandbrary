@@ -10,9 +10,11 @@ class My extends CI_Controller {
 
 	public function index() {
 		$user_id = $this->session->userdata('id');
+
 		$jobs = $this->job_model->get_by_user($user_id);
-		$data = array('jobs' => $jobs);
-		$this->load->view('job/job', $data);
+
+		$display = array('jobs' => $jobs);
+		$this->load->view('job/job', $display);
 	}
 
 }

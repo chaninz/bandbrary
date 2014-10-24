@@ -6,7 +6,7 @@ class Province_model extends CI_Model {
 		parent::__construct();
 	}
 
-	function get_th_all() {
+	function get_all() {
 		$this->db->select('id, region, province');
 		$this->db->order_by('province');
 		$query = $this->db->get('Provinces');

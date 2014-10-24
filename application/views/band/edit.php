@@ -10,6 +10,9 @@
 
 </head>
 <style>
+body {
+	background: #FFFFFF;
+}
 .col-xs-2 {
 	background-color: #FFFFFF;
 }
@@ -35,7 +38,7 @@
 	padding-top: 100px;
 }
 .ui.vertical.menu {
-	width: 16.2rem;
+	width: 15.2rem;
 	border-radius: 0px;
 	padding-top: 80px;
 }
@@ -64,9 +67,6 @@
 .ui.form.segment{
 	-webkit-box-shadow: none;
 	box-shadow: none;
-}
-.line {
-	width: 700px;
 }
 </style>
 <body>

@@ -53,7 +53,7 @@ class Start extends CI_Controller {
 				show_404();
 			}
 		} else {
-			$provinces = $this->province_model->get_th_all();
+			$provinces = $this->province_model->get_all();
 			$this->load->view('account/start', array('provinces' => $provinces));
 		}
 	}
