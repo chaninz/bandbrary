@@ -38,9 +38,9 @@
     margin: 0em; 
   }
   .ui.divided.list > .item {
-padding-left: 1rem;
-padding-right: 1rem;
-}
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
   </style>
 </head>
 <body id="feed">
@@ -59,14 +59,14 @@ padding-right: 1rem;
         </h2>
         <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="unread">
           <?php foreach($pm_users as $pm_user): ?>
-          <a class="item">
+          <a class="item" data-id="<?= $pm_user->id ?>" >
             <div class="left floated ui star rating"><i class="icon"><?php if($pm_user->photo_url): ?><img class="icon" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
-          <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?></i></div>
-            <div class="right floated date"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>           
-            <div class="description"><?= $pm_user->name ?> <?= $pm_user->surname ?> <?= $pm_user->text ?></div>
-          </a>
+              <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?></i></div>
+              <div class="right floated date"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>           
+              <div class="description"><?= $pm_user->name ?> <?= $pm_user->surname ?> <?= $pm_user->text ?></div>
+            </a>
           <?php endforeach; ?>
-          <a class="item">
+         <!--  <a class="item">
             <div class="left floated ui star rating"><i class="icon"></i></div>
             <div class="right floated date">Sep 14, 2013</div>
             <div class="description">Scientists discover new breed of dog</div>
@@ -110,57 +110,57 @@ padding-right: 1rem;
             <div class="left floated ui star rating"><i class="icon"></i></div>
             <div class="right floated date">Sep 05, 2013</div>
             <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
+          </a> -->
         </div>
       </div>
       <div class="col-xs-8" style="padding: 0px 0px 0px 0px;">
        <div id="pm-msg" class="ui feed segment">
-    <?php foreach($chats as $chat): ?>
-    <div class="event">
-        <div class="label">
+        <?php foreach($chats as $chat): ?>
+        <div class="event">
+          <div class="label">
            <?php if($chat->photo_url): ?>
-                <img src="<?= base_url().'uploads/profile/'.$chat->photo_url ?>"><?php else: ?>
-                <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
-        <div class="content">
-          <div class="date">
+           <img src="<?= base_url().'uploads/profile/'.$chat->photo_url ?>"><?php else: ?>
+           <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
+           <div class="content">
+            <div class="date">
              <?= mdate("%d", strtotime($chat->timestamp)) ?> 
              <?= mdate("%M", strtotime($chat->timestamp)) ?> 
              <?= mdate("%Y", strtotime($chat->timestamp)) ?>          
-          </div>
-          <div class="summary">
-           <a><?= $chat->from_user_name  ?> <?= $chat->from_user_surname  ?></a> created a post
-         </div>
-         <div class="extra text">
+           </div>
+           <div class="summary">
+             <a><?= $chat->from_user_name  ?> <?= $chat->from_user_surname  ?></a> 
+           </div>
+           <div class="extra text">
             <?= $chat->text  ?>        
-         </div>
+          </div>
+        </div>
       </div>
-    </div>
     <?php endforeach; ?>
     <div class="event">
-        <div class="label">
-          <img src="/images/demo/avatar.jpg">
+      <div class="label">
+        <img src="/images/demo/avatar.jpg">
+      </div>
+      <div class="content">
+        <div class="date">
+          3 days ago
         </div>
-        <div class="content">
-          <div class="date">
-            3 days ago
-          </div>
-          <div class="summary">
-           <a>Sally Poodle</a> created a post
-         </div>
-         <div class="extra text">
-          I am a dog and I do not know how to make a post
-        </div>
+        <div class="summary">
+         <a>Sally Poodle</a> created a post
+       </div>
+       <div class="extra text">
+        I am a dog and I do not know how to make a post
       </div>
     </div>
   </div>
-  <textarea name="description" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
+</div>
+<textarea name="description" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
 </div>
 
 </div>
 <div class="row">
-      <div class="col-xs-12" style="height: 30px; border-top: 1px solid #D6D6D6;">
-      </div>
-    </div>
+  <div class="col-xs-12" style="height: 30px; border-top: 1px solid #D6D6D6;">
+  </div>
+</div>
 </div>
 
    <!--   <?php foreach($pm_users as $pm_user): ?>
@@ -174,23 +174,54 @@ padding-right: 1rem;
         </a>
       <?php endforeach; ?> -->
 
-  <script>
-    $(".view.job").click(function(){
-      var id = $(this).attr("data-id");
-      $.ajax({
-        type:'POST',
-        url:'<?= base_url('pm/view'); ?>',
-        data:{id:id},
-        success:function(data){
-          console.log(data);
-          var job = JSON.parse(data);
-          $("#jobname").text(job.name);
-        
+      <script>
+      $("#pm-inbox .item").click(function(){
+        var id = $(this).attr("data-id");
+        $.ajax({
+          type:'POST',
+          url:'<?= base_url('pm/view'); ?>',
+          data:{id:id},
+          success:function(data){
+            var chat = JSON.parse(data);
+          //$("#jobname").text(job.name);
+          var html = "";
+          $.each(chat, function(key,value){
+            //console.log(value);
+            var image = "";
+            var path = '<?= base_url().'uploads/profile/' ?>';
+            if(value.photo_url){
+              image = '<img src=\"'+path+value.photo_url+'\"/>';
+            }else{
+              image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
+            }
+
+            var date = new Date(Date.parse(value.timestamp));
+            
+            html +=
+            '<div class="event">'+
+              '<div class="label">'+image+
+                '<div class="content">'+
+                  '<div class="date">'+
+                    date.toDateString()+
+                  '</div>'+
+                  '<div class="summary">'+
+                    '<a>'+value.from_user_name + " " +value.from_user_surname  +'</a>'+
+                  '</div>'+
+                  '<div class="extra text">'+
+                    value.text+        
+                  '</div>'+
+                  '</div>'+
+              '</div>'+
+            '</div>';
+          });
+
+          $("#pm-msg").html(html);
+
         }
       });
 
-    })  
+})  
 
 </script>
-    </body>
-    </html>
+</body>
+</html>

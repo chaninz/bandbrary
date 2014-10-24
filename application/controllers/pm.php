@@ -29,13 +29,11 @@ public function __construct() {
 		}
 	}
 		
-	public function view($target_user) {
+	public function view() {
 		// $user_profile = $this->user_model->get_by_username($username);
-		$data = array( //'user_profile' => $user_profile,
-			'chats' => $this->pm_model->view($target_user)
-
-		);
-		print_r($data);
+		$target_user = $this->input->post('id');
+		$data =  $this->pm_model->view($target_user);
+		echo json_encode($data);
 	}
 
 }
