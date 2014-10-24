@@ -75,7 +75,7 @@
 					<a class="item" style="padding: 0px;">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
-					<a class="item test createall" style="padding: 0px;">
+					<a class="item mbtn createall" style="padding: 0px;">
 						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
 				</div>
@@ -95,39 +95,3 @@
 		</div>
 	</div>
 </header>
-
-<!--Create modal-->
-<div class="ui basic transition selection list createall modal">
-	<div class="header">
-		การสร้าง
-	</div>
-	<div class="content">
-		<div class="ui inverted segment" style="padding: 0px;">
-			<div class="ui inverted relaxed divided list" style="padding: 0px;">
-				<div class="item" style="padding: 0.9em;">
-					<div class="content">
-						<div class="header">สร้างงาน</div>
-						An excellent companion
-					</div>
-				</div>
-				<div class="item" style="padding: 0.9em;">
-					<div class="content">
-						<div class="header">สร้างอัลบั้มเพลง</div>
-						A poodle, its pretty basic
-					</div>
-				</div>
-				<div class="item" style="padding: 0.9em;">
-					<div class="content">
-						<div class="header">สร้างวงดนตรี</div>
-						He's also a dog
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="actions" style="padding: 0px">
-		<div class="two fluid ui buttons" style="margin-left: 420px; width: 30%;">
-			<a class="ui red button">ยกเลิก</a>
-		</div>
-	</div>
-</div>

@@ -15,33 +15,23 @@
 						<div class="profile-name">
 							<div id="pn1"><?= $band_profile->name ?></div>
 							<div id="pn2"><?= $band_profile->style ?></div>
-						</div><?php if($this->session->userdata('user_type') == 2): ?>
-						<?php if(empty($is_follow_band)): ?>
+						</div>
 						<div id="band-follow" class="ui small black buttons">
-							<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a>
-							<div class="ui button"></i>ข้อความ</div>
-							<div class="ui labeled top right pointing dropdown black button"></i><i class="ellipsis horizontal icon" style="margin: 0px"></i>
+							<?php if($this->session->userdata('user_type') == 2): ?><?php if(empty($is_follow_band)): ?>
+							<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a><?php else: ?>
+							<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a><?php endif; ?><?php endif; ?>
+							<div class="ui button">ข้อความ</div>
+							<div class="ui labeled top right pointing dropdown black button">
+								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
-									<div class="item test reportband">รายงานปัญหาวงดนตรี</div>
+									<div class="item mbtn reportband">รายงานปัญหาวงดนตรี</div>
 									<div class="item">test2</div>
 									<div class="item">test3</div>
 								</div>
 							</div>
 						</div>
-					<?php else: ?>
-					<div id="band-follow" class="ui small black buttons">
-						<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
-						<div class="ui button">ข้อความ</div>
-						<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
-							<div class="menu">
-								<div class="item test reportband">รายงานปัญหาวงดนตรี</div>
-								<div class="item">emtry</div>
-								<div class="item">emtry</div>
-							</div>
-						</div>
-					</div>
-				<?php endif; ?>
-			<?php endif; ?>
+				
+			
 			<div id="join-band" class="ui red buttons">
 				<div class="ui button" style="border-top-left-radius: 0em; border-bottom-left-radius: 0em; font-size: 0.85em!important; padding: 0.8em 1em;">
 					<?php if($this->session->userdata('user_type') == 2): ?>
@@ -129,17 +119,17 @@
 </section>
 
 <!--Report band modal-->
-<div class="ui transition visible scrolling reportband modal">
-	<div class="header">
-		ช่วยให้เราเข้าใจปัญหานี้
-	</div>
-	<div class="content">
-		<div class="left"></div>
-		<div class="right">
-			<div class="ui header">วงดนตรีนี้ผิดปกติอย่างไร ?</div>
-			<div class="ui form">
-				<form action="<?= base_url().'report/post' ?>" method="post">
-					<input type="hidden" name="postid" value="" id="postid">
+<div class="ui transition scrolling reportband modal">
+	<form action="<?= base_url().'report/post' ?>" method="post">
+		<div class="header">
+			ช่วยให้เราเข้าใจปัญหานี้
+		</div>
+		<div class="content">
+			<div class="left"></div>
+			<div class="right">
+				<div class="ui header">วงดนตรีนี้ผิดปกติอย่างไร ?</div>
+				<div class="ui form">
+					<input type="hidden" name="postid" value="" id="postid"/>
 					<div class="grouped inline fields">
 						<div class="field">
 							<div class="ui radio checkbox">

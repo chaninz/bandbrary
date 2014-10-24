@@ -29,7 +29,7 @@
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-md-9">
 						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-							<div class="create-post test createpost">
+							<div class="create-post mbtn createpost">
 								<div id="create-post-button" class="ui icon button">
 									<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
 								</div>
@@ -48,7 +48,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<div class="item test reportpost" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+										<div class="item mbtn reportpost" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -65,7 +65,7 @@
 	</section>
 
 	<!--Create post modal-->
-	<div class="ui form segment createpost modal">
+	<div class="ui form transition segment createpost modal">
 		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post">
 			<h3>สร้างโพสต์</h3>
 			<br/><p/>
@@ -95,17 +95,17 @@
 	</div>
 
 	<!--Report post modal-->
-	<div class="ui transition visible scrolling reportpost modal">
-		<div class="header">
-			ช่วยให้เราเข้าใจปัญหานี้
-		</div>
-		<div class="content">
-			<div class="left">
+	<div class="ui transition scrolling reportpost modal">
+		<form action="<?= base_url().'report/post' ?>" method="post">
+			<div class="header">
+				ช่วยให้เราเข้าใจปัญหานี้
 			</div>
-			<div class="right">
-				<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
-				<div class="ui form">
-					<form action="<?= base_url().'report/post' ?>" method="post">
+			<div class="content">
+				<div class="left">
+				</div>
+				<div class="right">
+					<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
+					<div class="ui form">
 						<input type="hidden" name="postid" value="" class="postid">
 						<div class="grouped inline fields">
 							<div class="field">
@@ -147,14 +147,6 @@
 
 	<?php $this->load->view('footer'); ?>
 
-	<script>
-	$(".reportpost").click(function(){
-		$(".userreport#postreport").click(function(){
-			$('.userreport.modal').modal('show');
-			var id = $(this).attr("post-id");
-			$('.postid').val(id);
-		});
-	});
-	</script>
+	
 </body>
 </html>
