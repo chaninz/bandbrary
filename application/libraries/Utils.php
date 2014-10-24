@@ -27,11 +27,12 @@ class Utils {
 
 		if ($user['user_type'] == 2) {
 			// Check if he is a musician
-			$bid = $this->CI->join_band_model->get_current_band($user['id'])->band_id;
-			$is_master = $this->CI->join_band_model->get_current_band($user['id'])->is_master;
+			$current_band = $this->CI->join_band_model->get_current_band($user['id']);
 
-			if ($bid) {
+			if ( ! empty($current_band)) {
 				// If the user joined band, put id of his band to session
+				$bid = $current_band->band_id;
+				$is_master = $current_band->is_master;
 				$user['band_id'] = $bid;
 				$user['is_master'] = $is_master;
 			}

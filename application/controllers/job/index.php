@@ -9,9 +9,9 @@ class Index extends CI_Controller {
 	}
 
 	public function index() {
-		$jobs = $this->job_model->get_near(50);
+		$jobs = $this->job_model->get_current_all();
 		$data = array('jobs' => $jobs);
-		$this->load->view('job/job', $data);
+		$this->load->view('job/all', $data);
 	}
 
 	public function get(){

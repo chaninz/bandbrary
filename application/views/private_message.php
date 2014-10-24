@@ -173,5 +173,24 @@ padding-right: 1rem;
           <div class="description"><?= $pm_user->text ?></div>
         </a>
       <?php endforeach; ?> -->
+
+  <script>
+    $(".view.job").click(function(){
+      var id = $(this).attr("data-id");
+      $.ajax({
+        type:'POST',
+        url:'<?= base_url('pm/view'); ?>',
+        data:{id:id},
+        success:function(data){
+          console.log(data);
+          var job = JSON.parse(data);
+          $("#jobname").text(job.name);
+        
+        }
+      });
+
+    })  
+
+</script>
     </body>
     </html>

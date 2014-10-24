@@ -48,7 +48,11 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
+<<<<<<< HEAD
 										<div class="item test reportpost" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+=======
+										<div class="item userreport post" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+>>>>>>> f017691f223bf76b8ad837ff5c58af92de0021eb
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -106,7 +110,7 @@
 				<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
 				<div class="ui form">
 					<form action="<?= base_url().'report/post' ?>" method="post">
-						<input type="hidden" name="postid" value="" id="postid">
+						<input type="hidden" name="postid" value="" class="postid">
 						<div class="grouped inline fields">
 							<div class="field">
 								<div class="ui radio checkbox">
@@ -133,6 +137,7 @@
 								</div>
 							</div>
 						</div>
+<<<<<<< HEAD
 					</div>
 				</div>
 			</div>
@@ -143,16 +148,42 @@
 				<input type="submit" class="ui red submit small button" value="ส่งรายงาน">
 			</div>
 		</form>
+=======
+						<div class="actions">
+							<div class="ui black small button cancel">
+								ยกเลิก
+							</div>
+							<input type="submit" class="ui red submit small button" value="โพสต์">
+							ส่งรายงาน
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+>>>>>>> f017691f223bf76b8ad837ff5c58af92de0021eb
 	</div>
 
 	<?php $this->load->view('footer'); ?>
 
 	<script>
+<<<<<<< HEAD
 	$(".reportpost").click(function(){
 		$('.reportpost.modal').modal('show');
+=======
+	$('.create.modal').modal('attach events', '.test.nin', 'show');
+	$(".userreport#postreport").click(function(){
+		$('.userreport.modal').modal('show');
+>>>>>>> f017691f223bf76b8ad837ff5c58af92de0021eb
 		var id = $(this).attr("post-id");
-		$('#post_id').val(id);
+		$('.postid').val(id);
 	});
+<<<<<<< HEAD
 	</script>
+=======
+	$(".actions .cancel").click(function(){
+		$('.userreport.modal').modal('hide');
+	});
+    </script>
+>>>>>>> f017691f223bf76b8ad837ff5c58af92de0021eb
 </body>
 </html>

@@ -10,9 +10,9 @@ class Near extends CI_Controller {
 
 	public function index() {
 		$province_id = $this->session->userdata('province_id');
-		$jobs = $this->job_model->get_by_province($province_id);
+		$jobs = $this->job_model->get_near($province_id);
 		$data = array('jobs' => $jobs);
-		$this->load->view('job/job', $data);
+		$this->load->view('job/near', $data);
 	}
 
 }
