@@ -175,7 +175,7 @@
 </div>
 
 <div style="margin-top: 30px; margin-bottom: 50px;">
-<?php if ($job->status == 1 && $job->user_id != $this->session->userdata('id')): ?>
+<?php if ($job->status == 1 && $this->session->userdata('user_type') == 2 && $job->user_id != $this->session->userdata('id')): ?>
 	<?php if ($current_employment_status == 0): ?>
 		<a class="ui red button" href="<?= base_url('job/request/'.$job->id) ?>">รับงานนี้</a>
 	<?php elseif ($current_employment_status == 1): ?>

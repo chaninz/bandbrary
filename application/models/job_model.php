@@ -76,6 +76,16 @@ class Job_model extends CI_Model {
 		return $result;
 	}
 
+	function get_by_style($style_id) {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$query = $this->db->get_where('Jobs', array('style_id' => $style_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function get_request($user_id) {
 		return $this->get_by_user_employment($user_id, 1);
 	}
@@ -110,6 +120,17 @@ class Job_model extends CI_Model {
 		return $result;
 	}
 
+	function search($keyword) {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$this->db->like('name', $keyword);
+		$query = $this->db->get('Jobs');
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function set_status($job_id, $status) {
 		$this->db->where('id', $job_id);
 		$this->db->update('Jobs', array('status' => $status));
@@ -126,7 +147,6 @@ class Job_model extends CI_Model {
 	function delete($job_id) {
 		$this->db->delete('Jobs', array('id' => $job_id));
 	}
-
 //-------------------------------------------------
 
 	function countJob(){

@@ -7,63 +7,38 @@
 		<a class="item" href="<?= base_url('job/near') ?>">
 			<i class="heart icon"></i>
 			งานที่จัดใกล้เคียง
-		</a>
+		</a><?php if ($this->session->userdata('user_type') == 2): ?>
 		<a class="item" href="<?= base_url('job/interest') ?>">
 			<i class="heart icon"></i>
 			งานที่คุณสนใจ
-		</a>
+		</a><?php endif; ?>
 		<a class="item" href="<?= base_url('job/my') ?>">
 			<i class="tasks icon"></i>
 			ประกาศของฉัน
 		</a>
 		<div class="item">
 			<b>ค้นหางาน</b>
-			<p/>
-			<div class="ui icon input">
-				<input type="text" placeholder="ใส่คำค้นหา...">
-				<i class="inverted search icon"></i>
-			</div>
+			<p></p>
+			<form id="sidebar-search" action="<?= base_url('job/search') ?>" method="post">
+				<div class="ui icon input">
+					<input type="text" placeholder="ใส่คำค้นหา" name="keyword"/>
+					<i class="inverted search icon"></i>
+				</div>
+			</form>
 		</div>
 		<div class="item">
-			<b>Tag</b>
-			<p/>
+		<b>สไตล์</b>
+		<p><p/>
 			<div class="ui red labels">
-				<a class="ui label">
-					Blues
-				</a>
-				<a class="ui label">
-					Country
-				</a>
-				<a class="ui label">
-					Hip Hop
-				</a>
-				<a class="ui label">
-					Jazz
-				</a>
-				<a class="ui label">
-					Latin
-				</a>
-				<a class="ui label">
-					Pop
-				</a>
-				<a class="ui label">
-					Reggae
-				</a>
-				<a class="ui label">
-					R&B
-				</a>
-				<a class="ui label">
-					Rock
-				</a>
-				<a class="ui label">
-					Wedding
-				</a>
-				<a class="ui label">
-					Restuarant
-				</a>
-				<a class="ui label">
-					Hotel
-				</a>
+				<a class="ui label" href="<?= base_url('job/search/style/1') ?>">บลูส์</a>
+				<a class="ui label" href="<?= base_url('job/search/style/2') ?>">คันทรี</a>
+				<a class="ui label" href="<?= base_url('job/search/style/3') ?>">ฮิปฮอป</a>
+				<a class="ui label" href="<?= base_url('job/search/style/4') ?>">แจ๊ส</a>
+				<a class="ui label" href="<?= base_url('job/search/style/5') ?>">ลาติน</a>
+				<a class="ui label" href="<?= base_url('job/search/style/6') ?>">ป็อป</a>
+				<a class="ui label" href="<?= base_url('job/search/style/7') ?>">เรกเก้</a>
+				<a class="ui label" href="<?= base_url('job/search/style/8') ?>">อาร์แอนด์บี</a>
+				<a class="ui label" href="<?= base_url('job/search/style/9') ?>">ร็อค</a>
 			</div>
 		</div>
 	</div>
