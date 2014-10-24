@@ -19,7 +19,7 @@ class Start extends CI_Controller {
 			redirect('');
 		} else if ($this->input->post()) {
 			// Receive data from form
-			$id = $this->session->userdata('id');
+			$user_id = $this->session->userdata('id');
 			$name = $this->input->post('name');
 			$surname = $this->input->post('surname');
 			$dob = $this->input->post('dob');
@@ -41,14 +41,13 @@ class Start extends CI_Controller {
 
 				if ($user_type == 2 && ! empty($styles) && ! empty($skills)) {
 					// Insert styles and skills to database
-					$this->style_model->add($id, $styles);
-					$this->skill_model->add($id, $skills);
-				} else {
-					show_404();
+					$this->style_model->add($user_id, $styles);
+					$this->skill_model->add($user_id, $skills);
 				}
-				$this->user_model->update($id, $data);
-
-				redirect('');
+				
+				$this->user_model->update($user_id, $data);
+				$user = $this->utils->refresh_user($user_id);
+				redirect(base_url('user/'.$user['username']));
 			} else {
 				show_404();
 			}

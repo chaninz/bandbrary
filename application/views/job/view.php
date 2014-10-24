@@ -134,29 +134,39 @@
 			</div>
 			<div class="item">
 				<div class="content">
+					<div class="header">ประกาศโดย</div>
+					<a href="<?= base_url('user/'.$job->username) ?>"><?= $job->users_name.' '.$job->surname ?></a>
+				</div>
+			</div>
+			<div class="item">
+				<div class="content">
 					<div class="header">ผู้สนใจ</div>
 					<?php if ($job_requests): ?><?php foreach ($job_requests as $job_request) : ?>
 					<div id="job-pd" class="field">
 						<div class="jp1"><?php if($this->session->userdata('photo_url')): ?>
-							<img src="<?= base_url('uploads/images/profile/'.$this->session->userdata('photo_url')) ?>" id="img-preview"/><?php else: ?>
+							<img src="<?= base_url('uploads/images/profile/'.$job_request->photo_url) ?>" id="img-preview"/><?php else: ?>
 							<img src="<?= base_url('images/no_profile.jpg') ?>" id="img-preview"/><?php endif; ?>
 						</div>
 						<div class="jp2"><?= $job_request->name.' '.$job_request->surname ?></div>
 						<div class="jp3">
-							<?php if ($job->status == 1): ?>
+						<?php if ($job->status == 1 && $job->user_id == $this->session->userdata('id')): ?>
 							<?php if ($job_request->status == 1): ?>
-							<a class="ui small green button" href="<?= base_url('job/accept/'.$job->id.'?user='.$job_request->user_id) ?>">ยืนยัน</a>
-							<a class="ui small red button" href="<?= base_url('job/reject/'.$job->id.'?user='.$job_request->user_id) ?>">ปฏิเสธ</a>
+								<a class="ui small green button" href="<?= base_url('job/accept/'.$job->id.'?user='.$job_request->user_id) ?>">ยืนยัน</a>
+								<a class="ui small red button" href="<?= base_url('job/reject/'.$job->id.'?user='.$job_request->user_id) ?>">ปฏิเสธ</a>
+							<?php elseif ($job_request->status == 2): ?>
+								<a class="ui small green active button">ยืนยันแล้ว</a>
+								<a class="ui small button" href="<?= base_url('job/reset/'.$job->id.'?user='.$job_request->user_id) ?>">ยกเลิก</a>
+							<?php elseif ($job_request->status == 3): ?>
+								<a class="ui small red active button">ปฏิเสธแล้ว</a>
+								<a class="ui small button" href="<?= base_url('job/reset/'.$job->id.'?user='.$job_request->user_id) ?>">ยกเลิก</a>
+							<?php endif; ?>	
 						<?php elseif ($job_request->status == 2): ?>
-						<a class="ui small green active button">ยืนยันแล้ว</a>
-						<a class="ui small button" href="<?= base_url('job/reset/'.$job->id.'?user='.$job_request->user_id) ?>">ยกเลิก</a>
-					<?php elseif ($job_request->status == 3): ?>
-					<a class="ui small red active button">ปฏิเสธแล้ว</a>
-					<a class="ui small button" href="<?= base_url('job/reset/'.$job->id.'?user='.$job_request->user_id) ?>">ยกเลิก</a>
-				<?php endif; ?>	
-			<?php endif; ?>
-		</div>
-	</div>
+							<span class="ui green label">ยืนยันแล้ว</span>	
+						<?php elseif ($job_request->status == 3 && $job_request->user_id == $this->session->userdata('id')): ?>
+							<span class="ui red label">ถูกปฏิเสธแล้ว</span>
+						<?php endif; ?>
+				</div>
+			</div>
 <?php endforeach; ?><?php else: ?>
 	ไม่มีผู้สนใจ
 <?php endif; ?>
@@ -165,24 +175,30 @@
 </div>
 
 <div style="margin-top: 30px; margin-bottom: 50px;">
-<?php if ($job->status == 1): ?>
+<?php if ($job->status == 1 && $job->user_id != $this->session->userdata('id')): ?>
 	<?php if ($current_employment_status == 0): ?>
-	<a class="ui red button" href="<?= base_url('job/request/'.$job->id) ?>">รับงานนี้</a>
-<?php elseif ($current_employment_status == 1): ?>
-	<a class="ui button" href="<?= base_url('job/cancel/'.$job->id) ?>">ยกเลิกงานนี้</a>
-<?php elseif ($current_employment_status == 2): ?>
-	<a class="ui button" href="<?= base_url('job/cancel/'.$job->id) ?>">ยกเลิกงานนี้</a>
-<?php elseif ($current_employment_status == 3): ?>
-	<a class="ui disabled button" href="<?= base_url('job/cancel/'.$job->id) ?>">ถูกปฏิเสธแล้ว</a>
+		<a class="ui red button" href="<?= base_url('job/request/'.$job->id) ?>">รับงานนี้</a>
+	<?php elseif ($current_employment_status == 1): ?>
+		<a class="ui button" href="<?= base_url('job/cancel/'.$job->id) ?>">ยกเลิกงานนี้</a>
+	<?php elseif ($current_employment_status == 2): ?>
+		<a class="ui button" href="<?= base_url('job/cancel/'.$job->id) ?>">ยกเลิกงานนี้</a>
+	<?php elseif ($current_employment_status == 3): ?>
+		<a class="ui disabled button" href="<?= base_url('job/cancel/'.$job->id) ?>">ถูกปฏิเสธแล้ว</a>
+	<?php endif; ?>
+	<?php elseif ($job->status == 0 && $job->user_id != $this->session->userdata('id')): ?>
+		<?php if ($current_employment_status == 3): ?>
+			<a class="ui disabled button" href="<?= base_url('job/cancel/'.$job->id) ?>">ถูกปฏิเสธแล้ว</a>
+		<?php elseif ($job->status == 0): ?>
+			<a class="ui disabled button">ปิดรับสมัครแล้ว</a>
+		<?php endif; ?>
 <?php endif; ?>
-<?php else: ?>
-	<?php if ($current_employment_status == 3): ?>
-	<a class="ui disabled button" href="<?= base_url('job/cancel/'.$job->id) ?>">ถูกปฏิเสธแล้ว</a>
-<?php else: ?>
-	<a class="ui disabled button">ปิดรับสมัครแล้ว</a>
+<?php if ($job->user_id == $this->session->userdata('id')): ?>
+	<?php if ($job->status == 1): ?>
+		<a class="ui button" href="<?= base_url('job/close/'.$job->id) ?>">ปิดรับสมัคร</a>
+	<?php elseif ($job->status == 0): ?>
+		<a class="ui button" href="<?= base_url('job/open/'.$job->id) ?>">เปิดรับสมัคร</a>
+	<?php endif; ?>
 <?php endif; ?>
-<?php endif; ?>
-<a class="ui button">ปิดรับสมัคร</a>
 </div>
 
 </div>

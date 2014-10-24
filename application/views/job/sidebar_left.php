@@ -1,20 +1,20 @@
 <!-- Sidebar Job -->
 	<div class="ui red vertical demo sidebar menu">
-		<a class="item" href="<?= base_url('job') ?>">
+		<a class="item" href="<?= base_url('job/all') ?>">
 			<i class="home icon"></i>
 			งานทั้งหมด
 		</a>
 		<a class="item" href="<?= base_url('job/near') ?>">
 			<i class="heart icon"></i>
-			งานใกล้บ้าน
+			งานที่จัดใกล้เคียง
 		</a>
-		<a class="item" href="<?= base_url('job/my') ?>">
+		<a class="item" href="<?= base_url('job/interest') ?>">
 			<i class="heart icon"></i>
 			งานที่คุณสนใจ
 		</a>
-		<a class="item">
+		<a class="item" href="<?= base_url('job/my') ?>">
 			<i class="tasks icon"></i>
-			งานที่รับแล้ว
+			ประกาศของฉัน
 		</a>
 		<div class="item">
 			<b>ค้นหางาน</b>

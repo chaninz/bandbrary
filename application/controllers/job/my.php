@@ -14,7 +14,7 @@ class My extends CI_Controller {
 		$jobs = $this->job_model->get_by_user($user_id);
 
 		$display = array('jobs' => $jobs);
-		$this->load->view('job/job', $display);
+		$this->load->view('job/my', $display);
 	}
 
 }

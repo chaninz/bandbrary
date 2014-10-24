@@ -27,7 +27,7 @@ class Job_model extends CI_Model {
 	}
 
 	function get_near($province_id) {
-		$query = $this->db->query('SELECT *, CASE WHEN province_id = '.$province_id.' THEN 1 ELSE 0 END AS my_province 
+		$query = $this->db->query('SELECT *, Jobs.id AS id, CASE WHEN province_id = '.$province_id.' THEN 1 ELSE 0 END AS my_province 
 			FROM Jobs 
 			JOIN Provinces ON Jobs.province_id = Provinces.id 
 			WHERE Provinces.region = (SELECT Provinces.region FROM Provinces WHERE Provinces.id = '.$province_id.') 
@@ -103,7 +103,7 @@ class Job_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->select('Jobs.id AS id');
 		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
-		$this->db->where('date > CURDATE()');
+		$this->db->where('date > CURDATE() AND status = 1');
 		$query = $this->db->get('Jobs');
 		$result = $query->result();
 		
