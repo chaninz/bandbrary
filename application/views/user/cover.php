@@ -22,7 +22,7 @@
 							<div class="ui button">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
-									<div class="item test reportuser">รายงานปัญหาบุคคล</div>
+									<div class="item mbtn reportuser">รายงานปัญหาบุคคล</div>
 									<div class="item">emtry</div>
 									<div class="item">emtry</div>
 								</div>
@@ -74,7 +74,7 @@
 </section>
 
 <!--Report user modal-->
-<div class="ui transition visible scrolling reportuser modal">
+<div class="ui transition scrolling reportuser modal">
 	<div class="header">
 		ช่วยให้เราเข้าใจปัญหานี้
 	</div>

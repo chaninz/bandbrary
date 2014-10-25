@@ -2,6 +2,7 @@
 	<div class="footleft"></div>
 	<div class="footright"></div>
 </footer> -->
+
 <!--Create modal-->
 <div class="ui basic transition selection list createall modal">
 	<div class="header">
@@ -41,6 +42,10 @@
 <script src="<?php echo base_url().'assets/js/bandbrary.js'; ?>"></script>
 <script src="<?php echo base_url().'assets/js/jquery-ui.min.js'; ?>"></script>
 <script>
+	/* Report Modal */
+	$('.reportuser.modal')
+	.modal('attach events', '.mbtn.reportuser', 'show');
+
 	$('.reportband.modal')
 	.modal('attach events', '.mbtn.reportband', 'show');
 
@@ -52,4 +57,32 @@
 
 	$('.createall.modal')
 	.modal('attach events', '.mbtn.createall', 'show');
+	/* END-Report Modal */
+
+	/* User update Status */
+	$("#status-button").click(function() {
+		$("#status-msg").css("display", "none");
+		$("#status-msg-field").css("display", "").val("");
+	});
+
+	$("#status-msg-field").blur(function() {
+		$("#status-msg").css("display", "");
+		$("#status-msg-field").css("display", "none");
+		var status = $("#status-msg-field").val();
+
+		var statusAdd = $.ajax({
+	        type: "POST",
+	        async: false,
+	        url: "<?= base_url('status/user/add') ?>",
+	        data: {status: status},
+	        dataType: "text"
+	    });
+
+		statusAdd.done(function(msg) {
+			if (msg == 1) {
+				$("#status-msg").text(status);
+			}
+		});
+	});
+	/* END-User update Status */
 </script>

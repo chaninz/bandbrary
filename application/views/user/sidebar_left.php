@@ -1,10 +1,12 @@
 <div class="col-xs-3" style="padding-right: 0px">
+	<?php if ($this->session->userdata('id') == $user_profile->id): ?>
 	<div id="status-button"class="ui icon button">
 		<i class="edit icon"></i>
 	</div>
-
+	<?php endif; ?>
 	<div class="ui stacked segment" id="status-user">
-		<textarea id="status-msg"></textarea>
+		<div id="status-msg" style="background-color: #FFFFFF; display: table;"><?php if ( ! empty($status)): ?><?= $status->status ?><?php endif; ?></div>
+		<textarea id="status-msg-field" style="background-color: #FFFFFF; width: 100%; height: 124px; display: none;"></textarea>
 	</div>
 
 	<div class="about">
