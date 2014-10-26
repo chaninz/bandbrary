@@ -85,4 +85,31 @@
 		});
 	});
 	/* END-User update Status */
+
+	/* Band update Status */
+	$("#status-button").click(function() {
+		$("#status-msg").css("display", "none");
+		$("#status-msg-field").css("display", "").val("");
+	});
+
+	$("#status-msg-field").blur(function() {
+		$("#status-msg").css("display", "");
+		$("#status-msg-field").css("display", "none");
+		var status = $("#status-msg-field").val();
+
+		var statusAdd = $.ajax({
+	        type: "POST",
+	        async: false,
+	        url: "<?= base_url('status/user/add') ?>",
+	        data: {status: status},
+	        dataType: "text"
+	    });
+
+		statusAdd.done(function(msg) {
+			if (msg == 1) {
+				$("#status-msg").text(status);
+			}
+		});
+	});
+	/* END-Band update Status */
 </script>

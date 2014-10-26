@@ -9,6 +9,8 @@ class Event extends CI_Controller {
 		$this->load->model('join_band_model');
 		$this->load->model('follow_model');
 		$this->load->model('status_model');
+		$this->load->model('event_model');
+		$this->load->model('province_model');
 	}
 
 	public function index($username) {
@@ -20,10 +22,15 @@ class Event extends CI_Controller {
 		$current_user_id = $this->session->userdata('id');
 		$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
 
+		$provinces = $this->province_model->get_all();
+		$events = $this->event_model->get_current_by_user($user_profile->id);
+		print_r($events);
+
 		$data = array('user_profile' => $user_profile, 
 			'band_profile' => $band_profile,
 			'status' => $status,
-			'events' => $this->event_model->get_by_user($user_profile->id, 1),
+			'events' => $events,
+			'provinces' => $provinces,
 			'is_follow_user' => $is_follow_user);
 
 		$this->load->view('user/event', $data);

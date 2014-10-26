@@ -486,6 +486,63 @@
 				}
 		});
 
+		/*********๕๕๕๕**/
+		/* Add Event */
+		/********๕๕๕***/
+
+		$('#add-event-form')
+		.form({
+			name: {
+				identifier : 'event',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			venue: {
+				identifier : 'venue',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			province: {
+				identifier : 'province',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			description: {
+				identifier : 'description',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			date: {
+				identifier : 'date',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			time: {
+				identifier : 'time',
+				rules: [
+				{
+					type   : 'time'
+				}
+				]
+			}
+		});
+
+
 	});
 
 	function follow(url) {

@@ -36,7 +36,7 @@
 					<div class="col-xs-9">
 						<div class="center">
 							<?php if ($this->session->userdata('id') == $user_profile->id): ?>
-							<a id="event-add-btn" class="ui red button test event">
+							<a id="event-add-btn" class="ui red button mbtn event">
 								<i class="edit icon"></i>
 								เพิ่มกิจกรรม
 							</a>
@@ -55,25 +55,25 @@
 								<i class="dropdown icon" style="float: left"></i>
 								<table>
 									<tbody>
-										<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->start_time)) ?></td>
-										<td class="eh5"><?= mdate("%H:%i", strtotime($event->start_time)) ?></td>
+										<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->date)) ?></td>
+										<td class="eh5"><?= mdate("%H:%i", strtotime($event->time)) ?></td>
 										<td class="eh6"><?= $event->event ?></td>
 									</tbody>
 								</table>
 							</div>
 							<div class="content"><?= $event->description ?>
 							</div><?php endforeach; ?>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</article>
-</section>
+		</article>
+	</section>
 
 <!--Add event modal-->
 <div class="ui form segment create modal">
-	<form action="<?= base_url('event/user/add?ref='.uri_string()) ?>" method="post">
+	<form id="add-event-form" action="<?= base_url('event/user/add?ref='.uri_string()) ?>" method="post">
 		<h3>เพิ่มกิจกรรม</h3>
 		<br/><p/>
 		<div class="line"></div>
@@ -83,49 +83,63 @@
 			<input type="text" placeholder="" name="event">
 		</div>
 		<div class="field">
+			<label>สถานที่</label>
+			<input type="text" name="venue"/>
+		</div>
+		<div class="field">
 			<label>จังหวัด</label>
-			<div class="ui fluid selection dropdown">
-				<div class="text">ตัวเลือก</div>
-				<i class="dropdown icon"></i>
-				<input type="hidden" name="venue">
-				<div class="menu">
-					<div class="item" data-value="Bangkok" style="font-size: 14px;">กรุงเทพมหานคร</div>
-					<div class="item" data-value="Changmai" style="font-size: 14px;">เชียงใหม่</div>
+			<div class="ui labeled icon input">
+				<div class="ui fluid selection dropdown">
+					<div class="text">เลือก</div>
+					<i class="dropdown icon"></i>
+					<input type="hidden" name="province">
+					<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
+						<div class="item" data-value="<?= $province->id ?>"><?= $province->province ?></div><?php endforeach; endif; ?>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="line"></div>
 		<p/>
 		<div class="field">
-			<label>คำอธิบาย</label>
+			<label>รายละเอียด</label>
 			<textarea name="description" class="ckeditor"></textarea>
 		</div>
 		<div class="two fields">
-			<div class="field">
-				<label>วัน/เดือน/ปี</label>
+			<div class="date field">
+				<label>วันที่</label>
 				<div class="ui left labeled icon input">
-					<input type="date" placeholder="" style="padding: .2em 1em;" name="start_date">
-					<i class="calendar icon"></i>
+					<i class="icon calendar"></i>
+					<input type="text" placeholder="ปปปป-ดด-วว" name="date" id="date"/>
 				</div>
 			</div>
 			<div class="field">
 				<label>เวลา</label>
-				<input type="time" placeholder="" style="padding: .2em 1em;" name="start_time">
+				<div class="ui left labeled icon input">
+					<input type="text" placeholder="ชม.นท" name="time"/>
+					<i class="time icon"></i>
+				</div>
 			</div>
 		</div>
 		<div class="line"></div>
 		<p/>
 		<div class="actions">
-			<div class="ui small button">ยกเลิก</div>
-			<input type="submit" class="ui small red submit button" value="เพิ่มกิจกรรม">
+			<div id="add-event-button" class="ui ok small red submit button">เพิ่มกิจกรรม</div>
+			<div class="ui cancel small button">ยกเลิก</div>
 		</div>
 	</form>
 </div>
 
 <?php $this->load->view('footer'); ?>
 <script>
-$('.create.modal')
-.modal('attach events', '.test.event', 'show');
+	$(".create.modal").modal("setting", {
+		closable  : false,
+		onDeny    : function(){
+		},
+		onApprove : function() {
+			return $("#add-event-form").form("validate form");
+		}
+	}).modal("attach events", ".mbtn.event", "show");
 </script>
 </body>
 </html>
