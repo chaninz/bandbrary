@@ -4,14 +4,16 @@ class Band extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('report_band_model');
+
 	}
 
-	public function index($band_id) {
+	public function index() {
 		if ($this->input->post()) {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
-			'band_id' => $band_id,
-			'report_type' => $this->input->post('report_type')
+			'band_id' => $this->input->post('bandid'),
+			'type' => $this->input->post('report_type')
 		);
 			$this->report_band_model->add($data);
 		}
