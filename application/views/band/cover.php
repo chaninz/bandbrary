@@ -120,30 +120,17 @@
 
 <!--Report band modal-->
 <div class="ui transition scrolling reportband modal">
-<<<<<<< HEAD
 	<div class="header">
 		ช่วยให้เราเข้าใจปัญหานี้
+		<?= $band_profile->id ?>
 	</div>
 	<div class="content">
 		<div class="left"></div>
 		<div class="right">
 			<div class="ui header">วงดนตรีนี้ผิดปกติอย่างไร ?</div>
 			<div class="ui form">
-				<form action="<?= base_url().'report/post' ?>" method="post">
-					<input type="hidden" name="postid" value="" id="postid"/>
-=======
-	<form action="<?= base_url().'report/band' ?>" method="post">
-		<div class="header">
-			<?= $band_profile->id ?>
-			ช่วยให้เราเข้าใจปัญหานี้
-		</div>
-		<div class="content">
-			<div class="left"></div>
-			<div class="right">
-				<div class="ui header">วงดนตรีนี้ผิดปกติอย่างไร ?</div>
-				<div class="ui form">
+				<form action="<?= base_url().'report/band' ?>" method="post">
 					<input type="hidden" name="bandid" value="" class="bandid"/>
->>>>>>> 439b677c27331d731a78dea9e82e7b9c12163a82
 					<div class="grouped inline fields">
 						<div class="field">
 							<div class="ui radio checkbox">
@@ -183,11 +170,11 @@
 </div>
 
 <script>
-	
-		$(".reportband#bandreport").click(function(){
-			var id = $(this).attr("post-id");
-			alert(id);
-			$('.bandid').val(id);
-		});
-	</script>
-	<?php $this->load->view('footer'); ?>
+
+$(".reportband#bandreport").click(function(){
+	var id = $(this).attr("post-id");
+	alert(id);
+	$('.bandid').val(id);
+});
+</script>
+<?php $this->load->view('footer'); ?>

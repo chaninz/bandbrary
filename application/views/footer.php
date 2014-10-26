@@ -42,10 +42,8 @@
 <script src="<?php echo base_url().'assets/js/bandbrary.js'; ?>"></script>
 <script src="<?php echo base_url().'assets/js/jquery-ui.min.js'; ?>"></script>
 <script>
-<<<<<<< HEAD
-=======
+
 	/* Report Modal */
->>>>>>> 439b677c27331d731a78dea9e82e7b9c12163a82
 	$('.reportuser.modal')
 	.modal('attach events', '.mbtn.reportuser', 'show');
 

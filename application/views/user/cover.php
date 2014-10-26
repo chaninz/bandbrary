@@ -22,11 +22,7 @@
 							<div class="ui button">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
-<<<<<<< HEAD
-									<div class="item mbtn reportuser">รายงานปัญหาบุคคล</div>
-=======
 									<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
->>>>>>> 439b677c27331d731a78dea9e82e7b9c12163a82
 									<div class="item">emtry</div>
 									<div class="item">emtry</div>
 								</div>
@@ -38,11 +34,7 @@
 						<div class="ui button">ข้อความ</div>
 						<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 							<div class="menu">
-<<<<<<< HEAD
-								<div class="item mbtn reportuser">รายงานปัญหาบุคคล</div>
-=======
-								<div class="item test reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
->>>>>>> 439b677c27331d731a78dea9e82e7b9c12163a82
+								<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
 								<div class="item">emtry</div>
 								<div class="item">emtry</div>
 							</div>
