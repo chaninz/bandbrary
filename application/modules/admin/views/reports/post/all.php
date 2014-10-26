@@ -303,10 +303,10 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="simple.html"><i class="fa fa-angle-double-right"></i> Band</a></li>
-                            <li><a href="data.html"><i class="fa fa-angle-double-right"></i> User</a></li>
-                            <li><a href="data.html"><i class="fa fa-angle-double-right"></i> Music</a></li>
-                            <li><a href="data.html"><i class="fa fa-angle-double-right"></i> Post</a></li>
+                           <li><a href="<?= base_url().'admin/reports/band/getNotApprove' ?>"><i class="fa fa-angle-double-right"></i> Band</a></li>
+                            <li><a href="<?= base_url().'admin/reports/user/getNotApprove' ?>"><i class="fa fa-angle-double-right"></i> User</a></li>
+                            <li><a href="<?= base_url().'admin/reports/music/getNotApprove' ?>"><i class="fa fa-angle-double-right"></i> Music</a></li>
+                            <li><a href="<?= base_url().'admin/reports/post/getNotApprove' ?>"><i class="fa fa-angle-double-right"></i> Post</a></li>
                         </ul>
                     </li>
                     <li>
@@ -355,9 +355,9 @@
                                         <span class="sr-only"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Approved</a></li>
-                                        <li><a href="#">None</a></li>
-                                        <li><a href="#">None</a></li>
+                                        <li><a href="<?= base_url().'admin/reports/post/getNotApproved' ?>">Not Approved</a></li>
+                                        <li><a href="<?= base_url().'admin/reports/post/getApproved' ?>">Approved</a></li>
+                                        <li><a href="#">All</a></li>
                                     </ul>
                                 </div>
                             </div>
