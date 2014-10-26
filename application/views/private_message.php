@@ -24,7 +24,7 @@
     scrollbar-darkshadow-color:#888888
   }
   #pm-msg {
-    height: 417px;
+    height: 370px;
     overflow-y: scroll; 
     scrollbar-arrow-color:blue; 
     scrollbar-face-color: #e7e7e7; 
@@ -66,56 +66,11 @@
               <div class="description"><?= $pm_user->name ?> <?= $pm_user->surname ?> <?= $pm_user->text ?></div>
             </a>
           <?php endforeach; ?>
-         <!--  <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 14, 2013</div>
-            <div class="description">Scientists discover new breed of dog</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 10, 2013</div>
-            <div class="description">Dogs colony in Antarctica</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 09, 2013</div>
-            <div class="description">Famous dog whisperer Chakotay dies today at 104</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 07, 2013</div>
-            <div class="description">Top 10 Things to Know about Labradoodles</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a> -->
         </div>
       </div>
       <div class="col-xs-8" style="padding: 0px 0px 0px 0px;">
        <div id="pm-msg" class="ui feed segment">
-        <?php foreach($chats as $chat): ?>
+       <!--  <?php foreach($chats as $chat): ?>
         <div class="event">
           <div class="label">
            <?php if($chat->photo_url): ?>
@@ -135,25 +90,13 @@
           </div>
         </div>
       </div>
-    <?php endforeach; ?>
-    <div class="event">
-      <div class="label">
-        <img src="/images/demo/avatar.jpg">
-      </div>
-      <div class="content">
-        <div class="date">
-          3 days ago
-        </div>
-        <div class="summary">
-         <a>Sally Poodle</a> created a post
-       </div>
-       <div class="extra text">
-        I am a dog and I do not know how to make a post
-      </div>
-    </div>
-  </div>
+    <?php endforeach; ?> -->
+   
 </div>
-<textarea name="description" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
+<form>
+<textarea name="message" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
+<input class="small ui button" style="margin-top: 5px; margin-left: 540px;" type="submit" value="send">
+</form>
 </div>
 
 </div>

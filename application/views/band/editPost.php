@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
 	<form action="<?php echo base_url().'band/post/edit'; ?>" method="post">
 		<input type="text" placeholder="topic" name="topic" readonly> <br>
 		<input type="text" placeholder="post" name="post"> <br
@@ -6,7 +6,7 @@
 		<input type="submit" class="btn" value="Share">
 
 	</form>
-</div>
+</div> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,17 +53,17 @@
 				<div class="ui form segment">
 					<div class="field">
 						<label>Title</label>
-						<input type="text" placeholder="" name="topic" value="<?php echo $topic; ?>"readonly>
+						<input type="text" placeholder="" name="topic" value="<?= $post->topic ?>" readonly>
 					</div>
 					<div class="field">
 						<label>Description</label>
-						<textarea name="post"><?php echo $post; ?></textarea>
+						<textarea name="post"><?= $post->post; ?></textarea>
 					</div>
 					<div class="field">
 						<label>Profile Photo</label>
-						<input type="file" name="image_url" value="<?php echo $image_url; ?>">
+						<input type="file" name="image_url" value="<?= $post->image_url; ?>">
 					</div>
-					<input class="ui red submit button" type="submit" value="register">
+					<input class="ui red submit button" type="submit" value="บันทึก">
 				</form>
 				</div>
 			</div>

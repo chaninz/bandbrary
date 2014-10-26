@@ -60,14 +60,15 @@ class Post extends CI_Controller {
 
 	public function edit($post_id) {
 		if ($this->input->post()) {
-			// edit band to get band name from session
 			$post = array('post' => $this->input->post('post'),
 				'image_url' => $this->input->post('imageurl')
 			);
 			$this->post_model->editPost($post);
 		} else {
-			$post = $this->post_model->getPost($post_id);
-			$this->load->view('temp/editPost',$post);
+			$data = array(
+			'post' => $this->post_model->getPost($post_id)
+			);
+			$this->load->view('band/editPost',$data);
 		}
 	}
 
