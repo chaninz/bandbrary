@@ -122,7 +122,6 @@
 <div class="ui transition scrolling reportband modal">
 	<div class="header">
 		ช่วยให้เราเข้าใจปัญหานี้
-		<?= $band_profile->id ?>
 	</div>
 	<div class="content">
 		<div class="left"></div>
@@ -173,7 +172,6 @@
 
 $(".reportband#bandreport").click(function(){
 	var id = $(this).attr("post-id");
-	alert(id);
 	$('.bandid').val(id);
 });
 </script>
