@@ -29,7 +29,7 @@ class Report_Post_model extends CI_Model {
 	}	
 
 	function get_approved_report(){
-		$this->db->select('Report_Post.*,Users.name as username,Band_Posts.name as postname');
+		$this->db->select('Report_Post.*,Users.name as reporter,Band_Posts.topic as postname');
 		$this->db->from('Report_Post');
 		$this->db->join('Users', 'Report_Post.user_report = Users.id');
 		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
@@ -41,7 +41,7 @@ class Report_Post_model extends CI_Model {
 	}
 
 	function get_not_approve_report(){
-		$this->db->select('Report_Post.*,Users.name as username,Band_Posts.name as postname');
+		$this->db->select('Report_Post.*,Users.name as reporter,Band_Posts.topic as postname');
 		$this->db->from('Report_Post');
 		$this->db->join('Users', 'Report_Post.user_report = Users.id');
 		$this->db->join('Band_Posts', 'Report_Post.post_id = Band_Posts.id');
