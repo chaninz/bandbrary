@@ -70,7 +70,7 @@
       </div>
       <div class="col-xs-8" style="padding: 0px 0px 0px 0px;">
        <div id="pm-msg" class="ui feed segment">
-        <?php foreach($chats as $chat): ?>
+       <!--  <?php foreach($chats as $chat): ?>
         <div class="event">
           <div class="label">
            <?php if($chat->photo_url): ?>
@@ -90,28 +90,13 @@
           </div>
         </div>
       </div>
-    <?php endforeach; ?>
-    <div class="event">
-      <div class="label">
-        <img src="/images/demo/avatar.jpg">
-      </div>
-      <div class="content">
-        <div class="date">
-          3 days ago
-        </div>
-        <div class="summary">
-         <a>Sally Poodle</a> created a post
-       </div>
-       <div class="extra text">
-        I am a dog and I do not know how to make a post
-      </div>
-    </div>
-  </div>
+    <?php endforeach; ?> -->
+   
 </div>
-<textarea name="description" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
-<div class="small ui button" style="margin-top: 5px; margin-left: 540px;">
-  Send
-</div>
+<form>
+<textarea name="message" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
+<input class="small ui button" style="margin-top: 5px; margin-left: 540px;" type="submit" value="send">
+</form>
 </div>
 
 </div>
