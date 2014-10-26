@@ -90,6 +90,7 @@ $route['job/close/(:num)'] = 'job/close/index/$1';
 $route['job/delete/(:num)'] = 'job/delete/index/$1';
 $route['job/view/(:num)'] = 'job/view/index/$1';
 $route['job/edit/(:num)'] = 'job/edit/index/$1';
+$route['job/search/style/(:num)'] = 'job/search/style/$1';
 
 
 

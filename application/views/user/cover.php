@@ -22,7 +22,11 @@
 							<div class="ui button">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
+<<<<<<< HEAD
 									<div class="item mbtn reportuser">รายงานปัญหาบุคคล</div>
+=======
+									<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
+>>>>>>> 439b677c27331d731a78dea9e82e7b9c12163a82
 									<div class="item">emtry</div>
 									<div class="item">emtry</div>
 								</div>
@@ -34,7 +38,11 @@
 						<div class="ui button">ข้อความ</div>
 						<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 							<div class="menu">
+<<<<<<< HEAD
 								<div class="item mbtn reportuser">รายงานปัญหาบุคคล</div>
+=======
+								<div class="item test reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
+>>>>>>> 439b677c27331d731a78dea9e82e7b9c12163a82
 								<div class="item">emtry</div>
 								<div class="item">emtry</div>
 							</div>
@@ -74,8 +82,9 @@
 </section>
 
 <!--Report user modal-->
-<div class="ui transition visible scrolling reportuser modal">
+<div class="ui transition scrolling reportuser modal">
 	<div class="header">
+
 		ช่วยให้เราเข้าใจปัญหานี้
 	</div>
 	<div class="content">
@@ -83,8 +92,8 @@
 		<div class="right">
 			<div class="ui header">บุคคลนี้ผิดปกติอย่างไร ?</div>
 			<div class="ui form">
-				<form action="<?= base_url().'report/post' ?>" method="post">
-					<input type="hidden" name="postid" value="" id="postid">
+				<form action="<?= base_url().'report/user' ?>" method="post">
+					<input type="hidden" name="userid" value="" class="userid">
 					<div class="grouped inline fields">
 						<div class="field">
 							<div class="ui radio checkbox">
@@ -122,3 +131,10 @@
 		</div>
 	</form>
 </div>
+<script>
+	
+		$(".reportuser#userreport").click(function(){
+			var id = $(this).attr("post-id");
+			$('.userid').val(id);
+		});
+	</script>

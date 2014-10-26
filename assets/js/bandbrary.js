@@ -475,6 +475,17 @@
 			}
 		});
 
+		/***************/
+		/* Job Sidebar */
+		/***************/
+
+		$("#sidebar-search").keypress(function(event) {
+				if (event.which == 13) {
+					event.preventDefault();
+					$("#sidebar-search").submit();
+				}
+		});
+
 	});
 
 	function follow(url) {

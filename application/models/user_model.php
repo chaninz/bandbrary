@@ -133,26 +133,6 @@ class User_model extends CI_Model {
 		$this->session->set_userdata('count',$result->COUNT);
 	}
 	
-	function writeStatus($data){
-		$this->db->insert('Status',$data);	
-	}
-	
-	function getStatus(){
-		$id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->from('Status');
-		$this->db->where('id',$id);
-
-		$query = $this->db->get();
-		return $query->row();
-	}
-
-	function updateStatus($data){
-		$id = $this->session->userdata('id');
-		$this->db->where('id',$id);
-		$this->db->update('Status',$data);
-	}
-
 	function updateBiography($biography){
 		$id = $this->session->userdata('id');
 		$this->db->where('id',$id);

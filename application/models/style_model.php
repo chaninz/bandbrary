@@ -6,6 +6,13 @@ class Style_model extends CI_Model {
 		parent::__construct();
 	}
 
+	function get_all() {
+		$query = $this->db->get('Styles');
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function add($user_id, $styles) {
 		foreach ($styles as $style) {
 			$this->db->insert('Has_Styles', array('user_id' => $user_id,
