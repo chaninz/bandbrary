@@ -13,8 +13,9 @@ class Band extends CI_Controller {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
 			'band_id' => $this->input->post('bandid'),
-			'type' => $this->input->post('report_type')
+			'type' => $this->input->post('type')
 		);
+			print_r($data);
 			$this->report_band_model->add($data);
 		}
 	}

@@ -4,14 +4,16 @@ class User extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+				$this->load->model('report_user_model');
+
 	}
 
-	public function index($user_id) {
+	public function index() {
 		if ($this->input->post()) {
 			$data = array(
 			'user_report' => $this->session->userdata('id'),
-			'user_id' => $user_id,
-			'report_type' => $this->input->post('report_type')
+			'user_id' => $this->input->post('userid'),
+			'type' => $this->input->post('type')
 		);
 			$this->report_user_model->add($data);
 		}

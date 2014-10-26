@@ -24,7 +24,7 @@
 							<div class="ui labeled top right pointing dropdown black button">
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
-									<div class="item mbtn reportband" id="bandreport" post-id="<?= $band_profile->id; ?>">รายงานปัญหาวงดนตรี</div>
+									<div class="item mbtn reportband" id="bandreport" post-id="<?= $band_profile->id ?> ">รายงานปัญหาวงดนตรี</div>
 									<div class="item">test2</div>
 									<div class="item">test3</div>
 								</div>
@@ -122,6 +122,7 @@
 <div class="ui transition scrolling reportband modal">
 	<form action="<?= base_url().'report/band' ?>" method="post">
 		<div class="header">
+			<?= $band_profile->id ?>
 			ช่วยให้เราเข้าใจปัญหานี้
 		</div>
 		<div class="content">
@@ -129,7 +130,7 @@
 			<div class="right">
 				<div class="ui header">วงดนตรีนี้ผิดปกติอย่างไร ?</div>
 				<div class="ui form">
-					<input type="hidden" name="bandid" value="" id="bandid"/>
+					<input type="hidden" name="bandid" value="" class="bandid"/>
 					<div class="grouped inline fields">
 						<div class="field">
 							<div class="ui radio checkbox">
@@ -172,6 +173,7 @@
 	
 		$(".reportband#bandreport").click(function(){
 			var id = $(this).attr("post-id");
+			alert(id);
 			$('.bandid').val(id);
 		});
 	</script>
