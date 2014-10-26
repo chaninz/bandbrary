@@ -48,7 +48,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<div class="item mbtn reportpost" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+										<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
 								<div class="post-body"><?= $post->post ?></div>
@@ -144,7 +144,13 @@
 			</div>
 		</form>
 	</div>
-
+	<script>
+	
+		$(".reportpost#postreport").click(function(){
+			var id = $(this).attr("post-id");
+			$('.postid').val(id);
+		});
+	</script>
 	<?php $this->load->view('footer'); ?>
 
 	
