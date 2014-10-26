@@ -24,7 +24,7 @@
     scrollbar-darkshadow-color:#888888
   }
   #pm-msg {
-    height: 417px;
+    height: 370px;
     overflow-y: scroll; 
     scrollbar-arrow-color:blue; 
     scrollbar-face-color: #e7e7e7; 
@@ -66,51 +66,6 @@
               <div class="description"><?= $pm_user->name ?> <?= $pm_user->surname ?> <?= $pm_user->text ?></div>
             </a>
           <?php endforeach; ?>
-         <!--  <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 14, 2013</div>
-            <div class="description">Scientists discover new breed of dog</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 10, 2013</div>
-            <div class="description">Dogs colony in Antarctica</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 09, 2013</div>
-            <div class="description">Famous dog whisperer Chakotay dies today at 104</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 07, 2013</div>
-            <div class="description">Top 10 Things to Know about Labradoodles</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a>
-          <a class="item">
-            <div class="left floated ui star rating"><i class="icon"></i></div>
-            <div class="right floated date">Sep 05, 2013</div>
-            <div class="description">Study shows children enjoy the company of animals</div>
-          </a> -->
         </div>
       </div>
       <div class="col-xs-8" style="padding: 0px 0px 0px 0px;">
@@ -154,6 +109,9 @@
   </div>
 </div>
 <textarea name="description" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
+<div class="small ui button" style="margin-top: 5px; margin-left: 540px;">
+  Send
+</div>
 </div>
 
 </div>
