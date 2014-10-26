@@ -63,7 +63,7 @@
 						<label>Profile Photo</label>
 						<input type="file" name="image_url" value="<?php echo $image_url; ?>">
 					</div>
-					<input class="ui red submit button" type="submit" value="register">
+					<input class="ui red submit button" type="submit" value="บันทึก">
 				</form>
 				</div>
 			</div>

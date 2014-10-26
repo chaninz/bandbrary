@@ -67,7 +67,7 @@ class Post extends CI_Controller {
 			$this->post_model->editPost($post);
 		} else {
 			$post = $this->post_model->getPost($post_id);
-			$this->load->view('temp/editPost',$post);
+			$this->load->view('band/editPost',$post);
 		}
 	}
 
