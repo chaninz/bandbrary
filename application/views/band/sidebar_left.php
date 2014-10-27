@@ -14,35 +14,35 @@
 				<div class="item">
 					<i class="book icon"></i>
 					<div class="content">
-						<div class="header">Biography</div>
+						<div class="header">ประวัติ</div>
 						<div class="description"><?= $band_profile->biography; ?></div>
 					</div>
 				</div><?php endif; ?> <?php if( ! empty($band_profile->fb_url)): ?>
 				<div class="item">
 					<i class="map marker icon"></i>
 					<div class="content">
-						<div class="header">Location</div>
+						<div class="header">สถานที่</div>
 						<div class="description"><?= $band_profile->province ?></div>
 					</div>
 				</div><?php endif; ?> <?php if( ! empty($band_profile->fb_url)): ?>
 				<div class="item">
 					<i class="facebook sign icon"></i>
 					<div class="content">
-						<div class="header">Facebook</div>
+						<div class="header">เฟสบุ๊ค</div>
 						<div class="description"><?= $band_profile->fb_url ?></div>
 					</div>
 				</div><?php endif; ?> <?php if( ! empty($band_profile->tw_url)): ?>
 				<div class="item">
 					<i class="twitter icon"></i>
 					<div class="content">
-						<div class="header">Twitter</div>
+						<div class="header">ทวิตเตอร์</div>
 						<div class="description"><?= $band_profile->tw_url; ?> </div>
 					</div>
 				</div><?php endif; ?> <?php if( ! empty($band_profile->yt_url)): ?>
 				<div class="item">
 					<i class="youtube play icon"></i>
 					<div class="content">
-						<div class="header">Youtube</div>
+						<div class="header">ยูทูป</div>
 						<div class="description"><?= $band_profile->yt_url ?></div>
 					</div>
 				</div><?php endif; ?>

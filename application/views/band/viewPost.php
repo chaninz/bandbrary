@@ -15,7 +15,11 @@
 		color: #929292;
 	}
 	.center {
-		margin-top: 0px;
+		background-color: #FFFFFF;
+		padding: 20px;
+		margin-top: 15px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
@@ -28,7 +32,58 @@
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-md-9">
-						
+						<div class="center">
+							<div class="ui vertical segment">
+								<h2 class="ui black block header">First header</h2>
+								<img class="ui medium image" src="/images/demo/photo.jpg" style="margin-left: 170px;"><br/>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+							</div>
+							<div class="ui comments" style="margin-top: 20px;">
+								<div class="comment">
+									<a class="avatar">
+										<img src="/images/demo/avatar.jpg">
+									</a>
+									<div class="content">
+										<a class="author">Dog Doggington</a>
+										<div class="metadata">
+											<div class="date">2 days ago</div>
+										</div>
+										<div class="text">
+											I think this is a great idea and i am voting on it
+										</div>
+										<div class="actions">
+											<a class="reply">Reply</a>
+											<a class="delete">Delete</a>
+										</div>
+									</div>
+								</div>
+								<div class="comment">
+									<a class="avatar">
+										<img src="/images/demo/avatar2.jpg">
+									</a>
+									<div class="content">
+										<a class="author">Pawfin Dog</a>
+										<div class="metadata">
+											<div class="date">1 day ago</div>
+										</div>
+										<div class="text">
+											I think this is a great idea and i am voting on it
+										</div>
+										<div class="actions">
+											<a class="reply">Reply</a>
+										</div>
+									</div>
+								</div>
+								<form class="ui reply form">
+									<div class="field">
+										<textarea></textarea>
+									</div>
+									<div class="ui small button submit labeled icon">
+										<i class="icon edit"></i> Add Comment
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -117,10 +172,10 @@
 	</div>
 	<script>
 	
-		$(".reportpost#postreport").click(function(){
-			var id = $(this).attr("post-id");
-			$('.postid').val(id);
-		});
+	$(".reportpost#postreport").click(function(){
+		var id = $(this).attr("post-id");
+		$('.postid').val(id);
+	});
 	</script>
 	<?php $this->load->view('footer'); ?>
 
