@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	
 	<style>
 	.ui.accordion, .ui.accordion .accordion {
@@ -36,11 +37,11 @@
 					<div class="col-xs-9">
 						<div class="center">
 							<?php if ($this->session->userdata('id') == $user_profile->id): ?>
-							<a id="event-add-btn" class="ui red button mbtn event">
-								<i class="edit icon"></i>
-								เพิ่มกิจกรรม
-							</a>
-						<?php endif; ?>
+								<a id="event-add-btn" class="ui red button mbtn event">
+									<i class="edit icon"></i>
+									เพิ่มกิจกรรม
+								</a>
+							<?php endif; ?>
 						<div class="ui fluid accordion">
 							<div class="event-hea">
 								<table>
@@ -50,19 +51,35 @@
 										<td class="eh3">ชื่องาน</td>
 									</tbody>
 								</table>
-							</div><?php foreach ($events as $event): ?>
-							<div class="title">
-								<i class="dropdown icon" style="float: left"></i>
-								<table>
-									<tbody>
-										<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->date)) ?></td>
-										<td class="eh5"><?= mdate("%H:%i", strtotime($event->time)) ?></td>
-										<td class="eh6"><?= $event->event ?></td>
-									</tbody>
-								</table>
 							</div>
-							<div class="content"><?= $event->description ?>
-							</div><?php endforeach; ?>
+							<?php if ( ! empty($events)): foreach ($events as $event): ?>
+								<div class="title">
+									<i class="dropdown icon" style="float: left"></i>
+									<table>
+										<tbody>
+											<td class="eh4"><?= mdate("%d/%n/%Y", strtotime($event->date)) ?></td>
+											<td class="eh5"><?= mdate("%H:%i", strtotime($event->time)) ?></td>
+											<td class="eh6"><?= $event->event ?></td>
+										</tbody>
+									</table>
+								</div>
+								<div class="content">รายละเอียด
+									<?= $event->description ?>
+									<div>สถานที่: <?= $event->venue ?></div>
+									<div>จังหวัด: <?= $event->province ?></div>
+									<?php if ($this->session->userdata('id') == $user_profile->id && $event->event_id != 0): ?>
+										<a href="<?= base_url('event/user/edit/'.$event->event_id) ?>">แก้ไข</a>
+										<a href="<?= base_url('event/user/delete/'.$event->event_id) ?>">ลบ</a>
+									<?php endif; ?>
+								</div>
+								<?php endforeach; ?>
+								<?php else: ?>
+									<table>
+										<tbody>
+											<td class="eh5" colspan="3">ไม่มีข้อมูล</td>
+										</tbody>
+									</table>
+							<?php endif; ?>
 							</div>
 						</div>
 					</div>
@@ -73,7 +90,7 @@
 
 <!--Add event modal-->
 <div class="ui form segment create modal">
-	<form id="add-event-form" action="<?= base_url('event/user/add?ref='.uri_string()) ?>" method="post">
+	<form id="event-form" action="<?= base_url('event/user/add') ?>" method="post">
 		<h3>เพิ่มกิจกรรม</h3>
 		<br/><p/>
 		<div class="line"></div>
@@ -103,7 +120,7 @@
 		<p/>
 		<div class="field">
 			<label>รายละเอียด</label>
-			<textarea name="description" class="ckeditor"></textarea>
+			<textarea name="description"></textarea>
 		</div>
 		<div class="two fields">
 			<div class="date field">
@@ -133,13 +150,19 @@
 <?php $this->load->view('footer'); ?>
 <script>
 	$(".create.modal").modal("setting", {
-		closable  : false,
-		onDeny    : function(){
-		},
 		onApprove : function() {
-			return $("#add-event-form").form("validate form");
+			return $("#event-form").form("validate form");
 		}
 	}).modal("attach events", ".mbtn.event", "show");
+
+	$(function() {
+		$( "#date" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			dateFormat: "yy-mm-dd",
+			// minDate: "Date()"
+		});
+	});
 </script>
 </body>
 </html>

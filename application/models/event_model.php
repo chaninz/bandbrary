@@ -19,11 +19,11 @@ class Event_model extends CI_Model {
 		// Edit existing event fot user and band
 		if ($user_type == 1) {
 			// WHERE id AND user_id
-			$this->db->where($id);
+			$this->db->where(array('id' => $id));
 			$this->db->update('User_Events', $data);
 		} elseif ($user_type == 2) {
 			// WHERE id AND band_id
-			$this->db->where($id);
+			$this->db->where(array('id' => $id));
 			$this->db->update('Band_Events', $data);
 		}
 	}
@@ -34,6 +34,16 @@ class Event_model extends CI_Model {
 			$this->db->delete('User_Events', array('id' => $id));
 		elseif ($user_type == 2)
 			$this->db->delete('Band_Events', array('id' => $id));
+	}
+
+	function get($id, $user_type) {
+		if ($user_type == 1)
+			$query = $this->db->get_where('User_Events', array('id' => $id));
+		elseif ($user_type == 2)
+			$query = $this->db->get_where('Band_Events', array('id' => $id));
+
+		$result = $query->row();
+		return $result;
 	}
 
 	function get_by_user($id, $user_type) {
@@ -48,18 +58,18 @@ class Event_model extends CI_Model {
 	}
 
 	function get_current_by_user($user_id) {
-		$query = $this->db->query('SELECT * 
-			FROM (SELECT user_id, event, description, venue, province_id, date, time, duration 
+		$query = $this->db->query('SELECT user_id, event, description, venue, province, date, time, duration, event_id 
+			FROM (SELECT user_id, event, description, venue, province_id, date, time, duration, id AS event_id 
 				FROM User_Events 
 				WHERE user_id = '.$user_id.' 
 				UNION 
-				SELECT Employment.user_id, name, description, venue, province_id, date, time, duration 
+				SELECT Employment.user_id, name, description, venue, province_id, date, time, duration, 0 AS event_id 
 				FROM Jobs 
 				JOIN Employment ON Employment.job_id = Jobs.id 
-				JOIN Provinces ON Jobs.province_id = Provinces.id 
 				WHERE Employment.user_id = '.$user_id.' 
 					AND Employment.status = 2 
 					AND Jobs.status = 0) AS Events 
+			JOIN Provinces ON Events.province_id = Provinces.id 
 			WHERE date >= CURDATE() 
 			ORDER BY date, time');
 		$result = $query->result();

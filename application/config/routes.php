@@ -54,8 +54,13 @@ $route['user/(:any)/following/band'] = 'user/following/band/$1';
 $route['user/(:any)/follower'] = 'user/follower/index/$1';
 // Event
 $route['user/(:any)/event'] = 'user/event/index/$1';
+
+$route['user/(:any)'] = 'user/index/user/$1';
+
 // Index
 $route['user/(:any)'] = 'user/index/user/$1';
+
+
 
 /* == Band == */
 // Timeline
@@ -92,7 +97,8 @@ $route['job/view/(:num)'] = 'job/view/index/$1';
 $route['job/edit/(:num)'] = 'job/edit/index/$1';
 $route['job/search/style/(:num)'] = 'job/search/style/$1';
 
-
+/* == Event == */
+$route['event/user/edit/(:num)'] = 'event/user/edit/$1';
 
 //$route['user/(:any)/event'] = 'user/event/$1';
 //$route['band'] = 'band/band';
