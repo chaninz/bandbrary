@@ -15,7 +15,11 @@
 		color: #929292;
 	}
 	.center {
-		margin-top: 0px;
+		background-color: #FFFFFF;
+		padding: 20px;
+		margin-top: 15px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
@@ -28,35 +32,42 @@
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-md-9">
-						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-							<div class="create-post mbtn createpost">
-								<div id="create-post-button" class="ui icon button">
-									<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
-								</div>
-								<div class="create-post-text">สร้างโพสต์</div>
-							</div><?php endif; ?><?php foreach($posts as $post): ?>
-							<div class="preview-post">
-								<div class="post-date">
-									<div class="post-day"><?= mdate("%d", strtotime($post->timestamp)) ?></div>
-									<div class="post-month"><?= mdate("%M", strtotime($post->timestamp)) ?></div>
-									<div class="post-white-line"></div>
-									<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
-								</div>
-								<div class="post-heading"><?= $post->topic ?></div>
-								<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
-									<i class="angle down icon" style="margin: 0px;"></i>
-									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
-										<div class="item">แก้ไขโพสต์</div>
-										<div class="item">ลบ</div>
-										<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+						<div class="center">
+							<div class="ui vertical segment">
+								<h2 class="ui black block header"><?= $post->topic ?></h2>
+								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
+								<p><?= $post->post ?></p>
+							</div>
+							<div class="ui comments" style="margin-top: 20px;">
+								<?php foreach($comments as $comment): ?>
+								<div class="comment">
+									<a class="avatar">
+										<?php if($comment->photo_url): ?>
+										<img src="<?= base_url().'uploads/images/profile/'.$comment->photo_url ?>"><?php else: ?>
+										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
+									</a>
+									<div class="content">
+										<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><?= $comment->name.' '.$comment->surname ?></a>
+										<div class="metadata">
+											<div class="date">
+											 <?= mdate("%d", strtotime($comment->timestamp)) ?> 
+								             <?= mdate("%M", strtotime($comment->timestamp)) ?> 
+								             <?= mdate("%Y", strtotime($comment->timestamp)) ?> 
+								         	</div>
+										</div>
+										<div class="text">
+											<?= $comment->comment ?>
+										</div>
 									</div>
 								</div>
-								<div class="post-body"><?= $post->post ?></div>
-								<div class="icon-comment">
-									<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
-									<!-- <div class="amount-comment">$post->count</div> -->
-								</div>
-							</div><?php endforeach; ?>
+								<?php endforeach; ?>
+								<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
+									<div class="field">
+										<textarea name="comment"></textarea>
+									</div>
+									<input type="submit" class="ui small button submit labeled icon" value="Add Comment" >
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -146,10 +157,10 @@
 	</div>
 	<script>
 	
-		$(".reportpost#postreport").click(function(){
-			var id = $(this).attr("post-id");
-			$('.postid').val(id);
-		});
+	$(".reportpost#postreport").click(function(){
+		var id = $(this).attr("post-id");
+		$('.postid').val(id);
+	});
 	</script>
 	<?php $this->load->view('footer'); ?>
 

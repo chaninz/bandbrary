@@ -47,10 +47,8 @@
 								<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
 									<i class="angle down icon" style="margin: 0px;"></i>
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
-										<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-										<a href="<?= base_url('band/post/edit/'.$post->id) ?>"><div class="item">แก้ไขโพสต์</div> </a>
+										<div class="item">แก้ไขโพสต์</div>
 										<div class="item">ลบ</div>
-										<?php endif; ?>
 										<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>
 								</div>
