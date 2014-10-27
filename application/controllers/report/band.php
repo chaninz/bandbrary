@@ -15,8 +15,9 @@ class Band extends CI_Controller {
 			'band_id' => $this->input->post('bandid'),
 			'type' => $this->input->post('type')
 		);
-			print_r($data);
 			$this->report_band_model->add($data);
+			 redirect(base_url('band/'.$data['band_id']));
+
 		}
 	}
 

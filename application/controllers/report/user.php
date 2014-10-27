@@ -16,6 +16,11 @@ class User extends CI_Controller {
 			'type' => $this->input->post('type')
 		);
 			$this->report_user_model->add($data);
+			$user = $this->report_user_model->getUsername($data['user_id']);
+			redirect('/user/'.$user->username.'/timeline');
+			//edirect('/band/'.$band.'/timeline');
+
+
 		}
 	}
 
