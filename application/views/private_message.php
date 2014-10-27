@@ -35,6 +35,8 @@
   #pm-msg {
     height: 380px;
     overflow-y: scroll; 
+    border-left: 15px solid #F7F6F6;
+    border-right: 15px solid #F7F6F6;
     scrollbar-arrow-color:blue; 
     scrollbar-face-color: #e7e7e7; 
     scrollbar-3dlight-color: #a0a0a0; 
@@ -118,7 +120,7 @@
 
 </div>
 <form>
-  <div style="padding: 15px 15px 0px 15px; background-color: #F7F6F6;">
+  <div style="padding: 15px 15px 0px 15px; border-top: 1px solid #D6D6D6; background-color: #F7F6F6;">
     <textarea name="message" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
   </div>
   <div style="background-color: #F7F6F6;">
