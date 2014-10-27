@@ -178,7 +178,7 @@ footer {
 	border-radius: 0px;
 	background-color: transparent;
 	color: #FFFFFF;
-	margin: 0px 0px 0px 70px;
+	margin: 0px 0px 0px 50px;
 }
 .navbar-username {
 	float: left;
@@ -373,7 +373,7 @@ footer {
 #user-follow {
 	position: absolute;
 	top: -65px;
-	left: 660px;
+	left: 650px;
 }
 #band-follow {
 	position: absolute;
