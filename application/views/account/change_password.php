@@ -125,5 +125,6 @@ body {
 	</div>  
 	<script>
 	</script>
+	<?php $this->load->view('footer'); ?>
 </body>
 </html>

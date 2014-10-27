@@ -106,5 +106,6 @@ body {
 		<div class="col-xs-2"></div>
 	</div>
 </div>
+<?php $this->load->view('footer'); ?>
 </body>
 </html>
