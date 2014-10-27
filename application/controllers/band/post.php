@@ -72,14 +72,8 @@ class Post extends CI_Controller {
 		}
 	}
 
-	public function delete(){
-		if ($this->input->post()) {
-			// edit band to get band name from session
-			$post = array('post' => $this->input->post('post'),
-				'image_url' => $this->input->post('imageurl')
-			);
-			$this->band_model->delete($post);
-		}
+	public function delete($post_id){
+			$this->band_model->delete($post_id);
 	}
 
 	public function view($post_id){
