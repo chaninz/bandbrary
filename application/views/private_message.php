@@ -25,7 +25,7 @@
     box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05); 
   }
   #pm-inbox {
-    height: 680px;
+    height: 681px;
     overflow-y: scroll; 
     scrollbar-arrow-color:blue; 
     scrollbar-face-color: #e7e7e7; 
