@@ -61,13 +61,11 @@
 									</div>
 								</div>
 								<?php endforeach; ?>
-								<form class="ui reply form">
+								<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
 									<div class="field">
-										<textarea></textarea>
+										<textarea name="comment"></textarea>
 									</div>
-									<div class="ui small button submit labeled icon">
-										<i class="icon edit"></i> Add Comment
-									</div>
+									<input type="submit" class="ui small button submit labeled icon" value="Add Comment" >
 								</form>
 							</div>
 						</div>

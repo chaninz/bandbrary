@@ -13,18 +13,20 @@ class Postcomment extends CI_Controller {
 	// 	redirect();
 	// }
 
-	public function add() {
+	public function add($post_id) {
 		if ($this->input->post()) {
-			$data = array(
-			'$user_id' =>  $this->session->userdata('id'),
-			'$post_id' => $this->input->post('post_id'),
-			'$comment' => $this->input->post('comment')
-		);
-			$this->postcomment_model->add($data);
-		} else {
-			$data = $this->post_model->getPost();
-			$this->load->view('temp/getPost',$data);
+		 	$data = array(
+		 	'user_id' =>  $this->session->userdata('id'),
+		 	'post_id' => $post_id,
+		 	'comment' => $this->input->post('comment')
+		 );
+		 	$this->postcomment_model->add($data);
+			redirect(base_url('band/post/view/'.$post_id));
 		}
+		// } else {
+		// 	$data = $this->post_model->getPost();
+		// 	$this->load->view('temp/getPost',$data);
+		// }
 		
 	}
 
