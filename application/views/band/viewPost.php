@@ -34,46 +34,33 @@
 					<div class="col-md-9">
 						<div class="center">
 							<div class="ui vertical segment">
-								<h2 class="ui black block header">First header</h2>
-								<img class="ui medium image" src="/images/demo/photo.jpg" style="margin-left: 170px;"><br/>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+								<h2 class="ui black block header"><?= $post->topic ?></h2>
+								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
+								<p><?= $post->post ?></p>
 							</div>
 							<div class="ui comments" style="margin-top: 20px;">
+								<?php foreach($comments as $comment): ?>
 								<div class="comment">
 									<a class="avatar">
-										<img src="/images/demo/avatar.jpg">
+										<?php if($comment->photo_url): ?>
+										<img src="<?= base_url().'uploads/images/profile/'.$comment->photo_url ?>"><?php else: ?>
+										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 									</a>
 									<div class="content">
-										<a class="author">Dog Doggington</a>
+										<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><?= $comment->name.' '.$comment->surname ?></a>
 										<div class="metadata">
-											<div class="date">2 days ago</div>
+											<div class="date">
+											 <?= mdate("%d", strtotime($comment->timestamp)) ?> 
+								             <?= mdate("%M", strtotime($comment->timestamp)) ?> 
+								             <?= mdate("%Y", strtotime($comment->timestamp)) ?> 
+								         	</div>
 										</div>
 										<div class="text">
-											I think this is a great idea and i am voting on it
-										</div>
-										<div class="actions">
-											<a class="reply">Reply</a>
-											<a class="delete">Delete</a>
+											<?= $comment->comment ?>
 										</div>
 									</div>
 								</div>
-								<div class="comment">
-									<a class="avatar">
-										<img src="/images/demo/avatar2.jpg">
-									</a>
-									<div class="content">
-										<a class="author">Pawfin Dog</a>
-										<div class="metadata">
-											<div class="date">1 day ago</div>
-										</div>
-										<div class="text">
-											I think this is a great idea and i am voting on it
-										</div>
-										<div class="actions">
-											<a class="reply">Reply</a>
-										</div>
-									</div>
-								</div>
+								<?php endforeach; ?>
 								<form class="ui reply form">
 									<div class="field">
 										<textarea></textarea>

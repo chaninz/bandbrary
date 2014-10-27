@@ -9,6 +9,7 @@ class Post extends CI_Controller {
 		$this->load->model('join_band_model');
 		$this->load->model('post_model');
 		$this->load->model('user_model');
+		$this->load->model('postcomment_model');
 	}
 
 	public function index($band_id) {
@@ -102,7 +103,7 @@ class Post extends CI_Controller {
 		 'band_members' => $band_members,
 		 'is_follow_band' => $is_follow_band,
 		 'user_status' => $user_status,
-		
+		 'comments' => $this->postcomment_model->getComment($post_id)
 		 );
 		// print_r($post);
 

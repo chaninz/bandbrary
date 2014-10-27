@@ -9,9 +9,9 @@ class Postcomment extends CI_Controller {
 
 	}
 
-	public function index() {
-		redirect();
-	}
+	// public function index() {
+	// 	redirect();
+	// }
 
 	public function add() {
 		if ($this->input->post()) {
@@ -47,18 +47,10 @@ class Postcomment extends CI_Controller {
 	// }
 
 	public function view($post_id){
-		$data = array (
-		'post' => $this->post_model->getPost($post_id),
-		'comment' => $this->postcomment_model->getComment($post_id),
-		'user_id' => $this->session->userdata('id'),
-		'name' => $this->session->userdata('name'),
-		'photo_url' => $this->session->userdata('photo_url')
-		
-		);
-		// $this->load->view('headerBar',$data);
-		// $this->load->view('coverSection');
-		// $this->load->view('band/comment',$data);
-
+		 $data = array(
+		 'comments' => $this->postcomment_model->getComment($post_id)
+		 );
+		 $this->load->view('band/viewPost', $data);
 	}
 
 	public function count($post_id){
