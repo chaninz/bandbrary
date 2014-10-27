@@ -13,12 +13,7 @@ class Index extends CI_Controller {
 		$data = array('jobs' => $jobs);
 		$this->load->view('job/all', $data);
 	}
-
-	public function get(){
-		$job_id = $this->input->post('id');
-		$job = $this->job->get($job_id);
-		echo json_encode($job);
-	}
+	
 }
 
 /* End of file event.php */

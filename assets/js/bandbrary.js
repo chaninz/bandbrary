@@ -490,7 +490,7 @@
 		/* Add Event */
 		/********๕๕๕***/
 
-		$('#add-event-form')
+		$('#event-form')
 		.form({
 			name: {
 				identifier : 'event',
