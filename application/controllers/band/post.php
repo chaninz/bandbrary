@@ -77,7 +77,7 @@ class Post extends CI_Controller {
 			$this->band_model->delete($post_id);
 	}
 
-	public function view($post_id,$band_id){
+	public function view($post_id){
 		// if ($this->input->post()) {
 		// 	// edit band to get band name from session
 		// 	$post_id = 4 ;//$this->input->post('post_id')
@@ -89,13 +89,20 @@ class Post extends CI_Controller {
 		// }
 
 
-		 $my_id = $this->session->userdata('id');
+		 $current_user_id = $this->session->userdata('id');
 		 $post = $this->post_model->getPost($post_id);
+		 $band_profile = $this->band_model->get($post->band_id);
+		 $band_members = $this->join_band_model->get_current_member($post->band_id);
+		 $is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
+		 $user_status =  $this->join_band_model->get_user_status($current_user_id,$post->band_id);
+
 		 $data = array (
 		 'post' => $post,
-		// 'band_id' => $post->band_id,
-		// 'isFollow' => $this->follow_band_model-> isFollow($post->band_id,$my_id),
-		// 'band' => $this->band_model->get($post->band_id),
+		 'band_profile' => $band_profile,
+		 'band_members' => $band_members,
+		 'is_follow_band' => $is_follow_band,
+		 'user_status' => $user_status,
+		
 		 );
 		// print_r($post);
 
