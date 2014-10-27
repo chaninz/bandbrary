@@ -21,6 +21,14 @@ class User extends CI_Controller {
 		$status = $this->status_model->get_last($user_id);
 	}
 
+	public function all() {
+		$user_id = $this->session->userdata('id');
+		$status = $this->status_model->get_by_user($user_id);
+		
+		$display = array('status' => $status);
+		$this->load->view('View File', $display);
+	}
+
 }
 
 /* End of file user.php */

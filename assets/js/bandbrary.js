@@ -542,7 +542,6 @@
 			}
 		});
 
-
 	});
 
 	function follow(url) {
