@@ -14,14 +14,8 @@
 	.center {
 		background-color: #F7F6F6;
 		padding: 20px;
-		margin-top: 15px;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
-	}
-	#event-add-btn {
-		margin-left: 544px;
-		margin-bottom: 15px;
-		font-size: 0.8rem;
 	}
 	</style>
 </head>

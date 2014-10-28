@@ -767,6 +767,11 @@ footer {
 	padding-left: 18px;
 	font-weight: bold;
 }
+#event-add-btn {
+	margin-left: 510px;
+	margin-bottom: 15px;
+	font-size: 0.8rem;
+}
 
 /*--- Navigation ---*/
 

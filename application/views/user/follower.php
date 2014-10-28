@@ -50,9 +50,6 @@
 	.ui.accordion, .ui.accordion .accordion {
 		font-size: 1em;
 	}
-	.center {
-		margin-top: 15px;
-	}
 	#greedd {
 		left: 985px;
 	}

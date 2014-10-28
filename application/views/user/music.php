@@ -40,7 +40,6 @@
 		padding: 0.1em 0.7em;
 	}
 	.center {
-		margin-top: 14px;
 		word-wrap: break-word;
 	}
 	</style>
