@@ -119,17 +119,17 @@
   <?php endforeach; ?> -->
 
 </div>
-<form method="post" action="<?= base_url().'pm/add/'.$pm_user->from_user_id ?>" >
+<form method="post" id="message" action="#" >
   <div style="padding: 15px 15px 15px 15px; border-top: 1px solid #D6D6D6; background-color: #F7F6F6;">
     <div class="ui form">
-    <div class="field" style="margin: 0px">
-      <textarea placeholder="เขียนข้อความตอบกลับ..." style="height: 100px;"></textarea>
+      <div class="field" style="margin: 0px">
+        <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"></textarea>
+      </div>
     </div>
   </div>
-</div>
-<div style="background-color: #F7F6F6;">
-  <input class="small ui button" style="margin-bottom: 15px; margin-left: 560px;" type="submit" value="ส่ง">
-</div>
+  <div style="background-color: #F7F6F6;">
+    <input class="small ui button" style="margin-bottom: 15px; margin-left: 560px;" type="submit" value="ส่ง">
+  </div>
 </form>
 </div>
 
@@ -148,6 +148,49 @@
       <?php endforeach; ?> -->
 
       <script>
+      $(function(){
+        $("#message").submit(function(e){
+          e.preventDefault();
+          $.ajax({
+            url:'<?= base_url().'pm/add/'.$pm_user->from_user_id ?>',
+            type:'post',
+            data:{text:$("#text").val()},
+            success:function(value){
+              //console.log($("#text").val());
+              var html = "";
+               var image = "";
+                  var path = '<?= base_url().'uploads/images/profile/' ?>';
+                  if(value.from_photo){
+                    image = '<img src=\"'+path+value.from_photo+'\"/>';
+                  }else{
+                    image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
+                  }
+
+                  var date = new Date(Date.parse(value.timestamp));
+               html =
+                        '<div class="event">'+
+                        '<div class="label">'+image+
+                        '</div>'+
+                        '<div class="content">'+
+                        '<div class="date">'+
+                        date.toDateString()+
+                        '</div>'+
+                        '<div class="summary">'+
+                        '<a>'+'<b>'+value.from_user_name + " " +value.from_user_surname +'</b>'+'</a>'+
+                        '</div>'+
+                        '<div class="extra text">'+
+                        $("#text").val()+        
+                        '</div>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
+              $("#pm-msg").append(html);
+            }
+          });
+        });
+      });
+
+
       $("#pm-inbox .item").click(function(){
         var id = $(this).attr("data-id");
         $.ajax({
@@ -156,45 +199,43 @@
           data:{id:id},
           success:function(data){
             var chat = JSON.parse(data);
-          //$("#jobname").text(job.name);
-          var html = "";
-          $.each(chat, function(key,value){
-            //console.log(value);
-            var image = "";
-            var path = '<?= base_url().'uploads/images/profile/' ?>';
-            if(value.photo_url){
-              image = '<img src=\"'+path+value.photo_url+'\"/>';
-            }else{
-              image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
-            }
+                //$("#jobname").text(job.name);
+            var html = "";
+            $.each(chat, function(key,value){
+                  //console.log(value);
+                  var image = "";
+                  var path = '<?= base_url().'uploads/images/profile/' ?>';
+                  if(value.from_photo){
+                    image = '<img src=\"'+path+value.from_photo+'\"/>';
+                  }else{
+                    image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
+                  }
 
-            var date = new Date(Date.parse(value.timestamp));
-            
-            html +=
-            '<div class="event">'+
-            '<div class="label">'+image+
-            '</div>'+
-            '<div class="content">'+
-            '<div class="date">'+
-            date.toDateString()+
-            '</div>'+
-            '<div class="summary">'+
-            '<a>'+'<b>'+value.from_user_name + " " +value.from_user_surname +'</b>'+'</a>'+
-            '</div>'+
-            '<div class="extra text">'+
-            value.text+        
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>';
-          });
+                  var date = new Date(Date.parse(value.timestamp));
+                  
+                  html +=
+                        '<div class="event">'+
+                        '<div class="label">'+image+
+                        '</div>'+
+                        '<div class="content">'+
+                        '<div class="date">'+
+                        date.toDateString()+
+                        '</div>'+
+                        '<div class="summary">'+
+                        '<a>'+'<b>'+value.from_user_name + " " +value.from_user_surname +'</b>'+'</a>'+
+                        '</div>'+
+                        '<div class="extra text">'+
+                        value.text+        
+                        '</div>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>';
 
-$("#pm-msg").html(html);
-
-}
-});
-
-})  
+                        $("#pm-msg").html(html);
+                });
+          }
+        });  
+      });
 
 </script>
 
