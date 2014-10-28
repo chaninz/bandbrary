@@ -10,7 +10,6 @@
 
   <style>
   .ui.header {
-    font-size: 2.4em;
     margin-left: 60px;
     font-weight: bold;
   }
@@ -28,9 +27,9 @@
     <div class="row">
       <div class="col-xs-2"></div>
       <div class="col-xs-8">
-        <div class="ui header">
+        <h2 class="ui header">
           สร้างวงดนตรี
-        </div>
+        </h2>
         <p/>
         <div class="line"></div>
         <p/><br/>
@@ -57,10 +56,8 @@
                   <div class="text">เลือก</div>
                   <i class="dropdown icon"></i>
                   <input type="hidden" name="province">
-                  <div class="menu">
-                    <div class="item" data-value="10" style="font-size: 14px;">Bangkok</div>
-                    <div class="item" data-value="36" style="font-size: 14px;">Chaiyaphum</div>
-                    <div class="item" data-value="50" style="font-size: 14px;">Chiang Mai</div>
+                  <div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
+                    <div class="item" data-value="<?= $province->id ?>"><?= $province->province ?></div><?php endforeach; endif; ?>
                   </div>
                 </div>
               </div>
@@ -69,55 +66,55 @@
               <label>สไตล์</label>
               <div class="grouped inline fields">
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="1" name="style">
                     <label>บลูส</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="2" name="style">
                     <label>คันทรี</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="4" name="style">
                     <label>ฮิปฮอป</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="5" name="style">
                     <label>แจ๊ส</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="6" name="style">
                     <label>ลาติน</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="7" name="style">
                     <label>ป็อป</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="8" name="style">
                     <label>เร้กเก้</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="9" name="style">
                     <label>อาร์แอนด์บี</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="10" name="style">
                     <label>ร็อก</label>
                   </div>
@@ -128,55 +125,55 @@
               <label>ตำแหน่งในวงของคุณ</label>
               <div class="grouped inline fields">
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="1" name="position">
                     <label>นักร้อง</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="2" name="position">
                     <label>กีต้าร์</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="3" name="position">
                     <label>เบส</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="4" name="position">
                     <label>กลอง</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="5" name="position">
                     <label>เปียโน</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="6" name="position">
                     <label>คีบอร์ด</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="7" name="position">
                     <label>แซกโซโฟน</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="8" name="position">
                     <label>ทรัมเป็ต</label>
                   </div>
                 </div>
                 <div class="field">
-                  <div class="ui radio checkbox">
+                  <div class="ui slider checkbox">
                     <input type="radio" value="9" name="position">
                     <label>ไวโอลิน</label>
                   </div>
@@ -205,7 +202,7 @@
               </div>
             </div>
           </div>
-          <input class="ui red submit button" type="submit" value="บันทึก">
+          <input class="ui small red submit button" style="float: right;" type="submit" value="บันทึก">
         </form>
       </div>
       <div class="col-xs-3"></div>

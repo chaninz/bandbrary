@@ -19,7 +19,6 @@
 	</script>
 	<style>
 	.ui.header {
-		font-size: 2.4em;
 		margin-left: 60px;
 		font-weight: bold;
 	}
@@ -38,9 +37,9 @@
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="ui header">
+				<h2 class="ui header">
 					สร้างงาน
-				</div>
+				</h2>
 				<p/>
 				<div class="line"></div>
 				<p/><br/>
@@ -167,7 +166,7 @@
 							</div>
 						</div>
 
-						<input class="ui red submit button" type="submit" value="บันทึก">
+						<input class="ui small red submit button" style="float: right;" type="submit" value="บันทึก">
 
 					</div>
 				</form>
