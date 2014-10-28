@@ -157,7 +157,7 @@
           $.each(chat, function(key,value){
             //console.log(value);
             var image = "";
-            var path = '<?= base_url().'uploads/profile/' ?>';
+            var path = '<?= base_url().'uploads/images/profile/' ?>';
             if(value.photo_url){
               image = '<img src=\"'+path+value.photo_url+'\"/>';
             }else{
