@@ -57,9 +57,10 @@
 								<div class="post-body"><?= $post->post ?></div>
 								<div class="icon-comment">
 									<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
-									<!-- <div class="amount-comment">$post->count</div> -->
+									<div class="amount-comment"><?= $post->total_comments ?></div>
 								</div>
-							</div><?php endforeach; ?>
+							</div>
+						<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

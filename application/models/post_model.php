@@ -36,7 +36,7 @@ class Post_model extends CI_Model {
 		// $this->db-join()
 		// $this->db->where('band_id',$band_id);
 
-		$query = $this->db->query('SELECT b.id as post_id ,b.topic,b.post,b.image_url,count(c .id) as count FROM Band_Posts b left join Post_Comments c on b.id = c.post_id  WHERE b.band_id = '.$band_id.' group by b.id,b.topic,b.post,b.image_url');
+		$query = $this->db->query('SELECT b.id ,b.topic,b.post,b.image_url,b.timestamp,count(c .id) as count,count(c.id) as total_comments FROM Band_Posts b left join Post_Comments c on b.id = c.post_id  WHERE b.band_id = '.$band_id.' group by b.id,b.topic,b.post,b.image_url,b.timestamp');
 		return $query->result();
 	}
 

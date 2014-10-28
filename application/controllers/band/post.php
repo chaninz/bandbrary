@@ -21,16 +21,17 @@ class Post extends CI_Controller {
 		$is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
 		$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
 
-		$posts = $this->post_model->get_band_post($band_id);
+		//$posts = $this->post_model->get_band_post($band_id);
+		$posts = $this->post_model->getAllPost($band_id);
 		//$countComment = $this->postcomment_model->count($posts['id']);
 		$data = array('band_profile' => $band_profile,
 			'is_follow_band' => $is_follow_band,
 			'user_status' => $user_status,
 			'band_members' => $band_members,
-			'posts' => $posts,
+			'posts' => $posts
 			//'countComment' => $countComment
 			);
-		//print_r($countComment);
+		//print_r($data);
 		$this->load->view('band/post', $data);
 	}
 
