@@ -17,10 +17,10 @@ class Edit extends CI_Controller {
 		$id = $this->session->userdata('id');
 
 		if ($this->input->post()) {
-			$cover_path = realpath('uploads/images/cover');
-			$cover_thumb_path = realpath('uploads/images/cover/thumb');
-			$photo_path = realpath('uploads/images/profile');
-			$photo_thumb_path = realpath('uploads/images/profile/thumb');
+			$cover_path = realpath('uploads/cover/user');
+			$cover_thumb_path = realpath('uploads/cover/user/thumb');
+			$photo_path = realpath('uploads/profile/user/');
+			$photo_thumb_path = realpath('uploads/profile/user/thumb');
 			$cover_name = $id.'-cover';
 			$photo_name = $id.'-profile';
 			$msg_cover = $msg_photo = NULL;

@@ -2,7 +2,7 @@
 	<article>
 		<div class="profile-cover">
 			<?php if($user_profile->cover_url): ?>
-			<img src="<?= base_url('uploads/images/cover/'.$user_profile->cover_url) ?>" alt="" /><?php else: ?>
+			<img src="<?= base_url('uploads/cover/user/'.$user_profile->cover_url) ?>" alt="" /><?php else: ?>
 			<img src="<?= base_url('images/cover.jpg') ?>" alt="" /><?php endif; ?>
 		</div>
 		<div class="container">
@@ -10,7 +10,7 @@
 				<div class="col-xs-12">
 					<div class="punpun">
 						<?php if($user_profile->photo_url): ?>
-						<img src="<?= base_url('uploads/images/profile/'.$user_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php else: ?>
+						<img src="<?= base_url('uploads/profile/user/'.$user_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php else: ?>
 						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php endif; ?>
 						<div class="profile-name">
 							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div><?php if( ! empty($band_profile)): ?>

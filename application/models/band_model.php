@@ -21,9 +21,9 @@ class Band_model extends CI_Model {
 		return $result;
 	}
 
-	function edit($band) {
-		$this->db->where('name', $band['name']);
-		$this->db->update('Bands', $band);
+	function edit($id, $data) {
+		$this->db->where('id', $id);
+		$this->db->update('Bands', $data);
 	}
 	
 	function get($band_id){

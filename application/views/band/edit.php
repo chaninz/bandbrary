@@ -76,72 +76,116 @@ body {
 		<div class="row">
 			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
-				<form action="<?= base_url('band/edit') ?>" method="post">
+				<form action="<?= base_url('band/edit') ?>" method="post" enctype="multipart/form-data">
 					<div class="ui form segment"><p>
 						<h1>แก้ไขข้อมูลวงดนตรี</h1>
 						<div class="line"></div><br><p>
 						<div class="field">
 							<label>ชื่อวงดนตรี</label>
-							<input type="text" placeholder="" name="name" style="background-color: #EBEBEB;" value="<?= $name ?>" disabled> 
+							<input type="text" placeholder="" name="name" style="background-color: #EBEBEB;" value="<?= $band->name ?>" disabled> 
 						</div>
 						<div class="field">
 							<label>ประวัติ</label>
-							<textarea name="biography" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>><?= $biography ?></textarea>
+							<textarea name="biography" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>><?= $band->biography ?></textarea>
+						</div>
+						<div class="field">
+							<label>จังหวัด</label>
+							<div class="ui fluid selection dropdown">
+								<div class="text">Select</div>
+								<i class="dropdown icon"></i>
+								<input type="hidden" name="province" value="<?= $band->province_id; ?>" >
+								<div class="menu"><?php if ( ! empty($provinces)): foreach ($provinces as $province): ?>
+									<div class="item" data-value="<?= $province->id ?>" style="font-size: 14px;"><?= $province->province ?></div><?php endforeach; endif; ?>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label>รูปโปรไฟล์</label><?php if($band->photo_url): ?>
+							<img src="<?= base_url('uploads/profile/band/thumb/'.$band->photo_url) ?>" alt="" id="img-preview"/><?php else: ?>
+							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="img-preview"/><?php endif; ?>
+							<div class="ui selection dropdown" style="margin-left: 10px;">
+								<div class="default text"><b>เปลี่ยนรูปโปรไฟล์</b></div>
+								<i class="dropdown icon"></i>
+								<div class="menu">
+									<div class="file-upload item" data-value="2" style="font-size: 14px;">อัพโหลดรูป<input class="upload" type="file" id="profile-photo" name="profile-photo"></div>
+									<div class="item" data-value="1" style="font-size: 14px;">ลบ</div>
+								</div>
+								<input type="hidden" name="profile-photo-upload" value="0"/>
+							</div><?php if ( ! empty($msg_photo)): ?>
+							<div><?= $msg_photo ?></div><?php endif; ?>
+						</div>
+						<div class="field">
+							<label>รูปภาพปก</label>
+							<img src="<?= base_url('uploads/cover/band/thumb/'.$band->cover_url) ?>" alt="" id="img-preview">
+							<div class="ui selection dropdown" style="margin-left: 10px;">
+								<div class="default text"><b>เปลี่ยนรูปภาพปก</b></div>
+								<i class="dropdown icon"></i>
+								<div class="menu">
+									<div class="file-upload item" data-value="2" style="font-size: 14px;">อัพโหลดรูป<input class="upload" type="file" id="cover-photo" name="cover-photo"></div>
+									<div class="item" data-value="1" style="font-size: 14px;">ลบ</div>
+								</div>
+								<input type="hidden" name="cover-photo-upload" value="0"/>
+							</div><?php if ( ! empty($msg_cover)): ?>
+							<div><?= $msg_cover ?></div><?php endif; ?>
 						</div>
 						<div class="field">
 							<label>สไตล์</label>
-							<div class="grouped inline fields">
+							<div class="ui three fields">
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="1" name="style" <?= $style_id == 1 ? 'checked' : '' ?>>
-										<label>บลู</label>
+										<input type="radio" name="style" data-validate="style" value="1" <?= $band->style_id == 1 ? 'checked' : '' ?> />
+										<label>บลูส์</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="2" name="style" <?= $style_id == 2 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="2" <?= $band->style_id == 2 ? 'checked' : '' ?> /> 
 										<label>คันทรี</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="3" name="style" <?= $style_id == 3 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="3" <?= $band->style_id == 3 ? 'checked' : '' ?> />
 										<label>ฮิปฮอป</label>
 									</div>
 								</div>
+							</div>
+							<div class="ui three fields">
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="4" name="style" <?= $style_id == 4 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="4" <?= $band->style_id == 4 ? 'checked' : '' ?> />
 										<label>แจ๊ส</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="5" name="style" <?= $style_id == 5 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="5" <?= $band->style_id == 5 ? 'checked' : '' ?> />
 										<label>ลาติน</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="6" name="style" <?= $style_id == 6 ? 'checked' : '' ?>>
-										<label>ป๊อป</label>
+										<input type="radio" name="style" data-validate="style" value="6" <?= $band->style_id == 6 ? 'checked' : '' ?> />
+										<label>ป็อป</label>
 									</div>
 								</div>
+							</div>
+							<div class="ui three fields">
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="7" name="style" <?= $style_id == 7 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="7" <?= $band->style_id == 7 ? 'checked' : '' ?> />
 										<label>เร้กเก้</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="8" name="style" <?= $style_id == 8 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="8" <?= $band->style_id == 8 ? 'checked' : '' ?> />
 										<label>อาร์แอนด์บี</label>
 									</div>
 								</div>
 								<div class="field">
 									<div class="ui radio checkbox">
-										<input type="radio" value="9" name="style" <?= $style_id == 9 ? 'checked' : '' ?>>
+										<input type="radio" name="style" data-validate="style" value="9" <?= $band->style_id == 9 ? 'checked' : '' ?> />
 										<label>ร็อก</label>
 									</div>
 								</div>
@@ -150,21 +194,21 @@ body {
 						<div class="field">
 							<label>Facebook URL</label>
 							<div class="ui left labeled icon input">
-								<input type="text" placeholder="Facebook URL" name="fburl" value="<?= $fb_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
+								<input type="text" placeholder="Facebook URL" name="fburl" value="<?= $band->fb_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
 								<i class="facebook icon"></i>
 							</div>
 						</div>
 						<div class="field">
 							<label>Twitter URL</label>
 							<div class="ui left labeled icon input">
-								<input type="text" placeholder="Twitter URL" name="twurl" value="<?= $tw_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
+								<input type="text" placeholder="Twitter URL" name="twurl" value="<?= $band->tw_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
 								<i class="twitter icon"></i>
 							</div>
 						</div>
 						<div class="field">
 							<label>Youtube URL</label>
 							<div class="ui left labeled icon input">
-								<input type="text" placeholder="Youtube URL" name="yturl" value="<?= $yt_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
+								<input type="text" placeholder="Youtube URL" name="yturl" value="<?= $band->yt_url ?>" <?= $this->session->userdata('is_master') == 1 ? '' : 'readonly' ?>>
 								<i class="youtube icon"></i>
 							</div>
 						</div>
