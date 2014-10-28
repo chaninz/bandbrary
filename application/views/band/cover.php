@@ -111,6 +111,15 @@
 				</div>
 			</div>
 		<?php endforeach; ?>
+		<div class="item">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/piano_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 </div>
