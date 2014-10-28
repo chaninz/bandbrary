@@ -8,9 +8,9 @@ public function __construct() {
 		$this->load->model('user_model');
 	}
 
-	public function index($id) {
-		$user_profile = $this->user_model->get_by_id($id);
-		$data = array('user_profile' => $user_profile,
+	public function index() {
+		//$user_profile = $this->user_model->get_by_id($id);
+		$data = array(//'user_profile' => $user_profile,
 			'pm_users' => $this->pm_model->get_all() );
 
 		$this->load->view('private_message',$data);

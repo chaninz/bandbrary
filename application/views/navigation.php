@@ -72,7 +72,7 @@
 					<a class="item" style="padding: 0px;">
 						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
-					<a class="item" style="padding: 0px;">
+					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
@@ -88,7 +88,7 @@
 						<div class="item"><a href="<?= base_url().'account/signout' ?>">ออกจากระบบ</a></div>
 						<div class="line"></div>
 						<div class="item">ความช่วยเหลือ</div>
-						<div class="item">รายงานปัญหา</div>
+						<!-- <div class="item">รายงานปัญหา</div> -->
 					</div>
 				</div>
 			</div>
