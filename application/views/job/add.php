@@ -39,7 +39,7 @@
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<div class="ui header">
-					เพิ่มงาน
+					สร้างงาน
 				</div>
 				<p/>
 				<div class="line"></div>
