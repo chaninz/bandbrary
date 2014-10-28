@@ -44,7 +44,7 @@
 					<div id="navbar-item3" class="ui inverted menu">
 						<a class="item" style="color: #FFFFFF; font-size: 0.9rem; padding: 0.45em 0.95em;" href="<?= base_url('user/'.$this->session->userdata('username').'/timeline') ?>">
 							<?php if($this->session->userdata('photo_url')): ?>
-							<img src="<?= base_url('uploads/images/profile/'.$this->session->userdata('photo_url')) ?>" alt="" class="profile-pic1"/><?php else: ?>
+							<img src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>" alt="" class="profile-pic1"/><?php else: ?>
 							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" class="profile-pic1"/><?php endif; ?>
 							<div class="navbar-username">
 								<?= $this->session->userdata('name'); ?>

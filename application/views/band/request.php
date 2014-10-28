@@ -99,7 +99,7 @@ body {
 							</a>
 						</div>
 					</div><?php endforeach; ?><?php else: ?>
-					ไม่มีคำร้องขอร่วมวงt
+					ไม่มีคำร้องขอร่วมวง
 				<?php endif; ?>
 			</div>
 		</div>
