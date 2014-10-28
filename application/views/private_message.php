@@ -85,7 +85,7 @@
         <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="unread">
           <?php foreach($pm_users as $pm_user): ?>
           <a class="item" data-id="<?= $pm_user->id ?>" >
-           <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/images/profile/'.$pm_user->photo_url ?>"><?php else: ?>
+           <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
            <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
            <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
            <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?></b></div>           
@@ -149,6 +149,7 @@
 
       <script>
       $(function(){
+    
         $("#message").submit(function(e){
           e.preventDefault();
           $.ajax({
@@ -156,17 +157,17 @@
             type:'post',
             data:{text:$("#text").val()},
             success:function(value){
-              //console.log($("#text").val());
+              data = JSON.parse(value);
               var html = "";
                var image = "";
-                  var path = '<?= base_url().'uploads/images/profile/' ?>';
-                  if(value.from_photo){
-                    image = '<img src=\"'+path+value.from_photo+'\"/>';
+                  var path = '<?= base_url().'uploads/profile/' ?>';
+                  if(data[0].from_photo){
+                    image = '<img src=\"'+path+data[0].from_photo+'\"/>';
                   }else{
                     image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
                   }
 
-                  var date = new Date(Date.parse(value.timestamp));
+                  var date = new Date(Date.parse(data[0].timestamp));
                html =
                         '<div class="event">'+
                         '<div class="label">'+image+
@@ -176,7 +177,7 @@
                         date.toDateString()+
                         '</div>'+
                         '<div class="summary">'+
-                        '<a>'+'<b>'+value.from_user_name + " " +value.from_user_surname +'</b>'+'</a>'+
+                        '<a>'+'<b>'+data[0].from_user_name + " " +data[0].from_user_surname +'</b>'+'</a>'+
                         '</div>'+
                         '<div class="extra text">'+
                         $("#text").val()+        
@@ -185,6 +186,10 @@
                         '</div>'+
                         '</div>';
               $("#pm-msg").append(html);
+              $('#pm-msg').animate({
+                                    scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
+                                }, 500);
+              $("#text").val();
             }
           });
         });
@@ -205,10 +210,10 @@
                   //console.log(value);
                   var image = "";
                   var path = '<?= base_url().'uploads/images/profile/' ?>';
-                  if(value.from_photo){
+                  if(value.from_photo != 0){
                     image = '<img src=\"'+path+value.from_photo+'\"/>';
                   }else{
-                    image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
+                    image = '<img src=\"<?= base_url().'images/no_profile.jpg'?>\"/>';
                   }
 
                   var date = new Date(Date.parse(value.timestamp));
@@ -232,6 +237,9 @@
                         '</div>';
 
                         $("#pm-msg").html(html);
+                            $('#pm-msg').animate({
+                                    scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
+                                }, 0);
                 });
           }
         });  

@@ -69,22 +69,12 @@ class Pm_model extends CI_Model {
 	}
 	
 	function get_pm_by_id($id){
-		// $current_id = $this->session->userdata('id');
-		// $this->db->select('*');
-		// $this->db->distinct();
-		// $this->db->from('PM_Users');
-		// $this->db->join('Users', 'PM_Users.from_user_id = Users.id');
-		// $this->db->where('from_user_id',$current_id);
-
-		// $query = $this->db->get();
-		// return $query->result();
-
-
 		$this->db->select('PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,t.username as target,f.photo_url as from_photo,t.photo_url as to_photo');
 		$this->db->from('PM_Users');
 		$this->db->join('Users AS f', 'PM_Users.from_user_id = f.id');
 		$this->db->join('Users AS t', 'PM_Users.to_user_id = t.id');
 		$this->db->where('PM_Users.id',$id);
+		$query = $this->db->get();
 		return $query->result();
 	}
 }
