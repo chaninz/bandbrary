@@ -85,7 +85,7 @@
         <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="unread">
           <?php foreach($pm_users as $pm_user): ?>
           <a class="item" data-id="<?= $pm_user->id ?>" >
-           <?php if($pm_user->photo_url): ?><img class="icon" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
+           <?php if($pm_user->photo_url): ?><img class="icon" src="<?= base_url().'uploads/images/profile/'.$pm_user->photo_url ?>"><?php else: ?>
            <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
            <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
            <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?></b></div>           
@@ -96,7 +96,7 @@
    </div>
    <div class="col-xs-8" style="padding: 0px 0px 0px 0px; background-color: #FFFFFF;">
      <div id="pm-msg" class="ui feed segment">
-      <?php foreach($chats as $chat): ?>
+   <!--    <?php foreach($chats as $chat): ?>
       <div class="event">
         <div class="label">
          <?php if($chat->photo_url): ?>
@@ -116,12 +116,12 @@
         </div>
       </div>
     </div>
-  <?php endforeach; ?>
+  <?php endforeach; ?> -->
 
 </div>
-<form>
+<form method="post" action="<?= base_url().'pm/add/'.$pm_user->from_user_id ?>" >
   <div style="padding: 15px 15px 0px 15px; border-top: 1px solid #D6D6D6; background-color: #F7F6F6;">
-    <textarea name="message" class="ckeditor" style"border-top: 1px solid #b6b6b6;"></textarea>
+    <textarea name="text" class="ckeditor" style"border-top: 1px solid #b6b6b6;" ></textarea>
   </div>
   <div style="background-color: #F7F6F6;">
     <input class="small ui button" style="margin-top: 10px; margin-bottom: 15px; margin-left: 540px;" type="submit" value="send">

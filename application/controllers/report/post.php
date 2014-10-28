@@ -17,6 +17,7 @@ class Post extends CI_Controller {
 			 $this->report_post_model->add($data);
 			 $band = $this->report_post_model->getBand($data['post_id']);
 			//print_r($band->band_id);
+			
 			redirect('/band/'.$band->band_id.'/timeline');
 		}
 	}

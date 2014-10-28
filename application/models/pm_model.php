@@ -54,7 +54,7 @@ class Pm_model extends CI_Model {
 
 		$current_id = $this->session->userdata('id');
 		
-		$query = $this->db->query('select pm1.text,pm1.timestamp,u.* 
+		$query = $this->db->query('select pm1.from_user_id,pm1.text,pm1.timestamp,u.* 
 							from PM_Users pm1
                             join Users u on pm1.from_user_id  = u.id
 							where pm1.timestamp =

@@ -16,17 +16,17 @@ public function __construct() {
 		$this->load->view('private_message',$data);
 	}
 
-	public function add($text,$target_user) {
+	public function add($target_user) {
 		if ($this->input->post()) {
 			$data = array(
 			'from_user_id' => $this->session->userdata('id'),
-			'text'=> $text,
+			'text'=> $this->input->post('text'),
 			'to_user_id' => $target_user
 		);
 			$this->pm_model->add($data);
-		} else {
-			$this->load->view('user/createJob');
-		}
+			redirect(base_url('pm/'.$data['to_user_id']));
+
+		} 
 	}
 		
 	public function view() {
