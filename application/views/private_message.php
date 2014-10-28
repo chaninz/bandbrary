@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>Feed Example - Semantic</title>
+  <title>Private Message</title>
 
   <?php $this->load->view('header'); ?>
 
@@ -128,7 +128,7 @@
   </div>
 </div>
 <div style="background-color: #F7F6F6;">
-  <input class="small ui button" style="margin-bottom: 15px; margin-left: 540px;" type="submit" value="ส่ง">
+  <input class="small ui button" style="margin-bottom: 15px; margin-left: 560px;" type="submit" value="ส่ง">
 </div>
 </form>
 </div>
