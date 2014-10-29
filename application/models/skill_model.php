@@ -24,6 +24,14 @@ class Skill_model extends CI_Model {
 	}
 	
 	function get_by_user($user_id) {
+		$this->db->join('Skills', 'Skills.id = Has_Skills.skill_id');
+		$query = $this->db->get_where('Has_Skills', array('user_id' => $user_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_by_user_array($user_id) {
 		$query = $this->db->get_where('Has_Skills', array('user_id' => $user_id));
 		$result_set = $query->result();
 		$result = array();

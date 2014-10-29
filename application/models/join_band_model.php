@@ -98,7 +98,10 @@ class Join_band_model extends CI_Model {
 	}
 
 	function accept($user, $band) {
-		$this->set_status($user, $band, 2);
+		$this->db->where('user_id', $user);
+		$this->db->where('band_id', $band);
+		$this->db->update('Join_Band', array('status' => 2,
+				'join_date' => mdate("%Y-%m-%d", now())));
 	}
 
 	function reject($user, $band) {
@@ -106,7 +109,10 @@ class Join_band_model extends CI_Model {
 	}
 
 	function leave($user, $band) {
-		$this->set_status($user, $band, 4);
+		$this->db->where('user_id', $user);
+		$this->db->where('band_id', $band);
+		$this->db->update('Join_Band', array('status' => 4,
+				'leave_date' => mdate("%Y-%m-%d", now())));
 	}
 
 	function set_master($user, $band, $is_master) {
@@ -132,6 +138,22 @@ class Join_band_model extends CI_Model {
 		} else {
 			$result = $query->row()->status;
 		}
+
+		return $result;
+	}
+
+	function get_joining($user_id) {
+		$query = $this->db->get_where('Join_Band', array('user_id' => $user_id,
+			'status' => 2));
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_join_all($user_id) {
+		$this->db->order_by('leave_date DESC');
+		$query = $this->db->get_where('Join_Band', array('user_id' => $user_id));
+		$result = $query->result();
 
 		return $result;
 	}

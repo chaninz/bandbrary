@@ -153,8 +153,8 @@ class Edit extends CI_Controller {
 			// Retrieve data for refresh page
 			$user = $this->user_model->get($id);
 			$provinces = $this->province_model->get_all();
-			$skills = $this->skill_model->get_by_user($id);
-			$styles = $this->style_model->get_by_user($id);
+			$skills = $this->skill_model->get_by_user_array($id);
+			$styles = $this->style_model->get_by_user_array($id);
 			$msg = array('type' => 3, 
 				'header' => '',
 				'text' => 'บันทึกข้อมูลเรียบร้อย');
@@ -171,8 +171,8 @@ class Edit extends CI_Controller {
 		} else {
 			$user = $this->user_model->get($id);
 			$provinces = $this->province_model->get_all();
-			$skills = $this->skill_model->get_by_user($id);
-			$styles = $this->style_model->get_by_user($id);
+			$skills = $this->skill_model->get_by_user_array($id);
+			$styles = $this->style_model->get_by_user_array($id);
 
 			$display = array('user' => $user,
 				'provinces' => $provinces,

@@ -55,7 +55,8 @@ $route['user/(:any)/follower'] = 'user/follower/index/$1';
 // Event
 $route['user/(:any)/event'] = 'user/event/index/$1';
 
-$route['user/(:any)'] = 'user/index/user/$1';
+$route['user/(:any)/band/all'] = 'user/band/all/$1';
+$route['user/(:any)/status/all'] = 'user/status/all/$1';
 
 // Index
 $route['user/(:any)'] = 'user/index/user/$1';
@@ -75,6 +76,7 @@ $route['band/(:num)/follower'] = 'band/follower/index/$1';
 $route['band/(:num)/event'] = 'band/event/index/$1';
 // Index
 $route['band/(:num)'] = 'band/index/band/$1';
+
 
 // PM
 $route['pm/(:num)'] = 'pm/index/$1';
