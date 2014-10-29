@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bandbrary</title>
+
+	<?php $this->load->view('header'); ?>
+
+	<style>
+	body {
+		background: url('../../images/noise-black.png');
+	}
+	#status-item {
+		min-height: 150px;
+		width: 305px;
+		margin: 10px 10px 0px 0px;
+	}
+	</style>
+</head>
+<body>
+	<?php $this->load->view('navigation'); ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12" style="padding-top: 140px">
+				<div class="ui items">
+					<?php foreach($statuss as $status): ?>
+					<div id="status-item" class="item">
+						<div class="content">
+							<div class="meta"><?= $status->timestamp ?></div>
+							<!-- <div class="name">Cute Dog</div> -->
+							<p class="description"><?= $status->status ?></p>
+						</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../assets/js/bandbrary.js"></script>
+	<script></script>
+</body>
+</html>
