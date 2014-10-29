@@ -5,13 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bandbrary</title>
-
 	<?php $this->load->view('header'); ?>
 
 	<style>
-	body {
-		background: url('../../images/noise-black.png');
-	}
 	#status-item {
 		min-height: 150px;
 		width: 305px;
@@ -21,6 +17,8 @@
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
+	<?php $this->load->view('user/cover'); ?>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12" style="padding-top: 140px">
@@ -38,7 +36,8 @@
 			</div>
 		</div>
 	</div>
-	<script src="../../assets/js/bandbrary.js"></script>
-	<script></script>
+	
+	<?php $this->load->view('footer'); ?>
+
 </body>
 </html>
