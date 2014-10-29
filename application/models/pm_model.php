@@ -14,26 +14,35 @@ class Pm_model extends CI_Model {
 	
 	function view($target_user){
 		$current_id = $this->session->userdata('id');
-		$array = array(
-			'from_user_id' => $current_id,
-			'to_user_id' => $target_user
-		);
+		// $array = array(
+		// 	'PM_Users.from_user_id' => $current_id,
+		// 	'PM_Users.to_user_id' => $target_user
+		// );
 
-		$array2 = array(
-			'from_user_id' => $target_user,
-			'to_user_id' => $current_id
-		);
+		// $array2 = array(
+		// 	'PM_Users.from_user_id' => $target_user,
+		// 	'PM_Users.to_user_id' => $current_id
+		// );
 		
-		$this->db->select('PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,t.username as target,f.photo_url as from_photo,t.photo_url as to_photo');
-		$this->db->from('PM_Users');
-		$this->db->join('Users AS f', 'PM_Users.from_user_id = f.id');
-		$this->db->join('Users AS t', 'PM_Users.to_user_id = t.id');
-		$this->db->where($array);
-		$this->db->or_where($array2);
-		$this->db->order_by("PM_Users.timestamp", "asc"); 
+		// $this->db->select('PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,t.username as target,f.photo_url as from_photo,t.photo_url as to_photo');
+		// $this->db->from('PM_Users');
+		// $this->db->join('Users AS f', 'PM_Users.from_user_id = f.id');
+		// $this->db->join('Users AS t', 'PM_Users.to_user_id = t.id');
+		// $this->db->where($array);
+		// $this->db->or_where($array2);
+		// $this->db->order_by("PM_Users.timestamp", "asc"); 
 
-		$query = $this->db->get();
+		$query = $this->db->query('select PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,t.username as target,f.photo_url as from_photo,t.photo_url as to_photo
+									from PM_Users join Users AS f on PM_Users.from_user_id = f.id
+									join Users AS t on  PM_Users.to_user_id = t.id
+									where 
+									(PM_Users.from_user_id = '.$current_id.' and PM_Users.to_user_id = '.$target_user.') 
+									or (PM_Users.from_user_id ='.$target_user.' and PM_Users.to_user_id='.$current_id.')
+									order by PM_Users.timestamp ');
 		return $query->result();
+
+		// $query = $this->db->get();
+		// return $query->result();
 	}
 
 	function delete($data){
@@ -56,7 +65,7 @@ class Pm_model extends CI_Model {
 
 		$current_id = $this->session->userdata('id');
 		
-		$query = $this->db->query('select pm1.from_user_id,pm1.text,pm1.timestamp,u.* 
+		$query = $this->db->query('select DISTINCT pm1.from_user_id,pm1.text,pm1.timestamp,u.* 
 							from PM_Users pm1
                             join Users u on pm1.from_user_id  = u.id
 							where pm1.timestamp =
@@ -73,7 +82,7 @@ class Pm_model extends CI_Model {
 		$this->db->from('PM_Users');
 		$this->db->join('Users AS f', 'PM_Users.from_user_id = f.id');
 		$this->db->join('Users AS t', 'PM_Users.to_user_id = t.id');
-		$this->db->where('PM_Users.id',$id);
+		$this->db->where('PM_Users.id',$id);	
 		$query = $this->db->get();
 		return $query->result();
 	}
