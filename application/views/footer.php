@@ -61,6 +61,11 @@
 
 	$('.createall.modal')
 	.modal('attach events', '.mbtn.createall', 'show');
+
+	$(".reportband#bandreport").click(function(){
+	var id = $(this).attr("post-id");
+	$('.bandid').val(id);
+	});
 	/* END-Report Modal */
 
 	/* User update Status */
@@ -90,8 +95,6 @@
 	});
 	/* END-User update Status */
 
-$('.test1.image')
-  .transition('scale')
-;
-
+	$('.test1.image')
+	  .transition('scale');
 </script>
