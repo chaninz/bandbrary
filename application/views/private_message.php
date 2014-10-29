@@ -25,7 +25,7 @@
     box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05); 
   }
   #pm-inbox {
-    height: 681px;
+    height: 544px;
     overflow-y: scroll; 
     scrollbar-arrow-color:blue; 
     scrollbar-face-color: #e7e7e7; 
@@ -33,7 +33,7 @@
     scrollbar-darkshadow-color:#888888
   }
   #pm-msg {
-    height: 507px;
+    height: 430px;
     overflow-y: scroll; 
     border-left: 15px solid #F7F6F6;
     border-right: 15px solid #F7F6F6;
@@ -72,14 +72,14 @@
 
   <div id="pm-container" class="container">
     <div class="row">
-      <div class="col-xs-4" style="height: 100px; padding-top: 80px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
+      <div class="col-xs-4" style="height: 180px; padding-top: 130px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
         <h3 class="ui header" style="margin-left: 20px;">
           <i class="inbox icon"></i>
           กล่องข้อความ
         </h3>
       </div>
-      <div class="col-xs-8" style="height: 100px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6;" id="pm-name">
-      <!-- เติ้ลแก้ตรงนี้ นี้นยกน้ยบกดน้บยดกน้ดกบย้นบกยหนดบยเนหบก -->
+      <div class="col-xs-8" style="height: 180px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6; padding-top: 140px; padding-left: 30px;" id="pm-name">
+      <h4 class="ui header">Punpun Sa</h4>
       </div>
     </div>
     <div class="row">
@@ -104,7 +104,7 @@
      </div>
 
      <!-- แชทของวง -->
-     <div id="pmband-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
+     <div id="pm-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
       <?php foreach($pm_bands as $pm_band): ?>
       <a class="item" data-id="<?= $pm_band->band_id ?>" >
        <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_band->timestamp)) ?> <?= mdate("%M", strtotime($pm_band->timestamp)) ?> <?= mdate("%Y", strtotime($pm_band->timestamp)) ?></div>
