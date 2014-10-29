@@ -70,13 +70,13 @@
 				</div> -->
 				<div id="navbar-item4" class="ui secondary  menu">
 					<a class="item" style="padding: 0px;">
-						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
+						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การแจ้งเตือน"></i> 
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
-						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
+						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
-						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
+						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การสร้าง"></i> 
 					</a>
 				</div>
 				<div id="navbar-item5" class="ui top pointing dropdown icon">

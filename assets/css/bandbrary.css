@@ -417,6 +417,17 @@ footer {
 	width: 80px;
 	height: 80px;
 }
+#member-img{
+	margin-left: 5px;
+}
+#member-size {
+	width: 155px;
+height: 130px;
+}
+#join-img {
+	margin-left: 5px;
+	opacity: 0.5;
+}
 
 /*--- follow ---*/
 .follow-menu {

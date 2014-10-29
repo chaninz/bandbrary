@@ -25,8 +25,7 @@
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
 									<div class="item mbtn reportband" id="bandreport" post-id="<?= $band_profile->id ?> ">รายงานปัญหาวงดนตรี</div>
-									<div class="item">test2</div>
-									<div class="item">test3</div>
+									<div class="item">ออกจากวง</div>
 								</div>
 							</div>
 						</div>
@@ -88,7 +87,7 @@
 					โพสต์ <span class="bb-count">22</span>
 				</a>
 				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/follower') ?>">
-					ผู้ติดตาม <span class="bb-count">22</span>
+					คนตามกรี๊ด <span class="bb-count">22</span>
 				</a>
 				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/event') ?>">
 					ตารางงาน <span class="bb-count">22</span>
@@ -101,94 +100,59 @@
 	<div class="col-xs-12">
 		<div id="band-member" class="ui animated list">
 			<?php foreach ($band_members as $band_member): ?>
-			<div class="item" style="height: 130px"><?php if($band_member->photo_url): ?>
+			<div id="member-size" class="item"><?php if($band_member->photo_url): ?>
 				<p/>
-				<img class="ui avatar image" src="<?= base_url('uploads/profile/'.$band_member->photo_url) ?>"><?php else: ?>
-				<img class="ui avatar image" src="<?= base_url('images/no_profile.jpg') ?>"><?php endif; ?>
+				<img id="member-img" class="ui avatar image test1" src="<?= base_url('\uploads\profile\user'.$band_member->photo_url) ?>"><?php else: ?>
+				<p/>
+				<img id="member-img" class="ui avatar image test1" src="<?= base_url('images/no_profile.jpg') ?>"><?php endif; ?>
 				<div class="content">
 					<div class="header"><?= $band_member->name.' '.$band_member->surname ?></div>
 					<?= $band_member->position ?>
 				</div>
 			</div>
 		<?php endforeach; ?>
-		<div class="item" style="height: 130px">
+		<div id="member-size" class="item">
 			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/microphone_icon.jpg') ?>">
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 			<div class="content">
 				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+					<div class="tiny ui button">สมัครเป็นมือกลอง</div>
 				</div>
 			</div>
 		</div>
-		<div class="item" style="height: 130px">
+		<div id="member-size" class="item">
 			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/guitar_icon.jpg') ?>">
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 			<div class="content">
 				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+					<div class="tiny ui button">สมัครเป็นมือเบส</div>
 				</div>
 			</div>
 		</div>
-		<div class="item" style="height: 130px">
+		<div id="member-size" class="item">
 			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/bass_icon.jpg') ?>">
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 			<div class="content">
 				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+					<div class="tiny ui button">สมัครเป็นมือคีบอร์ด</div>
 				</div>
 			</div>
 		</div>
-		<div class="item" style="height: 130px">
+		<div id="member-size" class="item">
 			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/drum_icon.jpg') ?>">
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 			<div class="content">
 				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+					<div class="tiny ui button">สมัครเป็นมือเปียโน</div>
 				</div>
 			</div>
 		</div>
-		<div class="item" style="height: 130px">
+		<div id="member-size" class="item">
 			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/keyboard_icon.jpg') ?>">
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 			<div class="content">
 				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
-				</div>
-			</div>
-		</div>
-		<div class="item" style="height: 130px">
-			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/piano_icon.jpg') ?>">
-			<div class="content">
-				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
-				</div>
-			</div>
-		</div>
-		<div class="item" style="height: 130px">
-			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/saxophone_icon.jpg') ?>">
-			<div class="content">
-				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
-				</div>
-			</div>
-		</div>
-		<div class="item" style="height: 130px">
-			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/trumpet_icon.jpg') ?>">
-			<div class="content">
-				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
-				</div>
-			</div>
-		</div>
-		<div class="item" style="height: 130px">
-			<p/>
-			<img class="ui avatar image" src="<?= base_url('images/violin_icon.jpg') ?>">
-			<div class="content">
-				<div class="header">
-					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+					<div class="tiny ui button">สมัครเป็นมือแซกโซโฟน</div>
 				</div>
 			</div>
 		</div>
@@ -248,6 +212,31 @@
 		</div>
 	</form>
 </div>
+
+<!--pm modal
+<div class="ui transition scrolling pm modal">
+	<div class="header">
+		ส่งข้อความถึง <ชื่อ User>
+	</div>
+	<div class="content">
+		<div class="left"></div>
+		<div class="right">
+			<div class="ui form">
+				<div class="field">
+					<label>User Text</label>
+					<textarea></textarea>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="actions">
+		<div class="ui black small button">
+			ยกเลิก
+		</div>
+		<input type="submit" class="ui red submit small button" value="ส่ง">
+	</div>
+</form>
+</div> -->
 
 <script>
 

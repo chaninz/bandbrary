@@ -57,10 +57,10 @@
 						เพลง <span class="bb-count">22</span>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">
-						ผู้ติดตาม <span class="bb-count">22</span>
+						คนตามกรี๊ด <span class="bb-count">22</span>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/following' ?>">
-						กำลังติดตาม <span class="bb-count">22</span>
+						กำลังกรี๊ด <span class="bb-count">22</span>
 					</a>
 					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">
 						ตารางงาน <span class="bb-count">22</span>
