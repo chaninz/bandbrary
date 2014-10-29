@@ -94,7 +94,7 @@
         <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="general">
           <?php foreach($pm_users as $pm_user): ?>
           <a class="item" data-id="<?= $pm_user->id ?>" >
-           <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
+           <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/user/'.$pm_user->photo_url ?>"><?php else: ?>
            <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
            <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
            <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?></b></div>           
@@ -121,7 +121,7 @@
       <div class="event">
         <div class="label">
          <?php if($chat->photo_url): ?>
-         <img src="<?= base_url().'uploads/profile/'.$chat->photo_url ?>"><?php else: ?>
+         <img src="<?= base_url().'uploads/profile/user/'.$chat->photo_url ?>"><?php else: ?>
          <img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
          <div class="content">
           <div class="date">
@@ -187,7 +187,7 @@
                 $.each(chat, function(key,value){
                   //console.log(value);
                   var image = "";
-                  var path = '<?= base_url().'uploads/images/profile/' ?>';
+                  var path = '<?= base_url().'uploads/profile/user/' ?>';
                   if(value.from_photo != 0){
                     image = '<img src=\"'+path+value.from_photo+'\"/>';
                   }else{
@@ -249,7 +249,7 @@ $("#pmband-inbox .item").click(function(){
                 $.each(chat, function(key,value){
                   //console.log(value);
                   var image = "";
-                  var path = '<?= base_url().'uploads/images/profile/' ?>';
+                  var path = '<?= base_url().'uploads/profile/user/' ?>';
                   if(value.from_photo != 0){
                     image = '<img src=\"'+path+value.from_photo+'\"/>';
                   }else{
@@ -307,7 +307,7 @@ $("#message").submit(function(e){
       data = JSON.parse(value);
       var html = "";
       var image = "";
-      var path = '<?= base_url().'uploads/profile/' ?>';
+      var path = '<?= base_url().'uploads/profile/user/' ?>';
       if(data[0].from_photo){
         image = '<img src=\"'+path+data[0].from_photo+'\"/>';
       }else{
