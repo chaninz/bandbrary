@@ -203,6 +203,7 @@
           url:'<?= base_url('pm/view'); ?>',
           data:{id:id},
           success:function(data){
+            console.log(data);
             var chat = JSON.parse(data);
                 //$("#jobname").text(job.name);
             var html = "";
