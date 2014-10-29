@@ -145,7 +145,7 @@
     <div class="ui form">
       <div class="field" style="margin: 0px">
         <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"></textarea>
-        <input type="hidden" id="message_type">
+        <input type="hidden" name="message_type" value="user">
       </div>
     </div>
   </div>

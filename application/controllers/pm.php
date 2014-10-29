@@ -50,6 +50,32 @@ public function __construct() {
 		} 
 	}
 		
+	public function message($target_user) {
+		if ($this->input->post()) {
+			$type = $this->input->post('message_type');
+			$username =  $this->input->post('username');
+			if ($type=="user"){
+				$data = array(
+					'from_user_id' => $this->session->userdata('id'),
+					'text'=> $this->input->post('text'),
+					'to_user_id' => $target_user
+				);
+				//print_r($data);
+				$id = $this->pm_model->add($data);
+				redirect(base_url('user/'.$username));
+			}
+			else {
+				$data = array(
+					'user_id' => $this->session->userdata('id'),
+					'text'=> $this->input->post('text'),
+					'band_id' => $target_user
+				);
+				//print_r($data);
+				$id = $this->pm_band_model->add($data);
+				redirect(base_url('band/'.$target_user));
+			}
+		} 
+	}	
 	public function view() {
 		// $user_profile = $this->user_model->get_by_username($username);
 		$target_user = $this->input->post('id');
