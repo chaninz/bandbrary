@@ -95,6 +95,8 @@
 	});
 	/* END-User update Status */
 
-	$('.test1.image')
+	$('.member.image')
+	  .transition('scale');
+	  $('.member.image')
 	  .transition('scale');
 </script>
