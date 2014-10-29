@@ -126,14 +126,13 @@
 
 <!--pm modal-->
 <div class="ui transition scrolling pm modal" style="max-width: 700px; left: 64%;">
-	<form action="<?php echo base_url().'pm/message/'.$user_profile->id; ?>" method="post">
-	<input type="hidden" name="message_type" value="user">
-	<input type="hidden" name="username" value="<?= $user_profile->username ?>">
-
 	<div class="header">
 		ส่งข้อความถึง <?= $user_profile->name ?>
 	</div>
 	<div class="content">
+		<form action="<?php echo base_url().'pm/message/'.$user_profile->id; ?>" method="post">
+	<input type="hidden" name="message_type" value="user">
+	<input type="hidden" name="username" value="<?= $user_profile->username ?>">
 			<div class="ui form">
 				<div class="field">
 					<textarea name="text"></textarea>

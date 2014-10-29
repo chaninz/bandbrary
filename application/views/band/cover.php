@@ -165,12 +165,12 @@
 
 <!--pm modal-->
 <div class="ui transition scrolling pm modal" style="max-width: 700px; left: 64%;">
-	<form action="<?php echo base_url().'pm/message/'.$band_profile->id; ?>" method="post">
-	<input type="hidden" name="message_type" value="band">
 	<div class="header">
 		ส่งข้อความถึง <?= $band_profile->name ?>
 	</div>
 	<div class="content">
+		<form action="<?php echo base_url().'pm/message/'.$band_profile->id; ?>" method="post">
+	<input type="hidden" name="message_type" value="band">
 			<div class="ui form">
 				<div class="field">
 					<textarea name="text"></textarea>
