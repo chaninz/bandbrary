@@ -9,9 +9,11 @@ class Status extends CI_Controller {
 	}
 
 	public function all($username) {
+		$user_profile = $this->user_model->get_by_username($username);
 		$user = $this->user_model->get_by_username($username);
 		if ( ! empty($username) && ! empty ($user)) {
-			$data = array('statuss' => $this->status_model->get_by_user($user->id)
+			$data = array('statuss' => $this->status_model->get_by_user($user->id),
+				'user_profile' => $user_profile
 			);
 			//print_r($data['statuss']);
 			$this->load->view('user/status_all', $data);
