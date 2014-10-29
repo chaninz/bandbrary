@@ -101,7 +101,7 @@
 	<div class="col-xs-12">
 		<div id="band-member" class="ui animated list">
 			<?php foreach ($band_members as $band_member): ?>
-			<div class="item"><?php if($band_member->photo_url): ?>
+			<div class="item" style="height: 130px"><?php if($band_member->photo_url): ?>
 				<p/>
 				<img class="ui avatar image" src="<?= base_url('uploads/profile/'.$band_member->photo_url) ?>"><?php else: ?>
 				<img class="ui avatar image" src="<?= base_url('images/no_profile.jpg') ?>"><?php endif; ?>
@@ -111,6 +111,87 @@
 				</div>
 			</div>
 		<?php endforeach; ?>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/microphone_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/guitar_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/bass_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/drum_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/keyboard_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/piano_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/saxophone_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/trumpet_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
+		<div class="item" style="height: 130px">
+			<p/>
+			<img class="ui avatar image" src="<?= base_url('images/violin_icon.jpg') ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเข้าร่วมวง</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 </div>

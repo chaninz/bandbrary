@@ -21,7 +21,6 @@
 
 	<style>
 	.ui.header {
-		font-size: 2.4em;
 		margin-left: 60px;
 		font-weight: bold;
 	}
@@ -39,9 +38,9 @@
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<form action="<?php echo base_url().'band/post/edit'; ?>" method="post">	
-					<div class="ui header">
+					<h2 class="ui header">
 						แก้ไขโพสต์
-					</div>
+					</h2>
 					<p/>
 					<div class="line"></div>
 					<p/><br/>
@@ -53,20 +52,20 @@
 				<div class="col-xs-6">
 					<div class="ui form segment">
 						<div class="field">
-							<label>Title</label>
+							<label>ชื่อ</label>
 							<input type="text" placeholder="" name="topic" value="<?= $post->topic ?>" readonly>
 						</div>
 						<div class="field">
-							<label>Description</label>
+							<label>คำอธิบาย</label>
 							<textarea name="post" class="ckeditor"><?= $post->post; ?></textarea>
 						</div>
 						<div class="field">
-							<label>Profile Photo</label>
+							<label>รูปภาพ</label>
 							<input type="file" name="image_url" value="<?= $post->image_url; ?>">
 						</div>
 					</form>
 				</div>
-				<input class="ui red submit button" type="submit" value="บันทึก">
+				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 			</div>
 			<div class="col-xs-3"></div>
 		</div>

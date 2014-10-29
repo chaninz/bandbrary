@@ -52,6 +52,20 @@
 						<div class="description"><?= $user_profile->yt_url ?></div>
 					</div>
 				</div><?php endif; ?>
+				<div class="item">
+					<i class="certificate icon"></i>
+					<div class="content">
+						<div class="header">รางวัลที่ได้รับ</div>
+						<div class="description">MTV Award 2014</div>
+					</div>
+				</div>
+				<div class="item">
+					<i class="info icon"></i>
+					<div class="content">
+						<div class="header">วงดนตรีที่เคยเข้าร่วม</div>
+						<div class="description">Bodyslam - ปี 2013</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
