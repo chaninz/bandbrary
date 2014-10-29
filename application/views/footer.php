@@ -44,8 +44,8 @@
 <script>
 
 	/* Report Modal */
-	// $('.pm.modal')
-	// .modal('attach events', '.mbtn.pm', 'show');
+	$('.pm.modal')
+	.modal('attach events', '.mbtn.pm', 'show');
 
 	$('.reportuser.modal')
 	.modal('attach events', '.mbtn.reportuser', 'show');

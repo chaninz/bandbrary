@@ -19,7 +19,7 @@
 						<?php if ($user_profile->id == $this->session->userdata('id')): ?><?php elseif(empty($is_follow_user)): ?>
 						<div id="user-follow" class="ui small black buttons">
 							<a class="ui button" href="<?= base_url('following/user/follow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a>
-							<div class="ui button">ข้อความ</div>
+							<div class="ui button mbtn pm">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
 									<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
@@ -31,7 +31,7 @@
 					<?php else: ?>
 					<div id="user-follow" class="ui small black buttons">
 						<a class="ui button" href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
-						<div class="ui button">ข้อความ</div>
+						<div class="ui button mbtn pm">ข้อความ</div>
 						<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
 							<div class="menu">
 								<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
@@ -123,6 +123,27 @@
 		</div>
 	</form>
 </div>
+
+<!--pm modal-->
+<div class="ui transition scrolling pm modal" style="max-width: 700px; left: 64%;">
+	<div class="header">
+		ส่งข้อความถึง <ชื่อ User>
+	</div>
+	<div class="content">
+			<div class="ui form">
+				<div class="field">
+					<textarea></textarea>
+				</div>
+			</div>		
+	</div>
+	<div class="actions">
+		<div class="ui black small button">
+			ยกเลิก
+		</div>
+		<input type="submit" class="ui red submit small button" value="ส่ง">
+	</div>
+</div>
+
 <script>
 	
 		$(".reportuser#userreport").click(function(){
