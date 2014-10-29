@@ -8,41 +8,43 @@ class Join extends CI_Controller {
 	}
 
 	public function index($band_id) {
-		// edit how to get position from user ?
 		// getting from query string
-		if ($this->input->get()) {
-			$position = $this->input->get('pos');
-			$ref = $this->input->get('ref');
-			$user_id = $this->session->userdata('id');
+		$position = $this->input->get('pos');
+		$user_id = $this->session->userdata('id');
+		$joining_band = $this->join_band_model->get_joining($user_id);
+
+		if ( ! empty($band_id) && ! empty($position) && sizeof($joining_band) == 0) {
 			$data = array('band_id' => $band_id,
 				'user_id' => $user_id,
 				'position' => $position,
 				'status' => 1);
 			$this->join_band_model->join($data);
 
-			redirect($ref);
+			redirect('band/'.$band_id);
 		} else {
-			redirect('');
+			show_404();
 		}
 	}
 
 	public function cancel($band_id) {
-		if ($this->input->get()) {
-			$ref = $this->input->get('ref');
-			$user_id = $this->session->userdata('id');
+		$user_id = $this->session->userdata('id');
+		if ( ! empty($band_id)) {
 			$this->join_band_model->reject($user_id, $band_id);
 
-			redirect($ref);
+			redirect('band/'.$band_id);
+		} else {
+			show_404();
 		}
 	}
 
 	public function leave($band_id) {
-		if ($this->input->get()) {
-			$ref = $this->input->get('ref');
-			$user_id = $this->session->userdata('id');
+		$user_id = $this->session->userdata('id');
+		if ( ! empty($band_id)) {
 			$this->join_band_model->leave($user_id, $band_id);
 
-			redirect($ref);
+			redirect('band/'.$band_id);
+		} else {
+			show_404();
 		}
 	}
 
