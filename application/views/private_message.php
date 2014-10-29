@@ -78,18 +78,20 @@
           กล่องข้อความ
         </h3>
       </div>
-      <div class="col-xs-8" style="height: 100px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6;"></div>
+      <div class="col-xs-8" style="height: 100px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6;" id="pm-name">
+      <!-- เติ้ลแก้ตรงนี้ นี้นยกน้ยบกดน้บยดกน้ดกบย้นบกยหนดบยเนหบก -->
+      </div>
     </div>
     <div class="row">
       <div class="col-xs-4" style="padding-top: 20px; padding-left: 0px; padding-right: 0px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
-        
-      <div class="ui tabular filter menu">
-        <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป</a>
-        <a class="item" data-tab="band">วงดนตรี</a>
-      </div>
 
-<!-- แชทของคนทั่วไป -->
-      <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="general">
+        <div class="ui tabular filter menu">
+          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป</a>
+          <a class="item" data-tab="band">วงดนตรี</a>
+        </div>
+
+        <!-- แชทของคนทั่วไป -->
+        <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="general">
           <?php foreach($pm_users as $pm_user): ?>
           <a class="item" data-id="<?= $pm_user->id ?>" >
            <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
@@ -101,22 +103,20 @@
        <?php endforeach; ?>
      </div>
 
-<!-- แชทของวง -->
-     <div id="pm-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
-          <?php foreach($pm_users as $pm_user): ?>
-          <a class="item" data-id="<?= $pm_user->id ?>" >
-           <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/'.$pm_user->photo_url ?>"><?php else: ?>
-           <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
-           <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
-           <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?></b></div>           
-           <?= $pm_user->text ?>    
-         </a>
-       <?php endforeach; ?>
-     </div>
+     <!-- แชทของวง -->
+     <div id="pmband-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
+      <?php foreach($pm_bands as $pm_band): ?>
+      <a class="item" data-id="<?= $pm_band->band_id ?>" >
+       <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_band->timestamp)) ?> <?= mdate("%M", strtotime($pm_band->timestamp)) ?> <?= mdate("%Y", strtotime($pm_band->timestamp)) ?></div>
+       <div class="description" style="margin-top: 4px;"><b><?= $pm_band->name ?></b></div>           
+       <?= $pm_band->text ?>    
+     </a>
+   <?php endforeach; ?>
+ </div>
 
-   </div>
-   <div class="col-xs-8" style="padding: 0px 0px 0px 0px; background-color: #FFFFFF;">
-     <div id="pm-msg" class="ui feed segment">
+</div>
+<div class="col-xs-8" style="padding: 0px 0px 0px 0px; background-color: #FFFFFF;">
+ <div id="pm-msg" class="ui feed segment">
    <!--    <?php foreach($chats as $chat): ?>
       <div class="event">
         <div class="label">
@@ -145,6 +145,7 @@
     <div class="ui form">
       <div class="field" style="margin: 0px">
         <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"></textarea>
+        <input type="hidden" name="message_type" value="user">
       </div>
     </div>
   </div>
@@ -170,65 +171,20 @@
 
       <script>
       $(function(){
-    
-        $("#message").submit(function(e){
-          e.preventDefault();
+        var to_user_id = "";
+        $("#pm-inbox .item").click(function(){
+          to_user_id = $(this).attr("data-id");
+           $("#message_type").val("user");
           $.ajax({
-            url:'<?= base_url().'pm/add/'.$pm_user->from_user_id ?>',
-            type:'post',
-            data:{text:$("#text").val()},
-            success:function(value){
-              data = JSON.parse(value);
-              var html = "";
-               var image = "";
-                  var path = '<?= base_url().'uploads/profile/' ?>';
-                  if(data[0].from_photo){
-                    image = '<img src=\"'+path+data[0].from_photo+'\"/>';
-                  }else{
-                    image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
-                  }
-
-                  var date = new Date(Date.parse(data[0].timestamp));
-               html =
-                        '<div class="event">'+
-                        '<div class="label">'+image+
-                        '</div>'+
-                        '<div class="content">'+
-                        '<div class="date">'+
-                        date.toDateString()+
-                        '</div>'+
-                        '<div class="summary">'+
-                        '<a>'+'<b>'+data[0].from_user_name + " " +data[0].from_user_surname +'</b>'+'</a>'+
-                        '</div>'+
-                        '<div class="extra text">'+
-                        $("#text").val()+        
-                        '</div>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
-              $("#pm-msg").append(html);
-              $('#pm-msg').animate({
-                                    scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
-                                }, 500);
-              $("#text").val();
-            }
-          });
-        });
-      });
-
-
-      $("#pm-inbox .item").click(function(){
-        var id = $(this).attr("data-id");
-        $.ajax({
-          type:'POST',
-          url:'<?= base_url('pm/view'); ?>',
-          data:{id:id},
-          success:function(data){
-            console.log(data);
-            var chat = JSON.parse(data);
+            type:'POST',
+            url:'<?= base_url('pm/view'); ?>',
+            data:{id:to_user_id},
+            success:function(data){
+              // console.log(data);
+              var chat = JSON.parse(data);
                 //$("#jobname").text(job.name);
-            var html = "";
-            $.each(chat, function(key,value){
+                var html = "";
+                $.each(chat, function(key,value){
                   //console.log(value);
                   var image = "";
                   var path = '<?= base_url().'uploads/images/profile/' ?>';
@@ -241,31 +197,152 @@
                   var date = new Date(Date.parse(value.timestamp));
                   
                   html +=
-                        '<div class="event">'+
-                        '<div class="label">'+image+
-                        '</div>'+
-                        '<div class="content">'+
-                        '<div class="date">'+
-                        date.toDateString()+
-                        '</div>'+
-                        '<div class="summary">'+
-                        '<a>'+'<b>'+value.from_user_name + " " +value.from_user_surname +'</b>'+'</a>'+
-                        '</div>'+
-                        '<div class="extra text">'+
-                        value.text+        
-                        '</div>'+
-                        '</div>'+
-                        '</div>'+
-                        '</div>';
+                  '<div class="event">'+
+                  '<div class="label">'+image+
+                  '</div>'+
+                  '<div class="content">'+
+                  '<div class="date">'+
+                  date.toDateString()+
+                  '</div>'+
+                  '<div class="summary">'+
+                  '<a>'+'<b>'+value.from_user_name + " " +value.from_user_surname +'</b>'+'</a>'+
+                  '</div>'+
+                  '<div class="extra text">'+
+                  value.text+        
+                  '</div>'+
+                  '</div>'+
+                  '</div>'+
+                  '</div>';
 
-                        $("#pm-msg").html(html);
-                            $('#pm-msg').animate({
-                                    scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
-                                }, 0);
+                  $("#pm-msg").html(html);
+                  $('#pm-msg').animate({
+                    scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
+                  }, 0);
                 });
+}
+});
+          $.ajax({
+            type:'POST',
+            url:'<?= base_url('pm/getTargetUsername'); ?>',
+            data:{id:to_user_id},
+            success:function(userdata){
+                var name = JSON.parse(userdata);
+                console.log(name);
+
+                $("#pm-name").text(name.name + " " + name.surname);
           }
         });  
-      });
+});
+
+$("#pmband-inbox .item").click(function(){
+          to_user_id = $(this).attr("data-id");
+          $("#message_type").val("band");
+          $.ajax({
+            type:'POST',
+            url:'<?= base_url('pm/viewPMBand'); ?>',
+            data:{id: to_user_id},
+            success:function(data){
+               console.log(data);
+              var chat = JSON.parse(data);
+                //$("#jobname").text(job.name);
+                var html = "";
+                $.each(chat, function(key,value){
+                  //console.log(value);
+                  var image = "";
+                  var path = '<?= base_url().'uploads/images/profile/' ?>';
+                  if(value.from_photo != 0){
+                    image = '<img src=\"'+path+value.from_photo+'\"/>';
+                  }else{
+                    image = '<img src=\"<?= base_url().'images/no_profile.jpg'?>\"/>';
+                  }
+
+                  var date = new Date(Date.parse(value.timestamp));
+                  
+                  html +=
+                  '<div class="event">'+
+                  '<div class="label">'+image+
+                  '</div>'+
+                  '<div class="content">'+
+                  '<div class="date">'+
+                  date.toDateString()+
+                  '</div>'+
+                  '<div class="summary">'+
+                  '<a>'+'<b>'+value.name + " " +value.surname +'</b>'+'</a>'+
+                  '</div>'+
+                  '<div class="extra text">'+
+                  value.text+        
+                  '</div>'+
+                  '</div>'+
+                  '</div>'+
+                  '</div>';
+
+                  $("#pm-msg").html(html);
+                  $('#pm-msg').animate({
+                    scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
+                  }, 0);
+                });
+}
+});
+          $.ajax({
+            type:'POST',
+            url:'<?= base_url('pm/getBand'); ?>',
+            data:{id: band_id},
+            success:function(userdata){
+                var name = JSON.parse(userdata);
+                console.log(name);
+
+                $("#pm-name").text(name.name + " " + name.surname);
+          }
+        });  
+});
+
+$("#message").submit(function(e){
+  e.preventDefault();
+  $.ajax({
+    url:'<?= base_url().'pm/add/' ?>'+to_user_id,
+    type:'post',
+    data:{text:$("#text").val(),message_type:$("#message_type").val()},
+    success:function(value){
+      console.log(value);
+      data = JSON.parse(value);
+      var html = "";
+      var image = "";
+      var path = '<?= base_url().'uploads/profile/' ?>';
+      if(data[0].from_photo){
+        image = '<img src=\"'+path+data[0].from_photo+'\"/>';
+      }else{
+        image = '<img src=\"'+path+'images/no_profile.jpg\"/>';
+      }
+
+      var date = new Date(Date.parse(data[0].timestamp));
+      html =
+      '<div class="event">'+
+      '<div class="label">'+image+
+      '</div>'+
+      '<div class="content">'+
+      '<div class="date">'+
+      date.toDateString()+
+      '</div>'+
+      '<div class="summary">'+
+      '<a>'+'<b>'+data[0].from_user_name + " " +data[0].from_user_surname +'</b>'+'</a>'+
+      '</div>'+
+      '<div class="extra text">'+
+      $("#text").val()+        
+      '</div>'+
+      '</div>'+
+      '</div>'+
+      '</div>';
+      $("#pm-msg").append(html);
+      $('#pm-msg').animate({
+        scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
+      }, 500);
+      $("#text").val();
+    }
+  });
+});
+});
+
+
 
 </script>
 

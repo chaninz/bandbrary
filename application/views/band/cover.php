@@ -20,7 +20,7 @@
 							<?php if($this->session->userdata('user_type') == 2): ?><?php if(empty($is_follow_band)): ?>
 							<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a><?php else: ?>
 							<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a><?php endif; ?><?php endif; ?>
-							<div class="ui button">ข้อความ</div>
+							<div class="ui button mbtn pm">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button">
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
@@ -29,75 +29,139 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="menu-profile">
-							<div class="ui compact menu" style="border-radius: 0px">
-								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/timeline') ?>">
-									ไทม์ไลน์ <span class="bb-count">22</span>
-								</a>
-								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/music') ?>">
-									เพลง <span class="bb-count">22</span>
-								</a>
-								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/post') ?>">
-									โพสต์ <span class="bb-count">22</span>
-								</a>
-								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/follower') ?>">
-									คนตามกรี๊ด <span class="bb-count">22</span>
-								</a>
-								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/event') ?>">
-									ตารางงาน <span class="bb-count">22</span>
-								</a>
+						
+						
+						<div id="join-band" class="ui red buttons">
+							<div class="ui button" style="border-top-left-radius: 0em; border-bottom-left-radius: 0em; font-size: 0.85em!important; padding: 0.8em 1em;">
+								<?php if($this->session->userdata('user_type') == 2): ?>
+								<?php if($user_status == 1): ?>
+								<i class="circle blank icon"></i>รอการตอบรับ
 							</div>
+							<div class="ui red floating dropdown icon button" style="font-size: 0.85em!important;">
+								<i class="dropdown icon" style="font-size: 1em;"></i>
+								<div class="menu">
+									<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/cancel/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>ยกเลิกคำร้อง</a>
+								</div>
+							</div>
+						<?php elseif($user_status == 2): ?>
+						<i class="circle blank icon"></i>เข้ารว่มวงแล้ว
+					</div>
+					<div class="ui red floating dropdown icon button" style="font-size: 0.85em!important;">
+						<i class="dropdown icon" style="font-size: 1em;"></i>
+						<div class="menu">
+							<a class="item" style="font-size: 0.85em;" href="<?= base_url('band/join/leave/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>ออกจากวง</a>
 						</div>
 					</div>
-				</div>
-				<!-- Start band members -->
-				<div class="row">
-					<div class="col-xs-12">
-						<div id="band-member" class="ui animated list">
-							<?php foreach ($band_members as $band_member): ?>
-								<div id="member-size" class="item">
-								<p><p/>
-								<?php if($band_member->photo_url): ?>
-									<img id="member-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
-								<?php else: ?>
-									<img id="member-img" class="ui avatar image test1" src="<?= base_url('images/no_profile.jpg') ?>">
-								<?php endif; ?>
-								<div class="content">
-									<div class="header"><?= $band_member->name.' '.$band_member->surname ?></div>
-									<?= $band_member->position ?>
-								</div>
-								</div>
-							<?php endforeach; ?>
-							<?php if ($this->session->userdata('band_id') == NULL && $band_profile->id != $this->session->userdata('band_id')): ?>
-								<?php foreach ($current_user_skills as $current_user_skill): ?>
-								<div id="member-size" class="item">
-									<p><p/>
-									<?php if ($this->session->userdata('photo_url')): ?>
-										<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
-									<?php else: ?>
-										<img id="join-img" class="ui avatar image test1" src="<?= base_url('images/no_profile.jpg') ?>">
-									<?php endif; ?>
-									<div class="content">
-										<div class="header">
-											<div class="tiny ui button">สมัครตำแหน่ง<?= $current_user_skill->skill ?></div>
-										</div>
-									</div>
-								</div>
-								<?php endforeach; ?>
-							<?php endif; ?>
-						</div>
+				<?php else: ?>
+				<i class="circle blank icon"></i>ขอเข้าร่วมวง
+				<div class="ui red floating dropdown icon button" style="font-size: 0.85em!important;">
+					<i class="dropdown icon" style="font-size: 1em;"></i>
+					<div class="menu">
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=1&ref='.uri_string()) ?>"><i class="hide icon"></i>นักร้อง</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=2&ref='.uri_string()) ?>"><i class="hide icon"></i>กีต้าร์</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=3&ref='.uri_string()) ?>"><i class="hide icon"></i>เบส</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=4&ref='.uri_string()) ?>"><i class="hide icon"></i>กลอง</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=5&ref='.uri_string()) ?>"><i class="hide icon"></i>เปียโน</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=6&ref='.uri_string()) ?>"><i class="hide icon"></i>คีบอร์ด</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=7&ref='.uri_string()) ?>"><i class="hide icon"></i>แซกโซโฟน</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=8&ref='.uri_string()) ?>"><i class="hide icon"></i>ทรัมเป็ต</a>
+						<a class="item" style="font-size: 1.2em;" href="<?= base_url('band/join/'.$band_profile->id.'?pos=9&ref='.uri_string()) ?>"><i class="hide icon"></i>ไวโอลิน</a>
 					</div>
 				</div>
-				<!-- End band members -->
+			</div>
+		<?php endif; ?>
+	<?php endif; ?>
+</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="menu-profile">
+			<div class="ui compact menu" style="border-radius: 0px">
+				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/timeline') ?>">
+					ไทม์ไลน์ <span class="bb-count">22</span>
+				</a>
+				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/music') ?>">
+					เพลง <span class="bb-count">22</span>
+				</a>
+				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/post') ?>">
+					โพสต์ <span class="bb-count">22</span>
+				</a>
+				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/follower') ?>">
+					คนตามกรี๊ด <span class="bb-count">22</span>
+				</a>
+				<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/event') ?>">
+					ตารางงาน <span class="bb-count">22</span>
+				</a>
 			</div>
 		</div>
-	</article>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div id="band-member" class="ui animated list">
+			<?php foreach ($band_members as $band_member): ?>
+			<div id="member-size" class="item"><?php if($band_member->photo_url): ?>
+				<p/>
+				<img id="member-img" class="ui avatar image test1" src="<?= base_url('\uploads\profile\user'.$band_member->photo_url) ?>"><?php else: ?>
+				<p/>
+				<img id="member-img" class="ui avatar image test1" src="<?= base_url('images/no_profile.jpg') ?>"><?php endif; ?>
+				<div class="content">
+					<div class="header"><?= $band_member->name.' '.$band_member->surname ?></div>
+					<?= $band_member->position ?>
+				</div>
+			</div>
+		<?php endforeach; ?>
+		<div id="member-size" class="item">
+			<p/>
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเป็นมือกลอง</div>
+				</div>
+			</div>
+		</div>
+		<div id="member-size" class="item">
+			<p/>
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเป็นมือเบส</div>
+				</div>
+			</div>
+		</div>
+		<div id="member-size" class="item">
+			<p/>
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเป็นมือคีบอร์ด</div>
+				</div>
+			</div>
+		</div>
+		<div id="member-size" class="item">
+			<p/>
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเป็นมือเปียโน</div>
+				</div>
+			</div>
+		</div>
+		<div id="member-size" class="item">
+			<p/>
+			<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+			<div class="content">
+				<div class="header">
+					<div class="tiny ui button">สมัครเป็นมือแซกโซโฟน</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</article>
 </section>
-	
 
 <!--Report band modal-->
 <div class="ui transition scrolling reportband modal">
@@ -149,27 +213,34 @@
 	</form>
 </div>
 
-<!--pm modal
-<div class="ui transition scrolling pm modal">
+<!--pm modal-->
+<div class="ui transition scrolling pm modal" style="max-width: 700px; left: 64%;">
+	<form action="<?php echo base_url().'pm/message/'.$band_profile->id; ?>" method="post">
+	<input type="hidden" name="message_type" value="band">
 	<div class="header">
-		ส่งข้อความถึง <ชื่อ User>
+		ส่งข้อความถึง <?= $band_profile->name ?>
 	</div>
 	<div class="content">
-		<div class="left"></div>
-		<div class="right">
 			<div class="ui form">
 				<div class="field">
-					<label>User Text</label>
-					<textarea></textarea>
+					<textarea name="text"></textarea>
 				</div>
-			</div>
-		</div>		
+			</div>		
 	</div>
 	<div class="actions">
 		<div class="ui black small button">
 			ยกเลิก
 		</div>
 		<input type="submit" class="ui red submit small button" value="ส่ง">
+	</form>
 	</div>
-</form>
-</div> -->
+</div>
+
+<script>
+
+$(".reportband#bandreport").click(function(){
+	var id = $(this).attr("post-id");
+	$('.bandid').val(id);
+});
+</script>
+<?php $this->load->view('footer'); ?>
