@@ -1,12 +1,12 @@
 <div class="col-xs-3" style="padding-right: 0px">
 	<?php if ($this->session->userdata('id') == $user_profile->id): ?>
-	<div id="status-button" class="ui left pointing dropdown icon button">
-		<i class="edit icon"></i>
-		<div class="menu">
-			<div class="item">แก้ไข</div>
-			<div class="item">สเตตัสทั้งหมด</div>
+		<div id="status-button" class="ui left pointing dropdown icon button">
+			<i class="edit icon"></i>
+			<div class="menu">
+				<a class="item" id="edit-status-button">แก้ไข</a>
+				<a class="item">สเตตัสทั้งหมด</a>
+			</div>
 		</div>
-	</div>
 	<?php endif; ?>
 	<div class="ui stacked segment" id="status-user">
 		<div id="status-msg" style="background-color: #FFFFFF; display: table;"><?php if ( ! empty($status)): ?><?= $status->status ?><?php endif; ?></div>

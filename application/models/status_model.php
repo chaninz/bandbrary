@@ -15,7 +15,7 @@ class Status_model extends CI_Model {
 	
 	function get_by_user($user_id) {
 		$this->db->order_by('timestamp DESC');
-		$result = $this->db->get_where('Status', array('user_id' => $user_id));
+		$query = $this->db->get_where('Status', array('user_id' => $user_id));
 		$result = $query->result();
 
 		return $result;
