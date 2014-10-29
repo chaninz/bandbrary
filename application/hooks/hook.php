@@ -27,7 +27,8 @@ class Hook extends CI_Controller {
 	public function index() {
 		if ($this->exec) {
 			if ($this->CI->session->userdata('email')) {
-
+				$id = $this->CI->session->userdata('id');
+				$this->CI->utils->refresh_user($id);
 			} else if (get_cookie('id')) {
 				// If remember user
 				$id = get_cookie('id');

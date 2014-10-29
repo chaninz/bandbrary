@@ -29,7 +29,7 @@ class Join extends CI_Controller {
 	public function cancel($band_id) {
 		$user_id = $this->session->userdata('id');
 		if ( ! empty($band_id)) {
-			$this->join_band_model->reject($user_id, $band_id);
+			$this->join_band_model->cancel($user_id, $band_id);
 
 			redirect('band/'.$band_id);
 		} else {

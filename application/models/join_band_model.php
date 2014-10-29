@@ -72,9 +72,9 @@ class Join_band_model extends CI_Model {
 		return $query->row();
 	}
 
-	// requested = 1, joined = 2, leaved =4
+	// requested = 1, joined = 2, rejectd = 3, leaved =4,
 	function join($data) {
-		$user_status = $this->get_user_status($data['user_id'], $data['band_id']);
+		$user_status = $this->get_user_status_num($data['user_id'], $data['band_id']);
 		if ($user_status == 0) {
 			// if never join
 			$this->db->insert('Join_Band', $data);
@@ -94,7 +94,7 @@ class Join_band_model extends CI_Model {
 	}
 
 	function cancel($user, $band) {
-		$this->set_status($user, $band, 0);
+		$this->set_status($user, $band, 3);
 	}
 
 	function accept($user, $band) {
@@ -130,6 +130,20 @@ class Join_band_model extends CI_Model {
 	}
 
 	function get_user_status($user, $band) {
+		$result = 0;
+		$this->db->join('Positions', 'Positions.id = Join_Band.position');
+		$query = $this->db->get_where('Join_Band', array('user_id' => $user,
+			'band_id' => $band));
+		if ($query->num_rows() == 0) {
+			return;
+		} else {
+			$result = $query->row();
+		}
+
+		return $result;
+	}
+
+	function get_user_status_num($user, $band) {
 		$result = 0;
 		$query = $this->db->get_where('Join_Band', array('user_id' => $user,
 			'band_id' => $band));

@@ -27,7 +27,9 @@
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
 									<div class="item mbtn reportband" id="bandreport" post-id="<?= $band_profile->id ?> ">รายงานปัญหาวงดนตรี</div>
-									<a class="item" href="<?= base_url('band/join/leave/'.$band_profile->id) ?>">ออกจากวง</a>
+									<?php if ($user_status->status == 2): ?>
+										<a class="item" href="<?= base_url('band/join/leave/'.$band_profile->id) ?>">ออกจากวง</a>
+									<?php endif ?>
 								</div>
 							</div>
 						</div>
@@ -62,11 +64,10 @@
 						<div id="band-member" class="ui animated list">
 							<?php foreach ($band_members as $band_member): ?>
 								<div id="member-size" class="item">
-									<p><p/>
 									<?php if($band_member->photo_url): ?>
-										<img id="member-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
+										<img id="member-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
 									<?php else: ?>
-										<img id="member-img" class="ui avatar image test1" src="<?= base_url('images/no_profile.jpg') ?>">
+										<img id="member-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
 									<?php endif; ?>
 									<div class="content">
 										<div class="header"><?= $band_member->name.' '.$band_member->surname ?></div>
@@ -74,21 +75,33 @@
 									</div>
 								</div>
 							<?php endforeach; ?>
-							<?php if ($this->session->userdata('band_id') == NULL && $band_profile->id != $this->session->userdata('band_id')): ?>
-								<?php foreach ($current_user_skills as $current_user_skill): ?>
+							<?php if ( ! empty($user_status) && $user_status->status == 1): ?>
 								<div id="member-size" class="item">
-									<p><p/>
 									<?php if ($this->session->userdata('photo_url')): ?>
-										<img id="join-img" class="ui avatar image test1" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+										<img id="join-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 									<?php else: ?>
-										<img id="join-img" class="ui avatar image test1" src="<?= base_url('images/no_profile.jpg') ?>">
+										<img id="join-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
 									<?php endif; ?>
 									<div class="content">
 										<div class="header">
-											<div class="tiny ui button">สมัครตำแหน่ง<?= $current_user_skill->skill ?></div>
+											<a class="tiny ui button" href="<?= base_url('band/join/cancel/'.$band_profile->id) ?>">ยกเลิกสมัครตำแหน่ง<?= $user_status->position ?></a>
 										</div>
 									</div>
 								</div>
+							<?php elseif ($this->session->userdata('band_id') == NULL && $band_profile->id != $this->session->userdata('band_id')): ?>
+								<?php foreach ($current_user_skills as $current_user_skill): ?>
+									<div id="member-size" class="item">
+										<?php if ($this->session->userdata('photo_url')): ?>
+											<img id="join-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+										<?php else: ?>
+											<img id="join-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
+										<?php endif; ?>
+										<div class="content">
+											<div class="header">
+												<a class="tiny ui button" href="<?= base_url('band/join/'.$band_profile->id.'?pos='.$current_user_skill->skill_id) ?>">สมัครตำแหน่ง<?= $current_user_skill->skill ?></a>
+											</div>
+										</div>
+									</div>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
