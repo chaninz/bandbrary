@@ -20,7 +20,7 @@
 							<?php if($this->session->userdata('user_type') == 2): ?><?php if(empty($is_follow_band)): ?>
 							<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a><?php else: ?>
 							<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a><?php endif; ?><?php endif; ?>
-							<div class="ui button">ข้อความ</div>
+							<div class="ui button mbtn pm">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button">
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
@@ -213,21 +213,17 @@
 	</form>
 </div>
 
-<!--pm modal
-<div class="ui transition scrolling pm modal">
+<!--pm modal-->
+<div class="ui transition scrolling pm modal" style="max-width: 700px; left: 64%;">
 	<div class="header">
 		ส่งข้อความถึง <ชื่อ User>
 	</div>
 	<div class="content">
-		<div class="left"></div>
-		<div class="right">
 			<div class="ui form">
 				<div class="field">
-					<label>User Text</label>
 					<textarea></textarea>
 				</div>
-			</div>
-		</div>		
+			</div>		
 	</div>
 	<div class="actions">
 		<div class="ui black small button">
@@ -235,8 +231,7 @@
 		</div>
 		<input type="submit" class="ui red submit small button" value="ส่ง">
 	</div>
-</form>
-</div> -->
+</div>
 
 <script>
 
