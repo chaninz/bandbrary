@@ -1,15 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Music extends CI_Controller {
+class Album extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		// Basic model for user profile page
-		$this->load->model('user_model');
+		$this->load->model('album_model');
 		$this->load->model('join_band_model');
 		$this->load->model('follow_model');
 		$this->load->model('status_model');
-		$this->load->model('music_model');
 	}
 
 	public function index($username) {
@@ -28,8 +27,6 @@ class Music extends CI_Controller {
 
 		$this->load->view('user/music', $data);
 	}
-	
-	
 }
 
 /* End of file music.php */

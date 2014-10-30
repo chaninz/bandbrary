@@ -26,13 +26,13 @@ class Musiccomment_model extends CI_Model {
 		return $query->result();
 	}
 
-	// function countComment($post_id){
-	// 	$this->db->select('*');
-	// 	$this->db->from('Post_Comments');
-	// 	$this->db->where('post_id',$post_id);
+	 function countComment($music_id){
+		$this->db->select('*');
+		$this->db->from('Music_Comments');
+		$this->db->where('music',$music_id);
 
-	// 	$query = $this->db->get();
-	// 	return $query->num_rows();
-	// }
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 
 }

@@ -1,11 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Upload extends CI_Controller {
+class Manage extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('music_model');
-		$this->load->model('user_model');
 	}
 
 	public function index() {
@@ -19,10 +18,10 @@ class Upload extends CI_Controller {
 				'license_type' => $this->input->post('licenese'),
 				'visibility' => $this->input->post('visibility')
 			);
-			$this->music_model->upload($data);
+			$this->music_model->add($data);
 		}
 		else{
-			 $this->load->view('user/uploadMusic');
+			 $this->load->view('user/manageMusic');
 		}
 	}
 

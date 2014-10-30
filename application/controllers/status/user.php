@@ -10,7 +10,6 @@ class User extends CI_Controller {
 	public function add() {
 		$user_id = $this->session->userdata('id');
 		$status = $this->input->post('status');
-
 		if ( ! empty($status)) {
 			echo $this->status_model->add($user_id, $status);
 		}

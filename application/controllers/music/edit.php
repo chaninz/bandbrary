@@ -1,28 +1,27 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Upload extends CI_Controller {
+class Edit extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('music_model');
-		$this->load->model('user_model');
 	}
 
 	public function index() {
 		if ($this->input->post()) {
 			$current_id = $this->session->userdata('id');
 			$data = array(
-				'current_id' => $current_id ,
+				'current_id' => $band_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
 				'license_type' => $this->input->post('licenese'),
 				'visibility' => $this->input->post('visibility')
 			);
-			$this->music_model->upload($data);
+			$this->music_model->add($data);
 		}
 		else{
-			 $this->load->view('user/uploadMusic');
+			 $this->load->view('user/editMusic');
 		}
 	}
 
