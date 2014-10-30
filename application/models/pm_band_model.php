@@ -21,11 +21,10 @@ class Pm_band_model extends CI_Model {
 			select PM_Bands.band_id AS band_id,Bands.name,PM_Bands.timestamp,PM_Bands.text,Users.name AS username,Users.photo_url AS from_photo  FROM PM_Bands
 						Join Users on PM_Bands.user_id = Users.id
 						Join Bands on PM_Bands.band_id = Bands.id
-                        join Join_Band on PM_Bands.user_id = Join_Band.user_id
-						WHERE Join_Band.status = 2 and 
-                        PM_Bands.timestamp = (SELECT MAX(timestamp)
+						WHERE PM_Bands.timestamp = (SELECT MAX(timestamp)
                    					from PM_Bands 
-                             		where  PM_Bands.band_id = '.$band_id->band_id.'            
+                   					join Join_Band on PM_Bands.user_id = Join_Band.user_id
+                             		where  PM_Bands.band_id = '.$band_id->band_id.' and Join_Band.status = 2           
                                              )
 						ORDER BY PM_Bands.timestamp
 						
