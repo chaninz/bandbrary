@@ -42,7 +42,7 @@
 			<div class="col-xs-6">
 				<div class="ui form segment" style="text-align: center; padding-top: 40px; padding-bottom: 40px">
 					<div class="field">
-						<input class="ui small red submit button" style="margin-bottom: 10px;" type="submit" value="อัพโหลดเพลง">
+						<a href="<?php echo base_url().'music/upload'; ?>" ><input class="ui small red submit button" style="margin-bottom: 10px;" type="submit" value="อัพโหลดเพลง"></a>
 						<p>
 							ขนาดสูงสุดไม่เกิน 1GB  / ไฟล์
 							<br>สกุลไฟล์ที่รองรับ : WAV, MP3, AIF, FLAC, AAC</br>

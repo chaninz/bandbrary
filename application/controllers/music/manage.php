@@ -8,21 +8,7 @@ class Manage extends CI_Controller {
 	}
 
 	public function index() {
-		if ($this->input->post()) {
-			$current_id = $this->session->userdata('id');
-			$data = array(
-				'current_id' => $current_id ,
-				'name' => $this->input->post('name'),
-				'album_id' => $this->input->post('album'),	
-				'lyric' => $this->input->post('lyric'),
-				'license_type' => $this->input->post('licenese'),
-				'visibility' => $this->input->post('visibility')
-			);
-			$this->music_model->add($data);
-		}
-		else{
-			 $this->load->view('user/manageMusic');
-		}
+		 $this->load->view('user/manageMusic');
 	}
 
 }
