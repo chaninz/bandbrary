@@ -37,6 +37,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="menu-profile">
@@ -67,9 +68,9 @@
 							<?php foreach ($band_members as $band_member): ?>
 								<div id="member-size" class="item">
 									<?php if($band_member->photo_url): ?>
-										<img id="member-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
+										<p/><img id="member-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
 									<?php else: ?>
-										<img id="member-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
+										<p/><img id="member-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
 									<?php endif; ?>
 									<div class="content">
 										<div class="header"><?= $band_member->name.' '.$band_member->surname ?></div>
@@ -80,9 +81,9 @@
 							<?php if ( ! empty($user_status) && $user_status->status == 1): ?>
 								<div id="member-size" class="item">
 									<?php if ($this->session->userdata('photo_url')): ?>
-										<img id="join-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+										<p/><img id="join-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 									<?php else: ?>
-										<img id="join-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
+										<p/><img id="join-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
 									<?php endif; ?>
 									<div class="content">
 										<div class="header">
@@ -94,9 +95,9 @@
 								<?php foreach ($current_user_skills as $current_user_skill): ?>
 									<div id="member-size" class="item">
 										<?php if ($this->session->userdata('photo_url')): ?>
-											<img id="join-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
+											<p/><img id="join-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$this->session->userdata('photo_url')) ?>">
 										<?php else: ?>
-											<img id="join-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
+											<p/><img id="join-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
 										<?php endif; ?>
 										<div class="content">
 											<div class="header">

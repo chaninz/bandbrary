@@ -40,56 +40,6 @@
 					<?php $this->load->view('user/sidebar_left'); ?>
 					<div class="col-xs-9">
 						<div class="center">
-							<img src="../../images/audio_player.jpg" class="audio-player">
-							<div id="timeline-btn" class="ui red button">
-								<i class="heart icon"></i>
-								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="share icon"></i>
-								Share
-							</div>
-							<div class="line"></div>
-							<img src="../../images/audio_player.jpg" class="audio-player">
-							<div id="timeline-btn" class="ui red button">
-								<i class="heart icon"></i>
-								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="share icon"></i>
-								Share
-							</div>
-							<div class="line"></div>
-							<img src="../../images/audio_player.jpg" class="audio-player">
-							<div id="timeline-btn" class="ui red button">
-								<i class="heart icon"></i>
-								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="share icon"></i>
-								Share
-							</div>
-							<div class="line"></div>
-							<img src="../../images/audio_player.jpg" class="audio-player">
-							<div id="timeline-btn" class="ui red button">
-								<i class="heart icon"></i>
-								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="share icon"></i>
-								Share
-							</div>
-							<div class="line"></div>
-							<img src="../../images/audio_player.jpg" class="audio-player">
-							<div id="timeline-btn" class="ui red button">
-								<i class="heart icon"></i>
-								Greedd
-							</div>
-							<div id="timeline-btn" class="ui red button">
-								<i class="share icon"></i>
-								Share
-							</div>
-							<div class="line"></div>
 						</div>
 					</div>
 				</div>
