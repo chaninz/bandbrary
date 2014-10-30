@@ -8,7 +8,8 @@
 	</div>
 
 	<div class="ui stacked segment" id="status-band">
-		<textarea id="status-msg"></textarea>
+		<div id="status-msg"></div>
+		<textarea id="status-msg-field" style="background-color: #FFFFFF; width: 100%; height: 124px; display: none;"></textarea>
 	</div>
 
 	<div class="about">

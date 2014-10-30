@@ -31,7 +31,7 @@
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
 
-					<div class="col-xs-7">
+					<div class="col-xs-9">
 						<div class="center">
 							<div class="ui five connected items"><?php foreach($followers as $follower): ?>
 								<div class="item">
