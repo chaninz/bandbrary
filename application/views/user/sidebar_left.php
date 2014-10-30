@@ -9,7 +9,7 @@
 		</div>
 	<?php endif; ?>
 	<div class="ui stacked segment" id="status-user">
-		<div id="status-msg" style="background-color: #FFFFFF; display: table;"><?php if ( ! empty($status)): ?><?= $status->status ?><?php endif; ?></div>
+		<div id="status-msg"><?php if ( ! empty($status)): ?><?= $status->status ?><?php endif; ?></div>
 		<textarea id="status-msg-field" style="background-color: #FFFFFF; width: 100%; height: 124px; display: none;"></textarea>
 	</div>
 
