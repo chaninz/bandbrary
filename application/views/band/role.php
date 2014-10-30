@@ -88,7 +88,7 @@
 						<tbody>
 							<?php foreach ($band_members as $band_member): ?>
 							<tr>
-								<td><?= $band_member->name.' '.$band_member->surname ?></td>
+								<td><a href="<?= base_url('user/'.$band_member->username) ?>"><?= $band_member->name.' '.$band_member->surname ?></a></td>
 								<td><?php if ($this->session->userdata('is_master') == 1 && $this->session->userdata('id') != $band_member->id): ?>
 										<?php if ($band_member->is_master == 1): ?>
 											<a class="ui small green submit button" href="<?= base_url('band/role/unmaster/'.$band_member->id) ?>">เป็น</a>
@@ -111,8 +111,7 @@
 			<div class="col-xs-2"></div>
 		</div>
 	</div>
-<script>
-</script>
-<?php $this->load->view('footer'); ?>
+
+	<?php $this->load->view('footer'); ?>
 </body>
 </html>

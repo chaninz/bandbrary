@@ -10,8 +10,8 @@
 	<style>
 	#status-item {
 		min-height: 150px;
-		width: 305px;
-		margin: 10px 10px 0px 0px;
+		width: 311px;
+		margin: 5px 5px 0px 0px;
 	}
 	</style>
 </head>
@@ -21,23 +21,23 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12" style="padding-top: 140px">
+			<div class="col-xs-12" style="padding-top: 20px">
 				<div class="ui items">
 					<?php foreach($statuss as $status): ?>
 					<div id="status-item" class="item">
 						<div class="content">
 							<div class="meta"><?= $status->timestamp ?></div>
 							<!-- <div class="name">Cute Dog</div> -->
-							<p class="description"><?= $status->status ?></p>
+							<p class="description" style="margin-top: 20px"><?= $status->status ?></p>
 						</div>
 					</div>
-					<?php endforeach; ?>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
-	
-	<?php $this->load->view('footer'); ?>
+</div>
+
+<?php $this->load->view('footer'); ?>
 
 </body>
 </html>

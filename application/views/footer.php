@@ -14,19 +14,16 @@
 				<div class="item" style="padding: 0.9em;">
 					<a href="<?= base_url().'job/add' ?>" ><div class="content">
 						<div class="header">สร้างงาน</div> 
-						An excellent companion
 					</div></a>
 				</div>
 				<div class="item" style="padding: 0.9em;">
 					<div class="content">
 						<div class="header">สร้างอัลบั้มเพลง</div>
-						A poodle, its pretty basic
 					</div>
 				</div>
 				<div class="item" style="padding: 0.9em;">
 					<a href="<?= base_url().'band/create' ?>" > <div class="content">
 						<div class="header">สร้างวงดนตรี</div>
-						He's also a dog
 					</div> </a>
 				</div>
 			</div>

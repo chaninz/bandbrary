@@ -82,7 +82,9 @@
 				<div id="navbar-item5" class="ui top pointing dropdown icon">
 					<i id="navbar-reorder" class="reorder icon"></i>
 					<div class="menu" style="margin-left: -37px;">
-						<div class="item"><a href="<?= base_url('user/'.$this->session->userdata('username')) ?>">เข้าสู่วงดนตรี</a></div>
+						<?php if ($this->session->userdata('band_id') != NULL): ?>
+							<div class="item"><a href="<?= base_url('band/'.$this->session->userdata('band_id')) ?>">ไปที่วงดนตรี</a></div>
+						<?php endif; ?>
 						<div class="line"></div>
 						<div class="item"><a href="<?= base_url().'account/edit' ?>">การตั้งค่า</div>
 						<div class="item"><a href="<?= base_url().'account/signout' ?>">ออกจากระบบ</a></div>
