@@ -19,9 +19,11 @@
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div>
 						<div id="band-follow" class="ui small black buttons">
-							<?php if($this->session->userdata('user_type') == 2): ?><?php if(empty($is_follow_band)): ?>
-							<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a><?php else: ?>
-							<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a><?php endif; ?><?php endif; ?>
+							<?php if(empty($is_follow_band)): ?>
+								<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a>
+							<?php else: ?>
+								<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
+							<?php endif; ?>
 							<div class="ui mbtn pm button">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button">
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
