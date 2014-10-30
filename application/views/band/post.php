@@ -43,7 +43,7 @@
 									<div class="post-white-line"></div>
 									<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
 								</div>
-								<div class="post-heading"><?= $post->topic ?></div>
+								<div class="post-heading"> <a href="<?= base_url().'band/post/view/'.$post->id ?> "><?= $post->topic ?> </a></div>
 								<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
 									<i class="angle down icon" style="margin: 0px;"></i>
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">

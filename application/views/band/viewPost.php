@@ -43,7 +43,7 @@
 								<div class="comment">
 									<a class="avatar">
 										<?php if($comment->photo_url): ?>
-										<img src="<?= base_url().'uploads/images/profile/'.$comment->photo_url ?>"><?php else: ?>
+										<img src="<?= base_url().'uploads/profile/user/'.$comment->photo_url ?>"><?php else: ?>
 										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 									</a>
 									<div class="content">
