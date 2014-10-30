@@ -4,7 +4,7 @@
 			<i class="edit icon"></i>
 			<div class="menu">
 				<a class="item" id="edit-status-button">แก้ไข</a>
-				<a class="item">สเตตัสทั้งหมด</a>
+				<a class="item" href="<?= base_url('user/'.$user_profile->username.'/status/all') ?>">สเตตัสทั้งหมด</a>
 			</div>
 		</div>
 	<?php endif; ?>

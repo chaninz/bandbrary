@@ -93,7 +93,7 @@ public function __construct() {
 
 	public function getBand(){
 		$target_id = $this->input->post('id');
-		$band = $this->pm_band_model->get_pm_by_bandid($target_id);
+		$band = $this->band_model->get($target_id);
 		echo json_encode($band);
 
 	}

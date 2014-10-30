@@ -18,7 +18,7 @@ class Pm_band_model extends CI_Model {
 		$band_id = $this->Join_Band->get_current_band($user_id);
 
 		$query = $this->db->query('
-			select PM_Bands.band_id AS band_id,Bands.name,PM_Bands.timestamp,PM_Bands.text,Users.name AS username  FROM PM_Bands
+			select PM_Bands.band_id AS band_id,Bands.name,PM_Bands.timestamp,PM_Bands.text,Users.name AS username,Users.photo_url AS from_photo  FROM PM_Bands
 						Join Users on PM_Bands.user_id = Users.id
 						Join Bands on PM_Bands.band_id = Bands.id
                         join Join_Band on PM_Bands.user_id = Join_Band.user_id
@@ -35,7 +35,7 @@ class Pm_band_model extends CI_Model {
 	
 	function view($band_id){
 		$current_id = $this->session->userdata('id');
-		$query = $this->db->query('select * FROM PM_Bands
+		$query = $this->db->query('select *,Users.photo_url AS from_photo FROM PM_Bands
 									join Join_Band on PM_Bands.user_id = Join_Band.user_id 
 									Join Users on Users.id = PM_Bands.user_id 
 									where PM_Bands.band_id = '.$band_id.' and Join_Band.status = 2
@@ -55,7 +55,7 @@ class Pm_band_model extends CI_Model {
 	
 	
 	function get_pm_by_bandid($id){
-		$this->db->select('PM_Bands.*,f.name as from_user_name ,f.surname as from_user_surname ,f.photo_url as from_photo');
+		$this->db->select('PM_Bands.*,f.name as from_user_name ,f.surname as from_user_surname ,f.photo_url as from_photo,Bands.name as bandname');
 		$this->db->from('PM_Bands');
 		$this->db->join('Users f', 'PM_Bands.user_id = f.id');
 		$this->db->join('Bands', 'PM_Bands.band_id = Bands.id');

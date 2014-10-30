@@ -24,7 +24,7 @@
     -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
     box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05); 
   }
-  #pm-inbox {
+  #pm-inbox ,#pmband-inbox {
     height: 544px;
     overflow-y: scroll; 
     scrollbar-arrow-color:blue; 
@@ -78,8 +78,8 @@
           กล่องข้อความ
         </h3>
       </div>
-      <div class="col-xs-8" style="height: 180px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6; padding-top: 140px; padding-left: 30px;" id="pm-name">
-      <h4 class="ui header">Punpun Sa</h4>
+      <div class="col-xs-8" style="height: 180px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6; padding-top: 140px; padding-left: 30px;">
+      <h4 class="ui header" id="pm-name"></h4>
       </div>
     </div>
     <div class="row">
@@ -104,7 +104,7 @@
      </div>
 
      <!-- แชทของวง -->
-     <div id="pm-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
+     <div id="pmband-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
       <?php foreach($pm_bands as $pm_band): ?>
       <a class="item" data-id="<?= $pm_band->band_id ?>" >
        <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_band->timestamp)) ?> <?= mdate("%M", strtotime($pm_band->timestamp)) ?> <?= mdate("%Y", strtotime($pm_band->timestamp)) ?></div>
@@ -286,12 +286,14 @@ $("#pmband-inbox .item").click(function(){
           $.ajax({
             type:'POST',
             url:'<?= base_url('pm/getBand'); ?>',
-            data:{id: band_id},
+            data:{id: to_user_id},
             success:function(userdata){
+              console.log("bandname");
+              console.log(userdata);
+
                 var name = JSON.parse(userdata);
                 console.log(name);
-
-                $("#pm-name").text(name.name + " " + name.surname);
+                $("#pm-name").text(name.name);
           }
         });  
 });
