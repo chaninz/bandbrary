@@ -55,7 +55,7 @@ class Pm_band_model extends CI_Model {
 	
 	
 	function get_pm_by_bandid($id){
-		$this->db->select('PM_Bands.*,f.name as from_user_name ,f.surname as from_user_surname ,f.photo_url as from_photo');
+		$this->db->select('PM_Bands.*,f.name as from_user_name ,f.surname as from_user_surname ,f.photo_url as from_photo,Bands.name as bandname');
 		$this->db->from('PM_Bands');
 		$this->db->join('Users f', 'PM_Bands.user_id = f.id');
 		$this->db->join('Bands', 'PM_Bands.band_id = Bands.id');
