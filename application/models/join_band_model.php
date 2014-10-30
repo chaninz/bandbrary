@@ -14,7 +14,7 @@ class Join_band_model extends CI_Model {
 		if ($user_type == 1) {
 			$this->db->join('Bands', 'Bands.id = Join_Band.band_id');
 			$query = $this->db->get_where('Join_Band', array('user_id' => $id,
-				'status' => $status));
+				'Join_Band.status' => $status));
 		} elseif ($user_type == 2) {
 			$this->db->select('Users.id AS user_id');
 			$this->db->join('Users', 'Users.id = Join_Band.user_id');
