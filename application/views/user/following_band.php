@@ -70,7 +70,7 @@
 					<div class="col-xs-3" style="padding-right: 0px">
 						<div class="follow-menu">
 							<div class="ui fluid vertical pointing menu">
-								<a class="item" href="c'.$user_profile->username.'/following/user' ?>">
+								<a class="item" href="<?= base_url().'user/'.$user_profile->username.'/following/user' ?>">
 									<i class="user icon"></i> บุคคล
 								</a>
 								<a class="active item" href="<?= base_url().'user/'.$user_profile->username.'/following/band' ?>">
@@ -86,7 +86,7 @@
 								<div class="item">
 									<div class="image">
 										<?php if($following_band->photo_url): ?>
-										<img src="<?= base_url().'uploads/images/profile/'.$following_band->photo_url ?>"><?php else: ?>
+										<img src="<?= base_url().'uploads/profile/user/'.$following_band->photo_url ?>"><?php else: ?>
 										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 										<a class="star ui corner label">
 											<i class="star icon"></i>
