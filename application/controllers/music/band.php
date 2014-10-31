@@ -14,9 +14,9 @@ class Band extends CI_Controller {
 	
 	public function upload() {
 		if ($this->input->post()) {
-			$current_id = $this->session->userdata('id');
+			$band_id = $this->session->userdata('band_id');
 			$data = array(
-				'current_id' => $current_id ,
+				'band_id' => $band_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
@@ -26,15 +26,15 @@ class Band extends CI_Controller {
 			$this->music_model->upload($data);
 		}
 		else{
-			 $this->load->view('user/uploadMusic');
+			 $this->load->view('band/uploadMusic');
 		}
 	}
 
 	public function edit() {
 		if ($this->input->post()) {
-			$current_id = $this->session->userdata('id');
+			$band_id = $this->session->userdata('band_id');
 			$data = array(
-				'current_id' => $band_id ,
+				'band_id' => $band_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
@@ -44,7 +44,9 @@ class Band extends CI_Controller {
 			$this->music_model->add($data);
 		}
 		else{
-			 $this->load->view('user/editMusic');
+			$data = array('albums' => $this->user_album_model->getAll()
+			   );
+			 $this->load->view('band/editMusic');
 		}
 	}
 

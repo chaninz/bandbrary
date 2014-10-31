@@ -4,7 +4,7 @@ class album extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('music_model');
+		$this->load->model('user_album_model');
 	}
 
 	// public function index() {

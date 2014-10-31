@@ -47,6 +47,8 @@ class User extends CI_Controller {
 			$this->music_model->add($data);
 		}
 		else{
+			$data = array('albums' => $this->user_album_model->getAll()
+			 );
 			 $this->load->view('user/editMusic');
 		}
 	}

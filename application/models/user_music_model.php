@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Music_model extends CI_Model {
-	function upload($band) {
-		$this->db->insert('Music', $band);
+class User_music_model extends CI_Model {
+	function upload($data) {
+		$this->db->insert('User_Music', $data);
 	}
 
 }
