@@ -4,8 +4,10 @@ class Band extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('music_model');
+		$this->load->model('band_music_model');
 		$this->load->model('user_model');
+		$this->load->model('band_album_model');
+
 	}
 
 	public function index() {
