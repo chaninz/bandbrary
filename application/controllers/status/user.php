@@ -11,13 +11,8 @@ class User extends CI_Controller {
 		$user_id = $this->session->userdata('id');
 		$status = $this->input->post('status');
 		if ( ! empty($status)) {
-			echo $this->status_model->add($user_id, $status);
+			echo $this->status_model->add_user_status($user_id, $status);
 		}
-	}
-
-	public function get() {
-		$user_id = $this->session->userdata('id');
-		$status = $this->status_model->get_last($user_id);
 	}
 
 }

@@ -75,7 +75,7 @@ class User extends CI_Controller {
 				// Basic data for user profile page
 				$user_profile = $this->user_model->get($event->user_id);
 				$band_profile = $this->join_band_model->get_current_band($user_profile->id);
-				$status = $this->status_model->get_last($user_profile->id);
+				$status = $this->status_model->get_last_by_user($user_profile->id);
 				// Current user info
 				$current_user_id = $this->session->userdata('id');
 				$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);

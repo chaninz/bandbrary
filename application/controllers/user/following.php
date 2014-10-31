@@ -4,10 +4,11 @@ class Following extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		// Basic model for user profile page
 		$this->load->model('user_model');
-		$this->load->model('join_band_model');
-		$this->load->model('follow_model');
 		$this->load->model('status_model');
+		$this->load->model('follow_model');
+		$this->load->model('join_band_model');
 	}
 
 	public function index($username) {
@@ -17,35 +18,54 @@ class Following extends CI_Controller {
 	public function user($username) {
 		// Basic data for user profile page
 		$user_profile = $this->user_model->get_by_username($username);
-		$band_profile = $this->join_band_model->get_current_band($user_profile->id);
-		$status = $this->status_model->get_last($user_profile->id);
-		// Current user info
-		$current_user_id = $this->session->userdata('id');
-		$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
 
-		$data = array('user_profile' => $user_profile, 
-			'band_profile' => $band_profile,
-			'status' => $status,
-			'following_users' => $this->follow_model->get_following_user($user_profile->id),
-			'is_follow_user' => $is_follow_user);
+		if ( ! empty($user_profile)) {
+			// Basic data for user profile page
+			$band_profile = $this->join_band_model->get_current_band($user_profile->id);
+			$join_band_history = $this->join_band_model->get_join_all($user_profile->id);
+			// Current user info
+			$current_user_id = $this->session->userdata('id');
+			$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
+			// Page data
+			$following_users = $this->follow_model->get_following_user($user_profile->id);
 
-		$this->load->view('user/following_user', $data);
+			$display = array('user_profile' => $user_profile,
+				'band_profile' => $band_profile,
+				'join_band_history' => $join_band_history,
+				'is_follow_user' => $is_follow_user,
+				'following_users' => $following_users);
+
+			$this->load->view('user/following_user', $display);
+		} else {
+			show_404();
+		}
+		
 	}
 
-	public function band($username){
+	public function band($username) {
 		// Basic data for user profile page
 		$user_profile = $this->user_model->get_by_username($username);
-		$band_profile = $this->join_band_model->get_current_band($user_profile->id);
-		// Current user info
-		$current_user_id = $this->session->userdata('id');
-		$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
 
-		$data = array('user_profile' => $user_profile, 
-			'band_profile' => $band_profile,
-			'following_bands' => $this->follow_model->get_following_band($user_profile->id),
-			'is_follow_user' => $is_follow_user);
+		if ( ! empty($user_profile)) {
+			// Basic data for user profile page
+			$band_profile = $this->join_band_model->get_current_band($user_profile->id);
+			$join_band_history = $this->join_band_model->get_join_all($user_profile->id);
+			// Current user info
+			$current_user_id = $this->session->userdata('id');
+			$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
+			// Page data
+			$following_bands = $this->follow_model->get_following_band($user_profile->id);
 
-		$this->load->view('user/following_band', $data);
+			$display = array('user_profile' => $user_profile,
+				'band_profile' => $band_profile,
+				'join_band_history' => $join_band_history,
+				'is_follow_user' => $is_follow_user,
+				'following_bands' => $following_bands);
+
+			$this->load->view('user/following_band', $display);
+		} else {
+			show_404();
+		}
 	}
 
 }

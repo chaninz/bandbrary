@@ -57,16 +57,7 @@ class Join_band_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('Join_Band');
 		$this->db->join('Bands', 'Bands.id = Join_Band.band_id');
-		$this->db->where('user_id',$user_id);
-
-		$query = $this->db->get();
-		return $query->row();
-	}
-
-	function getMember($band_id){
-		$this->db->select('*');
-		$this->db->from('Join_Band');
-		$this->db->where('band_id',$band_id);
+		$this->db->get_where('user_id',$user_id);
 
 		$query = $this->db->get();
 		return $query->row();
@@ -101,7 +92,8 @@ class Join_band_model extends CI_Model {
 		$this->db->where('user_id', $user);
 		$this->db->where('band_id', $band);
 		$this->db->update('Join_Band', array('status' => 2,
-				'join_date' => mdate("%Y-%m-%d", now())));
+				'join_date' => mdate("%Y-%m-%d", now()),
+				'leave_date' => NULL));
 	}
 
 	function reject($user, $band) {
@@ -165,7 +157,10 @@ class Join_band_model extends CI_Model {
 	}
 
 	function get_join_all($user_id) {
+		$this->db->select('Bands.name, leave_date');
 		$this->db->order_by('leave_date DESC');
+		$this->db->join('Bands', 'Bands.id = Join_Band.band_id');
+		$this->db->where('leave_date IS NOT NULL');
 		$query = $this->db->get_where('Join_Band', array('user_id' => $user_id));
 		$result = $query->result();
 
