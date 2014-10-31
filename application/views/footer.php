@@ -111,27 +111,25 @@ $('.share.popup')
 ;
 /* End Feed popup */
 
+$('.feed-user.box')
+  .transition('fade')
+;
+$('.feed-user.box')
+  .transition('fade up')
+;
+$('.feed-box.box')
+  .transition('fade')
+;
+$('.feed-box.box')
+  .transition('fade up')
+;
+$('.advt.box')
+  .transition('fade')
+;
+$('.advt.box')
+  .transition('fade up')
+;
 
-<<<<<<< HEAD
-$('.feed-user.box')
-  .transition('fade')
-;
-$('.feed-user.box')
-  .transition('fade up')
-;
-$('.feed-box.box')
-  .transition('fade')
-;
-$('.feed-box.box')
-  .transition('fade up')
-;
-$('.advt.box')
-  .transition('fade')
-;
-$('.advt.box')
-  .transition('fade up')
-;
-=======
 	/* Band update Status */
 	$("#band-edit-status-button").click(function() {
 		$("#status-msg").css("display", "none");
@@ -158,10 +156,4 @@ $('.advt.box')
 		});
 	});
 	/* END-Band update Status */
-
-	$('.member.image')
-		.transition('scale');
-	$('.member.image')
-		.transition('scale');
->>>>>>> cbd7631459741ad52b31ae4fe44280350bbb7042
 </script>
