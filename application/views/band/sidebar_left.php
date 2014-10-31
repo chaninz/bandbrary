@@ -1,15 +1,20 @@
 <div class="col-xs-3" style="padding-right: 0px">
-	<div id="status-button" class="ui left pointing dropdown icon button">
-		<i class="edit icon"></i>
-		<div class="menu">
-			<div class="item">แก้ไข</div>
-			<div class="item">สเตตัสทั้งหมด</div>
+	<?php if ($this->session->userdata('band_id') == $band_profile->id && $this->session->userdata('is_master') == 1): ?>
+		<div id="status-button" class="ui left pointing dropdown icon button">
+			<i class="edit icon"></i>
+			<div class="menu">
+				<a class="item" id="band-edit-status-button">แก้ไข</a>
+				<a class="item" href="<?= base_url('user/'.$band_profile->name.'/status/all') ?>">สเตตัสทั้งหมด</a>
+			</div>
 		</div>
-	</div>
-
-	<div class="ui stacked segment" id="status-band">
-		<div id="status-msg"></div>
-		<textarea id="status-msg-field" style="background-color: #FFFFFF; width: 100%; height: 124px; display: none;"></textarea>
+	<?php endif; ?>
+	<div class="ui stacked segment" id="status-user">
+		<div id="status-msg">
+			<?php if ( ! empty($status)): ?>
+				<?= $status->status ?>
+			<?php endif; ?>
+		</div>
+		<textarea id="band-status-msg-field" style="background-color: #FFFFFF; width: 100%; height: 124px; display: none;" maxlength="140"></textarea>
 	</div>
 
 	<div class="about">

@@ -37,7 +37,7 @@
 								<div class="item">
 									<div class="image">
 										<?php if($follower->photo_url): ?>
-										<img src="<?= base_url().'uploads/profile/'.$follower->photo_url ?>"><?php else: ?>
+										<img src="<?= base_url().'uploads/profile/user/'.$follower->photo_url ?>"><?php else: ?>
 										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 										<a class="star ui corner label">
 											<i class="star icon"></i>

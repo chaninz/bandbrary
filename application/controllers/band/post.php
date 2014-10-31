@@ -4,40 +4,43 @@ class Post extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		// Basic model for band profile page
 		$this->load->model('band_model');
+		$this->load->model('status_model');
 		$this->load->model('follow_model');
 		$this->load->model('join_band_model');
-		$this->load->model('post_model');
-		$this->load->model('user_model');
-		$this->load->model('postcomment_model');
 		$this->load->model('skill_model');
+		// Page model
+		$this->load->model('post_model');
+		$this->load->model('postcomment_model');
 	}
+
 
 	public function index($band_id) {
 		// Basic data for user profile page
 		$band_profile = $this->band_model->get($band_id);
-		$band_members = $this->join_band_model->get_current_member($band_id);
 
 		if ( ! empty($band_profile)) {
+			// Basic data for user profile page
+			$status = $this->status_model->get_last_by_band($band_id);
+			$band_members = $this->join_band_model->get_current_member($band_id);
 			// Current user info
 			$current_user_id = $this->session->userdata('id');
 			$is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
 			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
-
 			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
-			//$posts = $this->post_model->get_band_post($band_id);
-			$posts = $this->post_model->getAllPost($band_id);
-			//$countComment = $this->postcomment_model->count($posts['id']);
-			$data = array('band_profile' => $band_profile,
+			// Page data
+			$posts = $this->post_model->get_all($band_id);
+
+			$display = array('band_profile' => $band_profile,
+				'status' => $status,
+				'band_members' => $band_members,
 				'is_follow_band' => $is_follow_band,
 				'user_status' => $user_status,
-				'band_members' => $band_members,
 				'current_user_skills' => $current_user_skills,
-				'posts' => $posts
-				//'countComment' => $countComment
-				);
-			//print_r($data);
-			$this->load->view('band/post', $data);
+				'posts' => $posts);
+
+			$this->load->view('band/post', $display);
 		} else {
 			show_404();
 		}
@@ -61,7 +64,7 @@ class Post extends CI_Controller {
 			$band_id = $this->session->userdata('band_id');
 			$data = array (
 			'band' => $this->band_model->get($band_id),
-			'band_post' => $this->post_model->getAllPost($band_id),
+			'band_post' => $this->post_model->get_all($band_id),
 			'band_id' => $band_id,
 			'user' => $this->user_model->getProfile($my_id),
 			'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
