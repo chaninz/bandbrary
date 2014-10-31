@@ -92,8 +92,35 @@
 	});
 	/* END-User update Status */
 
+	/* Band update Status */
+	$("#band-edit-status-button").click(function() {
+		$("#status-msg").css("display", "none");
+		$("#band-status-msg-field").css("display", "").val("").focus();
+	});
+
+	$("#band-status-msg-field").blur(function() {
+		$("#status-msg").css("display", "");
+		$("#band-status-msg-field").css("display", "none");
+		var status = $("#band-status-msg-field").val();
+
+		var statusAdd = $.ajax({
+	        type: "POST",
+	        async: false,
+	        url: "<?= base_url('status/band/add') ?>",
+	        data: {status: status},
+	        dataType: "text"
+	    });
+
+		statusAdd.done(function(msg) {
+			if (msg == 1) {
+				$("#status-msg").text(status);
+			}
+		});
+	});
+	/* END-Band update Status */
+
 	$('.member.image')
-	  .transition('scale');
-	  $('.member.image')
-	  .transition('scale');
+		.transition('scale');
+	$('.member.image')
+		.transition('scale');
 </script>

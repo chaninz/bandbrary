@@ -74,6 +74,9 @@ $route['band/(:num)/post'] = 'band/post/index/$1';
 $route['band/(:num)/follower'] = 'band/follower/index/$1';
 // Event
 $route['band/(:num)/event'] = 'band/event/index/$1';
+
+$route['band/(:any)/status/all'] = 'band/status/all/$1';
+
 // Index
 $route['band/(:num)'] = 'band/index/band/$1';
 

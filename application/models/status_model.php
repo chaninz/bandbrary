@@ -6,8 +6,15 @@ class Status_model extends CI_Model {
 		parent::__construct();	
 	}
 
-	function add($user_id, $status) {
-		 $result = $this->db->insert('Status', array('user_id' => $user_id,
+	function add_user_status($user_id, $status) {
+		 $result = $this->db->insert('User_Status', array('user_id' => $user_id,
+			'status' => $status));
+
+		 return $result;
+	}
+
+	function add_band_status($band_id, $status) {
+		 $result = $this->db->insert('Band_Status', array('band_id' => $band_id,
 			'status' => $status));
 
 		 return $result;
@@ -15,15 +22,31 @@ class Status_model extends CI_Model {
 	
 	function get_by_user($user_id) {
 		$this->db->order_by('timestamp DESC');
-		$query = $this->db->get_where('Status', array('user_id' => $user_id));
+		$query = $this->db->get_where('User_Status', array('user_id' => $user_id));
 		$result = $query->result();
 
 		return $result;
 	}
 
-	function get_last($user_id) {
+	function get_by_band($band_id) {
 		$this->db->order_by('timestamp DESC');
-		$query = $this->db->get_where('Status', array('user_id' => $user_id), 1, 0);
+		$query = $this->db->get_where('Band_Status', array('band_id' => $user_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_last_by_user($user_id) {
+		$this->db->order_by('timestamp DESC');
+		$query = $this->db->get_where('User_Status', array('user_id' => $user_id), 1, 0);
+		$result = $query->row();
+
+		return $result;
+	}
+
+	function get_last_by_band($band_id) {
+		$this->db->order_by('timestamp DESC');
+		$query = $this->db->get_where('Band_Status', array('band_id' => $band_id), 1, 0);
 		$result = $query->row();
 
 		return $result;
