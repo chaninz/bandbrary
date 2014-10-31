@@ -40,60 +40,94 @@
 <script src="<?php echo base_url().'assets/js/jquery-ui.min.js'; ?>"></script>
 <script>
 
-	/* Report Modal */
-	$('.pm.modal')
-	.modal('attach events', '.mbtn.pm', 'show');
+/* Report Modal */
+$('.pm.modal')
+.modal('attach events', '.mbtn.pm', 'show');
 
-	$('.reportuser.modal')
-	.modal('attach events', '.mbtn.reportuser', 'show');
+$('.reportuser.modal')
+.modal('attach events', '.mbtn.reportuser', 'show');
 
-	$('.reportband.modal')
-	.modal('attach events', '.mbtn.reportband', 'show');
+$('.reportband.modal')
+.modal('attach events', '.mbtn.reportband', 'show');
 
-	$('.createpost.modal')
-	.modal('attach events', '.mbtn.createpost', 'show');
+$('.createpost.modal')
+.modal('attach events', '.mbtn.createpost', 'show');
 
-	$('.reportpost.modal')
-	.modal('attach events', '.mbtn.reportpost', 'show');
+$('.reportpost.modal')
+.modal('attach events', '.mbtn.reportpost', 'show');
 
-	$('.createall.modal')
-	.modal('attach events', '.mbtn.createall', 'show');
+$('.createall.modal')
+.modal('attach events', '.mbtn.createall', 'show');
 
-	$(".reportband#bandreport").click(function(){
+$(".reportband#bandreport").click(function(){
 	var id = $(this).attr("post-id");
 	$('.bandid').val(id);
+});
+/* END-Report Modal */
+
+/* User update Status */
+$("#edit-status-button").click(function() {
+	$("#status-msg").css("display", "none");
+	$("#status-msg-field").css("display", "").val("").focus();
+});
+
+$("#status-msg-field").blur(function() {
+	$("#status-msg").css("display", "");
+	$("#status-msg-field").css("display", "none");
+	var status = $("#status-msg-field").val();
+
+	var statusAdd = $.ajax({
+		type: "POST",
+		async: false,
+		url: "<?= base_url('status/user/add') ?>",
+		data: {status: status},
+		dataType: "text"
 	});
-	/* END-Report Modal */
 
-	/* User update Status */
-	$("#edit-status-button").click(function() {
-		$("#status-msg").css("display", "none");
-		$("#status-msg-field").css("display", "").val("").focus();
+	statusAdd.done(function(msg) {
+		if (msg == 1) {
+			$("#status-msg").text(status);
+		}
 	});
+});
+/* END-User update Status */
 
-	$("#status-msg-field").blur(function() {
-		$("#status-msg").css("display", "");
-		$("#status-msg-field").css("display", "none");
-		var status = $("#status-msg-field").val();
+/* Member transition */
+$('.member.image')
+.transition('scale');
+$('.member.image')
+.transition('scale');
+/* End Member transition */
 
-		var statusAdd = $.ajax({
-	        type: "POST",
-	        async: false,
-	        url: "<?= base_url('status/user/add') ?>",
-	        data: {status: status},
-	        dataType: "text"
-	    });
+/* Feed popup */
+$('.greedd.popup')
+.popup('hide','toggle')
+;
+$('.rebox.popup')
+.popup('hide','toggle')
+;
+$('.share.popup')
+.popup('hide','toggle')
+;
+/* End Feed popup */
 
-		statusAdd.done(function(msg) {
-			if (msg == 1) {
-				$("#status-msg").text(status);
-			}
-		});
-	});
-	/* END-User update Status */
 
-	$('.member.image')
-	  .transition('scale');
-	  $('.member.image')
-	  .transition('scale');
+$('.feed-user.box')
+  .transition('fade')
+;
+$('.feed-user.box')
+  .transition('fade up')
+;
+$('.feed-box.box')
+  .transition('fade')
+;
+$('.feed-box.box')
+  .transition('fade up')
+;
+$('.advt.box')
+  .transition('fade')
+;
+$('.advt.box')
+  .transition('fade up')
+;
 </script>

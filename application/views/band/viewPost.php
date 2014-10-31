@@ -63,9 +63,9 @@
 								<?php endforeach; ?>
 								<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
 									<div class="field">
-										<textarea name="comment"></textarea>
+										<textarea name="comment" style="margin-left: 50px;"></textarea>
 									</div>
-									<input type="submit" class="ui small button submit labeled icon" value="Add Comment" >
+									<input type="submit" class="ui small button submit" value="Comment" >
 								</form>
 							</div>
 						</div>
