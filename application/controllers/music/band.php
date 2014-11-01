@@ -31,26 +31,30 @@ class Band extends CI_Controller {
 		}
 	}
 
-	public function edit() {
+	public function edit($music_id) {
 		if ($this->input->post()) {
-			$band_id = $this->session->userdata('band_id');
 			$data = array(
-				'band_id' => $band_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
-				'license_type' => $this->input->post('licenese'),
+				'license_type' => $this->input->post('license'),
 				'visibility' => $this->input->post('visibility')
 			);
-			$this->music_model->add($data);
+			//print_r($data);
+			$this->band_music_model->edit($data,$music_id);
 		}
 		else{
-			$data = array('albums' => $this->user_album_model->getAll()
-			   );
-			 $this->load->view('band/editMusic');
+			$music = $this->band_music_model->getMusic($music_id);
+			$data = array(
+			'music' => $music ,
+			'albums' => $this->band_album_model->getAll(),
+			'albumMusic' => $this->band_album_model->getAlbum($music->album_id)
+			 );
+			//print_r($data);
+			$this->load->view('band/editMusic',$data);
 		}
 	}
-	
+
 
 }
 

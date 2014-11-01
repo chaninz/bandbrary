@@ -8,10 +8,10 @@ class Band_album_model extends CI_Model {
 	}
 
 	function create($data) {
-		$this->db->insert('User_Albums', $data);
+		$this->db->insert('Band_Albums', $data);
 	}
 	function delete($data) {
-		$this->db->delete('User_Albums', $data);
+		$this->db->delete('Band_Albums', $data);
 	}	
 	function getAll(){
 		$band_id = $this->session->userdata('band_id');
@@ -21,6 +21,15 @@ class Band_album_model extends CI_Model {
 
 		$query = $this->db->get();
 		return $query->result();
+	}
+
+	function getAlbum($album_id){
+		$this->db->select('*');
+		$this->db->from('Band_Albums');
+		$this->db->where('id',$album_id);
+
+		$query = $this->db->get();
+		return $query->row();
 	}
 
 }
