@@ -50,6 +50,7 @@ class Band extends CI_Controller {
 			 $this->load->view('band/editMusic');
 		}
 	}
+	
 
 }
 

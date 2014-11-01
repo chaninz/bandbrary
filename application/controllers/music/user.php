@@ -41,9 +41,10 @@ class User extends CI_Controller {
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
-				'license_type' => $this->input->post('licenese'),
+				'license_type' => $this->input->post('license'),
 				'visibility' => $this->input->post('visibility')
 			);
+			//print_r($data);
 			$this->user_music_model->edit($data,$music_id);
 		}
 		else{

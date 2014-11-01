@@ -42,7 +42,7 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-					<form action="<?php echo base_url().'music/user/edit' ?>" method="post">	
+					<form action="<?php echo base_url().'music/user/edit/'.$music->id ?>"method="post">	
 					<div class="field">
 						<label>ชื่อเพลง</label>
 						<input type="text" placeholder="" name="name" value="<?= $music->name ?>" readonly>
@@ -60,7 +60,7 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text"><?= $albumMusic->name ?></div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="album">
+							<input type="hidden" name="album" value="<?= $music->album_id ?>" >
 							<div class="menu"><?php if (! empty($albums)): foreach ($albums as $album): ?>
 								<div class="item" data-value="<?= $album->id ?>" style="font-size: 14px;"><?= $album->name ?></div><?php endforeach; endif; ?>
 							</div>
