@@ -96,13 +96,14 @@
 							</div>
 						</div>
 					</div>
+				</form>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 				<div class="col-xs-3"></div>
 			</div>
 		</div>
 
-		<script src="../../assets/js/bandbrary.js"></script>
-		<script></script>
+		<?php $this->load->view('footer'); ?>
+
 	</body>
 	</html>
