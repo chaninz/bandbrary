@@ -49,7 +49,7 @@
 					</div>
 					<div class="field">
 						<label>เนื้อเพลง</label>
-						<textarea name="lyric" class="ckeditor"></textarea>
+						<textarea name="lyric"></textarea>
 					</div>
 					<div class="field">
 						<label>เพลง</label>
@@ -83,13 +83,13 @@
 						<label>ความเป็นส่วนตัว</label>
 						<div class="grouped inline fields">
 							<div class="field">
-								<div class="ui slider checkbox">
+								<div class="ui radio checkbox">
 									<input type="radio" value="1" name="visibility">
 									<label>ส่วนตัว</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui slider checkbox">
+								<div class="ui radio checkbox">
 									<input type="radio" value="2" name="visibility">
 									<label>สาธารณะ</label>
 								</div>
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 
-		<script src="../../assets/js/bandbrary.js"></script>
-		<script></script>
+		<?php $this->load->view('footer'); ?>
+		
 	</body>
 	</html>
