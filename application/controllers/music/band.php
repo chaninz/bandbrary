@@ -25,7 +25,7 @@ class Band extends CI_Controller {
 				'license_type' => $this->input->post('licenese'),
 				'visibility' => $this->input->post('visibility')
 			);
-			$this->music_model->upload($data);
+			$this->band_music_model->upload($data);
 		}
 		else{
 			 $this->load->view('band/uploadMusic');

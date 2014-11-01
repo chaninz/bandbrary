@@ -42,7 +42,7 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url('music/user/upload') ?>" method="post">
+				<form action="<?= base_url('music/babd/upload') ?>" method="post">
 					<div class="field">
 						<label>ชื่อเพลง</label>
 						<input type="text" placeholder="" name="name">
@@ -67,6 +67,19 @@
 						</div>
 					</div>
 					<div class="field">
+						<label>ลิขสิทธิ์</label>
+						<div class="ui fluid selection dropdown">
+							<div class="text">เลือก</div>
+							<i class="dropdown icon"></i>
+							<input type="hidden" name="album">
+							<div class="menu">
+								<div class="item" style="font-size: 14px;" value="1">ห้ามทำซ้ำ</div>
+								<div class="item" style="font-size: 14px;" value="2">ทำซ้ำได้</div>
+								<div class="item" style="font-size: 14px;" value="3">ดัดแปลงได้</div>
+							</div>
+						</div>
+					</div>
+					<div class="field">
 						<label>ความเป็นส่วนตัว</label>
 						<div class="grouped inline fields">
 							<div class="field">
@@ -86,6 +99,7 @@
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 				<div class="col-xs-3"></div>
+			</form>
 			</div>
 		</div>
 

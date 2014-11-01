@@ -17,18 +17,18 @@ class User extends CI_Controller {
 		if ($this->input->post()) {
 			$current_id = $this->session->userdata('id');
 			$data = array(
-				'current_id' => $current_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
 				'license_type' => $this->input->post('licenese'),
 				'visibility' => $this->input->post('visibility')
 			);
-			$this->music_model->upload($data);
+			$this->user_music_model->upload($data);
 		}
 		else{
 			  $data = array('albums' => $this->user_album_model->getAll()
 			   );
+			  //print_r($data);
 			$this->load->view('user/uploadMusic',$data);
 		}
 	}

@@ -89,7 +89,10 @@ class Post extends CI_Controller {
 	}
 
 	public function delete($post_id){
-			$this->band_model->delete($post_id);
+			$band_id = $this->session->userdata('band_id');
+			$this->post_model->deletePost($post_id);
+			redirect('/band/'.$band_id.'/post');
+
 	}
 
 	public function view($post_id){

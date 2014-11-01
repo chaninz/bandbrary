@@ -34,8 +34,10 @@ class Post_model extends CI_Model {
 		$query = $this->db->query('SELECT b.id, b.topic, b.post, b.image_url, b.timestamp, COUNT(c .id) AS count, COUNT(c.id) AS total_comments 
 			FROM Band_Posts b 
 			LEFT JOIN Post_Comments c ON b.id = c.post_id 
-			WHERE b.band_id = '.$band_id.' 
-			GROUP BY b.id,b.topic,b.post,b.image_url,b.timestamp');
+			WHERE b.band_id = '.$band_id.'
+			GROUP BY b.id,b.topic,b.post,b.image_url,b.timestamp
+			ORDER BY b.timestamp DESC
+			');
 		$result = $query->result();
 		
 		return $result;
@@ -47,10 +49,9 @@ class Post_model extends CI_Model {
 		$this->db->update('Band_Posts',$data);
 	}
 
-	function deletePost($data){
-		$id = $this->session->userdata('id');
-		$this->db->where('id',$id);
-		$this->db->delete('Band_Posts',$data);
+	function deletePost($post_id){
+		$this->db->where('id',$post_id);
+		$this->db->delete('Band_Posts');
 	}
 
 }

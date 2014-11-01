@@ -42,7 +42,7 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url('music/user/upload') ?>" method="post">
+				<form action="<?= base_url().'music/user/upload' ?>" method="post">
 					<div class="field">
 						<label>ชื่อเพลง</label>
 						<input type="text" placeholder="" name="name">
@@ -96,9 +96,9 @@
 							</div>
 						</div>
 					</div>
-				</form>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
+			</form>
 				<div class="col-xs-3"></div>
 			</div>
 		</div>
