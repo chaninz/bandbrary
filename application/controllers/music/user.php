@@ -23,34 +23,45 @@ class User extends CI_Controller {
 				'license_type' => $this->input->post('licenese'),
 				'visibility' => $this->input->post('visibility')
 			);
+			//print_r($data);
 			$this->user_music_model->upload($data);
 		}
 		else{
-			  $data = array('albums' => $this->user_album_model->getAll()
-			   );
-			  //print_r($data);
+			 $data = array('albums' => $this->user_album_model->getAll());
 			$this->load->view('user/uploadMusic',$data);
+			//redirect('/band/'.$band_id.'/post');
+
 		}
 	}
 
-	public function edit() {
+	public function edit($music_id) {
 		if ($this->input->post()) {
 			$current_id = $this->session->userdata('id');
 			$data = array(
-				'current_id' => $band_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
 				'license_type' => $this->input->post('licenese'),
 				'visibility' => $this->input->post('visibility')
 			);
-			$this->music_model->add($data);
+			$this->user_music_model->edit($data,$music_id);
 		}
 		else{
-			$data = array('albums' => $this->user_album_model->getAll()
+			$music = $this->user_music_model->getMusic($music_id);
+			$data = array(
+			'music' => $music ,
+			'albums' => $this->user_album_model->getAll(),
+			'albumMusic' => $this->user_album_model->getAlbum($music->album_id)
 			 );
-			 $this->load->view('user/editMusic');
+			//print_r($data);
+			$this->load->view('user/editMusic',$data);
 		}
+	}
+
+	public function delete($music_id){
+			$this->user_music_model->delete($music_id);
+			//redirect('/band/'.$band_id.'/post');
+
 	}
 
 }

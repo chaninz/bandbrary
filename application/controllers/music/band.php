@@ -5,7 +5,6 @@ class Band extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('band_music_model');
-		$this->load->model('user_model');
 		$this->load->model('band_album_model');
 
 	}
@@ -18,7 +17,6 @@ class Band extends CI_Controller {
 		if ($this->input->post()) {
 			$band_id = $this->session->userdata('band_id');
 			$data = array(
-				'band_id' => $band_id ,
 				'name' => $this->input->post('name'),
 				'album_id' => $this->input->post('album'),	
 				'lyric' => $this->input->post('lyric'),
@@ -28,7 +26,8 @@ class Band extends CI_Controller {
 			$this->band_music_model->upload($data);
 		}
 		else{
-			 $this->load->view('band/uploadMusic');
+			 $data = array('albums' => $this->band_album_model->getAll());
+			 $this->load->view('band/uploadMusic',$data);
 		}
 	}
 

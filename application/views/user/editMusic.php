@@ -42,26 +42,55 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
+					<form action="<?php echo base_url().'music/user/edit' ?>" method="post">	
 					<div class="field">
 						<label>ชื่อเพลง</label>
-						<input type="text" placeholder="" name="topic" value="" readonly>
+						<input type="text" placeholder="" name="name" value="<?= $music->name ?>" readonly>
 					</div>
 					<div class="field">
-						<label>คำอธิบาย</label>
-						<textarea name="post" class="ckeditor"></textarea>
+						<label>เนื้อเพลง</label>
+						<textarea name="lyric" class="ckeditor"><?= $music->lyric ?></textarea>
+					</div>
+					<div class="field">
+						<label>เพลง</label>
+						<input type="file" name="" value="" readonly>
+					</div>
+					<div class="field">
+						<label>อัลบั้ม</label>
+						<div class="ui fluid selection dropdown">
+							<div class="text"><?= $albumMusic->name ?></div>
+							<i class="dropdown icon"></i>
+							<input type="hidden" name="album">
+							<div class="menu"><?php if (! empty($albums)): foreach ($albums as $album): ?>
+								<div class="item" data-value="<?= $album->id ?>" style="font-size: 14px;"><?= $album->name ?></div><?php endforeach; endif; ?>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<label>ลิขสิทธิ์</label>
+						<div class="ui fluid selection dropdown">
+							<div class="text">เลือก</div>
+							<i class="dropdown icon"></i>
+							<input type="hidden" name="license" value="<?= $music->license_type ?>">
+							<div class="menu">
+								<div class="item" style="font-size: 14px;" data-value="1" >ห้ามทำซ้ำ</div>
+								<div class="item" style="font-size: 14px;" data-value="2" >ทำซ้ำได้</div>
+								<div class="item" style="font-size: 14px;" data-value="3" >ดัดแปลงได้</div>
+							</div>
+						</div>
 					</div>
 					<div class="field">
 						<label>ความเป็นส่วนตัว</label>
 						<div class="grouped inline fields">
 							<div class="field">
 								<div class="ui slider checkbox">
-									<input type="radio" value="1" name="style">
+									<input type="radio" value="1" name="visibility" <?= $music->visibility == 1 ? 'checked' : '' ?>>
 									<label>ส่วนตัว</label>
 								</div>
 							</div>
 							<div class="field">
 								<div class="ui slider checkbox">
-									<input type="radio" value="2" name="style">
+									<input type="radio" value="2" name="visibility" <?= $music->visibility == 2 ? 'checked' : '' ?>>
 									<label>สาธารณะ</label>
 								</div>
 							</div>

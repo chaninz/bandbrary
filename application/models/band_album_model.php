@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_album_model extends CI_Model {
+class Band_album_model extends CI_Model {
 
 	public function __construct()
 	{
@@ -13,7 +13,8 @@ class User_album_model extends CI_Model {
 	function delete($data) {
 		$this->db->delete('User_Albums', $data);
 	}	
-	function getAll($band_id){
+	function getAll(){
+		$band_id = $this->session->userdata('band_id');
 		$this->db->select('*');
 		$this->db->from('Band_Albums');
 		$this->db->where('band_id',$band_id);

@@ -23,6 +23,15 @@ class User_album_model extends CI_Model {
 		return $query->result();
 	}
 
+	function getAlbum($album_id){
+		$this->db->select('*');
+		$this->db->from('User_Albums');
+		$this->db->where('id',$album_id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 }
 
 /* End of file album_model.php */
