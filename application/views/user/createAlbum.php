@@ -49,7 +49,7 @@
 					</div>
 					<div class="field">
 						<label>คำอธิบาย</label>
-						<textarea name="description" class="ckeditor"></textarea>
+						<textarea name="post"></textarea>
 					</div>
 					<div class="field">
 						<label>ปกอัลบั้ม</label>
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 
-		<script src="../../assets/js/bandbrary.js"></script>
-		<script></script>
+		<?php $this->load->view('footer'); ?>
+		
 	</body>
 	</html>
