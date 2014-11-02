@@ -3,23 +3,23 @@
 class Post_model extends CI_Model {
 
 	function add($data){
-		$this->db->insert('Band_Posts',$data);	
+		$this->db->insert('Band_Posts', $data);	
 	}
 
-	function get_by_user($id, $user_type) {
-		if ($user_type == 1) {
-			//$query = $this->db->get_where('User_Events', array('user_id' => $id));
-		} elseif ($user_type == 2) {
-			$query = $this->db->get_where('Band_Posts', array('band_id' => $id));
-		}
-		$result = $query->result();
+	// function get_by_user($id, $user_type) {
+	// 	if ($user_type == 1) {
+	// 		//$query = $this->db->get_where('User_Events', array('user_id' => $id));
+	// 	} elseif ($user_type == 2) {
+	// 		$query = $this->db->get_where('Band_Posts', array('band_id' => $id));
+	// 	}
+	// 	$result = $query->result();
 
-		return $result;
-	}
+	// 	return $result;
+	// }
 
-	function get_band_post($band_id) {
-		return $this->get_by_user($band_id, 2);
-	}
+	// function get_band_post($band_id) {
+	// 	return $this->get_by_user($band_id, 2);
+	// }
 
 	function getPost($post_id){
 		$this->db->select('*');
@@ -30,14 +30,20 @@ class Post_model extends CI_Model {
 		return $query->row();
 	}
 
+	function get($post_id) {
+		$query = $this->db->get_where('Band_Posts', array('id' => $post_id));
+		$result = $query->row();
+
+		return $result;
+	}
+
 	function get_all($band_id) {
 		$query = $this->db->query('SELECT b.id, b.topic, b.post, b.image_url, b.timestamp, COUNT(c .id) AS count, COUNT(c.id) AS total_comments 
 			FROM Band_Posts b 
 			LEFT JOIN Post_Comments c ON b.id = c.post_id 
-			WHERE b.band_id = '.$band_id.'
-			GROUP BY b.id,b.topic,b.post,b.image_url,b.timestamp
-			ORDER BY b.timestamp DESC
-			');
+			WHERE b.band_id = '.$band_id.' 
+			GROUP BY b.id,b.topic,b.post,b.image_url,b.timestamp 
+			ORDER BY b.timestamp DESC');
 		$result = $query->result();
 		
 		return $result;
@@ -50,7 +56,7 @@ class Post_model extends CI_Model {
 	}
 
 	function deletePost($post_id){
-		$this->db->where('id',$post_id);
+		$this->db->where('id', $post_id);
 		$this->db->delete('Band_Posts');
 	}
 
