@@ -17,7 +17,6 @@
 	.center {
 		background-color: #FFFFFF;
 		padding: 20px;
-		margin-top: 15px;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
@@ -37,6 +36,8 @@
 								<h2 class="ui black block header"><?= $post->topic ?></h2>
 								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
 								<p><?= $post->post ?></p>
+								<br/>
+								<h5 class="ui header">ความคิดเห็นทั้งหมด</h5>
 							</div>
 							<div class="ui comments" style="margin-top: 20px;">
 								<?php foreach($comments as $comment): ?>
@@ -65,7 +66,7 @@
 									<div class="field">
 										<textarea name="comment" style="margin-left: 50px;"></textarea>
 									</div>
-									<input type="submit" class="ui small button submit" value="Comment" >
+									<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์" >
 								</form>
 							</div>
 						</div>

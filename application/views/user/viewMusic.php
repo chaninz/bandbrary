@@ -7,15 +7,11 @@
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
-	#angle-bth {
-		font-size: 1.3em;
-		margin-top: 5px;
-		margin-left: 2px;
-		float: left;
-		color: #929292;
-	}
 	.center {
-		margin-top: 0px;
+		background-color: #FFFFFF;
+		padding: 20px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
@@ -30,9 +26,39 @@
 					<div class="col-md-9">
 						<div class="center">
 							<div class="ui vertical segment">
-								<h2 class="ui black block header"><?= $post->topic ?></h2>
-								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
-								<p><?= $post->post ?></p>
+								<div>
+								<p/>เพลง : Falling Slowly
+								<p/>ศิลปิน : Glen Hansard and Marketa Irglova
+								<p/>อัลบั้ม : Once
+								</div>
+								<br/>
+								<div class="ui small icon button">
+  									<i class="heart icon"></i>
+								</div>	
+								<div class="ui small icon button">
+  									<i class="share icon"></i>
+								</div>
+								<div class="ui small icon button">
+  									<i class="edit icon"></i>
+								</div>
+								<div class="ui small icon button">
+  									<i class="trash icon"></i>
+								</div>	
+								<br/>
+									<div class="ui piled segment">
+								 <b>อัปโหลดเมื่อ 29 ก.พ. 2008</b>
+								 <p/>I don't know you
+								But I want you
+								All the more for that
+								Words fall through me
+								And always fool me
+								And I can't react
+								And games that never amount
+								To more than they're meant
+								Will play themselves out
+								</div>
+								<br/>
+								<h5 class="ui header">ความคิดเห็นทั้งหมด</h5>
 							</div>
 							<div class="ui comments" style="margin-top: 20px;">
 								<?php foreach($comments as $comment): ?>
@@ -59,9 +85,9 @@
 							<?php endforeach; ?>
 							<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
 								<div class="field">
-									<textarea name="comment"></textarea>
+									<textarea name="comment" style="margin-left: 50px;"></textarea>
 								</div>
-								<input type="submit" class="ui small button submit labeled icon" value="Add Comment" >
+								<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์" >
 							</form>
 						</div>
 					</div>

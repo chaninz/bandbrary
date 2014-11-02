@@ -7,15 +7,11 @@
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
-	#angle-bth {
-		font-size: 1.3em;
-		margin-top: 5px;
-		margin-left: 2px;
-		float: left;
-		color: #929292;
-	}
 	.center {
-		margin-top: 0px;
+		background-color: #FFFFFF;
+		padding: 20px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
@@ -59,9 +55,9 @@
 							<?php endforeach; ?>
 							<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
 								<div class="field">
-									<textarea name="comment"></textarea>
+									<textarea name="comment" style="margin-left: 50px;"></textarea>
 								</div>
-								<input type="submit" class="ui small button submit labeled icon" value="Add Comment" >
+								<input type="submit" class="ui small button submit" style="margin-left: 495px;" value="Comment" >
 							</form>
 						</div>
 					</div>
