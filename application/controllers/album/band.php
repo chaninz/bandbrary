@@ -16,10 +16,10 @@ class Band extends CI_Controller {
 				'name' => $this->input->post('name'),
 				'cover_url' => $this->input->post('cover')
 			);
-			$this->user_album_model->create($data);
+			$this->band_album_model->create($data);
 		}
 		else{
-			 $this->load->view('user/createAlbum');
+			 $this->load->view('band/createAlbum');
 		}
 	}
 	public function edit($album_id) {
@@ -29,14 +29,14 @@ class Band extends CI_Controller {
 				'cover_url' => $this->input->post('cover')
 			);
 			//print_r($data);
-			$this->user_music_model->edit($data);
+			$this->band_album_model->edit($data,$album_id);
 		}
 		else{
 			$data = array(
-			'album' => $this->user_album_model->getAlbum($album_id)
+			'album' => $this->band_album_model->getAlbum($album_id)
 			 );
 			//print_r($data);
-			$this->load->view('user/editAlbum',$data);
+			$this->load->view('band/editAlbum',$data);
 		}
 	}
 }

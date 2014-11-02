@@ -13,6 +13,12 @@ class Band_album_model extends CI_Model {
 	function delete($data) {
 		$this->db->delete('Band_Albums', $data);
 	}	
+
+	function edit($data,$album_id){
+		$this->db->where('id',$album_id);
+		$this->db->update('Band_Albums',$data);
+	}
+	
 	function getAll(){
 		$band_id = $this->session->userdata('band_id');
 		$this->db->select('*');

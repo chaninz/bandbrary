@@ -29,7 +29,7 @@ class User extends CI_Controller {
 				'cover_url' => $this->input->post('cover')
 			);
 			//print_r($data);
-			$this->user_music_model->edit($data);
+			$this->user_album_model->edit($data,$album_id);
 		}
 		else{
 			$data = array(

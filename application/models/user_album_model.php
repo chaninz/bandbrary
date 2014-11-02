@@ -13,6 +13,12 @@ class User_album_model extends CI_Model {
 	function delete($data) {
 		$this->db->delete('User_Albums', $data);
 	}	
+
+	function edit($data,$album_id){
+		$this->db->where('id',$album_id);
+		$this->db->update('User_Albums',$data);
+	}
+
 	function getAll(){
 		$current_id = $this->session->userdata('id');
 		$this->db->select('*');
