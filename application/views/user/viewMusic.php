@@ -28,7 +28,7 @@
 							<div class="ui vertical segment">
 								<div>
 								<p/>เพลง : <?= $music->name ?>
-								<p/>ศิลปิน : <?= $user_profile->name ?>
+								<p/>ศิลปิน : <?= $user_profile->name ?> <?= $user_profile->surname ?>
 								<p/>อัลบั้ม : <?= $albumMusic->name ?>
 								</div>
 								<br/>
