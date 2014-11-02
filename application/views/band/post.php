@@ -49,7 +49,7 @@
 									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 										<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
 										<a href="<?= base_url('band/post/edit/'.$post->id) ?>"><div class="item">แก้ไขโพสต์</div> </a>
-										<div class="item">ลบ</div>
+										<a href="<?= base_url('band/post/delete/'.$post->id) ?>"><div class="item">ลบ</div></a>
 										<?php endif; ?>
 										<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 									</div>

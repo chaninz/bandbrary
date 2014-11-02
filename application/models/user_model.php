@@ -118,7 +118,17 @@ class User_model extends CI_Model {
 
 		return $result;
 	}
-	
+
+	// function get_oldband($id) {
+	// 	$this->db->select('Bands.name');
+	// 	$this->db->from('Users');
+	// 	$this->db->join('Join_Band', 'Join_Band.user_id = Users.id');
+	// 	$this->db->join('Bands', 'Join_Band.band_id = Bands.id');
+	// 	$this->db->where('Users.id',$id);
+
+	// 	$query = $this->db->get();
+	// 	return $query->row();
+	// }
 
 	/************* Above code is production code *************/
 	/************* Below code for temporary used *************/

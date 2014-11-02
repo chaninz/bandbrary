@@ -42,7 +42,7 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-					<form action="<?php echo base_url().'music/user/edit/'.$music->id ?>"method="post">	
+					<form action="<?php echo base_url().'music/band/edit/'.$music->id ?>"method="post">	
 					<div class="field">
 						<label>ชื่อเพลง</label>
 						<input type="text" placeholder="" name="name" value="<?= $music->name ?>" readonly>
@@ -96,10 +96,11 @@
 							</div>
 						</div>
 					</div>
-				</form>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 				<div class="col-xs-3"></div>
+				</form>
+
 			</div>
 		</div>
 

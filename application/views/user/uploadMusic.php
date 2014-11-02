@@ -42,13 +42,14 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
+				<form action="<?= base_url().'music/user/upload' ?>" method="post">
 					<div class="field">
 						<label>ชื่อเพลง</label>
-						<input type="text" placeholder="" name="topic" value="">
+						<input type="text" placeholder="" name="name">
 					</div>
 					<div class="field">
 						<label>เนื้อเพลง</label>
-						<textarea name="post" class="ckeditor"></textarea>
+						<textarea name="lyric"></textarea>
 					</div>
 					<div class="field">
 						<label>เพลง</label>
@@ -59,10 +60,22 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">เลือก</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="gender">
+							<input type="hidden" name="album">
+							<div class="menu"><?php if (! empty($albums)): foreach ($albums as $album): ?>
+								<div class="item" data-value="<?= $album->id ?>" style="font-size: 14px;"><?= $album->name ?></div><?php endforeach; endif; ?>
+							</div>
+						</div>
+					</div>
+					<div class="field">
+						<label>ลิขสิทธิ์</label>
+						<div class="ui fluid selection dropdown">
+							<div class="text">เลือก</div>
+							<i class="dropdown icon"></i>
+							<input type="hidden" name="licenese">
 							<div class="menu">
-								<div class="item" data-value="male">อัลบั้ม1</div>
-								<div class="item" data-value="female">อัลบั้ม2</div>
+								<div class="item" style="font-size: 14px;" data-value="1">ห้ามทำซ้ำ</div>
+								<div class="item" style="font-size: 14px;" data-value="2">ทำซ้ำได้</div>
+								<div class="item" style="font-size: 14px;" data-value="3">ดัดแปลงได้</div>
 							</div>
 						</div>
 					</div>
@@ -70,14 +83,14 @@
 						<label>ความเป็นส่วนตัว</label>
 						<div class="grouped inline fields">
 							<div class="field">
-								<div class="ui slider checkbox">
-									<input type="radio" value="1" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="1" name="visibility">
 									<label>ส่วนตัว</label>
 								</div>
 							</div>
 							<div class="field">
-								<div class="ui slider checkbox">
-									<input type="radio" value="2" name="style">
+								<div class="ui radio checkbox">
+									<input type="radio" value="2" name="visibility">
 									<label>สาธารณะ</label>
 								</div>
 							</div>
@@ -85,11 +98,12 @@
 					</div>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
+			</form>
 				<div class="col-xs-3"></div>
 			</div>
 		</div>
 
-		<script src="../../assets/js/bandbrary.js"></script>
-		<script></script>
+		<?php $this->load->view('footer'); ?>
+		
 	</body>
 	</html>

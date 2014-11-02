@@ -7,32 +7,50 @@
 	<title>Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
-	#angle-bth {
-		font-size: 1.3em;
-		margin-top: 5px;
-		margin-left: 2px;
-		float: left;
-		color: #929292;
-	}
 	.center {
-		margin-top: 0px;
+		background-color: #FFFFFF;
+		padding: 20px;
+		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
 	}
 	</style>
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<?php $this->load->view('band/cover'); ?>
+	<?php $this->load->view('user/cover'); ?>
 	<section>
 		<article>
 			<div class="container">
 				<div class="row">
-					<?php $this->load->view('band/sidebar_left'); ?>
+					<?php $this->load->view('user/sidebar_left'); ?>
 					<div class="col-md-9">
 						<div class="center">
 							<div class="ui vertical segment">
-								<h2 class="ui black block header"><?= $post->topic ?></h2>
-								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
-								<p><?= $post->post ?></p>
+								<div>
+								<p/>เพลง : <?= $music->name ?>
+								<p/>ศิลปิน : <?= $user_profile->name ?> <?= $user_profile->surname ?>
+								<p/>อัลบั้ม : <?= $albumMusic->name ?>
+								</div>
+								<br/>
+								<div class="ui small icon button">
+  									<i class="heart icon"></i>
+								</div>	
+								<div class="ui small icon button">
+  									<i class="share icon"></i>
+								</div>
+								<div class="ui small icon button">
+  									<i class="edit icon"></i>
+								</div>
+								<div class="ui small icon button">
+  									<i class="trash icon"></i>
+								</div>	
+								<br/>
+									<div class="ui piled segment">
+								 <b>อัปโหลดเมื่อ 29 ก.พ. 2008</b>
+								 <p/><?= $music->lyric ?>
+								</div>
+								<br/>
+								<h5 class="ui header">ความคิดเห็นทั้งหมด</h5>
 							</div>
 							<div class="ui comments" style="margin-top: 20px;">
 								<?php foreach($comments as $comment): ?>
@@ -57,11 +75,11 @@
 									</div>
 								</div>
 							<?php endforeach; ?>
-							<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
+							<form class="ui reply form" method="post" action="<?= base_url().'music/user/addComment/'.$music->id ?>">
 								<div class="field">
-									<textarea name="comment"></textarea>
+									<textarea name="comment" style="margin-left: 50px;"></textarea>
 								</div>
-								<input type="submit" class="ui small button submit labeled icon" value="Add Comment" >
+								<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์" >
 							</form>
 						</div>
 					</div>

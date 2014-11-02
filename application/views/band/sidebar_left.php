@@ -8,7 +8,7 @@
 			</div>
 		</div>
 	<?php endif; ?>
-	<div class="ui stacked segment" id="status-user">
+	<div class="ui stacked segment" id="status-band">
 		<div id="status-msg">
 			<?php if ( ! empty($status)): ?>
 				<?= $status->status ?>

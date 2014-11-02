@@ -29,7 +29,7 @@
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<h2 class="ui header">
-					สร้างอัลบั้มเพลง
+					แก้ไขอัลบั้มเพลง
 				</h2>
 				<p/>
 				<div class="line"></div>
@@ -41,19 +41,19 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url().'album/user/create' ?>" method="post">
+				<form action="<?= base_url().'album/band/edit/'.$album->id ?>" method="post">
 
 					<div class="field">
 						<label>ชื่ออัลบั้ม</label>
-						<input type="text" placeholder="" name="name" value="">
+						<input type="text" placeholder="" name="name" value="<?= $album->name ?>">
 					</div>
 					<div class="field">
 						<label>คำอธิบาย</label>
-						<textarea name="post"></textarea>
+						<textarea name="description" class="ckeditor"></textarea>
 					</div>
 					<div class="field">
 						<label>ปกอัลบั้ม</label>
-						<input type="file" name="cover" value="">
+						<input type="file" name="cover" value="<?= $album->name ?>">
 					</div>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 
-		<?php $this->load->view('footer'); ?>
-		
+		<script src="../../assets/js/bandbrary.js"></script>
+		<script></script>
 	</body>
 	</html>

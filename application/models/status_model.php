@@ -30,7 +30,7 @@ class Status_model extends CI_Model {
 
 	function get_by_band($band_id) {
 		$this->db->order_by('timestamp DESC');
-		$query = $this->db->get_where('Band_Status', array('band_id' => $user_id));
+		$query = $this->db->get_where('Band_Status', array('band_id' => $band_id));
 		$result = $query->result();
 
 		return $result;

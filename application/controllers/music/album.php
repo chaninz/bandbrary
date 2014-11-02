@@ -4,7 +4,7 @@ class album extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('music_model');
+		$this->load->model('user_album_model');
 	}
 
 	// public function index() {
@@ -29,12 +29,11 @@ class album extends CI_Controller {
 		if ($this->input->post()) {
 			$current_id = $this->session->userdata('id');
 			$data = array(
-				'current_id' => $current_id ,
+				'user_id' => $current_id ,
 				'name' => $this->input->post('name'),
-				'band_id' => $this->input->post('lyric'),
-				'cover_url' => $this->input->post('licenese')
+				'cover_url' => $this->input->post('cover')
 			);
-			$this->music_model->add($data);
+			$this->user_album_model->add($data);
 		}
 		else{
 			 $this->load->view('user/createAlbum');

@@ -8,7 +8,6 @@
 
 	<?php $this->load->view('header'); ?>
 
-
 	<style>
 	.ui.header {
 		margin-left: 60px;
@@ -24,13 +23,14 @@
 
 </head>
 <body>
-	<?php $this->load->view('navigation'); ?>
+		<?php $this->load->view('navigation'); ?>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<h2 class="ui header">
-					แก้ไขเพลง
+					อัพโหลดเพลง
 				</h2>
 				<p/>
 				<div class="line"></div>
@@ -42,25 +42,25 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-					<form action="<?php echo base_url().'music/user/edit/'.$music->id ?>"method="post">	
+				<form action="<?= base_url().'music/band/upload' ?>" method="post">
 					<div class="field">
 						<label>ชื่อเพลง</label>
-						<input type="text" placeholder="" name="name" value="<?= $music->name ?>" readonly>
+						<input type="text" placeholder="" name="name">
 					</div>
 					<div class="field">
 						<label>เนื้อเพลง</label>
-						<textarea name="lyric"><?= $music->lyric ?></textarea>
+						<textarea name="lyric"></textarea>
 					</div>
 					<div class="field">
 						<label>เพลง</label>
-						<input type="file" name="" value="" readonly>
+						<input type="file" name="" value="">
 					</div>
 					<div class="field">
 						<label>อัลบั้ม</label>
 						<div class="ui fluid selection dropdown">
-							<div class="text"><?= $albumMusic->name ?></div>
+							<div class="text">เลือก</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="album" value="<?= $music->album_id ?>" >
+							<input type="hidden" name="album">
 							<div class="menu"><?php if (! empty($albums)): foreach ($albums as $album): ?>
 								<div class="item" data-value="<?= $album->id ?>" style="font-size: 14px;"><?= $album->name ?></div><?php endforeach; endif; ?>
 							</div>
@@ -71,11 +71,11 @@
 						<div class="ui fluid selection dropdown">
 							<div class="text">เลือก</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="license" value="<?= $music->license_type ?>">
+							<input type="hidden" name="licenese">
 							<div class="menu">
-								<div class="item" style="font-size: 14px;" data-value="1" >ห้ามทำซ้ำ</div>
-								<div class="item" style="font-size: 14px;" data-value="2" >ทำซ้ำได้</div>
-								<div class="item" style="font-size: 14px;" data-value="3" >ดัดแปลงได้</div>
+								<div class="item" style="font-size: 14px;" data-value="1">ห้ามทำซ้ำ</div>
+								<div class="item" style="font-size: 14px;" data-value="2">ทำซ้ำได้</div>
+								<div class="item" style="font-size: 14px;" data-value="3">ดัดแปลงได้</div>
 							</div>
 						</div>
 					</div>
@@ -84,26 +84,26 @@
 						<div class="grouped inline fields">
 							<div class="field">
 								<div class="ui radio checkbox">
-									<input type="radio" value="1" name="visibility" <?= $music->visibility == 1 ? 'checked' : '' ?>>
+									<input type="radio" value="1" name="visibility">
 									<label>ส่วนตัว</label>
 								</div>
 							</div>
 							<div class="field">
 								<div class="ui radio checkbox">
-									<input type="radio" value="2" name="visibility" <?= $music->visibility == 2 ? 'checked' : '' ?>>
+									<input type="radio" value="2" name="visibility">
 									<label>สาธารณะ</label>
 								</div>
 							</div>
 						</div>
 					</div>
-				</form>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
+			</form>
 				<div class="col-xs-3"></div>
 			</div>
 		</div>
 
 		<?php $this->load->view('footer'); ?>
-
+		
 	</body>
 	</html>
