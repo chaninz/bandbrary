@@ -17,19 +17,19 @@
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<?php $this->load->view('band/cover'); ?>
+	<?php $this->load->view('user/cover'); ?>
 	<section>
 		<article>
 			<div class="container">
 				<div class="row">
-					<?php $this->load->view('band/sidebar_left'); ?>
+					<?php $this->load->view('user/sidebar_left'); ?>
 					<div class="col-md-9">
 						<div class="center">
 							<div class="ui vertical segment">
 								<div>
-								<p/>เพลง : Falling Slowly
-								<p/>ศิลปิน : Glen Hansard and Marketa Irglova
-								<p/>อัลบั้ม : Once
+								<p/>เพลง : <?= $music->name ?>
+								<p/>ศิลปิน : <?= $user_profile->name ?>
+								<p/>อัลบั้ม : <?= $albumMusic->name ?>
 								</div>
 								<br/>
 								<div class="ui small icon button">
@@ -47,15 +47,7 @@
 								<br/>
 									<div class="ui piled segment">
 								 <b>อัปโหลดเมื่อ 29 ก.พ. 2008</b>
-								 <p/>I don't know you
-								But I want you
-								All the more for that
-								Words fall through me
-								And always fool me
-								And I can't react
-								And games that never amount
-								To more than they're meant
-								Will play themselves out
+								 <p/><?= $music->lyric ?>
 								</div>
 								<br/>
 								<h5 class="ui header">ความคิดเห็นทั้งหมด</h5>
@@ -83,7 +75,7 @@
 									</div>
 								</div>
 							<?php endforeach; ?>
-							<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
+							<form class="ui reply form" method="post" action="<?= base_url().'music/user/addComment/'.$music->id ?>">
 								<div class="field">
 									<textarea name="comment" style="margin-left: 50px;"></textarea>
 								</div>

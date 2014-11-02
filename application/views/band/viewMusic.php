@@ -26,9 +26,31 @@
 					<div class="col-md-9">
 						<div class="center">
 							<div class="ui vertical segment">
-								<h2 class="ui black block header"><?= $post->topic ?></h2>
-								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
-								<p><?= $post->post ?></p>
+								<div>
+								<p/>เพลง : <?= $music->name ?>
+								<p/>ศิลปิน : <?= $band_profile->name ?>
+								<p/>อัลบั้ม : <?= $albumMusic->name ?>
+								</div>
+								<br/>
+								<div class="ui small icon button">
+  									<i class="heart icon"></i>
+								</div>	
+								<div class="ui small icon button">
+  									<i class="share icon"></i>
+								</div>
+								<div class="ui small icon button">
+  									<i class="edit icon"></i>
+								</div>
+								<div class="ui small icon button">
+  									<i class="trash icon"></i>
+								</div>	
+								<br/>
+									<div class="ui piled segment">
+								 <b>อัปโหลดเมื่อ 29 ก.พ. 2008</b>
+								 <p/><?= $music->lyric ?>
+								</div>
+								<br/>
+								<h5 class="ui header">ความคิดเห็นทั้งหมด</h5>
 							</div>
 							<div class="ui comments" style="margin-top: 20px;">
 								<?php foreach($comments as $comment): ?>
@@ -53,11 +75,11 @@
 									</div>
 								</div>
 							<?php endforeach; ?>
-							<form class="ui reply form" method="post" action="<?= base_url().'band/postcomment/add/'.$post->id ?>">
+							<form class="ui reply form" method="post" action="<?= base_url().'music/band/addComment/'.$music->id ?>">
 								<div class="field">
 									<textarea name="comment" style="margin-left: 50px;"></textarea>
 								</div>
-								<input type="submit" class="ui small button submit" style="margin-left: 495px;" value="Comment" >
+								<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์" >
 							</form>
 						</div>
 					</div>
