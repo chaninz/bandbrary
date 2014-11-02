@@ -13,6 +13,8 @@ class Post extends CI_Controller {
 		// Page model
 		$this->load->model('post_model');
 		$this->load->model('postcomment_model');
+		$this->load->library('upload');
+		$this->load->library('image_lib');
 	}
 
 
@@ -47,31 +49,53 @@ class Post extends CI_Controller {
 	}
 
 	public function add() {
-		if ($this->input->post()) {
-			$band_id = $this->session->userdata('band_id');
-			$ref = $this->input->get('ref');
-			$post = array(
-				'band_id' => $band_id ,
-				'topic' => $this->input->post('topic'),
-				'post' => $this->input->post('post'),
-				'image_url' => $this->input->post('imageurl')
-			);
-			$this->post_model->add($post);
+		$band_id = $this->session->userdata('band_id');
+		$topic = $this->input->post('topic');
+		$post = $this->input->post('post');
 
-			redirect($ref);
-		} else {
-			$my_id = $this->session->userdata('id');
-			$band_id = $this->session->userdata('band_id');
-			$data = array (
-			'band' => $this->band_model->get($band_id),
-			'band_post' => $this->post_model->get_all($band_id),
-			'band_id' => $band_id,
-			'user' => $this->user_model->getProfile($my_id),
-			'isFollow' =>$this->follow_band_model->isFollow($band_id,$my_id)
-		);
-			// $this->load->view('headerBar',$data);
-			$this->load->view('band/post',$data);
+		if ( ! empty($band_id) && ! empty($topic) && ! empty($post)) {
+			$post_image_name = $this->input->post('post-image-name');
+			$data = array('band_id' => $band_id,
+				'topic' => $topic,
+				'post' => $post);
+
+			if ( ! empty($post_image_name)) {
+				$photo_path = realpath('uploads/post/band');
+				$photo_name = $band_id.'-post-'.time();
+
+				// Upload cover photo to server
+				$config = array('allowed_types' => 'jpg|jpeg',
+					'max_size' => 1024,
+					'overwrite' => TRUE,
+					'file_name' => $photo_name,
+					'upload_path' => $photo_path.'/original');
+				$this->upload->initialize($config);
+				$result = $this->upload->do_upload('post-image');
+				$msg_image = $this->upload->display_errors();
+				$image_data = $this->upload->data();
+
+				if ( ! empty($result)) {
+					// If upload complete
+					$data['image_url'] = $image_data['file_name'];
+
+					// Resize to 600px
+					$config = array(
+						'source_image' => $image_data['full_path'],
+						'new_image' => $photo_path,
+						'maintain_ratio' => TRUE,
+						'width' => 600);
+					$this->image_lib->initialize($config);
+					$this->image_lib->resize();
+				}
 			}
+
+			$this->post_model->add($data);
+			redirect(base_url('band/'.$band_id.'/post'));
+		} else {
+			show_404();
+		}
+
+
 	}
 
 	public function edit($post_id) {
@@ -93,40 +117,36 @@ class Post extends CI_Controller {
 	}
 
 	public function view($post_id){
-		// if ($this->input->post()) {
-		// 	// edit band to get band name from session
-		// 	$post_id = 4 ;//$this->input->post('post_id')
-		// 	$data = $this->post_model->getPost($post_id);
-		// 	$this->load->view('temp/viewPost',$data);
-		// } else {
-		// 	$data = $this->post_model->getPost(4);
-		// 	$this->load->view('temp/viewPost',$data);
-		// }
+		// Basic data for user profile page
+		$post = $this->post_model->get($post_id);
 
+		if ( ! empty($post)) {
+			// Basic data for user profile page
+			$band_id = $post->band_id;
+			$band_profile = $this->band_model->get($band_id);
+			$status = $this->status_model->get_last_by_band($band_id);
+			$band_members = $this->join_band_model->get_current_member($band_id);
+			// Current user info
+			$current_user_id = $this->session->userdata('id');
+			$is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
+			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
+			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
+			// Page data
+			$comments = $this->postcomment_model->getComment($post_id);
 
-		 $current_user_id = $this->session->userdata('id');
-		 $post = $this->post_model->getPost($post_id);
-		 $band_profile = $this->band_model->get($post->band_id);
-		 $band_members = $this->join_band_model->get_current_member($post->band_id);
-		 $is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
-		 $user_status =  $this->join_band_model->get_user_status($current_user_id,$post->band_id);
+			$display = array('band_profile' => $band_profile,
+				'status' => $status,
+				'band_members' => $band_members,
+				'is_follow_band' => $is_follow_band,
+				'user_status' => $user_status,
+				'current_user_skills' => $current_user_skills,
+				'post' => $post,
+				'comments' => $comments);
 
-		 $data = array (
-		 'post' => $post,
-		 'band_profile' => $band_profile,
-		 'band_members' => $band_members,
-		 'is_follow_band' => $is_follow_band,
-		 'user_status' => $user_status,
-		 'comments' => $this->postcomment_model->getComment($post_id)
-		 );
-		// print_r($post);
-
-		$this->load->view('band/viewPost',$data);
-	}
-
-	public function viewAll($band_id){
-		
-
+			$this->load->view('band/view_post', $display);
+		} else {
+			show_404();
+		}
 	}
 
 }

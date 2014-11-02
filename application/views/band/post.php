@@ -70,27 +70,28 @@
 
 	<!--Create post modal-->
 	<div class="ui form transition segment createpost modal">
-		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post">
+		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post" enctype="multipart/form-data">
 			<h3>สร้างโพสต์</h3>
 			<br/><p/>
 			<div class="line"></div>
 			<p/>
 			<div class="field">
 				<label>ชื่อเรื่อง</label>
-				<input type="text" placeholder="" name="topic" required>
+				<input type="text" name="topic">
 			</div>
 			<div class="line"></div>
-			<p/>
+			<p><p/>
 			<div class="field">
 				<label>คำอธิบาย</label>
 				<textarea name="post" class="ckeditor"></textarea>
 			</div>
 			<div class="field">
 				<label>รูปภาพประกอบ</label>
-				<input type="file" name="image_url">
+				<input type="file" name="post-image" id="post-image"/>
+				<input type="hidden" name="post-image-name" id="post-image-name"/>
 			</div>
 			<div class="line"></div>
-			<p/>
+			<p><p/>
 			<div class="actions">
 				<div class="ui black small button">ยกเลิก</div>
 				<input type="submit" class="ui red submit small button" value="โพสต์">
@@ -153,6 +154,15 @@
 			var id = $(this).attr("post-id");
 			$('.postid').val(id);
 		});
+
+		$("#post-image").change(function() {
+			var fileName = $("#post-image")[0].files[0];
+			if (fileName) {
+				$("#post-image-name").val(fileName.name);
+			} else {
+				$("#post-image-name").val("");
+			}
+		})
 	</script>
 	<?php $this->load->view('footer'); ?>
 

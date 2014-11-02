@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title><?= $post->topic ?> | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
 	#angle-bth {
@@ -35,7 +35,9 @@
 						<div class="center">
 							<div class="ui vertical segment">
 								<h2 class="ui black block header"><?= $post->topic ?></h2>
-								<img class="ui medium image" src="<?= base_url().'uploads/images/post/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
+								<?php if ($post->image_url != NULL): ?>
+									<img class="ui medium image" src="<?= base_url().'uploads/post/band/'.$post->image_url ?>" style="margin-left: 170px;"><br/>
+								<?php endif; ?>
 								<p><?= $post->post ?></p>
 							</div>
 							<div class="ui comments" style="margin-top: 20px;">
@@ -65,7 +67,7 @@
 									<div class="field">
 										<textarea name="comment" style="margin-left: 50px;"></textarea>
 									</div>
-									<input type="submit" class="ui small button submit" value="Comment" >
+									<input type="submit" class="ui small button submit" value="แสดงความคิดเห็น" >
 								</form>
 							</div>
 						</div>
