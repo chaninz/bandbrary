@@ -6,18 +6,12 @@ class Greedd_model extends CI_Model {
 		parent::__construct();	
 	}
 
-	function add($data){
-		$this->db->insert('Greedd',$data);	
+	function greedd_user_music($data){
+		$this->db->insert('Greedd_User_Music',$data);	
 	}
-	
-	function get_post(){
-		$id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->from('Band_Posts');
-		$this->db->where('id',$id);
 
-		$query = $this->db->get();
-		return $query->row();
+	function greedd_band_music($data){
+		$this->db->insert('Greedd_Band_Music',$data);	
 	}
 
 	function delete($data){
@@ -30,6 +24,32 @@ class Greedd_model extends CI_Model {
 		$this->db->select('COUNT (*)');
 		$this->db->from('Greedd');
 		$this->db->where('music_id',$music_id);
+	}
+
+	function topGreeddUserMusic(){
+		$query = $this->db->query('
+			SELECT count(*) AS count ,Greedd_User_Music.music_id,User_Music.name 
+			FROM `Greedd_User_Music`
+            Join User_Music on User_Music.id = Greedd_User_Music.music_id
+			GROUP by music_id
+			ORDER by count desc
+			LIMIT 0,5
+		');
+		return $query->result();
+	}
+
+	function topGreeddBandMusic(){
+		$query = $this->db->query('
+			SELECT count(*) AS count ,Greedd_Band_Music.music_id,Band_Music.name 
+			FROM `Greedd_Band_Music`
+            Join Band_Music on Band_Music.id = Greedd_Band_Music.music_id
+			GROUP by music_id
+			ORDER by count desc
+			LIMIT 0,5
+		');
+		return $query->result();
+
+
 	}
 }
 

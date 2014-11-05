@@ -23,6 +23,8 @@ class Band_music_model extends CI_Model {
 		return $query->row();
 	}
 
+	
+
 }
 
 /* End of file music_model.php */
