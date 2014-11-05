@@ -417,7 +417,7 @@ margin: 7em 0em 0em 1em;
 		<div class="row">
 			<div class="col-xs-7">
 				<!--ศฺลปินที่มีคนติดตามมากที่สุด-->
-				<?php foreach($topusers as $topuser): ?>
+				<?php foreach($topfollowers as $topfollower): ?>
 				<div class="discover-item2">
 					<div class="ui image dimmable">
 						<div class="ui dimmer">
@@ -430,7 +430,7 @@ margin: 7em 0em 0em 1em;
 						<img src="<?= base_url('images/bodyslam2.jpg') ?>" alt="" class="discover-cover2">
 					</div>
 					<div class="discover-content">
-						<b><?= $topuser->name ?></b>
+						<b><?= $topfollower->name ?></b>
 						<p>ชื่อศิลปิน</p>
 					</div>
 				</div>

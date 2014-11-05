@@ -11,20 +11,20 @@ class Discover extends CI_Controller {
 	}
 
 	public function index() {
-		$topband = $this->follow_model->get_top_band_follower();
-		$topuser = $this->follow_model->get_top_user_follower();
+		// $topband = $this->follow_model->get_top_band_follower();
+		// $topuser = $this->follow_model->get_top_user_follower();
 		// $topmusicuser = $this->greedd_model->topGreeddUserMusic();
 		// $topmusicband = $this->greedd_model->topGreeddBandMusic();
 		$topmusics = $this->greedd_model->topGreeddMusic();
 		$newmusics = $this->band_music_model->getNewMusic();
+		$topfollowers = $this->follow_model->get_top_follower();
 
 		$data = array(
-		'topbands' => $topband,
-		'topusers' => $topuser,
+		'topfollowers' => $topfollowers,
 		'topmusics' => $topmusics ,
 		'newmusics' => $newmusics
 		 );
-		print_r($data);
+		//print_r($data);
 		$this->load->view('discover/discover',$data);
 	}
 
