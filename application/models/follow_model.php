@@ -129,7 +129,7 @@ class Follow_model extends CI_Model {
             Join Users on Users.id = Follow_Users.follow_user
 			GROUP by follow_user
 			ORDER by count desc
-			LIMIT 0,5
+			LIMIT 0,6
 		');
 		return $query->result();
 		

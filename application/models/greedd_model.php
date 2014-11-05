@@ -48,8 +48,27 @@ class Greedd_model extends CI_Model {
 			LIMIT 0,5
 		');
 		return $query->result();
+	}
 
-
+	function topGreeddMusic(){
+			$query = $this->db->query('
+			SELECT count(*) AS count ,Greedd_User_Music.music_id,User_Music.name as musicname ,Users.name
+			FROM `Greedd_User_Music`
+            Join User_Music on User_Music.id = Greedd_User_Music.music_id
+            JOIN User_Albums ON  User_Albums.id = User_Music.album_id
+			JOIN Users on Users.id = User_Albums.user_id
+			GROUP by music_id
+			UNION ALL
+			SELECT count(*),Greedd_Band_Music.music_id,Band_Music.name as musicname,Bands.name
+			FROM `Greedd_Band_Music`
+            Join Band_Music on Band_Music.id = Greedd_Band_Music.music_id
+            JOIN Band_Albums ON  Band_Albums.id = Band_Music.album_id
+			JOIN Bands on Bands.id = Band_Albums.band_id
+			GROUP by music_id
+			ORDER by count desc
+			LIMIT 0,5
+			');
+		return $query->result();
 	}
 }
 

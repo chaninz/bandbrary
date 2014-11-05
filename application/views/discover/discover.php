@@ -305,6 +305,7 @@ margin: 7em 0em 0em 1em;
 			<div class="col-xs-12">
 				<div class="album-group">
 					<!--เพลงใหม่-->
+					<?php foreach($newmusics as $newmusic): ?>
 					<div class="ui image dimmable" style="margin-left: 30px; margin-bottom: 20px; border-radius: 10px;">
 						<div class="ui dimmer">
 							<div class="content">
@@ -315,7 +316,8 @@ margin: 7em 0em 0em 1em;
 						</div>
 						<img src="<?= base_url('images/t11.jpg') ?>" alt="" class="discover-cover3">
 					</div>
-					<div class="ui image dimmable" style="margin-left: 30px; margin-bottom: 20px; border-radius: 10px;">
+					<?php endforeach; ?>
+					<!-- <div class="ui image dimmable" style="margin-left: 30px; margin-bottom: 20px; border-radius: 10px;">
 						<div class="ui dimmer">
 							<div class="content">
 								<div class="center">
@@ -404,7 +406,7 @@ margin: 7em 0em 0em 1em;
 							</div>
 						</div>
 						<img src="<?= base_url('images/t20.png') ?>" alt="" class="discover-cover3">
-					</div>
+					</div> -->
 					<!--จบ เพลงใหม่-->
 				</div>
 			</div>
@@ -415,6 +417,7 @@ margin: 7em 0em 0em 1em;
 		<div class="row">
 			<div class="col-xs-7">
 				<!--ศฺลปินที่มีคนติดตามมากที่สุด-->
+				<?php foreach($topusers as $topuser): ?>
 				<div class="discover-item2">
 					<div class="ui image dimmable">
 						<div class="ui dimmer">
@@ -427,11 +430,12 @@ margin: 7em 0em 0em 1em;
 						<img src="<?= base_url('images/bodyslam2.jpg') ?>" alt="" class="discover-cover2">
 					</div>
 					<div class="discover-content">
-						<b>ชื่อเพลง</b>
+						<b><?= $topuser->name ?></b>
 						<p>ชื่อศิลปิน</p>
 					</div>
 				</div>
-				<div class="discover-item2">
+				<?php endforeach; ?>
+				<!-- <div class="discover-item2">
 					<div class="ui image dimmable">
 						<div class="ui dimmer">
 							<div class="content">
@@ -510,7 +514,7 @@ margin: 7em 0em 0em 1em;
 						<b>ชื่อเพลง</b>
 						<p>ชื่อศิลปิน</p>
 					</div>
-				</div>
+				</div> -->
 				<!--จบ ศิลปินที่มีคนติดตามมากที่สุด-->
 			</div>
 
@@ -518,17 +522,19 @@ margin: 7em 0em 0em 1em;
 				<div class="ui segment" style="padding: 0px">
 					<div class="ui divided selection list">
 						<!--เพลงยอดนิยม-->
+						<?php foreach($topmusics as $topmusic): ?>
 						<div class="item" style="padding: 15px">
 							<img class="ui avatar image" src="<?= base_url('images/t1.jpg') ?>">
 							<div class="content" style="float: left; width: 250px; margin-top: 10px;">
-								<div class="header">ชื่อเพลง</div>
-								ชื่อศิลปิน
+								<div class="header"><?= $topmusic->musicname ?></div>
+								<?= $topmusic->name ?>
 							</div>
 							<div class="top-song" style="margin-left: 17px; margin-top: 5px;">
 								<h2 class="ui header" style="font-weight: 100; color: #939aa0">1</h2>
 							</div>
 						</div>
-						<div class="item" style="padding: 15px">
+						<?php endforeach; ?>
+						<!-- <div class="item" style="padding: 15px">
 							<img class="ui avatar image" src="<?= base_url('images/t2.jpg') ?>">
 							<div class="content" style="float: left; width: 250px; margin-top: 10px;">
 								<div class="header">ชื่อเพลง</div>
@@ -567,7 +573,7 @@ margin: 7em 0em 0em 1em;
 							<div class="top-song" style="margin-left: 17px; margin-top: 10px;">
 								<h2 class="ui header" style="font-weight: 100; color: #939aa0">5</h2>
 							</div>
-						</div>
+						</div> -->
 						<!--จบ เพลงยอดนิยม-->
 					</div>
 				</div>
