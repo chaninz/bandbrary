@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title>โพสต์ | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
 	#angle-bth {
@@ -28,38 +28,42 @@
 				<div class="row">
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-md-9">
-						<div class="center"><?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-							<div class="create-post mbtn createpost">
-								<div id="create-post-button" class="ui icon button">
-									<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
+						<div class="center">
+							<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
+								<div class="create-post mbtn createpost">
+									<a href="<?= base_url('band/post/add') ?>">
+										<div id="create-post-button" class="ui icon button">
+											<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
+										</div>
+										<div class="create-post-text">สร้างโพสต์</div>
+									</a>
 								</div>
-								<a href="<?= base_url('band/post/add?ref='.uri_string()) ?>"> <div class="create-post-text">สร้างโพสต์</div> </a>
-							</div>
-							<?php endif; ?><?php foreach($posts as $post): ?>
-							<div class="preview-post">
-								<div class="post-date">
-									<div class="post-day"><?= mdate("%d", strtotime($post->timestamp)) ?></div>
-									<div class="post-month"><?= mdate("%M", strtotime($post->timestamp)) ?></div>
-									<div class="post-white-line"></div>
-									<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
-								</div>
-								<div class="post-heading"> <a href="<?= base_url().'band/post/view/'.$post->id ?> "><?= $post->topic ?> </a></div>
-								<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
-									<i class="angle down icon" style="margin: 0px;"></i>
-									<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
-										<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-										<a href="<?= base_url('band/post/edit/'.$post->id) ?>"><div class="item">แก้ไขโพสต์</div> </a>
-										<a href="<?= base_url('band/post/delete/'.$post->id) ?>"><div class="item">ลบ</div></a>
-										<?php endif; ?>
-										<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+							<?php endif; ?>
+							<?php foreach($posts as $post): ?>
+								<div class="preview-post">
+									<div class="post-date">
+										<div class="post-day"><?= mdate("%d", strtotime($post->timestamp)) ?></div>
+										<div class="post-month"><?= mdate("%M", strtotime($post->timestamp)) ?></div>
+										<div class="post-white-line"></div>
+										<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
+									</div>
+									<div class="post-heading"> <a href="<?= base_url().'band/post/view/'.$post->id ?> "><?= $post->topic ?> </a></div>
+									<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
+										<i class="angle down icon" style="margin: 0px;"></i>
+										<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
+											<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
+											<a href="<?= base_url('band/post/edit/'.$post->id) ?>"><div class="item">แก้ไข</div> </a>
+											<a href="<?= base_url('band/post/delete/'.$post->id) ?>"><div class="item">ลบ</div></a>
+											<?php endif; ?>
+											<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
+										</div>
+									</div>
+									<div class="post-body"><?= $post->post ?></div>
+									<div class="icon-comment">
+										<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
+										<div class="amount-comment"><?= $post->total_comments ?></div>
 									</div>
 								</div>
-								<div class="post-body"><?= $post->post ?></div>
-								<div class="icon-comment">
-									<i class="comment icon" style=" color: #E72A30; font-size: 1em; float:left; margin-top: 3px;"></i>
-									<div class="amount-comment"><?= $post->total_comments ?></div>
-								</div>
-							</div>
 						<?php endforeach; ?>
 						</div>
 					</div>
@@ -67,37 +71,6 @@
 			</div>
 		</article>
 	</section>
-
-	<!--Create post modal-->
-	<div class="ui form transition segment createpost modal">
-		<form action="<?= base_url('band/post/add?ref='.uri_string()) ?>" method="post" enctype="multipart/form-data">
-			<h3>สร้างโพสต์</h3>
-			<br/><p/>
-			<div class="line"></div>
-			<p/>
-			<div class="field">
-				<label>ชื่อเรื่อง</label>
-				<input type="text" name="topic">
-			</div>
-			<div class="line"></div>
-			<p><p/>
-			<div class="field">
-				<label>คำอธิบาย</label>
-				<textarea name="post" class="ckeditor"></textarea>
-			</div>
-			<div class="field">
-				<label>รูปภาพประกอบ</label>
-				<input type="file" name="post-image" id="post-image"/>
-				<input type="hidden" name="post-image-name" id="post-image-name"/>
-			</div>
-			<div class="line"></div>
-			<p><p/>
-			<div class="actions">
-				<div class="ui black small button">ยกเลิก</div>
-				<input type="submit" class="ui red submit small button" value="โพสต์">
-			</div>
-		</form>
-	</div>
 
 	<!--Report post modal-->
 	<div class="ui transition scrolling reportpost modal">

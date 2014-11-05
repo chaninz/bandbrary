@@ -94,8 +94,8 @@ class Edit extends CI_Controller {
 					$this->image_lib->initialize($config);
 					$this->image_lib->resize();
 				}
-				
 			}
+			
 			if ($is_cover_upload == 1) {
 				// Delete cover photo
 				$new_data['cover_url'] = NULL;
