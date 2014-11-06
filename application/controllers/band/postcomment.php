@@ -6,6 +6,9 @@ class Postcomment extends CI_Controller {
 		parent::__construct();
 		$this->load->model('postcomment_model');
 		$this->load->model('post_model');
+		$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
+		$this->load->model('join_band_model','join_band');
 
 	}
 
@@ -21,6 +24,31 @@ class Postcomment extends CI_Controller {
 		 	'comment' => $this->input->post('comment')
 		 );
 		 	$this->postcomment_model->add($data);
+
+			//noti
+			$user_id = $this->session->userdata('id');
+			$band_id = $this->post_model->get_band($post_id);
+			$noti = array('user_id' => $user_id,
+						  'band_id' => $band_id->band_id,
+						  'type' => "requestcomment",
+						  'link' => "testcomment",
+						  'text' => "testcommenttext"
+			);
+			print_r($noti);
+			$insert_id = $this->notification->add($noti);
+
+			//select receiver
+			$member =  $this->join_band->get_member_band($band_id->band_id);
+
+			$receiver_list = array();
+			foreach ($member as $value) {
+					$r  = array('receive_id' => $insert_id,
+								'user_id'    => $value->user_id		
+					);
+					array_push($receiver_list, $r);
+			}
+			$this->receive_noti->add($receiver_list);
+
 			redirect(base_url('band/post/view/'.$post_id));
 		}
 		// } else {

@@ -30,6 +30,14 @@ class Post_model extends CI_Model {
 		$this->db->update('Band_Posts', $data);
 	}
 
+	function get_band($post_id){
+		$this->db->select('band_id');
+		$this->db->from('Band_Posts');
+		$this->db->where('id',$post_id);
+
+		$query = $this->db->get();
+		return $query->row();
+	}
 //----------------------
 
 	function editPost($data){

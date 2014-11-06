@@ -5,6 +5,7 @@ class Request extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('employment_model');
+		$this->load->model('notification_model');
 	}
 
 	public function index($job_id) {
@@ -13,6 +14,19 @@ class Request extends CI_Controller {
 
 		if ( ! empty($job_id) && ! empty($current_id) && $user_type == 2) {
 			$this->employment_model->request($job_id, $current_id);
+			
+			// //noti
+			// $noti = array('user_id' => $current_id,
+			// 			  'job_id' => $job_id,
+			// 			  'type' => "requestjob",
+			// 			  'link' => "test",
+			// 			  'text' => "test"
+			// );
+			// $insert_id = $this->notification_model->add($noti);
+
+			// //select receiver
+			// $master =  $this->join_band->get_band_master($band_id);
+			
 
 			redirect(base_url('job/view/'.$job_id));
 		} else {

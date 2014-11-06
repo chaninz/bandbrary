@@ -4,7 +4,9 @@ class Join extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('join_band_model');
+		$this->load->model('join_band_model','join_band');
+		$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
 	}
 
 	public function index($band_id) {
@@ -19,6 +21,27 @@ class Join extends CI_Controller {
 				'position' => $position,
 				'status' => 1);
 			$this->join_band_model->join($data);
+
+			//noti
+			$noti = array('user_id' => $user_id,
+						  'band_id' => $band_id,
+						  'type' => "requestjoin",
+						  'link' => "testjoin",
+						  'text' => "testjointext"
+			);
+			$insert_id = $this->notification->add($noti);
+
+			//select receiver
+			$master =  $this->join_band->get_band_master($band_id);
+
+			$receiver_list = array();
+			foreach ($master as $value) {
+					$r  = array('receive_id' => $insert_id,
+								'user_id'    => $value->user_id		
+					);
+					array_push($receiver_list, $r);
+			}
+			$this->receive_noti->add($receiver_list);
 
 			redirect('band/'.$band_id);
 		} else {

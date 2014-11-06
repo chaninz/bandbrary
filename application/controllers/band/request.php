@@ -6,13 +6,14 @@ class Request extends CI_Controller {
 		parent::__construct();
 		$this->load->model('band_model');
 		$this->load->model('join_band_model');
+		$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
 	}
 
 	public function index() {
 		$band_id = $this->session->userdata('band_id');
 		$band_requests = $this->join_band_model->get_join_request($band_id);
 		$data = array('band_requests' => $band_requests);
-		
 		$this->load->view('band/request', $data);
 	}
 
@@ -22,6 +23,21 @@ class Request extends CI_Controller {
 			$band_id = $this->session->userdata('band_id');
 			$this->join_band_model->accept($user_id, $band_id);
 
+			//noti
+			$noti = array('user_id' => $user_id,
+						  'band_id' => $band_id,
+						  'type' => "acceptrequest",
+						  'link' => "testrequest",
+						  'text' => "testrequesttext"
+			);
+			$insert_id = $this->notification->add($noti);
+
+			//select receiver
+			$receiver  = array('receive_id' => $insert_id,
+								'user_id'    => $user_id		
+					);
+				
+			$this->receive_noti->addOnce($receiver);
 			redirect($ref);
 		}
 	}

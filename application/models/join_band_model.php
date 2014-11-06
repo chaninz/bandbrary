@@ -166,6 +166,39 @@ class Join_band_model extends CI_Model {
 
 		return $result;
 	}
+
+	function get_band_master($band_id){
+		$this->db->select('user_id');
+		$this->db->from('Join_Band');
+		$this->db->where('band_id',$band_id);
+		$this->db->where('is_master',1);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
+
+	function get_joiner_band($band_id){
+		$this->db->select('user_id');
+		$this->db->from('Join_Band');
+		$this->db->where('band_id',$band_id);
+		$this->db->where('status',1);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
+
+	function get_member_band($band_id){
+		$id = $this->session->userdata('id');
+		$this->db->select('user_id');
+		$this->db->from('Join_Band');
+		$this->db->where('band_id',$band_id);
+		$this->db->where('status',2);
+		$this->db->where('user_id !=', (int)$id);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
+
 }
 
 /* End of file album_model.php */

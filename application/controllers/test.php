@@ -2,6 +2,12 @@
 
 class Test extends CI_Controller {
 
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('join_band_model','join_band');
+	}
+
+
 	public function index()
 	{
 		// $data = array('username' => 'b',
@@ -15,6 +21,15 @@ class Test extends CI_Controller {
 
 	public function email() {
 		$this->load->view('email.html');
+	}
+
+	public function band_master($band_id){
+		$data = $this->join_band->get_band_master($band_id);
+		$receiver_list = array();
+			foreach ($data as $value) {
+					echo $value->user_id;
+			}
+		print_r($data);
 	}
 
 }
