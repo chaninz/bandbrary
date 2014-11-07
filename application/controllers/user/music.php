@@ -10,7 +10,7 @@ class Music extends CI_Controller {
 		$this->load->model('follow_model');
 		$this->load->model('join_band_model');
 		// Page model
-		$this->load->model('music_model');
+		//$this->load->model('music_model');
 	}
 
 	public function index($username) {

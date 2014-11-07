@@ -89,6 +89,8 @@ class Post extends CI_Controller {
 						'width' => 600);
 					$this->image_lib->initialize($config);
 					$this->image_lib->resize();
+				} else {
+					$is_uploaded = 0;
 				}
 			}
 

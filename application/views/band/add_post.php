@@ -63,11 +63,6 @@
 		</article>
 	</section>
 
-	<!--Create post modal-->
-	<div class="ui form transition segment createpost modal">
-		
-	</div>
-
 	<script>
 		$("#post-image").change(function() {
 			var fileName = $("#post-image")[0].files[0];
@@ -79,7 +74,6 @@
 		})
 	</script>
 	<?php $this->load->view('footer'); ?>
-
 	
 </body>
 </html>

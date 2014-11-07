@@ -77,6 +77,26 @@ class Event_model extends CI_Model {
 		return $result;
 	}
 
+	function get_current_by_band($user_id) {
+		$query = $this->db->query('SELECT user_id, event, description, venue, province, date, time, duration, event_id 
+			FROM (SELECT user_id, event, description, venue, province_id, date, time, duration, id AS event_id 
+				FROM User_Events 
+				WHERE user_id = '.$user_id.' 
+				UNION 
+				SELECT Employment.user_id, name, description, venue, province_id, date, time, duration, 0 AS event_id 
+				FROM Jobs 
+				JOIN Employment ON Employment.job_id = Jobs.id 
+				WHERE Employment.user_id = '.$user_id.' 
+					AND Employment.status = 2 
+					AND Jobs.status = 0) AS Events 
+			JOIN Provinces ON Events.province_id = Provinces.id 
+			WHERE date >= CURDATE() 
+			ORDER BY date, time');
+		$result = $query->result();
+
+		return $result;
+	}
+
 }
 
 /* End of file event_model.php */

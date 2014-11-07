@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title>แก้ไขอัลบัม | Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
 
@@ -41,7 +41,7 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url().'album/band/edit/'.$album->id ?>" method="post">
+				<form action="<?= base_url('album/user/edit/'.$album->id) ?>" method="post" enctype="multipart/form-data">
 
 					<div class="field">
 						<label>ชื่ออัลบั้ม</label>
@@ -49,11 +49,22 @@
 					</div>
 					<div class="field">
 						<label>คำอธิบาย</label>
-						<textarea name="description" class="ckeditor"></textarea>
+						<textarea name="description"><?= $album->description ?></textarea>
 					</div>
 					<div class="field">
 						<label>ปกอัลบั้ม</label>
-						<input type="file" name="cover" value="<?= $album->name ?>">
+						<div class="ui selection dropdown" style="margin-left: 10px;">
+							<div class="default text"><b>เปลี่ยนรูปปกอัลบั้ม</b></div>
+							<i class="dropdown icon"></i>
+							<div class="menu">
+								<div class="file-upload item" data-value="2" style="font-size: 14px;">อัพโหลดรูป<input class="upload" type="file" name="cover" value=""></div>
+								<div class="item" data-value="1" style="font-size: 14px;">ลบ</div>
+							</div>
+							<input type="hidden" name="image-upload" id="image-upload" value="0"/>
+						</div>
+						<?php if($album->image_url != NULL): ?>
+							<img src="<?= base_url('uploads/album/user/'.$album->image_url) ?>"/>
+						<?php endif; ?>
 					</div>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
@@ -62,7 +73,7 @@
 			</div>
 		</div>
 
-		<script src="../../assets/js/bandbrary.js"></script>
-		<script></script>
+		<?php $this->load->view('footer'); ?>
+
 	</body>
 	</html>

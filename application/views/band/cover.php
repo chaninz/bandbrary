@@ -79,6 +79,7 @@
 								</div>
 							<?php endforeach; ?>
 							<?php if ($band_profile->status == 0): ?>
+
 							<?php elseif ( ! empty($user_status) && $user_status->status == 1): ?>
 								<div id="member-size" class="item">
 									<?php if ($this->session->userdata('photo_url')): ?>
