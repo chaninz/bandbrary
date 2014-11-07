@@ -21,21 +21,33 @@ class Receive_noti_model extends CI_Model {
 		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Receive_Noti');
-		$this->db->where('user_id',$id);
+		$this->db->join('Notification', 'Receive_Noti.receive_id = Notification.id');
+		$this->db->where('Receive_Noti.user_id',$id);
 
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	function getReceive_NotiMaster(){
-		$band_id = $this->session->userdata('band_id');
+	// function getReceive_NotiMaster(){
+	// 	$band_id = $this->session->userdata('band_id');
+	// 	$this->db->select('*');
+	// 	$this->db->from('Receive_Noti');
+	// 	$this->db->where('band_id',$band_id);
+	// 	$this->db->or_where('user_id',$user_id);
+
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
+
+	function get_total_noti_User(){
+		$id = $this->session->userdata('id');
 		$this->db->select('*');
 		$this->db->from('Receive_Noti');
-		$this->db->where('band_id',$band_id);
-		$this->db->or_where('user_id',$user_id);
+		$this->db->where('user_id',$id);
+		$this->db->where('seen_date is null',null,false);
 
 		$query = $this->db->get();
-		return $query->result();
+		return $query->num_rows();
 	}
 
 	function is_Master(){

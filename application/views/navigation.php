@@ -69,8 +69,9 @@
 					</div>
 				</div> -->
 				<div id="navbar-item4" class="ui secondary  menu">
-					<a class="item" style="padding: 0px;">
+					<a class="item" style="padding: 0px;" href="<?= base_url().'notification' ?>" >
 						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การแจ้งเตือน"></i> 
+						<span id="notification"></span>
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
@@ -97,3 +98,14 @@
 		</div>
 	</div>
 </header>
+<script type="text/javascript">
+
+if(window.EventSource){
+		var eventSource = new EventSource("<?php echo base_url('notification/total_noti');?>");
+ 		eventSource.addEventListener('total_noti', function(event) {
+
+		    	$("#notification").text(event.data);
+		   }, false);
+}
+
+</script>

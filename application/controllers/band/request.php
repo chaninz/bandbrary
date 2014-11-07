@@ -26,9 +26,9 @@ class Request extends CI_Controller {
 			//noti to accepted user
 			$noti = array('user_id' => $user_id,
 						  'band_id' => $band_id,
-						  'type' => "acceptrequestuser",
-						  'link' => "testrequestuser",
-						  'text' => "testrequesttextuser"
+						  'type' => "accept_request_user",
+						  'link' => "#",
+						  'text' => "ได้ตอบรับคุณเข้าร่วมวง"
 			);
 			$insert_id = $this->notification->add($noti);
 
@@ -43,9 +43,9 @@ class Request extends CI_Controller {
 			//to member band
 			$notimember = array('user_id' => $user_id,
 						  'band_id' => $band_id->band_id,
-						  'type' => "addmember",
-						  'link' => "addmember",
-						  'text' => "addmember"
+						  'type' => "accept_request_member",
+						  'link' => "#",
+						  'text' => "ได้เพิ่มสมาชิกเข้าในวง"
 			);
 			$insert_id = $this->notification->add($notimember);
 			$member =  $this->join_band_model->get_member_except_user($user_id,$band_id);

@@ -97,9 +97,9 @@ class Band extends CI_Controller {
 			$noti = array('user_id' => $user_id,
 						  'band_id' => $band_id->id,
 						  'music_band_id' => $music_id,
-						  'type' => "commentmusicband",
+						  'type' => "comment_music_band",
 						  'link' => "commentmusicband",
-						  'text' => "commentmusicbandtext"
+						  'text' => "ได้แสดงความคิดเห็นบนเพลง"
 			);
 			//print_r($noti);
 			$insert_id = $this->notification->add($noti);

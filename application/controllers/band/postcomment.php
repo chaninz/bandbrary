@@ -30,9 +30,9 @@ class Postcomment extends CI_Controller {
 			$band_id = $this->post_model->get_band($post_id);
 			$noti = array('user_id' => $user_id,
 						  'band_id' => $band_id->band_id,
-						  'type' => "requestcomment",
-						  'link' => "testcomment",
-						  'text' => "testcommenttext"
+						  'type' => "comment_post",
+						  'link' => "#",
+						  'text' => "ได้แสดงความคิดเห็นบนโพสต์ของ"
 			);
 			print_r($noti);
 			$insert_id = $this->notification->add($noti);

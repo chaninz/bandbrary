@@ -102,9 +102,9 @@ class User extends CI_Controller {
 		 	//noti to comment user music
 			$noti = array('user_id' => $this->session->userdata('id'),
 						  'music_user_id' => $music_id,
-						  'type' => "commentmusicuser",
-						  'link' => "commentmusicuser",
-						  'text' => "commentmusicusertext"
+						  'type' => "comment_music_user",
+						  'link' => "#",
+						  'text' => "ได้แสดงความคิดเห็นบนเพลง"
 			);
 			$insert_id = $this->notification->add($noti);
 
