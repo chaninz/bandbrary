@@ -187,6 +187,7 @@ class Join_band_model extends CI_Model {
 		return $result;
 	}
 
+	// member except session user
 	function get_member_band($band_id){
 		$id = $this->session->userdata('id');
 		$this->db->select('user_id');
@@ -199,6 +200,30 @@ class Join_band_model extends CI_Model {
 		return $result;
 	}
 
+	// member except one user
+	function get_member_except_user($user_id,$band_id){
+		$this->db->select('user_id');
+		$this->db->from('Join_Band');
+		$this->db->where('band_id',$band_id);
+		$this->db->where('status',2);
+		$this->db->where('user_id !=', (int)$user_id);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
+
+
+	// all member
+	function get_all_member_band($band_id){
+		$id = $this->session->userdata('id');
+		$this->db->select('user_id');
+		$this->db->from('Join_Band');
+		$this->db->where('band_id',$band_id);
+		$this->db->where('status',2);
+		$query = $this->db->get();
+		$result = $query->result();
+		return $result;
+	}
 }
 
 /* End of file album_model.php */

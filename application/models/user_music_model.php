@@ -23,6 +23,21 @@ class User_music_model extends CI_Model {
 		return $query->row();
 	}
 
+	function getMusician($music_id){
+		$id = $this->session->userdata('id');
+		$this->db->select('Users.id');
+		$this->db->from('User_Music');
+		$this->db->join('User_Albums', 'User_Albums.id = User_Music.album_id');
+		$this->db->join('Users', 'Users.id = User_Albums.user_id');
+		$this->db->where('User_Music.id',$music_id);
+		$this->db->where('User_Albums.user_id !=', (int)$id);
+
+
+		$query = $this->db->get();
+		return $query->row();
+
+	}
+
 }
 
 /* End of file music_model.php */

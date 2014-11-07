@@ -8,6 +8,9 @@ class Band extends CI_Controller {
 		$this->load->model('band_album_model');
 		$this->load->model('follow_model');
 		$this->load->model('band_musiccomment_model');
+		$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
+		$this->load->model('join_band_model','join_band');
 	}
 
 	public function index() {
@@ -74,8 +77,8 @@ class Band extends CI_Controller {
 		 'is_follow_band' => $is_follow_band,
 		 'comments' => $comments
 		 );
-		// print_r($data);
-		$this->load->view('band/viewMusic',$data);
+		 //print_r($data);
+		 $this->load->view('band/viewMusic',$data);
 	}
 
 	public function addComment($music_id) {
@@ -86,6 +89,33 @@ class Band extends CI_Controller {
 		 	'comment' => $this->input->post('comment')
 		 );
 		 	$this->band_musiccomment_model->add($data);
+
+		 	//noti
+			$user_id = $this->session->userdata('id');
+			$band_id = $this->band_music_model->get_band($music_id);
+			print_r($band_id);
+			$noti = array('user_id' => $user_id,
+						  'band_id' => $band_id->id,
+						  'music_band_id' => $music_id,
+						  'type' => "commentmusicband",
+						  'link' => "commentmusicband",
+						  'text' => "commentmusicbandtext"
+			);
+			//print_r($noti);
+			$insert_id = $this->notification->add($noti);
+
+			//select receiver
+			$member =  $this->join_band->get_member_band($band_id->id);
+
+			$receiver_list = array();
+			foreach ($member as $value) {
+					$r  = array('receive_id' => $insert_id,
+								'user_id'    => $value->user_id		
+					);
+					array_push($receiver_list, $r);
+			}
+			$this->receive_noti->add($receiver_list);
+
 			redirect(base_url('music/band/view/'.$music_id));
 		}
 		// } else {

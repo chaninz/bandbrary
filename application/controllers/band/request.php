@@ -23,12 +23,12 @@ class Request extends CI_Controller {
 			$band_id = $this->session->userdata('band_id');
 			$this->join_band_model->accept($user_id, $band_id);
 
-			//noti
+			//noti to accepted user
 			$noti = array('user_id' => $user_id,
 						  'band_id' => $band_id,
-						  'type' => "acceptrequest",
-						  'link' => "testrequest",
-						  'text' => "testrequesttext"
+						  'type' => "acceptrequestuser",
+						  'link' => "testrequestuser",
+						  'text' => "testrequesttextuser"
 			);
 			$insert_id = $this->notification->add($noti);
 
@@ -38,6 +38,26 @@ class Request extends CI_Controller {
 					);
 				
 			$this->receive_noti->addOnce($receiver);
+
+
+			//to member band
+			$notimember = array('user_id' => $user_id,
+						  'band_id' => $band_id->band_id,
+						  'type' => "addmember",
+						  'link' => "addmember",
+						  'text' => "addmember"
+			);
+			$insert_id = $this->notification->add($notimember);
+			$member =  $this->join_band_model->get_member_except_user($user_id,$band_id);
+			$receiver_list = array();
+			foreach ($member as $value) {
+					$r  = array('receive_id' => $insert_id,
+								'user_id'    => $value->user_id		
+					);
+					array_push($receiver_list, $r);
+			}
+			//print_r($receiver_list);
+			$this->receive_noti->add($receiver_list);
 			redirect($ref);
 		}
 	}

@@ -7,9 +7,11 @@ class User extends CI_Controller {
 		$this->load->model('user_music_model');
 		$this->load->model('user_model');
 		$this->load->model('user_musiccomment_model');
-
-				$this->load->model('follow_model');
+		$this->load->model('follow_model');
 		$this->load->model('user_album_model');
+		$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
+		$this->load->model('join_band_model','join_band');
 	}
 
 	public function index() {
@@ -96,6 +98,25 @@ class User extends CI_Controller {
 		 	'comment' => $this->input->post('comment')
 		 );
 		 	$this->user_musiccomment_model->add($data);
+
+		 	//noti to comment user music
+			$noti = array('user_id' => $this->session->userdata('id'),
+						  'music_user_id' => $music_id,
+						  'type' => "commentmusicuser",
+						  'link' => "commentmusicuser",
+						  'text' => "commentmusicusertext"
+			);
+			$insert_id = $this->notification->add($noti);
+
+			$musician =  $this->user_music_model->getMusician($music_id);
+			//print_r($musician);
+			//select receiver
+			$receiver  = array('receive_id' => $insert_id,
+								'user_id'    => $musician->id		
+					);
+				
+			$this->receive_noti->addOnce($receiver);
+		 	
 			redirect(base_url('music/user/view/'.$music_id));
 		}
 		// } else {
