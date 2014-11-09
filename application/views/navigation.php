@@ -75,11 +75,7 @@
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
-<<<<<<< HEAD
-						<div id="notification" class="floating ui black label"></div>
-=======
-					   <span id="pm"></span>
->>>>>>> 67aa6314a0bccfec98fc6ec763b68ddfd8362ce1
+						<div id="pm" class="floating ui black label"></div>
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
 						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การสร้าง"></i> 
