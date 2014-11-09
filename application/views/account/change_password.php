@@ -12,6 +12,9 @@
 body {
 	background: #FFFFFF;
 }
+footer {
+		margin-top: 0px;
+}
 .col-xs-2 {
 	min-height: 100%;
 	display: table;

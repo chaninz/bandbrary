@@ -32,10 +32,9 @@ footer {
 	position: relative;
 	bottom: 0;
 	background-color: #E72A30;
-	opacity: 0.9;
 }
 .footleft {
-	width: 576px;
+	width: 661px;
 	height: 46px;
 	background-color: #E72A30;
 	float: left;
@@ -43,7 +42,7 @@ footer {
 	bottom: 46px;
 }
 .footright {
-	width: 536px;
+	width: 614px;
 	height: 46px;
 	background-color: #E72A30;
 	float: right;
@@ -51,15 +50,40 @@ footer {
 	bottom: 46px;
 }
 
+@media all and (max-width: 1680px) {
+	footer {
+		width: 1680px;
+		height: 900px;
+	}
+	.footleft {
+		width: 781px;
+	}
+	.footright {
+		width: 734px;
+	}
+}
+
+@media all and (max-width: 1280px) {
+	footer {
+		width: 1280px;
+	}
+	.footleft {
+		width: 581px;
+	}
+	.footright {
+		width: 534px;
+	}
+}
+
 @media all and (max-width: 1024px) {
 	footer {
 		width: 1024px;
 	}
 	.footleft {
-		width: 448px;
+		width: 453px;
 	}
 	.footright {
-		width: 408px;
+		width: 406px;
 	}
 }
 @media all and (max-width: 980px) {
@@ -262,10 +286,12 @@ footer {
 .profile-name #pn1 {
 	font-weight: bolder;
 	font-size: 25px;
+	text-shadow: black 0.1em 0.1em 0.1em;
 }
 .profile-name #pn2 {
 	font-weight: 200;
 	font-size: 18px;
+	text-shadow: black 0.1em 0.1em 0.1em;
 }
 .menu-profile {
 	height: 40px;
@@ -809,7 +835,7 @@ footer {
 	height: 214px;
 }
 .job-control {
-	position: absolute;
+	position: relative;
 	z-index: 100;
 	margin-left: 40px;
 }
