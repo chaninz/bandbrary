@@ -7,6 +7,7 @@ public function __construct() {
 		$this->load->model('pm_model');
 		$this->load->model('user_model');
 		$this->load->model('pm_band_model');
+		$this->load->model('receive_noti_model','receive_noti');
 	}
 
 	public function index() {
@@ -82,6 +83,7 @@ public function __construct() {
 		// $user_profile = $this->user_model->get_by_username($username);
 		$target_user = $this->input->post('id');
 		$data =  $this->pm_model->view($target_user);
+		$this->receive_noti->seenPM($target_user);
 		echo json_encode($data);
 	}
 

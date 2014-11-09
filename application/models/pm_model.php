@@ -75,12 +75,32 @@ class Pm_model extends CI_Model {
 							and pm1.to_user_id='.$current_id .'
 							order by pm1.timestamp desc');*/
 
-		$query = $this->db->query('select pm1.*,count(*) as total_msg ,u.*
-from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
-join Users u on pm1.from_user_id  = u.id
-where pm1.to_user_id = '.$current_id .'
-group by pm1.from_user_id 
-order by pm1.seen_date,pm1.timestamp desc');
+			// First select lastest pm that seen date is null
+		$query = $this->db->query('
+			select *
+			from (select pm1.*,count(*) as total_msg ,u.name,u.surname,u.photo_url
+			from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
+			join Users u on pm1.from_user_id  = u.id
+			where pm1.to_user_id ='.$current_id.' and pm1.seen_date is null
+			group by pm1.from_user_id 
+
+			union
+
+			select pm1.*,0 as total_msg ,u.name,u.surname,u.photo_url
+			from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
+			join Users u on pm1.from_user_id  = u.id
+			where pm1.to_user_id = '.$current_id.' and pm1.seen_date is not null
+			      and pm1.from_user_id not in ( 
+			          select pm1.from_user_id
+			            from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
+			            join Users u on pm1.from_user_id  = u.id
+			            where pm1.to_user_id = '.$current_id.' and pm1.seen_date is null
+			            group by pm1.from_user_id 
+			          )
+			group by pm1.from_user_id 
+			      ) as view_msg
+
+			order by view_msg.seen_date,view_msg.timestamp desc');
 		return $query->result();
 	}
 	

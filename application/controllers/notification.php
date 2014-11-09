@@ -12,7 +12,7 @@ class Notification extends CI_Controller {
 			$data = array(
 					'noti' => $this->receive_noti->getReceive_NotiUser()
 				);
-		 $this->receive_noti->seen();
+		$this->receive_noti->seen();
 		$this->load->view('user/notification',$data);
 	}
 

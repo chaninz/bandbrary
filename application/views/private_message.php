@@ -37,13 +37,13 @@
 </head>
 <body id="feed">
   <?php $this->load->view('navigation'); ?>
-
   <div id="pm-container" class="container">
     <div class="row">
       <div class="col-xs-4" style="height: 180px; padding-top: 130px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
         <h3 class="ui header" style="margin-left: 20px;">
           <i class="inbox icon"></i>
-          กล่องข้อความ
+          กล่องข้อความ 
+
         </h3>
       </div>
       <div class="col-xs-8" style="height: 180px; border-bottom: 1px solid #D6D6D6; background-color: #F7F6F6; padding-top: 140px; padding-left: 30px;">
@@ -55,18 +55,25 @@
 
         <div class="ui tabular filter menu">
           <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป (<?= $count_pm_user ?>)</a>
-          <a class="item" data-tab="band">วงดนตรี (<?= $count_pm_band ?>)</a>
+          <a class="item" data-tab="band">วงดนตรี  <span class="notiband" > <?php if($count_pm_band != 0){
+              echo '('. $count_pm_band .')'; 
+            }?> 
+           </span></a>
         </div>
 
         <!-- แชทของคนทั่วไป -->
         <div id="pm-inbox" class="ui fluid divided inbox selection list active tab" data-tab="general">
           <?php foreach($pm_users as $pm_user): ?>
-          <a class="item" data-id="<?= $pm_user->id ?>" >
+          <a class="item" data-id="<?= $pm_user->from_user_id ?>" >
            <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/user/'.$pm_user->photo_url ?>"><?php else: ?>
            <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
            <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
-           <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?></b></div>           
-           <?= $pm_user->text ?>    
+           <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?> 
+            <span class="notiuser" > <?php if($pm_user->total_msg != 0){
+              echo '('. $pm_user->total_msg .')'; 
+            }?> </b></div>            
+           <?= $pm_user->text ?> 
+           </span>   
          </a>
        <?php endforeach; ?>
      </div>
@@ -77,7 +84,8 @@
       <a class="item" data-id="<?= $pm_band->band_id ?>" >
        <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_band->timestamp)) ?> <?= mdate("%M", strtotime($pm_band->timestamp)) ?> <?= mdate("%Y", strtotime($pm_band->timestamp)) ?></div>
        <div class="description" style="margin-top: 4px;"><b><?= $pm_band->name ?></b></div>           
-       <?= $pm_band->text ?>    
+       <?= $pm_band->text ?>
+
      </a>
    <?php endforeach; ?>
  </div>
@@ -112,7 +120,7 @@
   <div style="padding: 15px 15px 15px 15px; border-top: 1px solid #D6D6D6; background-color: #F7F6F6;">
     <div class="ui form">
       <div class="field" style="margin: 0px">
-        <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"></textarea>
+        <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"><?php print_r($pm_users) ?></textarea>
         <input type="hidden" name="message_type" value="user">
       </div>
     </div>
@@ -142,6 +150,7 @@
         var to_user_id = "";
         $("#pm-inbox .item").click(function(){
           to_user_id = $(this).attr("data-id");
+          ele = $(this);
            $("#message_type").val("user");
           $.ajax({
             type:'POST',
@@ -187,6 +196,7 @@
                     scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
                   }, 0);
                 });
+        ele.find(".notiuser").text("");
 }
 });
           $.ajax({
@@ -204,6 +214,7 @@
 
 $("#pmband-inbox .item").click(function(){
           to_user_id = $(this).attr("data-id");
+          ele = $(this);
           $("#message_type").val("band");
           $.ajax({
             type:'POST',
@@ -249,6 +260,9 @@ $("#pmband-inbox .item").click(function(){
                     scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
                   }, 0);
                 });
+              ele.find(".notiband").text("");
+
+                
 }
 });
           $.ajax({
