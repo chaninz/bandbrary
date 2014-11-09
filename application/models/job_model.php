@@ -76,6 +76,18 @@ class Job_model extends CI_Model {
 		return $result;
 	}
 
+	function get_by_band_employment($band_id, $status) {
+		$this->db->select('*');
+		$this->db->select('Jobs.id AS id');
+		$this->db->join('Band_Employment', 'Band_Employment.job_id = Jobs.id');
+		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
+		$query = $this->db->get_where('Jobs', array('Band_Employment.band_id' => $band_id,
+			'Band_Employment.status' => $status));
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function get_by_style($style_id) {
 		$this->db->select('*');
 		$this->db->select('Jobs.id AS id');
@@ -96,6 +108,18 @@ class Job_model extends CI_Model {
 
 	function get_reject($user_id) {
 		return $this->get_by_user_employment($user_id, 3);
+	}
+
+	function get_band_request($band_id) {
+		return $this->get_by_band_employment($band_id, 1);
+	}
+
+	function get_band_confirm($band_id) {
+		return $this->get_by_band_employment($band_id, 2);
+	}
+
+	function get_band_reject($band_id) {
+		return $this->get_by_band_employment($band_id, 3);
 	}
 
 	function get_all() {

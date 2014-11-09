@@ -2,43 +2,45 @@
 
 class Band_album_model extends CI_Model {
 
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
 	}
 
-	function create($data) {
+	function add($data) {
 		$this->db->insert('Band_Albums', $data);
 	}
-	function delete($data) {
-		$this->db->delete('Band_Albums', $data);
+
+	function edit($id, $data){
+		$this->db->where('id', $id);
+		$this->db->update('Band_Albums', $data);
+	}
+
+	function delete($id) {
+		$this->db->delete('Band_Albums', array('id' => $id));
 	}	
 
-	function edit($data,$album_id){
-		$this->db->where('id',$album_id);
-		$this->db->update('Band_Albums',$data);
-	}
-	
-	function getAll(){
-		$band_id = $this->session->userdata('band_id');
-		$this->db->select('*');
-		$this->db->from('Band_Albums');
-		$this->db->where('band_id',$band_id);
+	function get($id) {
+		$query = $this->db->get_where('Band_Albums', array('id' => $id));
+		$result = $query->row();
 
-		$query = $this->db->get();
-		return $query->result();
+		return $result;
 	}
 
-	function getAlbum($album_id){
-		$this->db->select('*');
-		$this->db->from('Band_Albums');
-		$this->db->where('id',$album_id);
+	function get_all() {
+		$query = $this->db->get('Band_Albums');
+		$result = $query->result();
 
-		$query = $this->db->get();
-		return $query->row();
+		return $result;
+	}
+
+	function get_by_user($band_id) {
+		$query = $this->db->get_where('Band_Albums', array('band_id' => $band_id));
+		$result = $query->result();
+
+		return $result;
 	}
 
 }
 
-/* End of file album_model.php */
-/* Location: ./application/models/album_model.php */
+/* End of file band_album_model.php */
+/* Location: ./application/models/band_album_model.php */

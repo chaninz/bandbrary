@@ -10,12 +10,28 @@
 		</a><?php if ($this->session->userdata('user_type') == 2): ?>
 		<a class="item" href="<?= base_url('job/interest') ?>">
 			<i class="heart icon"></i>
-			งานที่คุณสนใจ
+			งานที่ฉันสนใจ
 		</a><?php endif; ?>
 		<a class="item" href="<?= base_url('job/my') ?>">
 			<i class="tasks icon"></i>
 			ประกาศของฉัน
 		</a>
+		<?php if($this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1): ?>
+			<!-- Band jobs -->
+			<div class="item">
+				<b>วงดนตรี</b>
+				<p></p>
+			</div>
+			<a class="item" href="<?= base_url('job/band/near') ?>">
+				<i class="tasks icon"></i>
+				งานที่จัดใกล้เคียงวงของฉัน
+			</a>
+			<a class="item" href="<?= base_url('job/band/interest') ?>">
+				<i class="tasks icon"></i>
+				งานที่วงของฉันสนใจ
+			</a>
+			<!--END Band jobs -->
+		<?php endif; ?>
 		<div class="item">
 			<b>ค้นหางาน</b>
 			<p></p>

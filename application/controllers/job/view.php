@@ -7,19 +7,23 @@ class View extends CI_Controller {
 		parent::__construct();
 		$this->load->model('job_model');
 		$this->load->model('employment_model');
+		$this->load->model('band_employment_model');
 		$this->load->model('user_model');
 	}
 
 	public function index($job_id) {
 		$current_id = $this->session->userdata('id');
+		$band_id = $this->session->userdata('band_id');
 		$job = $this->job_model->get($job_id);
 		$job_requests = $this->employment_model->get_request($job_id);
 		$current_employment_status = $this->employment_model->get_status($job_id, $current_id);
+		$current_band_employment_status = $this->band_employment_model->get_status($job_id, $band_id);
 
 		if ( ! empty($job)) {
 			$display = array('job' => $job,
 				'job_requests' => $job_requests,
-				'current_employment_status' => $current_employment_status);
+				'current_employment_status' => $current_employment_status,
+				'current_band_employment_status' => $current_band_employment_status);
 
 			$this->load->view('job/view', $display);
 		} else {

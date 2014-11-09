@@ -3,8 +3,15 @@
 class Employment_model extends CI_Model {
 
 	function get_request($job_id){
-		$this->db->join('Users', 'Users.id = Employment.user_id');
-		$query = $this->db->get_where('Employment', array('Employment.job_id' => $job_id));
+		$query = $this->db->query('SELECT job_id, user_id, Employment.status, Users.id, name, surname, photo_url, 1 AS type 
+			FROM Employment 
+			JOIN Users ON Users.id = Employment.user_id 
+			WHERE Employment.job_id = '.$job_id.' 
+			UNION 
+			SELECT job_id, band_id, Band_Employment.status, Bands.id, Bands.name, \'\', photo_url, 2 AS type 
+			FROM Band_Employment 
+			JOIN Bands ON Bands.id = Band_Employment.band_id 
+			WHERE Band_Employment.job_id = '.$job_id);
 		$result = $query->result();
 
 		return $result;
@@ -52,20 +59,7 @@ class Employment_model extends CI_Model {
 
 		return $result;
 	}
-// -------------------------------------
-	function join($data) {
-		$user_status = $this->get_user_status($data['user_id'], $data['band_id']);
-		if ($user_status == 0) {
-			// if never join
-			$this->db->insert('Employment', $data);
-		} elseif ($user_status == 3 || $user_status == 4) {
-			// if leaved
-			$this->set_status($data['user_id'], $data['band_id'], 1);
-		} else {
-			// if joining other band
-			return -1;
-		}
-	}
+
 }
 
 /* End of file employment_model.php */

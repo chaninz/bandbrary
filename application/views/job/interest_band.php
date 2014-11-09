@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>งานที่ฉันสนใจ | Bandbrary</title>
+	<title>งานที่วงของฉันสนใจ | Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
 
@@ -54,7 +54,7 @@
 
 	<div class="job-top">
 		<div class="job-hea1">
-			งานที่ฉันสนใจ
+			งานที่วงของฉันสนใจ
 		</div>
 	</div>
 	

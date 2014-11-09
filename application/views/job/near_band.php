@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>งานที่ฉันสนใจ | Bandbrary</title>
+	<title>งานที่จัดใกล้เคียงวงของฉัน | Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
 
@@ -54,54 +54,20 @@
 
 	<div class="job-top">
 		<div class="job-hea1">
-			งานที่ฉันสนใจ
+			งานที่จัดใกล้เคียงวงของฉัน
 		</div>
 	</div>
 	
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-10">
-				<div class="job-hea2">รอการตอบรับ <span class="job-total"><?= count($request_jobs) ?></span> งาน</div>
+				<div class="job-hea2">ค้นพบ <span class="job-total"><?= count($jobs) ?></span> งาน</div>
 			</div>
 			<div class="col-xs-2"></div>
 		</div>
 		<div class="row">
 			<div class="col-xs-10">
-				<div class="ui four items"><?php foreach ($request_jobs as $job): ?>
-					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
-						<div class="content">
-							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
-							<p class="description"><?= $job->description ?></p>
-							<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
-							<div>สถานที่ <?= $job->venue ?></div>
-							<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
-							<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
-						</div>
-						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location"><?= $job->province ?></span>
-						<div class="job-red-line"></div>
-					</div><?php endforeach ?>
-				</div>
-
-				<div class="job-hea2">ยืนยันแล้ว <span class="job-total"><?= count($confirm_jobs) ?></span> งาน</div>
-				<div class="ui four items"><?php foreach ($confirm_jobs as $job): ?>
-					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
-						<div class="content">
-							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
-							<p class="description"><?= $job->description ?></p>
-							<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
-							<div>สถานที่ <?= $job->venue ?></div>
-							<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
-							<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
-						</div>
-						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location"><?= $job->province ?></span>
-						<div class="job-red-line"></div>
-					</div><?php endforeach ?>
-				</div>
-
-				<div class="job-hea2">ถูกปฏิเสธ <span class="job-total"><?= count($reject_jobs) ?></span> งาน</div>
-				<div class="ui four items"><?php foreach ($reject_jobs as $job): ?>
+				<div class="ui four items"><?php foreach ($jobs as $job): ?>
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>

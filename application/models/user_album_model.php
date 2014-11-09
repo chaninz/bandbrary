@@ -19,23 +19,28 @@ class User_album_model extends CI_Model {
 		$this->db->delete('User_Albums', array('id' => $id));
 	}	
 
-	function get($album_id) {
-		$query = $this->db->get_where('User_Albums', array('id' => $album_id));
+	function get($id) {
+		$query = $this->db->get_where('User_Albums', array('id' => $id));
 		$result = $query->row();
 
 		return $result;
 	}
 
-	function getAll(){
-		$current_id = $this->session->userdata('id');
-		$this->db->select('*');
-		$this->db->from('User_Albums');
-		$this->db->where('user_id',$current_id);
+	function get_all() {
+		$query = $this->db->get('User_Albums');
+		$result = $query->result();
 
-		$query = $this->db->get();
-		return $query->result();
+		return $result;
 	}
+
+	function get_by_user($user_id) {
+		$query = $this->db->get_where('User_Albums', array('user_id' => $user_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
 }
 
-/* End of file album_model.php */
-/* Location: ./application/models/album_model.php */
+/* End of file user_album_model.php */
+/* Location: ./application/models/user_album_model.php */

@@ -7,13 +7,13 @@ class Index extends CI_Controller {
 		$this->load->model('job_model');
 		$this->load->model('user_model');
 	}
-
-	public function index() {
-		$jobs = $this->job_model->get_current_all();
-		$data = array('jobs' => $jobs);
-		$this->load->view('job/all', $data);
-	}
 	
+	public function all() {
+		$jobs = $this->job_model->get_current_all();
+
+		$display = array('jobs' => $jobs);
+		$this->load->view('job/all', $display);
+	}
 }
 
 /* End of file event.php */

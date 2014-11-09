@@ -6,16 +6,22 @@ class Accept extends CI_Controller {
 		parent::__construct();
 		$this->load->model('job_model');
 		$this->load->model('employment_model');
+		$this->load->model('band_employment_model');
 	}
 
 	public function index($job_id) {
 		$current_id = $this->session->userdata('id');
 		$user_id = $this->input->get('user');
+		$band_id = $this->input->get('band');
 		$job = $this->job_model->get($job_id);
 
-		if ( ! empty($job_id) && ! empty($current_id) && ! empty($user_id) && ! empty($job)) {
-			if ($job->user_id == $current_id) {
+		if ( ! empty($job_id) && ! empty($current_id) && ! empty($job) && $job->user_id == $current_id) {
+			if ( ! empty($user_id)) {
 				$this->employment_model->accept($job_id, $user_id);
+				
+				redirect(base_url('job/view/'.$job_id));
+			} elseif ( ! empty($band_id)) {
+				$this->band_employment_model->accept($job_id, $band_id);
 				
 				redirect(base_url('job/view/'.$job_id));
 			} else {

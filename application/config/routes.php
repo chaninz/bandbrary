@@ -89,7 +89,7 @@ $route['band/join/(:num)'] = 'band/join/index/$1';
 $route['band/join/cancel/(:num)'] = 'band/join/cancel/$1';
 
 /* == Job == */
-//$route['job'] = 'job/index/index';
+$route['job'] = 'job/index/all';
 $route['job/request/(:num)'] = 'job/request/index/$1';
 $route['job/cancel/(:num)'] = 'job/cancel/index/$1';
 $route['job/accept/(:num)'] = 'job/accept/index/$1';

@@ -260,3 +260,6 @@ class Post extends CI_Controller {
 	}
 
 }
+
+/* End of file post.php */
+/* Location: ./application/controllers/band/post.php */
