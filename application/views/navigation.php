@@ -8,7 +8,7 @@
 					</a>
 				</div>
 				<div id="navbar-item1" class="ui inverted menu">
-					<a class="item" style="color: #FFFFFF; font-size: 0.9rem; padding: 0.95em 0.95em; width: 63px; text-align: center;">
+					<a class="item" style="color: #FFFFFF; font-size: 0.9rem; padding: 0.95em 0.95em; width: 63px; text-align: center;" href="<?= base_url().'discover' ?>">
 						แนะนำ
 					</a>
 					<a class="item" style="color: #FFFFFF; font-size: 0.9rem; padding: 0.95em 0.95em; width: 63px; text-align: center;" href="<?= base_url().'job' ?>">
@@ -71,10 +71,11 @@
 				<div id="navbar-item4" class="ui secondary  menu">
 					<a class="item" style="padding: 0px;" href="<?= base_url().'notification' ?>" >
 						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การแจ้งเตือน"></i> 
-						<span id="notification"></span>
+						<div id="notification" class="floating ui black label"></div>
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
+						<div id="notification" class="floating ui black label"></div>
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
 						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การสร้าง"></i> 
@@ -84,7 +85,10 @@
 					<i id="navbar-reorder" class="reorder icon"></i>
 					<div class="menu" style="margin-left: -37px;">
 						<?php if ($this->session->userdata('band_id') != NULL): ?>
-							<div class="item"><a href="<?= base_url('band/'.$this->session->userdata('band_id')) ?>">ไปที่วงดนตรี</a></div>
+							<div class="item">
+								<a href="<?= base_url('band/'.$this->session->userdata('band_id')) ?>">
+								<img class="ui tiny image" src="">ไปที่วงดนตรี</a>
+							</div>
 						<?php endif; ?>
 						<div class="line"></div>
 						<div class="item"><a href="<?= base_url().'account/edit' ?>">การตั้งค่า</div>
