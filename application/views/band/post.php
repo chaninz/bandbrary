@@ -30,14 +30,13 @@
 					<div class="col-md-9">
 						<div class="center">
 							<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
-								<div class="create-post mbtn createpost">
-									<a href="<?= base_url('band/post/add') ?>">
+								<a href="<?= base_url('band/post/add') ?>" class="create-post mbtn createpost">
+									
 										<div id="create-post-button" class="ui icon button">
 											<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
 										</div>
 										<div class="create-post-text">สร้างโพสต์</div>
-									</a>
-								</div>
+								</a>
 							<?php endif; ?>
 							<?php foreach($posts as $post): ?>
 								<div class="preview-post">
@@ -74,7 +73,6 @@
 
 	<!--Report post modal-->
 	<div class="ui transition scrolling reportpost modal">
-		<form action="<?= base_url().'report/post' ?>" method="post">
 			<div class="header">
 				ช่วยให้เราเข้าใจปัญหานี้
 			</div>
@@ -83,6 +81,7 @@
 				</div>
 				<div class="right">
 					<div class="ui header">ทำไมคุณจึงไม่ต้องการเห็นโพสต์นี้ ?</div>
+					<form action="<?= base_url().'report/post' ?>" method="post">
 					<div class="ui form">
 						<input type="hidden" name="postid" value="" class="postid">
 						<div class="grouped inline fields">

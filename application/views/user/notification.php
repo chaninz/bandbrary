@@ -4,31 +4,33 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title>การแจ้งเตือน | Bandbrary</title>
+
+
   <?php $this->load->view('header'); ?>
 
-
     <style> 
-    body {
-        background: url('<?= base_url().'images/noise-black.png' ?>');
-    }
+    
     #notice-item {
         padding: 10px;
     }
     </style>
 
     <body>
+
+      <?php $this->load->view('navigation'); ?>
+
         <div class="container">
             <div class="row">
 
                 <div class="col-xs-12">
 
-                    <h2 class="ui block header" style="margin: 120px 0px 0px 0px; background-color: #FFFFFF;">
+                    <h2 class="ui block header" style="margin: 120px 0px 0px 0px; background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
                       <i class="bell icon"></i>
                       การแจ้งเตือน
                   </h2>
 
-                  <div class="ui red pointing menu" style="border-radius: 0em; margin-top: 0px;">
+                  <div class="ui red pointing menu" style="border-radius: 0em; margin-top: 0px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
                       <a class="active item">
                        แจ้งเตือนทั้งหมด
                    </a>
@@ -39,7 +41,7 @@
                     แจ้งเตือนของวง
                 </a> -->
             </div>            
-            <div class="ui divided selection list" style="background-color: #FFFFFF;">
+            <div class="ui divided selection list" style="background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
              <?php foreach ($noti as $value): ?>
               <div id="notice-item" class="item">
                 <?php if($value->type == "comment_music_user" || $value->type == "comment_music_band" || $value->type == "comment_post"): ?>

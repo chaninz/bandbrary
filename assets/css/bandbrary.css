@@ -251,6 +251,16 @@ footer {
 	max-height: 73px;
 	vertical-align: middle;
 }
+#notification {
+	padding: 0.2em 0.3em; 
+	margin: 0.5em 0em 0em -1.5em !important;
+	background-color: #3C3B3B !important;
+}
+#pm {
+	padding: 0.2em 0.3em; 
+	margin: 0.5em 0em 0em -1.5em !important;
+	background-color: #3C3B3B !important;
+}
 
 /*--- Login ---*/
 #login-hea-text {
