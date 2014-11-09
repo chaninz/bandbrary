@@ -2,21 +2,28 @@
 
 class User_album_model extends CI_Model {
 
-	public function __construct()
-	{
+	public function __construct() {
 		parent::__construct();
 	}
 
-	function create($data) {
+	function add($data) {
 		$this->db->insert('User_Albums', $data);
 	}
-	function delete($data) {
-		$this->db->delete('User_Albums', $data);
+
+	function edit($id, $data){
+		$this->db->where('id', $id);
+		$this->db->update('User_Albums', $data);
+	}
+
+	function delete($id) {
+		$this->db->delete('User_Albums', array('id' => $id));
 	}	
 
-	function edit($data,$album_id){
-		$this->db->where('id',$album_id);
-		$this->db->update('User_Albums',$data);
+	function get($album_id) {
+		$query = $this->db->get_where('User_Albums', array('id' => $album_id));
+		$result = $query->row();
+
+		return $result;
 	}
 
 	function getAll(){
@@ -28,16 +35,6 @@ class User_album_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-
-	function getAlbum($album_id){
-		$this->db->select('*');
-		$this->db->from('User_Albums');
-		$this->db->where('id',$album_id);
-
-		$query = $this->db->get();
-		return $query->row();
-	}
-
 }
 
 /* End of file album_model.php */

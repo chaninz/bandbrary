@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title>เพิ่มอัลบัม | Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
 
@@ -29,7 +29,7 @@
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<h2 class="ui header">
-					แก้ไขอัลบั้มเพลง
+					เพิ่มอัลบั้มเพลง
 				</h2>
 				<p/>
 				<div class="line"></div>
@@ -41,19 +41,20 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url().'album/user/edit/'.$album->id ?>" method="post">
+				<form action="<?= base_url('album/user/add') ?>" method="post" enctype="multipart/form-data">
 
 					<div class="field">
 						<label>ชื่ออัลบั้ม</label>
-						<input type="text" placeholder="" name="name" value="<?= $album->name ?>">
+						<input type="text" placeholder="" name="name" value="<?= ! empty($name) ? $name : '' ?>">
 					</div>
 					<div class="field">
 						<label>คำอธิบาย</label>
-						<textarea name="description" class="ckeditor"></textarea>
+						<textarea name="description"><?= ! empty($description) ? $description : '' ?></textarea>
 					</div>
 					<div class="field">
-						<label>ปกอัลบั้ม</label>
-						<input type="file" name="cover" value="<?= $album->name ?>">
+						<label>รูปภาพปก</label>
+						<input type="file" name="cover" id="cover"/>
+						<input type="hidden" name="cover-name" id="cover-name"/>
 					</div>
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
@@ -61,8 +62,7 @@
 				</form>
 			</div>
 		</div>
-
-		<script src="../../assets/js/bandbrary.js"></script>
-		<script></script>
+		<?php $this->load->view('footer'); ?>
+		
 	</body>
 	</html>
