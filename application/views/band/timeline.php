@@ -8,9 +8,6 @@
 	<?php $this->load->view('header'); ?>
 
 	<style>
-	a.list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-		color: #E72A30;
-	}
 	.center {
 		background-color: #F7F6F6; 
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
@@ -44,6 +41,11 @@
 			</div>
 		</article>
 	</section>
+
+<footer>
+	<div class="footleft"></div>
+	<div class="footright"></div>
+</footer>
 
 	<?php $this->load->view('footer'); ?>
 </body>

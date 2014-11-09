@@ -46,6 +46,11 @@
 			</div>
 		</article>
 	</section>
+	
+<footer>
+	<div class="footleft"></div>
+	<div class="footright"></div>
+</footer>
 
 	<?php $this->load->view('footer'); ?>
 </body>

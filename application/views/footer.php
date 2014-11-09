@@ -1,8 +1,3 @@
-<!-- <footer>
-	<div class="footleft"></div>
-	<div class="footright"></div>
-</footer> -->
-
 <!--Create modal-->
 <div class="ui basic transition selection list createall modal">
 	<div class="header">

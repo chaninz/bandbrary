@@ -13,6 +13,9 @@
 	body {
 		background: #FFFFFF;
 	}
+	footer {
+		margin-top: 0px;
+	}
 	.col-xs-2 {
 		background-color: #FFFFFF;
 	}
