@@ -15,38 +15,6 @@
   <script src="feed.js"></script>
 
   <style>
-  body {
-    background: url('<?= base_url().'images/noise-black.png' ?>');
-  }
-  #pm-container {
-    border-left: 2px solid #000000; 
-    border-right: 2px solid #000000;  
-    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
-    box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05); 
-  }
-  #pm-inbox ,#pmband-inbox {
-    height: 544px;
-    overflow-y: scroll; 
-    scrollbar-arrow-color:blue; 
-    scrollbar-face-color: #e7e7e7; 
-    scrollbar-3dlight-color: #a0a0a0; 
-    scrollbar-darkshadow-color:#888888
-  }
-  #pm-msg {
-    height: 430px;
-    overflow-y: scroll; 
-    border-left: 15px solid #F7F6F6;
-    border-right: 15px solid #F7F6F6;
-    scrollbar-arrow-color:blue; 
-    scrollbar-face-color: #e7e7e7; 
-    scrollbar-3dlight-color: #a0a0a0; 
-    scrollbar-darkshadow-color:#888888
-  }
-  .pm-profile-pic {
-    height: 3em;
-    width: 3em;
-    margin-right: 10px!important;
-  }
   .ui.segment {
     -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0); 
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0); 
