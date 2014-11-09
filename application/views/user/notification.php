@@ -10,7 +10,7 @@
 
     <style> 
     body {
-        background: url('../../images/noise-black.png');
+        background: url('<?= base_url().'images/noise-black.png' ?>');
     }
     #notice-item {
         padding: 10px;
