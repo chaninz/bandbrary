@@ -75,7 +75,11 @@
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
+<<<<<<< HEAD
 						<div id="notification" class="floating ui black label"></div>
+=======
+					   <span id="pm"></span>
+>>>>>>> 67aa6314a0bccfec98fc6ec763b68ddfd8362ce1
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
 						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การสร้าง"></i> 
@@ -107,8 +111,22 @@
 if(window.EventSource){
 		var eventSource = new EventSource("<?php echo base_url('notification/total_noti');?>");
  		eventSource.addEventListener('total_noti', function(event) {
-
+ 				if(event.data == 0){
+ 					$("#notification").text("");
+ 				}
+ 				else{
 		    	$("#notification").text(event.data);
+ 				}
+		   }, false);
+
+ 		var eventSource2 = new EventSource("<?php echo base_url('notification/total_noti_pm');?>");
+ 		eventSource2.addEventListener('total_pm', function(event) {
+ 				if(event.data == 0){
+ 					$("#pm").text("");
+ 				}
+ 				else{
+		    	$("#pm").text(event.data);
+ 				}
 		   }, false);
 }
 

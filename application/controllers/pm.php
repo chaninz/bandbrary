@@ -13,7 +13,9 @@ public function __construct() {
 		//$user_profile = $this->user_model->get_by_id($id);
 		$data = array(//'user_profile' => $user_profile,
 			'pm_users' => $this->pm_model->get_all(),
-			'pm_bands'=> $this->pm_band_model->getPmBand()
+			'count_pm_user' => $this->pm_model->count_noti_pm_user(),
+			'pm_bands'=> $this->pm_band_model->getPmBand(),
+			'count_pm_band' => $this->pm_model->count_noti_pm_band()
 		);
 		//print_r($data);
 		$this->load->view('private_message',$data);

@@ -63,7 +63,15 @@ class Receive_noti_model extends CI_Model {
 		return $query->row();
 	}
 
+	 function seen(){		
+	 	$user_id = $this->session->userdata('id');
+		$data = array(
+               'seen_date' => now()
+            );
 
+		$this->db->where('user_id', $user_id);
+		$this->db->update('Receive_Noti', $data); 
+	}
 }
 
 /* End of file album_model.php */

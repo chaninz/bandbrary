@@ -65,7 +65,7 @@ class Pm_model extends CI_Model {
 
 		$current_id = $this->session->userdata('id');
 		
-		$query = $this->db->query('select DISTINCT pm1.from_user_id,pm1.text,pm1.timestamp,u.* 
+		/*$query = $this->db->query('select DISTINCT pm1.from_user_id,pm1.text,pm1.timestamp,u.* 
 							from PM_Users pm1
                             join Users u on pm1.from_user_id  = u.id
 							where pm1.timestamp =
@@ -73,7 +73,14 @@ class Pm_model extends CI_Model {
 							from PM_Users pm2
 							where pm1.from_user_id = pm2.from_user_id)
 							and pm1.to_user_id='.$current_id .'
-							order by pm1.timestamp desc');
+							order by pm1.timestamp desc');*/
+
+		$query = $this->db->query('select pm1.*,count(*) as total_msg ,u.*
+from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
+join Users u on pm1.from_user_id  = u.id
+where pm1.to_user_id = '.$current_id .'
+group by pm1.from_user_id 
+order by pm1.seen_date,pm1.timestamp desc');
 		return $query->result();
 	}
 	
@@ -85,6 +92,42 @@ class Pm_model extends CI_Model {
 		$this->db->where('PM_Users.id',$id);	
 		$query = $this->db->get();
 		return $query->result();
+	}
+
+	function get_total_noti_pm(){
+		$id = $this->session->userdata('id');
+		$band_id = $this->session->userdata('band_id');
+		$query = $this->db->query('
+				SELECT id as bid FROM PM_Bands b where b.seen_date is null
+				and b.band_id = '.$band_id.' union 
+				SELECT id as uid FROM PM_Users u where u.seen_date is null and u.to_user_id = '.$id);
+		return $query->num_rows();
+	}
+
+	function count_noti_pm_user(){
+		$id = $this->session->userdata('id');
+		$query = $this->db->query('
+			SELECT id as uid 
+			FROM PM_Users u 
+			where u.seen_date is null and u.to_user_id = '.$id);
+		return $query->num_rows();
+	}
+
+	function count_noti_pm_band(){
+		$band_id = $this->session->userdata('band_id');
+		$query = $this->db->query('
+			SELECT id as bid 
+			FROM PM_Bands b 
+			where b.seen_date is null and b.band_id = '.$band_id);
+		return $query->num_rows();
+	}
+
+	function count_pm_each_user(){
+		$band_id = $this->session->userdata('band_id');
+		$query = $this->db->query('
+			SELECT id as bid 
+			FROM PM_Bands b 
+			where b.seen_date is null and b.band_id = '.$band_id);
 	}
 }
 

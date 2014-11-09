@@ -54,8 +54,8 @@
       <div class="col-xs-4" style="padding-top: 20px; padding-left: 0px; padding-right: 0px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
 
         <div class="ui tabular filter menu">
-          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป</a>
-          <a class="item" data-tab="band">วงดนตรี</a>
+          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป (<?= $count_pm_user ?>)</a>
+          <a class="item" data-tab="band">วงดนตรี (<?= $count_pm_band ?>)</a>
         </div>
 
         <!-- แชทของคนทั่วไป -->
