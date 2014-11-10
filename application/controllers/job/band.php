@@ -7,7 +7,9 @@ class Band extends CI_Controller {
 		$this->load->model('band_model');
 		$this->load->model('job_model');
 		$this->load->model('employment_model');
-		$this->load->model('band_employment_model');
+		$this->load->model('band_employment_model');	
+		$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
 	}
 
 	public function near() {
@@ -46,12 +48,28 @@ class Band extends CI_Controller {
 	}
 
 	public function request($job_id) {
+		$current_id = $this->session->userdata('id');
 		$band_id = $this->session->userdata('band_id');
 		$is_master = $this->session->userdata('is_master');
 		$job = $this->job_model->get($job_id);
 
 		if ( ! empty($band_id) && ! empty($is_master) && ! empty($job) && $job->status == 1) {
 			$this->band_employment_model->request($job_id, $band_id);
+
+			$noti = array('user_id' => $current_id,
+						  'band_id' => $band_id,
+						  'job_id' => $job_id,
+						  'type' => "request_job_band",
+						  'link' => "#",
+						  'text' => "ได้ส่งคำร้องขอเข้าร่วมงาน"
+			);
+			$insert_id = $this->notification->add($noti);
+			//select receiver
+			$master =  $this->job_model->get($job_id);
+			$receiver  = array('receive_id' => $insert_id,
+								'user_id'    => $master->user_id		
+					);
+			$this->receive_noti->addOnce($receiver);
 
 			redirect(base_url('job/view/'.$job_id));
 		} else {

@@ -22,7 +22,13 @@ class Receive_noti_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('Receive_Noti');
 		$this->db->join('Notification', 'Receive_Noti.receive_id = Notification.id');
+		$this->db->join('Users', 'Notification.user_id = Users.id');
+		$this->db->join('Bands', 'Notification.band_id = Bands.id');
+		$this->db->join('Band_Music', 'Receive_Noti.receive_id = Notification.id');
+		$this->db->join('Jobs', 'Receive_Noti.receive_id = Notification.id');
+
 		$this->db->where('Receive_Noti.user_id',$id);
+		$this->db->order_by('Notification.noti_date','desc');
 
 		$query = $this->db->get();
 		return $query->result();

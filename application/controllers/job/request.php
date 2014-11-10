@@ -5,7 +5,10 @@ class Request extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('employment_model');
+		$this->load->model('job_model');
 		$this->load->model('notification_model');
+	 	$this->load->model('notification_model','notification');
+		$this->load->model('receive_noti_model','receive_noti');
 	}
 
 	public function index($job_id) {
@@ -15,19 +18,20 @@ class Request extends CI_Controller {
 		if ( ! empty($job_id) && ! empty($current_id) && $user_type == 2) {
 			$this->employment_model->request($job_id, $current_id);
 			
-			// //noti
-			// $noti = array('user_id' => $current_id,
-			// 			  'job_id' => $job_id,
-			// 			  'type' => "requestjob",
-			// 			  'link' => "test",
-			// 			  'text' => "test"
-			// );
-			// $insert_id = $this->notification_model->add($noti);
-
-			// //select receiver
-			// $master =  $this->join_band->get_band_master($band_id);
-			
-
+			//noti
+			$noti = array('user_id' => $current_id,
+						  'job_id' => $job_id,
+						  'type' => "request_job",
+						  'link' => "#",
+						  'text' => "ได้ส่งคำร้องขอเข้าร่วมงาน"
+			);
+			$insert_id = $this->notification->add($noti);
+			//select receiver
+			$master =  $this->job_model->get($job_id);
+			$receiver  = array('receive_id' => $insert_id,
+								'user_id'    => $master->user_id		
+					);
+			$this->receive_noti->addOnce($receiver);
 			redirect(base_url('job/view/'.$job_id));
 		} else {
 			show_404();

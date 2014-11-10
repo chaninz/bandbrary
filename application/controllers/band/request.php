@@ -48,7 +48,7 @@ class Request extends CI_Controller {
 						  'text' => "ได้เพิ่มสมาชิกเข้าในวง"
 			);
 			$insert_id = $this->notification->add($notimember);
-			$member =  $this->join_band_model->get_member_except_user($user_id,$band_id);
+			$member =  $this->join_band_model->get_all_member_band($band_id);
 			$receiver_list = array();
 			foreach ($member as $value) {
 					$r  = array('receive_id' => $insert_id,

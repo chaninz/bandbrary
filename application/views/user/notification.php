@@ -50,6 +50,8 @@
                <i class="circle blank icon"></i>
                <?php elseif ($value->type == "accept_request_member" || $value->type == "accept_request_user"): ?>
                <i class="circle icon"></i>
+                <?php elseif ($value->type == "accept_job_band" || $value->type == "accept_job_user" || $value->type == "request_job_band" ||  $value->type == "request_job"): ?>
+               <i class="checkmark sign icon"></i>
               <?php endif; ?>
                 <div class="content">
                   <a class="header" href="<?=($value->link) ?>"><?=($value->text) ?></a> <span class="date"><?=($value->noti_date) ?></span>
