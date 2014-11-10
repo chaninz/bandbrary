@@ -54,10 +54,10 @@
       <div class="col-xs-4" style="padding-top: 20px; padding-left: 0px; padding-right: 0px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
 
         <div class="ui tabular filter menu">
-          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป <?php if($count_pm_user != 0){
+          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป <span class="noti_all_user"><?php if($count_pm_user != 0){
               echo '('. $count_pm_user .')'; 
             }?>
-          </a>
+          </span></a>
           <a class="item" data-tab="band">วงดนตรี  <span class="notiband" > <?php if($count_pm_band != 0){
               echo '('. $count_pm_band .')'; 
             }?> 
@@ -72,9 +72,9 @@
            <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
            <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
            <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?> 
-            <span class="notiuser" > <?php if($pm_user->total_msg != 0){
+            <span class="notiuser" ><?php if($pm_user->total_msg != 0){
               echo '('. $pm_user->total_msg .')'; 
-            }?> </b></div>            
+            }?></b></div>            
            <?= $pm_user->text ?> 
            </span>   
          </a>
@@ -199,7 +199,24 @@
                     scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
                   }, 0);
                 });
+       
+       var notialltext = ele.parent().parent().find(".noti_all_user").text();
+       var notiall = parseInt(notialltext.substr(1, notialltext.length-2));
+       var notiusertext = ele.find(".notiuser").text();
+       var notiuser = parseInt(notiusertext.substr(1, notiusertext.length-2));
+
+       var recent_noti = notiall - notiuser+'';
         ele.find(".notiuser").text("");
+
+        if (recent_noti != 0) {
+          ele.parent().parent().find(".noti_all_user").text('('+recent_noti+')');
+        }
+        else{
+          ele.parent().parent().find(".noti_all_user").text("");
+
+        }
+
+
 }
 });
           $.ajax({
