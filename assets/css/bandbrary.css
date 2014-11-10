@@ -239,7 +239,7 @@ footer {
 	vertical-align: middle;
 }
 .notify {
-	padding: 0.2em 0.3em; 
+	padding: 0.2em 0.5em!important;
 	margin: 0.5em 0em 0em -1.5em !important;
 	background-color: #3C3B3B !important;
 }

@@ -8210,7 +8210,7 @@ a.ui.label:hover:before {
 /*--- Black ---*/
 .ui.black.labels .label,
 .ui.black.label {
-  background-color: #5C6166 !important;
+  background-color: #5C6166;
   border-color: #5C6166 !important;
   color: #FFFFFF !important;
 }
@@ -8547,7 +8547,7 @@ a.ui.teal.label:hover:before {
   z-index: 9;
   top: -1em;
   left: 100%;
-  margin: 0em 0em 0em -1.5em !important;
+  margin: 0em 0em 0em -1.5em;
 }
 /*-------------------
         Sizes

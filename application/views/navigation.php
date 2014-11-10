@@ -70,15 +70,15 @@
 				</div> -->
 				<div id="navbar-item4" class="ui secondary  menu">
 					<a class="item" style="padding: 0px;" href="<?= base_url().'notification' ?>" >
-						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การแจ้งเตือน"></i> 
+						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 						<div id="notification" ></div>
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
-						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
+						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 						<div id="pm"></div>
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
-						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การสร้าง"></i> 
+						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;"></i> 
 					</a>
 				</div>
 				<div id="navbar-item5" class="ui top pointing dropdown icon">
@@ -111,7 +111,7 @@ if(window.EventSource){
  					$("#notification").html("").removeClass('notify');
  				}
  				else{
-		    	$("#notification").html('<span class="floating ui black label">'+event.data+'</span>').addClass('notify');
+		    	$("#notification").html('<div class="floating ui black label"  style="margin: 0.5em 0em 0em -1.5em">'+event.data+'</div>');
  				}
 		   }, false);
 
@@ -121,7 +121,7 @@ if(window.EventSource){
  					$("#pm").html("").removeClass('notify');
  				}
  				else{
-		    	$("#pm").html('<span class="floating ui black label">'+event.data+'</span>').addClass('notify');
+		    	$("#pm").html('<div class="floating ui black label notify">'+event.data+'</div>');
  				}
 		   }, false);
 }
