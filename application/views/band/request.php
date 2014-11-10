@@ -64,7 +64,6 @@
 		background-color: #F7F6F6;
 	}
 	.ui.menu .item {
-		font-size: 1rem;
 		padding: 1em 1em;
 	}
 	.ui.form.segment{
@@ -83,7 +82,7 @@
 			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
 				<div class="ui form segment"><p>
-					<h1>คำร้องขอเข้าร่วมวง</h1>
+					<h2 class="ui header">คำร้องขอเข้าร่วมวง</h2>
 					<div class="line"></div><br><p>
 					<?php if ($band_requests): ?>
 						<?php foreach ($band_requests as $band_request) : ?>

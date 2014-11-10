@@ -63,7 +63,6 @@
 		background-color: #F7F6F6;
 	}
 	.ui.menu .item {
-		font-size: 1rem;
 		padding: 1em 1em;
 	}
 	.ui.form.segment{
@@ -80,7 +79,7 @@
 			<div class="col-xs-7">
 				<table class="ui table segment">
 					<p></p>
-						<h1>สิทธิ์การจัดการวง</h1>
+						<h2 class="ui header">สิทธิ์การจัดการวง</h2>
 						<div class="line"></div><br><p>
 						<thead>
 							<tr>

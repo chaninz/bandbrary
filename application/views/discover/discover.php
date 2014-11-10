@@ -314,8 +314,8 @@
 
 		<div class="row">
 			<div class="col-xs-7">
-				<h3 class="ui block header" style="width: 470px; margin-left: 15px; margin-right: 15px; margin-top: 30px; margin-bottom: 0px;">ศิลปินที่มีคนติดตามมากที่สุด</h3>
-				<div class="job-red-line" style="width: 470px;"></div>
+				<h3 class="ui block header" style="width: 479px; margin-left: 15px; margin-right: 15px; margin-top: 30px; margin-bottom: 0px;">ศิลปินที่มีคนติดตามมากที่สุด</h3>
+				<div class="job-red-line" style="width: 479px;"></div>
 				<!--ศฺลปินที่มีคนติดตามมากที่สุด-->
 				<?php foreach($topfollowers as $topfollower): ?>
 				<div class="discover-item3">

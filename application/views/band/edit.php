@@ -64,7 +64,6 @@ footer {
 	background-color: #F7F6F6;
 }
 .ui.menu .item {
-	font-size: 1rem;
 	padding: 1em 1em;
 }
 .ui.form.segment{
@@ -81,7 +80,7 @@ footer {
 			<div class="col-xs-7">
 				<form action="<?= base_url('band/edit') ?>" method="post" enctype="multipart/form-data">
 					<div class="ui form segment"><p>
-						<h1>แก้ไขข้อมูลวงดนตรี</h1>
+						<h2 class="ui header">แก้ไขข้อมูลวงดนตรี</h2>
 						<div class="line"></div><br><p>
 						<div class="field">
 							<label>ชื่อวงดนตรี</label>

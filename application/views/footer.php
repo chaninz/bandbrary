@@ -130,6 +130,7 @@
 	.popup('hide','toggle');
 	/* End Feed popup */
 
+	/* Feed transition */
 	$('.feed-user.box')
 	.transition('fade');
 	$('.feed-user.box')
@@ -142,4 +143,5 @@
 	.transition('fade');
 	$('.advt.box')
 	.transition('fade up');
+	/* End Feed transition */
 </script>

@@ -12,6 +12,7 @@ class Event extends CI_Controller {
 		$this->load->model('skill_model');
 		// Page model
 		$this->load->model('event_model');
+		$this->load->model('province_model');
 	}
 
 	public function index($band_id) {
@@ -28,7 +29,8 @@ class Event extends CI_Controller {
 			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
 			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
 			// Page data
-			$events = $this->event_model->get_by_user($band_id, 2);
+			$provinces = $this->province_model->get_all();
+			$events = $this->event_model->get_current_by_band($band_id);
 
 			$display = array('band_profile' => $band_profile,
 				'status' => $status,
@@ -36,7 +38,8 @@ class Event extends CI_Controller {
 				'is_follow_band' => $is_follow_band,
 				'user_status' => $user_status,
 				'current_user_skills' => $current_user_skills,
-				'events' => $events);
+				'events' => $events,
+				'provinces' => $provinces);
 
 			$this->load->view('band/event', $display);
 		} else {

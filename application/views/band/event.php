@@ -39,23 +39,41 @@
 							<div class="event-hea">
 								<table>
 									<tbody>
-										<td class="eh1">DATE</td>
-										<td class="eh2">TIME</td>
-										<td class="eh3">EVENT</td>
-									</tbody>
-								</table>
-							</div><?php foreach ($events as $event): ?>
-							<div class="title">
-								<table>
-									<tbody>
-										<td class="eh4"><?= mdate("%d %M %Y", strtotime($event->start_time)) ?></td>
-										<td class="eh5"><?= mdate("%H:%i", strtotime($event->start_time)) ?></td>
-										<td class="eh6"><?= $event->event ?></td>
+										<td class="eh1">วัน</td>
+										<td class="eh2">เวลา</td>
+										<td class="eh3">ชื่องาน</td>
 									</tbody>
 								</table>
 							</div>
-							<div class="content"><?= $event->description ?>
-							</div><?php endforeach; ?>
+							<?php if ( ! empty($events)): foreach ($events as $event): ?>
+								<div class="title">
+									<i class="dropdown icon" style="float: left"></i>
+									<table>
+										<tbody>
+											<td class="eh4"><?= mdate("%d/%n/%Y", strtotime($event->date)) ?></td>
+											<td class="eh5"><?= mdate("%H:%i", strtotime($event->time)) ?></td>
+											<td class="eh6"><?= $event->event ?></td>
+										</tbody>
+									</table>
+								</div>
+								<div class="content">รายละเอียด
+									<?= $event->description ?>
+									<div>สถานที่: <?= $event->venue ?></div>
+									<div>จังหวัด: <?= $event->province ?></div>
+									<?php if ($this->session->userdata('id') == $band_profile->id && $event->event_id != 0): ?>
+										<a href="<?= base_url('event/band/edit/'.$event->event_id) ?>">แก้ไข</a>
+										<a href="<?= base_url('event/band/delete/'.$event->event_id) ?>">ลบ</a>
+									<?php endif; ?>
+								</div>
+								<?php endforeach; ?>
+								<?php else: ?>
+									<table>
+										<tbody>
+											<td class="eh5" colspan="3">ไม่มีข้อมูล</td>
+										</tbody>
+									</table>
+							<?php endif; ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -122,8 +140,8 @@
 
 <?php $this->load->view('footer'); ?>
 <script>
-$('.create.modal')
-.modal('attach events', '.test.event', 'show');
+	$('.create.modal')
+	.modal('attach events', '.test.event', 'show');
 </script>
 </body>
 </html>
