@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User_music_model extends CI_Model {
+
 	function upload($data) {
 		$this->db->insert('User_Music', $data);
 	}
@@ -35,10 +36,45 @@ class User_music_model extends CI_Model {
 
 		$query = $this->db->get();
 		return $query->row();
+	}
 
+	function get_new_music(){
+		$query = $this->db->query('SELECT User_Music.id, User_Music.name, Users.name AS artist, User_Albums.image_url, User_Music.timestamp
+			FROM User_Music 
+			JOIN User_Albums ON User_Albums.id = User_Music.album_id
+			JOIN Users ON Users.id = User_Albums.user_id
+			UNION ALL
+			SELECT Band_Music.id, Band_Music.name, Bands.name AS artist, Band_Albums.image_url, Band_Music.timestamp
+			FROM Band_Music
+			JOIN Band_Albums ON  Band_Albums.id = Band_Music.album_id
+			JOIN Bands ON Bands.id = Band_Albums.band_id
+			ORDER BY timestamp DESC
+			LIMIT 0, 10');
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_recommended_music(){
+		$query = $this->db->query('SELECT * FROM (SELECT User_Music.id, User_Music.name, Users.name AS artist, User_Albums.image_url, User_Music.timestamp
+				FROM User_Music 
+				JOIN User_Albums ON User_Albums.id = User_Music.album_id
+				JOIN Users ON Users.id = User_Albums.user_id
+				UNION ALL
+				SELECT Band_Music.id, Band_Music.name, Bands.name AS artist, Band_Albums.image_url, Band_Music.timestamp
+				FROM Band_Music
+				JOIN Band_Albums ON  Band_Albums.id = Band_Music.album_id
+				JOIN Bands ON Bands.id = Band_Albums.band_id
+				ORDER BY RAND()
+				LIMIT 0, 12) 
+			AS recommended
+			ORDER BY timestamp');
+		$result = $query->result();
+
+		return $result;
 	}
 
 }
 
-/* End of file music_model.php */
-/* Location: ./application/models/music_model.php */
+/* End of file user_music_model.php */
+/* Location: ./application/models/user_music_model.php */

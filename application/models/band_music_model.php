@@ -23,30 +23,12 @@ class Band_music_model extends CI_Model {
 		return $query->row();
 	}
 
-
-	function getNewMusic(){
-		$query = $this->db->query('
-		SELECT Bands.name,Band_Music.name,Band_Music.timestamp AS bandtime
-		FROM `Band_Music`
-		JOIN Band_Albums ON  Band_Albums.id = Band_Music.album_id
-		JOIN Bands on Bands.id = Band_Albums.band_id
-		UNION ALL
-		SELECT Users.name,User_Music.name,User_Music.timestamp
-		FROM `User_Music` 
-		JOIN User_Albums ON  User_Albums.id = User_Music.album_id
-		JOIN Users on Users.id = User_Albums.user_id
-		ORDER BY bandtime desc
-		LIMIT 0,10');
-		return $query->result();
-	}
-		
-
 	function get_band($music_id){
 		$this->db->select('Bands.id');
 		$this->db->from('Band_Music');
 		$this->db->join('Band_Albums', 'Band_Albums.id = Band_Music.album_id');
 		$this->db->join('Bands', 'Bands.id = Band_Albums.band_id');
-		$this->db->where('Band_Music.id',$music_id);
+		$this->db->where('Band_Music.id', $music_id);
 
 		$query = $this->db->get();
 		return $query->row();

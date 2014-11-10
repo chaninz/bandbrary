@@ -17,7 +17,7 @@ class User extends CI_Controller {
 		$user_id = $this->session->userdata('id');
 		$username = $this->session->userdata('username');
 
-		if ( ! empty($name) && ! empty($description)) {
+		if ( ! empty($name)) {
 			$data = array('user_id' => $user_id,
 				'name' => $name,
 				'description' => $description,
@@ -27,8 +27,8 @@ class User extends CI_Controller {
 			$upload_photo_name = $this->input->post('cover-name');
 
 			if ( ! empty($upload_photo_name)) {
-				$photo_path = realpath('uploads/album/user');
-				$photo_name = $user_id.'-album-'.time();
+				$photo_path = realpath('uploads/album');
+				$photo_name = 'user-'.$user_id.'-album-'.time();
 
 				// Upload photo to server
 				$config = array('allowed_types' => 'jpg|jpeg',
@@ -45,7 +45,7 @@ class User extends CI_Controller {
 					// If upload complete
 					$data['image_url'] = $image_data['file_name'];
 
-					// Resize to 800px
+					// Resize to 400px
 					$config = array('source_image' => $image_data['full_path'],
 						'new_image' => $photo_path,
 						'maintain_ratio' => FALSE,
@@ -82,7 +82,8 @@ class User extends CI_Controller {
 			$description = $this->input->post('description');
 			$is_image_upload = $this->input->post('image-upload');
 
-			if ( ! empty($name) && ! empty($description)) {
+			if ( ! empty($name)) {
+				echo $name.$description;
 				$new_data = array('user_id' => $user_id,
 					'name' => $name,
 					'description' => $description,
@@ -95,8 +96,8 @@ class User extends CI_Controller {
 					// Delete profile photo
 					$new_data['image_url'] = NULL;
 				} else if ($is_image_upload == 2) {
-					$photo_path = realpath('uploads/album/user');
-					$photo_name = $user_id.'-album-'.time();
+					$photo_path = realpath('uploads/album');
+					$photo_name = 'user-'.$user_id.'-album-'.time();
 
 					// Upload photo to server
 					$config = array('allowed_types' => 'jpg|jpeg',
@@ -113,7 +114,7 @@ class User extends CI_Controller {
 					// If upload complete
 						$new_data['image_url'] = $image_data['file_name'];
 
-					// Resize to 800px
+					// Resize to 400px
 						$config = array('source_image' => $image_data['full_path'],
 							'new_image' => $photo_path,
 							'maintain_ratio' => FALSE,
@@ -132,12 +133,14 @@ class User extends CI_Controller {
 				$msg = array('type' => 3, 
 					'header' => '',
 					'text' => 'บันทึกข้อมูลเรียบร้อย');
-				$display = array('post' => $album,
+				$display = array('album' => $album,
 					'msg_image' => $msg_image,
 					'msg' => $msg);
+
 				$this->load->view('user/edit_album', $display);
 			} else {
 				// If not send data from form
+
 				$display = array('album' => $album);
 				$this->load->view('user/edit_album', $display);
 			}

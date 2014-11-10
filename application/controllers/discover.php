@@ -7,41 +7,22 @@ class Discover extends CI_Controller {
 		$this->load->model('band_model');
 		$this->load->model('follow_model');
 		$this->load->model('greedd_model');
-		$this->load->model('band_music_model');
+		$this->load->model('user_music_model');
 	}
 
 	public function index() {
-		// $topband = $this->follow_model->get_top_band_follower();
-		// $topuser = $this->follow_model->get_top_user_follower();
-		// $topmusicuser = $this->greedd_model->topGreeddUserMusic();
-		// $topmusicband = $this->greedd_model->topGreeddBandMusic();
-		$topmusics = $this->greedd_model->topGreeddMusic();
-		$newmusics = $this->band_music_model->getNewMusic();
-		$topfollowers = $this->follow_model->get_top_follower();
+		$recommended_music = $this->user_music_model->get_recommended_music();
+		$new_music = $this->user_music_model->get_new_music();
+		$top_follower_artists = $this->follow_model->get_top_follower();
+		$top_music = $this->greedd_model->top_greedd_music();
 
-		$data = array(
-		'topfollowers' => $topfollowers,
-		'topmusics' => $topmusics ,
-		'newmusics' => $newmusics
-		 );
-		//print_r($data);
-		$this->load->view('discover/discover',$data);
+		$display = array('recommended_music' => $recommended_music,
+			'new_music' => $new_music,
+			'top_follower_artists' => $top_follower_artists,
+			'top_music' => $top_music);
+		$this->load->view('discover', $display);
 	}
 
-	public function disBlues(){
-		$this->load->view('discover/discoverBlues');
-
-	}
-
-	public function disPopArtist(){
-		$this->load->view('discover/discoverPopArtist');
-
-	}
-
-	public function disTopMusic(){
-		$this->load->view('discover/discoverTopMusic');
-
-	}
 }
 
 /* End of file discover.php */

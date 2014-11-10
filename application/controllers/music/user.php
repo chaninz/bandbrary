@@ -32,7 +32,7 @@ class User extends CI_Controller {
 			$this->user_music_model->upload($data);
 		}
 		else{
-			 $data = array('albums' => $this->user_album_model->getAll());
+			 $data = array('albums' => $this->user_album_model->get_all());
 			$this->load->view('user/uploadMusic',$data);
 			//redirect('/band/'.$band_id.'/post');
 

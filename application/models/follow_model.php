@@ -136,23 +136,21 @@ class Follow_model extends CI_Model {
 	}
 	
 	function get_top_follower(){
-		$query = $this->db->query('
-			SELECT count(*) AS count ,Follow_Bands.follow_band,Bands.name,Bands.photo_url 
-			FROM `Follow_Bands`
-            Join Bands on Bands.id = Follow_Bands.follow_band
-			GROUP by follow_band   
-		    UNION ALL
-			SELECT count(*) ,Follow_Users.follow_user,Users.name,Users.photo_url 
-					FROM `Follow_Users`
-            Join Users on Users.id = Follow_Users.follow_user
-			GROUP by follow_user
-			ORDER by count desc
-			LIMIT 0,6
+		$query = $this->db->query('SELECT Follow_Users.follow_user AS user_id, CONCAT(Users.name, \' \', Users.surname) AS name, Users.photo_url, 1 AS type, COUNT(*) AS count
+			FROM Follow_Users 
+			JOIN Users ON Users.id = Follow_Users.follow_user 
+			GROUP BY follow_user 
+			UNION ALL 
+			SELECT Follow_Bands.follow_band AS band_id, Bands.name, Bands.photo_url, 2 AS type, COUNT(*) AS count 
+			FROM Follow_Bands 
+            JOIN Bands on Bands.id = Follow_Bands.follow_band 
+			GROUP BY follow_band 
+			ORDER BY count DESC
+			LIMIT 0,6');
+		$result = $query->result();
 
-		');
-		return $query->result();
+		return $result;
 	}
-
 }
 
 /* End of file follow_model.php */
