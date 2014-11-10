@@ -62,7 +62,6 @@ $route['user/(:any)/status/all'] = 'user/status/all/$1';
 $route['user/(:any)'] = 'user/index/user/$1';
 
 
-
 /* == Band == */
 // Timeline
 $route['band/(:num)/timeline'] = 'band/timeline/index/$1';
@@ -90,6 +89,7 @@ $route['band/join/cancel/(:num)'] = 'band/join/cancel/$1';
 
 /* == Job == */
 $route['job'] = 'job/index/all';
+$route['job/all'] = 'job/index/all';
 $route['job/request/(:num)'] = 'job/request/index/$1';
 $route['job/cancel/(:num)'] = 'job/cancel/index/$1';
 $route['job/accept/(:num)'] = 'job/accept/index/$1';
