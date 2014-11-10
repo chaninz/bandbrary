@@ -54,7 +54,10 @@
       <div class="col-xs-4" style="padding-top: 20px; padding-left: 0px; padding-right: 0px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
 
         <div class="ui tabular filter menu">
-          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป (<?= $count_pm_user ?>)</a>
+          <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป <?php if($count_pm_user != 0){
+              echo '('. $count_pm_user .')'; 
+            }?>
+          </a>
           <a class="item" data-tab="band">วงดนตรี  <span class="notiband" > <?php if($count_pm_band != 0){
               echo '('. $count_pm_band .')'; 
             }?> 
@@ -120,8 +123,8 @@
   <div style="padding: 15px 15px 15px 15px; border-top: 1px solid #D6D6D6; background-color: #F7F6F6;">
     <div class="ui form">
       <div class="field" style="margin: 0px">
-        <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"><?php print_r($pm_users) ?></textarea>
-        <input type="hidden" name="message_type" value="user">
+        <textarea placeholder="เขียนข้อความตอบกลับ..." id="text" name="text" style="height: 100px;"></textarea>
+        <input type="hidden" name="message_type" id="message_type" value="user">
       </div>
     </div>
   </div>
@@ -260,7 +263,7 @@ $("#pmband-inbox .item").click(function(){
                     scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
                   }, 0);
                 });
-              ele.find(".notiband").text("");
+              ele.parent().parent().find(".notiband").text("");
 
                 
 }

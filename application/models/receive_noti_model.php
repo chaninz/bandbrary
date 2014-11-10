@@ -83,17 +83,17 @@ class Receive_noti_model extends CI_Model {
 		$this->db->update('PM_Users', $data); 
 	}
 
-	 function seenPMBands(){		
-	 	$user_id = $this->session->userdata('id');
-	 	$band_id = $this->session->userdata('band_id');
-		$data = array(
-               'seen_date' => now()
-            );
+	//  function seenPMBands(){		
+	//  	$user_id = $this->session->userdata('id');
+	//  	$band_id = $this->session->userdata('band_id');
+	// 	$data = array(
+ //               'seen_date' => now()
+ //            );
 
-		$this->db->where('user_id', $user_id);
-		$this->db->where('band_id', $band_id);
-		$this->db->update('PM_Users', $data); 
-	}
+	// 	$this->db->where('user_id', $user_id);
+	// 	$this->db->where('band_id', $band_id);
+	// 	$this->db->update('PM_Bands', $data); 
+	// }
 }
 
 /* End of file album_model.php */

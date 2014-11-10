@@ -8,6 +8,7 @@ public function __construct() {
 		$this->load->model('user_model');
 		$this->load->model('pm_band_model');
 		$this->load->model('receive_noti_model','receive_noti');
+		$this->load->model('receive_noti_band_model','receive_noti_band');
 	}
 
 	public function index() {
@@ -16,7 +17,7 @@ public function __construct() {
 			'pm_users' => $this->pm_model->get_all(),
 			'count_pm_user' => $this->pm_model->count_noti_pm_user(),
 			'pm_bands'=> $this->pm_band_model->getPmBand(),
-			'count_pm_band' => $this->pm_model->count_noti_pm_band()
+			'count_pm_band' => $this->receive_noti_band->get_total_noti_band()
 		);
 		//print_r($data);
 		$this->load->view('private_message',$data);
@@ -45,9 +46,21 @@ public function __construct() {
 					'band_id' => $target_user
 				);
 				//print_r($data);
-				$id = $this->pm_band_model->add($data);
-
-				$lastpm = $this->pm_band_model->get_pm_by_bandid($id);
+				$insert_id = $this->pm_band_model->add($data);
+				
+				$member =  $this->join_band_model->get_member_band($target_user);
+				$band_id = $this->session->userdata('band_id');
+				$receiver_list = array();
+				foreach ($member as $value) {
+						$r  = array('receive_id' => $insert_id,
+									'band_id'    => $band_id,
+									'user_id'    => $value->user_id		
+						);
+						array_push($receiver_list, $r);
+				}
+				//print_r($receiver_list);
+				$this->receive_noti_band->add($receiver_list);
+				$lastpm = $this->pm_band_model->get_pm_by_bandid($insert_id);
 				echo json_encode($lastpm);
 			}
 		} 
@@ -107,10 +120,12 @@ public function __construct() {
 			$data = array(
 				'from_user_id' => $this->session->userdata('id'),
 				'text'=> $this->input->post('text'),
-				'band_id' => $band_id
+				'band_id' => $band_id,
 			);
 			//print_r($data);
-			$id = $this->pm_band_model->add($data);
+			$insert_id = $this->pm_band_model->add($data);
+
+			
 
 			$lastpm = $this->pm_model->get_pm_by_id($id);
 			echo json_encode($lastpm);
@@ -123,6 +138,7 @@ public function __construct() {
 		// $user_profile = $this->user_model->get_by_username($username);
 		$band = $this->input->post('id');
 		$data =  $this->pm_band_model->view($band);
+		$this->receive_noti_band->seenPMBands();
 		echo json_encode($data);
 	}
 }

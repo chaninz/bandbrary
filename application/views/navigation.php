@@ -71,11 +71,11 @@
 				<div id="navbar-item4" class="ui secondary  menu">
 					<a class="item" style="padding: 0px;" href="<?= base_url().'notification' ?>" >
 						<i class="bell icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การแจ้งเตือน"></i> 
-						<div id="notification" class="floating ui black label"></div>
+						<div id="notification" ></div>
 					</a>
 					<a class="item" style="padding: 0px;" href="<?= base_url().'pm' ?>">
 						<i class="mail icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="ข้อความ"></i> 
-						<div id="pm" class="floating ui black label"></div>
+						<div id="pm"></div>
 					</a>
 					<a class="item mbtn createall" style="padding: 0px;">
 						<i class="add sign icon" style="color: #FFFFFF; font-size: 1.4em; opacity: 0.9;" data-content="การสร้าง"></i> 
@@ -108,20 +108,20 @@ if(window.EventSource){
 		var eventSource = new EventSource("<?php echo base_url('notification/total_noti');?>");
  		eventSource.addEventListener('total_noti', function(event) {
  				if(event.data == 0){
- 					$("#notification").text("");
+ 					$("#notification").html("").removeClass('notify');
  				}
  				else{
-		    	$("#notification").text(event.data);
+		    	$("#notification").html('<span class="floating ui black label">'+event.data+'</span>').addClass('notify');
  				}
 		   }, false);
 
  		var eventSource2 = new EventSource("<?php echo base_url('notification/total_noti_pm');?>");
  		eventSource2.addEventListener('total_pm', function(event) {
  				if(event.data == 0){
- 					$("#pm").text("");
+ 					$("#pm").html("").removeClass('notify');
  				}
  				else{
-		    	$("#pm").text(event.data);
+		    	$("#pm").html('<span class="floating ui black label">'+event.data+'</span>').addClass('notify');
  				}
 		   }, false);
 }

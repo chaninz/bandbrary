@@ -77,8 +77,8 @@ class Pm_model extends CI_Model {
 
 			// First select lastest pm that seen date is null
 		$query = $this->db->query('
-			select *
-			from (select pm1.*,count(*) as total_msg ,u.name,u.surname,u.photo_url
+			select  *
+			from (select distinct pm1.*,count(*) as total_msg ,u.name,u.surname,u.photo_url
 			from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
 			join Users u on pm1.from_user_id  = u.id
 			where pm1.to_user_id ='.$current_id.' and pm1.seen_date is null
@@ -86,7 +86,7 @@ class Pm_model extends CI_Model {
 
 			union
 
-			select pm1.*,0 as total_msg ,u.name,u.surname,u.photo_url
+			select distinct pm1.*,0 as total_msg ,u.name,u.surname,u.photo_url
 			from (select * from PM_Users order by PM_Users.timestamp desc) as pm1 
 			join Users u on pm1.from_user_id  = u.id
 			where pm1.to_user_id = '.$current_id.' and pm1.seen_date is not null
