@@ -65,7 +65,6 @@ footer {
 	background-color: #F7F6F6;
 }
 .ui.menu .item {
-	font-size: 1rem;
 	padding: 1em 1em;
 }
 .ui.form.segment{
@@ -81,7 +80,7 @@ footer {
 			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
 				<div class="ui form segment"><p><p/>
-					<h1>เปลี่ยนรหัสผ่าน</h1>
+					<h2 class="ui header">เปลี่ยนรหัสผ่าน</h2>
 					<div class="line"></div><p></p>
 					<?php if ( ! empty($msg)): if ($msg['type'] == 1): ?>
 					<div class="ui visible error message">
