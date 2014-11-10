@@ -34,7 +34,7 @@ footer {
 	background-color: #E72A30;
 }
 .footleft {
-	width: 661px;
+	width: 656px;
 	height: 46px;
 	background-color: #E72A30;
 	float: left;
@@ -42,7 +42,7 @@ footer {
 	bottom: 46px;
 }
 .footright {
-	width: 614px;
+	width: 619px;
 	height: 46px;
 	background-color: #E72A30;
 	float: right;
@@ -50,28 +50,15 @@ footer {
 	bottom: 46px;
 }
 
-@media all and (max-width: 1680px) {
-	footer {
-		width: 1680px;
-		height: 900px;
-	}
-	.footleft {
-		width: 781px;
-	}
-	.footright {
-		width: 734px;
-	}
-}
-
 @media all and (max-width: 1280px) {
 	footer {
 		width: 1280px;
 	}
 	.footleft {
-		width: 581px;
+		width: 576px;
 	}
 	.footright {
-		width: 534px;
+		width: 539px;
 	}
 }
 
@@ -80,10 +67,10 @@ footer {
 		width: 1024px;
 	}
 	.footleft {
-		width: 453px;
+		width: 448px;
 	}
 	.footright {
-		width: 406px;
+		width: 411px;
 	}
 }
 @media all and (max-width: 980px) {
@@ -815,6 +802,7 @@ footer {
 .job-hea2 {
 	font-size: 22px;
 	margin-top: 50px;
+	margin-bottom: 20px;
 }
 .job-red-line {
 	width: 170px;

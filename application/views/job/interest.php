@@ -40,7 +40,7 @@
 	}
 	.ui.items .item > .content > .description {
 		font-size: 1em;
-		height: 115px;
+		height: 250px;
 	}
 	.ui.corner.label .icon {
 		font-size: 1.4em;
@@ -71,11 +71,13 @@
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
-							<p class="description"><?= $job->description ?></p>
+							<div class="description">
+							<p><?= $job->description ?></p><br/>
 							<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
 							<div>สถานที่ <?= $job->venue ?></div>
 							<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
 							<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
+							</div>
 						</div>
 						<i id="job-icon" class="map marker icon"></i>
 						<span class="job-location"><?= $job->province ?></span>
@@ -88,11 +90,13 @@
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
-							<p class="description"><?= $job->description ?></p>
+							<div class="description">
+							<p><?= $job->description ?></p><br/>
 							<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
 							<div>สถานที่ <?= $job->venue ?></div>
 							<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
 							<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
+							</div>
 						</div>
 						<i id="job-icon" class="map marker icon"></i>
 						<span class="job-location"><?= $job->province ?></span>
@@ -105,11 +109,13 @@
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
-							<p class="description"><?= $job->description ?></p>
+							<div class="description">
+							<p><?= $job->description ?></p><br/>
 							<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
 							<div>สถานที่ <?= $job->venue ?></div>
 							<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
 							<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
+							</div>
 						</div>
 						<i id="job-icon" class="map marker icon"></i>
 						<span class="job-location"><?= $job->province ?></span>
