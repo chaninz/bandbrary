@@ -38,7 +38,7 @@ class Pm_model extends CI_Model {
 									where 
 									(PM_Users.from_user_id = '.$current_id.' and PM_Users.to_user_id = '.$target_user.') 
 									or (PM_Users.from_user_id ='.$target_user.' and PM_Users.to_user_id='.$current_id.')
-									order by PM_Users.timestamp ');
+									order by PM_Users.timestamp,PM_Users.id ');
 		return $query->result();
 
 		// $query = $this->db->get();

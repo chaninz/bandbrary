@@ -38,7 +38,7 @@ class Pm_band_model extends CI_Model {
 									join Join_Band on PM_Bands.user_id = Join_Band.user_id 
 									Join Users on Users.id = PM_Bands.user_id 
 									where PM_Bands.band_id = '.$band_id.' and Join_Band.status = 2
-									order by PM_Bands.timestamp ');
+									order by PM_Bands.timestamp,PM_Bands.id ');
 		return $query->result();
 
 		// $query = $this->db->get();

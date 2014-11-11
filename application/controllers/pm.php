@@ -30,7 +30,8 @@ public function __construct() {
 				$data = array(
 					'from_user_id' => $this->session->userdata('id'),
 					'text'=> $this->input->post('text'),
-					'to_user_id' => $target_user
+					'to_user_id' => $target_user,
+					'timestamp' => mdate("%Y-%m-%d %H:%i:%s", now())
 				);
 				//print_r($data);
 				$id = $this->pm_model->add($data);
@@ -74,7 +75,8 @@ public function __construct() {
 				$data = array(
 					'from_user_id' => $this->session->userdata('id'),
 					'text'=> $this->input->post('text'),
-					'to_user_id' => $target_user
+					'to_user_id' => $target_user,
+					'timestamp' => mdate("%Y-%m-%d %H:%i:%s", now())
 				);
 				//print_r($data);
 				$id = $this->pm_model->add($data);
