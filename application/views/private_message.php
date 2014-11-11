@@ -39,7 +39,7 @@
   <?php $this->load->view('navigation'); ?>
   <div id="pm-container" class="container">
     <div class="row">
-      <div class="col-xs-4" style="height: 180px; padding-top: 130px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
+      <div class="col-xs-4" style="height: 180px; padding-top: 120px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
         <h3 class="ui header" style="margin-left: 20px;">
           <i class="inbox icon"></i>
           กล่องข้อความ 
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-4" style="padding-top: 20px; padding-left: 0px; padding-right: 0px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
+      <div class="col-xs-4" style="padding-left: 0px; padding-right: 0px; border-right: 1px solid #D6D6D6; background-color: #FFFFFF;">
 
         <div class="ui tabular filter menu">
           <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป <span class="noti_all_user"><?php if($count_pm_user != 0){
@@ -129,7 +129,7 @@
     </div>
   </div>
   <div style="background-color: #F7F6F6;">
-    <input class="small ui button" style="margin-bottom: 15px; margin-left: 560px;" type="submit" value="ส่ง">
+    <input class="small ui button" style="margin-bottom: 15px; margin-left: 579px;" type="submit" value="ส่ง">
   </div>
 </form>
 </div>

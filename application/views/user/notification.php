@@ -25,10 +25,10 @@
 
                 <div class="col-xs-12">
 
-                    <h2 class="ui block header" style="margin: 120px 0px 0px 0px; background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
+                    <h3 class="ui block header" style="margin: 120px 0px 0px 0px; background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
                       <i class="bell icon"></i>
                       การแจ้งเตือน
-                  </h2>
+                  </h3>
 
                   <div class="ui red pointing menu" style="border-radius: 0em; margin-top: 0px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
                       <a class="active item">
