@@ -56,12 +56,10 @@
         <div class="ui tabular filter menu">
           <a class="active item" style="margin-left: 30px;" data-tab="general">ทั่วไป <span class="noti_all_user"><?php if($count_pm_user != 0){
               echo '('. $count_pm_user .')'; 
-            }?>
-          </span></a>
+            }?></span></a>
           <a class="item" data-tab="band">วงดนตรี  <span class="notiband" > <?php if($count_pm_band != 0){
               echo '('. $count_pm_band .')'; 
-            }?> 
-           </span></a>
+            }?></span></a>
         </div>
 
         <!-- แชทของคนทั่วไป -->
@@ -201,11 +199,25 @@
                 });
        
        var notialltext = ele.parent().parent().find(".noti_all_user").text();
-       var notiall = parseInt(notialltext.substr(1, notialltext.length-2));
-       var notiusertext = ele.find(".notiuser").text();
-       var notiuser = parseInt(notiusertext.substr(1, notiusertext.length-2));
+       var notiall;
+       //console.log(notialltext == "");
+       if (notialltext == ""){
+          notiall = 0;
+       }
+       else{
+          notiall = parseInt(notialltext.substr(1, notialltext.length-2));
+       } 
 
-       var recent_noti = notiall - notiuser+'';
+       var notiusertext = ele.find(".notiuser").text();
+       var notiuser;
+       //console.log(notiusertext == "");
+       if (notiusertext == ""){
+          notiuser = 0;
+       }
+       else{
+          notiuser = parseInt(notiusertext.substr(1, notiusertext.length-2));
+      }
+      var recent_noti = notiall - notiuser+'';
         ele.find(".notiuser").text("");
 
         if (recent_noti != 0) {

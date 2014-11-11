@@ -27,7 +27,7 @@ class Join extends CI_Controller {
 						  'band_id' => $band_id,
 						  'type' => "request_join",
 						  'link' => "#",
-						  'text' => "ได้ส่งคำร้องขอเข้าร่วมวง"
+						  'text' => "ได้ส่งคำร้องขอเข้าร่วมวงของคุณ"
 			);
 			$insert_id = $this->notification->add($noti);
 

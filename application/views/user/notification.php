@@ -62,8 +62,28 @@
             <i class="checkmark sign icon"></i>
           <?php endif; ?>
           <div class="content">
-            <a class="header" href="<?=($value->link) ?>"><?=($value->text) ?></a> <span class="date"><?=($value->noti_date) ?></span>
-            <div class="description">คอมเม้นโดยย่อ</div>
+           <!--  -->
+            <?php if($value->type == "comment_music_user"): ?>
+            <a class="header" href="<?= base_url('music/user/view/'.$value->music_user_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->usermusic) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+            <?php elseif($value->type == "comment_music_band"): ?>
+            <a class="header" href="<?= base_url('music/band/view/'.$value->music_band_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->bandmusic) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+            <?php elseif ($value->type == "comment_post"): ?>
+            <a class="header" href="<?= base_url('band/post/view/'.$value->post_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->topicband) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+            <?php elseif ($value->type == "request_join"): ?>
+            <a class="header" href="<?= base_url('band/request') ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span></a> <span class="date"><?=($value->noti_date) ?></span>
+            <?php elseif ($value->type == "accept_request_member"): ?>
+            <a class="header" href="<?= base_url('band/'.$value->band_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span></a> <span class="date"><?=($value->noti_date) ?></span>
+           <?php elseif ($value->type == "accept_request_user"): ?>
+            <a class="header" href="<?= base_url('band/'.$value->band_id) ?>">"<?=($value->bandname) ?>" <span class="notify_text"> <?=($value->text) ?></span></a> <span class="date"><?=($value->noti_date) ?></span>
+           <?php elseif ($value->type == "accept_job_band"): ?>
+            <a class="header" href="<?= base_url('job/view/'.$value->job_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->jobname) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+              <?php elseif ($value->type == "accept_job_user"): ?>
+            <a class="header" href="<?= base_url('job/view/'.$value->job_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->jobname) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+            <?php elseif ($value->type == "request_job_band"): ?>
+            <a class="header" href="<?= base_url('job/view/'.$value->job_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->jobname) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+              <?php elseif ($value->type == "request_job"): ?>
+            <a class="header" href="<?= base_url('job/view/'.$value->job_id) ?>"><?=($value->from_user_name)?> <?=($value->from_user_surname)?> <span class="notify_text"> <?=($value->text) ?></span> "<?=($value->jobname) ?>"</a> <span class="date"><?=($value->noti_date) ?></span>
+          <?php endif; ?>
           </div>
         </div> <?php endforeach; ?>
          <!--  <div id="notice-item" class="item">
