@@ -9,55 +9,63 @@
 
   <?php $this->load->view('header'); ?>
 
-    <style> 
-    
-    #notice-item {
-        padding: 10px;
-    }
-    </style>
+  <style> 
 
-    <body>
+  #notice-item {
+    padding: 10px;
+  }
+  #notice-container {
+    background-color: #FFFFFF;
+    border-left: 1px solid rgba(0, 0, 0, 0.14);
+    border-right: 1px solid rgba(0, 0, 0, 0.14);
+    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+    box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
+  }
 
-      <?php $this->load->view('navigation'); ?>
+  </style>
 
-        <div class="container">
-            <div class="row">
+  <body>
 
-                <div class="col-xs-12">
+    <?php $this->load->view('navigation'); ?>
 
-                    <h3 class="ui block header" style="margin: 120px 0px 0px 0px; background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
-                      <i class="bell icon"></i>
-                      การแจ้งเตือน
-                  </h3>
+    <div id="notice-container" class="container">
+      <div class="row">
 
-                  <div class="ui red pointing menu" style="border-radius: 0em; margin-top: 0px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
-                      <a class="active item">
-                       แจ้งเตือนทั้งหมด
-                   </a>
-                 <!--   <a class="item">
+        <div class="col-xs-12">
+
+          <h3 class="ui block header" style="margin: 120px 0px 20px 0px; background-color: #FFFFFF;">
+            <i class="bell icon"></i>
+            การแจ้งเตือน
+          </h3>
+
+          <!-- <div class="ui red pointing menu" style="border-radius: 0em; margin-top: 0px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
+            <a class="active item">
+             แจ้งเตือนทั้งหมด
+           </a>
+                 <a class="item">
                     แจ้งเตือนของคุณ
                 </a>
                 <a class="item">
                     แจ้งเตือนของวง
-                </a> -->
-            </div>            
-            <div class="ui divided selection list" style="background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
-             <?php foreach ($noti as $value): ?>
-              <div id="notice-item" class="item">
-                <?php if($value->type == "comment_music_user" || $value->type == "comment_music_band" || $value->type == "comment_post"): ?>
-                <i class="comment icon"></i>
-              <?php elseif ($value->type == "request_join"): ?>
-               <i class="circle blank icon"></i>
-               <?php elseif ($value->type == "accept_request_member" || $value->type == "accept_request_user"): ?>
-               <i class="circle icon"></i>
-                <?php elseif ($value->type == "accept_job_band" || $value->type == "accept_job_user" || $value->type == "request_job_band" ||  $value->type == "request_job"): ?>
-               <i class="checkmark sign icon"></i>
-              <?php endif; ?>
-                <div class="content">
-                  <a class="header" href="<?=($value->link) ?>"><?=($value->text) ?></a> <span class="date"><?=($value->noti_date) ?></span>
-                  <div class="description">คอมเม้นโดยย่อ</div>
-              </div>
-          </div> <?php endforeach; ?>
+                  </a>
+                </div>    -->         
+                <div class="ui divided selection list" style="background-color: #FFFFFF; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);">
+                 <?php foreach ($noti as $value): ?>
+                 <div id="notice-item" class="item">
+                  <?php if($value->type == "comment_music_user" || $value->type == "comment_music_band" || $value->type == "comment_post"): ?>
+                  <i class="comment icon"></i>
+                <?php elseif ($value->type == "request_join"): ?>
+                <i class="circle blank icon"></i>
+              <?php elseif ($value->type == "accept_request_member" || $value->type == "accept_request_user"): ?>
+              <i class="circle icon"></i>
+            <?php elseif ($value->type == "accept_job_band" || $value->type == "accept_job_user" || $value->type == "request_job_band" ||  $value->type == "request_job"): ?>
+            <i class="checkmark sign icon"></i>
+          <?php endif; ?>
+          <div class="content">
+            <a class="header" href="<?=($value->link) ?>"><?=($value->text) ?></a> <span class="date"><?=($value->noti_date) ?></span>
+            <div class="description">คอมเม้นโดยย่อ</div>
+          </div>
+        </div> <?php endforeach; ?>
          <!--  <div id="notice-item" class="item">
             <i class="circle blank icon"></i>
             <div class="content">
