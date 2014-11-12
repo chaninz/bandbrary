@@ -111,7 +111,7 @@ if(window.EventSource){
  					$("#notification").html("").removeClass('notify');
  				}
  				else{
-		    	$("#notification").html('<div class="floating ui black label"  style="margin: 0.5em 0em 0em -1.5em">'+event.data+'</div>');
+		    	$("#notification").html('<div class="floating ui black label notify">'+event.data+'</div>');
  				}
 		   }, false);
 

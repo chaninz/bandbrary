@@ -51,52 +51,31 @@ footer {
 	bottom: 46px;
 }*/
 
-/*@media all and (max-width: 1280px) {
+@media all and (max-width: 1680px) {
+	footer {
+		width: 1680px;
+	}
+}
+@media all and (max-width: 1440px) {
+	footer {
+		width: 1440px;
+	}
+}
+@media all and (max-width: 1280px) {
 	footer {
 		width: 1280px;
 	}
-	.footleft {
-		width: 576px;
-	}
-	.footright {
-		width: 539px;
-	}
 }
-
 @media all and (max-width: 1024px) {
 	footer {
 		width: 1024px;
-	}
-	.footleft {
-		width: 448px;
-	}
-	.footright {
-		width: 411px;
 	}
 }
 @media all and (max-width: 980px) {
 	footer {
 		width: 980px;
-		height: 100px;
-		background-color: #000000;
 	}
-	.footleft {
-		width: 0px;
-		height: 0px;
-		background-color: transparent;
-		float: none;
-		position: relative;
-		bottom: 0px;
-	}
-	.footright {
-		width: 0px;
-		height: 0px;
-		background-color: transparent;
-		float: none;
-		position: relative;
-		bottom: 0px;
-	}
-}*/
+}
 .bb-logo{
 	width: 165px;
 	height: 65px;

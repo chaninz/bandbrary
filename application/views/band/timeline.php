@@ -12,7 +12,7 @@
 		background-color: #F7F6F6;
 	}
 	i.circular.icon {
-		box-shadow: 0em 0em 0em 0.1em #FFFFFF inset;
+		box-shadow: 0em 0em 0em 0.1em #E72A30 inset;
 	}
 	</style>
 
@@ -27,7 +27,7 @@
 
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-9">
-						<div class="ui piled feed segment" style="margin-top: 20px; z-index: 1;">
+						<div class="ui piled feed segment" style="margin-top: 20px; width: 689px;">
 							<?php foreach ($timelines as $timeline): ?>
 							<?php if($timeline->type == "Music"): ?>
 							<div class="event">
