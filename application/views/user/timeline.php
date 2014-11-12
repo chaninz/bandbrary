@@ -27,23 +27,25 @@
 					<?php $this->load->view('user/sidebar_left'); ?>
 					<div class="col-xs-9">
 						<div class="ui piled feed segment" style="margin-top: 20px; z-index: 1;">
+							<?php foreach ($timelines as $timeline): ?>
+							 <?php if($timeline->type == "Music"): ?>
 							<div class="event">
 								<div class="label">
 									<i class="circular music icon"></i>
 								</div>
 								<div class="content">
 									<div class="date">
-										3 days ago
+										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										Chanin Nualprasong ได้เพิ่มเพลงใหม่
+									 	<?= $timeline->username ?> <?= $timeline->surname ?> ได้เพิ่มเพลงใหม่
 									</div>
 									<div class="extra text">
-										<a>เพลง รักเธอทั้งหมดของหัวใจ</a>
+										<a href="<?= base_url('music/user/view/'.$timeline->id) ?>">>เพลง <?= $timeline->text ?></a>
 									</div>
 								</div>
 							</div>
-							<div class="event">
+							<!-- <div class="event">
 								<div class="label">
 									<i class="circular pencil icon"></i>
 								</div>
@@ -58,23 +60,26 @@
 										<a> เนื้อเพลง รักเธอทั้งหมดของหัวใจ </a>
 									</div>
 								</div>
-							</div>
+							</div> -->
+							 <?php elseif ($timeline->type == "Status"): ?>
 							<div class="event">
 								<div class="label">
 									<i class="circular text file icon"></i>
 								</div>
 								<div class="content">
 									<div class="date">
-										3 days ago
+										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										Chanin Nualprasong ได้อัพเดตสถานะใหม่
+										<?= $timeline->username ?> <?= $timeline->surname ?>ได้อัพเดตสถานะใหม่
 									</div>
 									<div class="extra text">
-										<a> เบื่อ เซง อยากมีแฟน </a>
+										 <?= $timeline->text ?>
 									</div>
 								</div>
 							</div>
+							 <?php endif; ?>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

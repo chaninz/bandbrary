@@ -159,6 +159,25 @@ class User_model extends CI_Model {
 		$this->db->delete('greedd',$data);	
 	}
 
+	function timeline($user_id){
+		$query = $this->db->query('
+		SELECT User_Status.id,User_Status.status as text,User_Status.timestamp,"Status" as type,Users.name as username,Users.surname as surname
+		FROM User_Status
+		JOIN Users ON User_Status.user_id = Users.id
+		where Users.id = '.$user_id.'
+		union all
+		select User_Music.id,User_Music.name as text,User_Music.timestamp,"Music" as type,Users.name as username,Users.surname as surname
+		from User_Music
+		JOIN User_Albums on User_Music.album_id = User_Albums.id
+		JOIN Users on User_Albums.user_id = Users.id
+		where Users.id = '.$user_id.'
+
+		ORDER BY timestamp desc');
+		return $query->result();
+
+
+	}
+
 }
 
 /* End of file user_model.php */

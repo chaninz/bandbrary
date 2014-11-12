@@ -28,54 +28,60 @@
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-9">
 						<div class="ui piled feed segment" style="margin-top: 20px; z-index: 1;">
+							<?php foreach ($timelines as $timeline): ?>
+							<?php if($timeline->type == "Music"): ?>
 							<div class="event">
 								<div class="label">
 									<i class="circular music icon"></i>
 								</div>
 								<div class="content">
-									<div class="date">
-										3 days ago
+								<div class="date">
+										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										NinUP DUO ได้เพิ่มเพลงใหม่
+									 	<?= $timeline->bandname ?> ได้เพิ่มเพลงใหม่
 									</div>
 									<div class="extra text">
-										<a>เพลง รักเธอทั้งหมดของหัวใจ</a>
+										<a href="<?= base_url('music/band/view/'.$timeline->id) ?>">>เพลง <?= $timeline->text ?></a>
 									</div>
 								</div>
 							</div>
+							 <?php elseif ($timeline->type == "Post"): ?>
 							<div class="event">
 								<div class="label">
 									<i class="circular pencil icon"></i>
 								</div>
 								<div class="content">
 									<div class="date">
-										3 days ago
+										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										NinUP DUO ได้เขียนโพสต์ใหม่
+										<?= $timeline->bandname ?> ได้เขียนโพสต์ใหม่
 									</div>
 									<div class="extra text">
-										<a> เนื้อเพลง รักเธอทั้งหมดของหัวใจ </a>
+										<a href="<?= base_url('band/post/view/'.$timeline->id) ?>"> <?= $timeline->text ?> </a>
 									</div>
 								</div>
 							</div>
+							<?php elseif ($timeline->type == "Status"): ?>
 							<div class="event">
 								<div class="label">
 									<i class="circular text file icon"></i>
 								</div>
 								<div class="content">
 									<div class="date">
-										3 days ago
+										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										NinUP DUO ได้อัพเดตสถานะใหม่
+										<?= $timeline->bandname ?> ได้อัพเดตสถานะใหม่
 									</div>
 									<div class="extra text">
-										<a> เบื่อ เซง อยากมีแฟน </a>
+										 <?= $timeline->text ?>
 									</div>
 								</div>
 							</div>
+							<?php endif; ?>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

@@ -45,6 +45,32 @@ class Band_model extends CI_Model {
 		return $result;
 	}
 
+	function timeline($band_id){
+			$query = $this->db->query('
+		SELECT Band_Status.id,Band_Status.status as text,Band_Status.timestamp,"Status" as type,Bands.name as bandname
+		FROM Band_Status
+		JOIN Bands ON Band_Status.band_id = Bands.id
+		WHERE Bands.id = '.$band_id.'
+		
+		union all
+	
+		SELECT Band_Music.id,Band_Music.name as text,Band_Music.timestamp,"Music" as type,Bands.name as bandname
+		FROM Band_Music
+		JOIN Band_Albums on Band_Music.album_id = Band_Albums.id
+		JOIN Bands ON Band_Albums.band_id = Bands.id
+		WHERE Bands.id = '.$band_id.'
+		
+		union all
+	
+		SELECT Band_Posts.id,Band_Posts.topic as text,Band_Posts.timestamp,"Post" as type,Bands.name as bandname
+    	FROM Band_Posts
+        JOIN Bands ON Band_Posts.band_id = Bands.id
+		WHERE Bands.id = '.$band_id.'
+
+		ORDER BY timestamp desc');
+		return $query->result();
+	}
+
 }
 
 /* End of file band_model.php */
