@@ -176,8 +176,8 @@
                   
                   html +=
                   '<div class="event">'+
-                  '<div class="label">'+image+
-                  '</div>'+
+                  '<div class="label"> <a href="<?= base_url().'user/'?>'+value.source+'">'+image+
+                  '</a></div>'+
                   '<div class="content">'+
                   '<div class="date">'+
                   date.toDateString()+
