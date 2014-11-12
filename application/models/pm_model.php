@@ -32,7 +32,7 @@ class Pm_model extends CI_Model {
 		// $this->db->or_where($array2);
 		// $this->db->order_by("PM_Users.timestamp", "asc"); 
 
-		$query = $this->db->query('select PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,t.username as target,f.photo_url as from_photo,t.photo_url as to_photo
+		$query = $this->db->query('select PM_Users.*,f.name as from_user_name ,f.surname as from_user_surname ,f.username as source,t.username as target,f.photo_url as from_photo,t.photo_url as to_photo
 									from PM_Users join Users AS f on PM_Users.from_user_id = f.id
 									join Users AS t on  PM_Users.to_user_id = t.id
 									where 
