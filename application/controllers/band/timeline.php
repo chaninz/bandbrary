@@ -25,7 +25,6 @@ class Timeline extends CI_Controller {
 			$is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
 			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
 			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
-			
 			$display = array('band_profile' => $band_profile,
 				'status' => $status,
 				'band_members' => $band_members,
