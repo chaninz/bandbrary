@@ -1425,7 +1425,7 @@ body > .ui.grid {
   font-weight: normal;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 0.1875rem;
+  /*border-radius: 0.1875rem;*/
 }
 .ui.menu:first-child {
   margin-top: 0rem;
