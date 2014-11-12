@@ -71,7 +71,10 @@ class Join_band_model extends CI_Model {
 			$this->db->insert('Join_Band', $data);
 		} elseif ($user_status == 3 || $user_status == 4) {
 			// if leaved
-			$this->set_status($data['user_id'], $data['band_id'], 1);
+			$this->db->where('user_id', $data['user_id']);
+			$this->db->where('band_id', $data['band_id']);
+			$this->db->update('Join_Band', array('status' => 1,
+				'position' => $data['position']));
 		} else {
 			// if joining other band
 			return -1;
