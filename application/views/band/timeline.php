@@ -27,7 +27,7 @@
 
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-9">
-						<div class="ui piled feed segment" style="margin-top: 20px;">
+						<div class="ui piled feed segment" style="margin-top: 20px; z-index: 1;">
 							<?php foreach ($timelines as $timeline): ?>
 							<?php if($timeline->type == "Music"): ?>
 							<div class="event">
