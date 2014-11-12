@@ -41,7 +41,7 @@
 									 	<?= $timeline->username ?> <?= $timeline->surname ?> ได้เพิ่มเพลงใหม่
 									</div>
 									<div class="extra text">
-										<a href="<?= base_url('music/user/view/'.$timeline->id) ?>"><?= $timeline->text ?></a>
+										<a href="<?= base_url('music/user/view/'.$timeline->id) ?>">เพลง <?= $timeline->text ?></a>
 									</div>
 								</div>
 							</div>
