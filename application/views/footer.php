@@ -115,6 +115,67 @@
 	});
 	/* END-Band update Status */
 
+	/* Follow user button */
+	$("#follow-user-button").click(function() {
+		var userId = $(this).data("value");
+		if ($("#follow-user-button").hasClass("following")) {
+			var followUser = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('following/user/unfollow').'/' ?>" + userId,
+				dataType: "text"
+			});
+
+			followUser.done(function(msg) {
+				$("#follow-user-button").html('<i class="add icon"></i>ติดตาม');
+				$("#follow-user-button").removeClass("following");
+			});
+		} else {
+			var followUser = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('following/user/follow').'/' ?>" + userId,
+				dataType: "text"
+			});
+
+			followUser.done(function(msg) {
+				$("#follow-user-button").html('<i class="checkmark icon"></i>กำลังติดตาม');
+				$("#follow-user-button").addClass("following");
+			});
+		}
+	});
+	/* END-Follow user button */
+
+	/* Follow band button */
+	$("#follow-band-button").click(function() {
+		var bandId = $(this).data("value");
+		if ($("#follow-band-button").hasClass("following")) {
+			var followBand = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('following/band/unfollow').'/' ?>" + bandId,
+				dataType: "text"
+			});
+
+			followBand.done(function(msg) {
+				$("#follow-band-button").html('<i class="add icon"></i>ติดตาม');
+				$("#follow-band-button").removeClass("following");
+			});
+		} else {
+			var followBand = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('following/band/follow').'/' ?>" + bandId,
+				dataType: "text"
+			});
+
+			followBand.done(function(msg) {
+				$("#follow-band-button").html('<i class="checkmark icon"></i>กำลังติดตาม');
+				$("#follow-band-button").addClass("following");
+			});
+		}
+	});
+	/* END-Follow band button */
 
 	/* Member transition */
 	$('.member.image')

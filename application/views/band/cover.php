@@ -12,24 +12,26 @@
 				<div class="col-xs-12">
 					<div class="punpun">
 						<?php if($band_profile->photo_url): ?>
-						<img src="<?= base_url('uploads/profile/band/'.$band_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail" style="border: 4px solid #E72A30;"/><?php else: ?>
-						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail" style="border: 4px solid #E72A30;"/><?php endif; ?>
+							<img src="<?= base_url('uploads/profile/band/'.$band_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail" style="border: 4px solid #E72A30;"/>
+						<?php else: ?>
+							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail" style="border: 4px solid #E72A30;"/>
+						<?php endif; ?>
 						<div class="profile-name">
 							<div id="pn1"><?= $band_profile->name ?></div>
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div>
 						<div id="band-follow" class="ui small black buttons">
 							<?php if(empty($is_follow_band)): ?>
-								<a class="ui button" href="<?= base_url('following/band/follow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a>
+								<a class="ui button" id="follow-band-button" data-value="<?= $band_profile->id ?>"><i class="add icon"></i>ติดตาม</a>
 							<?php else: ?>
-								<a class="ui button" href="<?= base_url('following/band/unfollow/'.$band_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
+								<a class="ui button following" id="follow-band-button" data-value="<?= $band_profile->id ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
 							<?php endif; ?>
 							<div class="ui mbtn pm button">ข้อความ</div>
 							<div class="ui labeled top right pointing dropdown black button">
 								<i class="ellipsis horizontal icon" style="margin: 0px"></i>
 								<div class="menu">
 									<div class="item mbtn reportband" id="bandreport" post-id="<?= $band_profile->id ?> ">รายงานปัญหาวงดนตรี</div>
-									<?php if ($user_status->status == 2): ?>
+									<?php if ( ! empty($user_status) && $user_status->status == 2): ?>
 										<a class="item" href="<?= base_url('band/join/leave/'.$band_profile->id) ?>">ออกจากวง</a>
 									<?php endif ?>
 								</div>

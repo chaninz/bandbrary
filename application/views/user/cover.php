@@ -2,73 +2,73 @@
 	<article>
 		<div class="profile-cover">
 			<?php if($user_profile->cover_url): ?>
-			<img src="<?= base_url('uploads/cover/user/'.$user_profile->cover_url) ?>" alt="" /><?php else: ?>
-			<img src="<?= base_url('images/cover.jpg') ?>" alt="" /><?php endif; ?>
+				<img src="<?= base_url('uploads/cover/user/'.$user_profile->cover_url) ?>" alt="" />
+			<?php else: ?>
+				<img src="<?= base_url('images/cover.jpg') ?>" alt="" />
+			<?php endif; ?>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="punpun">
 						<?php if($user_profile->photo_url): ?>
-						<img src="<?= base_url('uploads/profile/user/'.$user_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php else: ?>
-						<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/><?php endif; ?>
+							<img src="<?= base_url('uploads/profile/user/'.$user_profile->photo_url) ?>" alt="" id="profile-pic2" class="img-thumbnail"/>
+						<?php else: ?>
+							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/>
+						<?php endif; ?>
 						<div class="profile-name">
-							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div><?php if( ! empty($band_profile)): ?>
-							<div id="pn2">สมาชิกวง <?= $band_profile->name ?></div><?php endif; ?>
+							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div>
+							<?php if( ! empty($band_profile)): ?>
+								<div id="pn2">สมาชิกวง <?= $band_profile->name ?></div>
+							<?php endif; ?>
 						</div>
-						<?php if ($user_profile->id == $this->session->userdata('id')): ?><?php elseif(empty($is_follow_user)): ?>
-						<div id="user-follow" class="ui small black buttons">
-							<a class="ui button" href="<?= base_url('following/user/follow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a>
-							<div class="ui button mbtn pm">ข้อความ</div>
-							<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
-								<div class="menu">
-									<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
+						<?php if ($user_profile->id != $this->session->userdata('id')): ?>
+							<div id="user-follow" class="ui small black buttons">
+								<?php if(empty($is_follow_user)): ?>
+									<!-- <a class="ui button" id="follow-button" href="<?= base_url('following/user/follow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="add icon"></i>ติดตาม</a> -->
+									<a class="ui button" id="follow-user-button" data-value="<?= $user_profile->id ?>"><i class="add icon"></i>ติดตาม</a>
+								<?php else: ?>
+									<!-- <a class="ui button" id="" href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a> -->
+									<a class="ui button following" id="follow-user-button"><i class="checkmark icon"></i>กำลังติดตาม</a>
+								<?php endif; ?>
+								<div class="ui button mbtn pm">ข้อความ</div>
+								<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
+									<div class="menu">
+										<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					<?php else: ?>
-					<div id="user-follow" class="ui small black buttons">
-						<a class="ui button" href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a>
-						<div class="ui button mbtn pm">ข้อความ</div>
-						<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
-							<div class="menu">
-								<div class="item mbtn reportuser" id="userreport" post-id="<?= $user_profile->id; ?>">รายงานปัญหาบุคคล</div>
-								<div class="item">emtry</div>
-								<div class="item">emtry</div>
-							</div>
-						</div>
-					</div>
-				<?php endif; ?>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="menu-profile">
-				<div class="ui compact menu" style="border-radius: 0px">
-					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/timeline' ?>">
-						ไทม์ไลน์ <span class="bb-count">22</span>
-					</a>
-					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/music' ?>">
-						เพลง <span class="bb-count">22</span>
-					</a>
-					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">
-						คนตามกรี๊ด <span class="bb-count">22</span>
-					</a>
-					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/following' ?>">
-						กำลังกรี๊ด <span class="bb-count">22</span>
-					</a>
-					<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">
-						ตารางงาน <span class="bb-count">22</span>
-					</a>
+						<?php endif; ?>
+					</div>		
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</article>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="menu-profile">
+						<div class="ui compact menu" style="border-radius: 0px">
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/timeline' ?>">
+								ไทม์ไลน์ <span class="bb-count">22</span>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/music' ?>">
+								เพลง <span class="bb-count">22</span>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/follower' ?>">
+								คนตามกรี๊ด <span class="bb-count">22</span>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/following' ?>">
+								กำลังกรี๊ด <span class="bb-count">22</span>
+							</a>
+							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">
+								ตารางงาน <span class="bb-count">22</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
 </section>
 
 <!--Report user modal-->
