@@ -225,10 +225,7 @@
         }
         else{
           ele.parent().parent().find(".noti_all_user").text("");
-
         }
-
-
 }
 });
           $.ajax({
@@ -352,7 +349,8 @@ $("#message").submit(function(e){
       $('#pm-msg').animate({
         scrollTop: $("#pm-msg").offset().top + $("#pm-msg")[0].scrollHeight
       }, 500);
-      $("#text").val();
+      $("#text").val("");
+
     }
   });
 });
