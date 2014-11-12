@@ -31,7 +31,7 @@
 						<div class="center">
 							<?php if ($this->session->userdata('band_id') == $band_profile->id): ?>
 							<a id="event-add-btn" class="ui red button test event">
-								<i class="edit icon"></i>
+								<i class="add icon"></i>
 								เพื่มกิจกรรม
 							</a>
 						<?php endif; ?>
@@ -132,11 +132,6 @@
 		</div>
 	</form>
 </div>
-
-<footer>
-	<div class="footleft"></div>
-	<div class="footright"></div>
-</footer>
 
 <?php $this->load->view('footer'); ?>
 <script>

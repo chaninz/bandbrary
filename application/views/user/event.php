@@ -32,7 +32,7 @@
 						<div class="center">
 							<?php if ($this->session->userdata('id') == $user_profile->id): ?>
 								<a id="event-add-btn" class="ui red button mbtn event">
-									<i class="edit icon"></i>
+									<i class="add icon"></i>
 									เพิ่มกิจกรรม
 								</a>
 							<?php endif; ?>
@@ -140,11 +140,6 @@
 		</div>
 	</form>
 </div>
-
-<footer>
-	<div class="footleft"></div>
-	<div class="footright"></div>
-</footer>
 
 <?php $this->load->view('footer'); ?>
 <script>

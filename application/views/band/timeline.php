@@ -8,18 +8,11 @@
 	<?php $this->load->view('header'); ?>
 
 	<style>
-	.center {
-		background-color: #F7F6F6; 
-		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
-		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
-		word-wrap: break-word;
-		padding: 25px;
+	.ui.piled.segment:after, .ui.piled.segment:before {
+		background-color: #F7F6F6;
 	}
-	h2.ui.header {
-		font-size: 2.5rem;
-	}
-	.ui.header .sub.header {
-		font-size: 1.4rem;
+	i.circular.icon {
+		box-shadow: 0em 0em 0em 0.1em #FFFFFF inset;
 	}
 	</style>
 
@@ -34,18 +27,61 @@
 
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-9">
-						<div class="center">
+						<div class="ui piled feed segment" style="margin-top: 20px; z-index: 1;">
+							<div class="event">
+								<div class="label">
+									<i class="circular music icon"></i>
+								</div>
+								<div class="content">
+									<div class="date">
+										3 days ago
+									</div>
+									<div class="summary">
+										NinUP DUO ได้เพิ่มเพลงใหม่
+									</div>
+									<div class="extra text">
+										<a>เพลง รักเธอทั้งหมดของหัวใจ</a>
+									</div>
+								</div>
+							</div>
+							<div class="event">
+								<div class="label">
+									<i class="circular pencil icon"></i>
+								</div>
+								<div class="content">
+									<div class="date">
+										3 days ago
+									</div>
+									<div class="summary">
+										NinUP DUO ได้เขียนโพสต์ใหม่
+									</div>
+									<div class="extra text">
+										<a> เนื้อเพลง รักเธอทั้งหมดของหัวใจ </a>
+									</div>
+								</div>
+							</div>
+							<div class="event">
+								<div class="label">
+									<i class="circular text file icon"></i>
+								</div>
+								<div class="content">
+									<div class="date">
+										3 days ago
+									</div>
+									<div class="summary">
+										NinUP DUO ได้อัพเดตสถานะใหม่
+									</div>
+									<div class="extra text">
+										<a> เบื่อ เซง อยากมีแฟน </a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</article>
 	</section>
-
-<footer>
-	<div class="footleft"></div>
-	<div class="footright"></div>
-</footer>
 
 	<?php $this->load->view('footer'); ?>
 </body>

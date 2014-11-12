@@ -122,11 +122,6 @@
 		</form>
 	</div>
 
-	<footer>
-	<div class="footleft"></div>
-	<div class="footright"></div>
-</footer>
-
 	<script>
 		$(".reportpost#postreport").click(function(){
 			var id = $(this).attr("post-id");

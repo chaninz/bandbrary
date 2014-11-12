@@ -8,49 +8,12 @@
 	<?php $this->load->view('header'); ?>
 
 	<style>
-	.ui.segment {
-		padding: 2em;
-	}
-	.ui.form textarea, .ui.textarea {
-		height: 11.4em;
-		border-radius: 0px;
-	}
-	.ui.modal {
-		height: 500px;
-	}
-	.ui.comments .comment .actions {
-		text-align: left;
-	}
-	.ui.modal .actions {
-		padding: 1rem 0em;
-	}
-	.ui.comments .reply.form textarea {
-		height: 5em;
-	}
-	.ui.textarea, .ui.form textarea {
-		min-height: 0em;
-	}
-	.ui.comments .comment .reply.form {
-		margin:0em;
-	}
-	.ui.comments .reply.form {
-		max-width: 96%;
-	}
-	.ui.accordion, .ui.accordion .accordion {
-		font-size: 1em;
-	}
-	.center {
-		margin-top: 15px;
-	}
-	#greedd {
-		left: 985px;
-	}
 	.ui.menu .item {
 		padding: 1em;
 	}
 	.follow-menu {
 		width: 100%;
-		margin-top: 14px;
+		margin-top: 20px;
 		background-color: #FFFFFF;
 		-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
 		box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
@@ -85,9 +48,6 @@
 										<?php if($following_user->photo_url): ?>
 										<img src="<?= base_url().'uploads/profile/user/'.$following_user->photo_url ?>"><?php else: ?>
 										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
-										<a class="star ui corner label">
-											<i class="star icon"></i>
-										</a>
 									</div>
 									<div class="content">
 										<div class="name"><a href="<?= base_url().'user/'.$following_user->username ?>"><?= $following_user->name.' '.$following_user->surname ?></a></div>
@@ -101,11 +61,6 @@
 			</div>
 		</article>
 	</section>
-
-<footer>
-	<div class="footleft"></div>
-	<div class="footright"></div>
-</footer>
 
 	<?php $this->load->view('footer'); ?>
 </body>

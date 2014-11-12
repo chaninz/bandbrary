@@ -161,9 +161,9 @@
 						<div class="ui form">
 							<div class="field">
 								<input placeholder="Write a Comment..." type="text" style="width: 455px; border-radius: 0px;">
-							<div class="ui tiny icon button" style="margin: 0px; padding: 0.99em; margin-bottom: 2px;">
-								ส่ง
-							</div>
+								<div class="ui tiny icon button" style="margin: 0px; padding: 0.99em; margin-bottom: 2px;">
+									ส่ง
+								</div>
 							</div>
 						</div>
 					</div>
@@ -177,17 +177,17 @@
 					<div class="advt box">
 						<h5 class="ui header" style="margin: 0px; margin-bottom: 5px;">นักร้องหญิงดิ้นได้</h5>
 						<img class="ui small image"  style="margin: 0px; margin-left: 11px; margin-bottom: 5px;" src="/images/demo/photo2.jpg">
-  <p>ต้องการนักร้องเพศหญิง มีความสามารถเต้นและร้องได้ โดยเฉพาะเพลงลูกทุ่ง จังหวะแดนซ์ ยิ่งเต้น... <a href="">Read more</a></p>
-</div>
+						<p>ต้องการนักร้องเพศหญิง มีความสามารถเต้นและร้องได้ โดยเฉพาะเพลงลูกทุ่ง จังหวะแดนซ์ ยิ่งเต้น... <a href="">Read more</a></p>
 					</div>
 				</div>
-				<!--end advt-->
 			</div>
-
+			<!--end advt-->
 		</div>
-	</div>
 
-	<?php $this->load->view('footer'); ?>
+	</div>
+</div>
+
+<?php $this->load->view('footer'); ?>
 
 </body>
 </html>

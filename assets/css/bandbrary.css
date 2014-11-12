@@ -27,13 +27,14 @@ header{
 
 footer {
 	width: 100%;
-	height: 750px;
-	margin-top: 70px;
+	height: 100px;
+	margin-top: 50px;
 	position: relative;
 	bottom: 0;
-	background-color: #E72A30;
+	background-color: #121212;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 }
-.footleft {
+/*.footleft {
 	width: 656px;
 	height: 46px;
 	background-color: #E72A30;
@@ -48,9 +49,9 @@ footer {
 	float: right;
 	position: relative;
 	bottom: 46px;
-}
+}*/
 
-@media all and (max-width: 1280px) {
+/*@media all and (max-width: 1280px) {
 	footer {
 		width: 1280px;
 	}
@@ -95,7 +96,7 @@ footer {
 		position: relative;
 		bottom: 0px;
 	}
-}
+}*/
 .bb-logo{
 	width: 165px;
 	height: 65px;
