@@ -69,10 +69,14 @@
            <?php if($pm_user->photo_url): ?><img class="pm-profile-pic" src="<?= base_url().'uploads/profile/user/'.$pm_user->photo_url ?>"><?php else: ?>
            <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
            <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_user->timestamp)) ?> <?= mdate("%M", strtotime($pm_user->timestamp)) ?> <?= mdate("%Y", strtotime($pm_user->timestamp)) ?></div>
-           <div class="description" style="margin-top: 4px;"><b><?= $pm_user->name ?> <?= $pm_user->surname ?> 
+           <div class="description" style="margin-top: 4px;">
+            <b>
+              <?= $pm_user->name ?> <?= $pm_user->surname ?> 
             <span class="notiuser" ><?php if($pm_user->total_msg != 0){
               echo '('. $pm_user->total_msg .')'; 
-            }?></b></div>            
+            }?> </span>
+          </b>
+        </div>            
            <?= $pm_user->text ?> 
            </span>   
          </a>
@@ -84,8 +88,32 @@
       <?php foreach($pm_bands as $pm_band): ?>
       <a class="item" data-id="<?= $pm_band->band_id ?>" >
        <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_band->timestamp)) ?> <?= mdate("%M", strtotime($pm_band->timestamp)) ?> <?= mdate("%Y", strtotime($pm_band->timestamp)) ?></div>
-       <div class="description" style="margin-top: 4px;"><b><?= $pm_band->name ?></b></div>           
+       <div class="description" style="margin-top: 4px;">
+        <b>
+          <?= $pm_band->name ?>
+            <span class="notiuser" ><?php if($total_msg_in_band!= 0){
+              echo '('. $total_msg_in_band.')'; 
+            }?>
+          </span>
+        </b>
+      </div>           
        <?= $pm_band->text ?>
+
+     </a>
+   <?php endforeach; ?>
+     <?php foreach($msg_to_band as $msgToBand): ?>
+      <a class="item" data-id="<?= $msgToBand->band_id ?>" >
+       <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($msgToBand->timestamp)) ?> <?= mdate("%M", strtotime($msgToBand->timestamp)) ?> <?= mdate("%Y", strtotime($msgToBand->timestamp)) ?></div>
+       <div class="description" style="margin-top: 4px;">
+         <b>
+              <?= $msgToBand->name ?> <?= $msgToBand->surname ?> 
+            <span class="notiuser" ><?php if($msgToBand->total_msg != 0){
+              echo '('. $msgToBand->total_msg .')'; 
+            }?>
+          </span>
+          </b>
+      </div>           
+       <?= $msgToBand->text ?>
 
      </a>
    <?php endforeach; ?>

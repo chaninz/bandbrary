@@ -43,8 +43,18 @@ class Band_music_model extends CI_Model {
 		$this->db->join('Bands', 'Bands.id = Band_Albums.band_id');
 		$this->db->where('Band_Music.id', $music_id);
 
-		$query = $this->db->get();
+
 		return $query->row();
+	}
+
+	function get_count_music_band($band_id){
+		$this->db->select('*');
+		$this->db->from('Band_Music');
+		$this->db->join('Band_Albums', 'Band_Albums.id = Band_Music.album_id');
+		$this->db->join('Bands', 'Bands.id = Band_Albums.band_id');
+		$this->db->where('Bands.id', $band_id);
+		$query = $this->db->get();
+		return $query->num_rows();
 	}
 
 }

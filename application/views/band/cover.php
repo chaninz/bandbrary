@@ -45,16 +45,16 @@
 						<div class="menu-profile">
 							<div class="ui compact menu" style="border-radius: 0px">
 								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/timeline') ?>">
-									ไทม์ไลน์ <span class="bb-count">22</span>
+									ไทม์ไลน์ <span class="bb-count"><?= $total_timeline ?></span>
 								</a>
 								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/music') ?>">
-									เพลง <span class="bb-count">22</span>
+									เพลง <span class="bb-count"><?= $total_music ?></span>
 								</a>
 								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/post') ?>">
-									โพสต์ <span class="bb-count">22</span>
+									โพสต์ <span class="bb-count"><?= $total_post ?></span>
 								</a>
 								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/follower') ?>">
-									คนตามกรี๊ด <span class="bb-count">22</span>
+									คนตามกรี๊ด <span class="bb-count"><?= $total_follower ?></span>
 								</a>
 								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/event') ?>">
 									ตารางงาน <span class="bb-count">22</span>

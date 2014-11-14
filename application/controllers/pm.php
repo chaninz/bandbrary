@@ -17,8 +17,11 @@ public function __construct() {
 			'pm_users' => $this->pm_model->get_all(),
 			'count_pm_user' => $this->pm_model->count_noti_pm_user(),
 			'pm_bands'=> $this->pm_band_model->getPmBand(),
-			'count_pm_band' => $this->receive_noti_band->get_total_noti_band()
+			'count_pm_band' => $this->receive_noti_band->get_total_noti_band(),
+			'msg_to_band' => $this->pm_band_model->getMsgToBand(),
+			'total_msg_in_band' => (int)$this->receive_noti_band->get_total_noti_band() - (int)$this->pm_band_model->getTotalMsgToBand()
 		);
+
 		//print_r($data);
 		$this->load->view('private_message',$data);
 	}
@@ -35,7 +38,6 @@ public function __construct() {
 				);
 				//print_r($data);
 				$id = $this->pm_model->add($data);
-
 				$lastpm = $this->pm_model->get_pm_by_id($id);
 				echo json_encode($lastpm);
 				//redirect(base_url('pm/'.$data['to_user_id']));
@@ -80,6 +82,9 @@ public function __construct() {
 				);
 				//print_r($data);
 				$id = $this->pm_model->add($data);
+
+				//noti
+
 				redirect(base_url('user/'.$username));
 			}
 			else {
@@ -88,8 +93,20 @@ public function __construct() {
 					'text'=> $this->input->post('text'),
 					'band_id' => $target_user
 				);
-				//print_r($data);
-				$id = $this->pm_band_model->add($data);
+				
+				$insert_id = $this->pm_band_model->add($data);
+				$member =  $this->join_band_model->get_member_band($target_user);
+				$receiver_list = array();
+				foreach ($member as $value) {
+						$r  = array('receive_id' => $insert_id,
+									'band_id'    => $target_user,
+									'user_id'    => $value->user_id		
+						);
+						array_push($receiver_list, $r);
+				}
+				//print_r($receiver_list);
+				$this->receive_noti_band->add($receiver_list);
+				//$lastpm = $this->pm_band_model->get_pm_by_bandid($insert_id);
 				redirect(base_url('band/'.$target_user));
 			}
 		} 

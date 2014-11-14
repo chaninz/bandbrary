@@ -96,7 +96,15 @@ class User_music_model extends CI_Model {
 
 		return $result;
 	}
-
+	function get_count_music_user($user_id){
+		$this->db->select('*');
+		$this->db->from('User_Music');
+		$this->db->join('User_Albums', 'User_Albums.id = User_Music.album_id');
+		$this->db->join('Users', 'Users.id = User_Albums.user_id');
+		$this->db->where('Users.id',$user_id);
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 }
 
 /* End of file user_music_model.php */

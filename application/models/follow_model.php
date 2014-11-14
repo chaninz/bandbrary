@@ -151,6 +151,33 @@ class Follow_model extends CI_Model {
 
 		return $result;
 	}
+
+	function get_count_follower_user($user_id){
+		$this->db->select('*');
+		$this->db->from('Follow_Users');
+		$this->db->where('follow_user',$user_id);
+
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
+	function get_count_following_user($user_id){
+		$this->db->select('*');
+		$this->db->from('Follow_Users');
+		$this->db->where('user_id',$user_id);
+
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
+	function get_count_following_band($band_id){
+		$this->db->select('*');
+		$this->db->from('Follow_Bands');
+		$this->db->where('follow_band',$band_id);
+
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 }
 
 /* End of file follow_model.php */
