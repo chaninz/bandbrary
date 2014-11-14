@@ -16,6 +16,11 @@ class Pm_band_model extends CI_Model {
 	function getPmBand(){
 		$user_id = $this->session->userdata('id');
 		$band_id = $this->Join_Band->get_current_band($user_id);
+		if($band_id == null){
+			$band_id = 0;
+		}else{
+			$band_id = $band_id->band_id;
+		}
 
 		$query = $this->db->query('
 			select PM_Bands.band_id AS band_id,Bands.name,PM_Bands.timestamp,PM_Bands.text,Users.name AS username,Users.photo_url AS from_photo  FROM PM_Bands
@@ -24,12 +29,62 @@ class Pm_band_model extends CI_Model {
 						WHERE PM_Bands.timestamp = (SELECT MAX(timestamp)
                    					from PM_Bands 
                    					join Join_Band on PM_Bands.user_id = Join_Band.user_id
-                             		where  PM_Bands.band_id = '.$band_id->band_id.' and Join_Band.status = 2           
+                             		where  PM_Bands.band_id = '.$band_id.' and Join_Band.status = 2           
                                              )
 						ORDER BY PM_Bands.timestamp
 						
 		');
 		return $query->result();
+	}
+
+	function getMsgToBand(){
+		$user_id = $this->session->userdata('id');
+		$band_id = $this->Join_Band->get_current_band($user_id);
+		if($band_id == null){
+			$band_id = 0;
+		}else{
+			$band_id = $band_id->band_id;
+		}
+
+		$query = $this->db->query('
+			select distinct pm1.*,count(*) as total_msg ,u.name,u.surname,u.photo_url
+			from (select * from PM_Bands order by PM_Bands.timestamp desc) as pm1 
+			join Users u on pm1.user_id  = u.id
+            join Receive_Noti_Band r on pm1.id = r.receive_id
+			where  r.user_id = '.$user_id.' and r.band_id = '.$band_id.' and r.seen_date is null and
+            NOT EXISTS (select * from Join_Band j where pm1.user_id = j.user_id)
+			group by pm1.user_id
+			order by pm1.timestamp desc
+						
+		');
+		return $query->result();
+	}
+
+	function getTotalMsgToBand(){
+		$user_id = $this->session->userdata('id');
+		$band_id = $this->Join_Band->get_current_band($user_id);
+		if($band_id == null){
+			$band_id = 0;
+		}else{
+			$band_id = $band_id->band_id;
+		}
+
+		$query = $this->db->query('
+			select count(*) as total_msg 
+			from (select * from PM_Bands order by PM_Bands.timestamp desc) as pm1 
+			join Users u on pm1.user_id  = u.id
+            join Receive_Noti_Band r on pm1.id = r.receive_id
+			where  r.user_id = '.$user_id.' and r.band_id = '.$band_id.' and r.seen_date is null and
+            NOT EXISTS (select * from Join_Band j where pm1.user_id = j.user_id)
+			group by pm1.user_id
+			order by pm1.timestamp desc
+						
+		');
+		$total = 0;
+		foreach ($query->result() as $value) {
+			$total += $value->total_msg;
+		}
+		return $total;
 	}
 	
 	function view($band_id){

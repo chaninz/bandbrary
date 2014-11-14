@@ -60,6 +60,14 @@ class Post_model extends CI_Model {
 		return $query->row();
 	}
 
+	function get_count_post_band($band_id){
+		$this->db->select('*');
+		$this->db->from('Band_Posts');
+		$this->db->where('band_id',$band_id);
+
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 	// function get_by_user($id, $user_type) {
 	// 	if ($user_type == 1) {
 	// 		//$query = $this->db->get_where('User_Events', array('user_id' => $id));
