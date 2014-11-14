@@ -4,8 +4,14 @@ class User extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		// Basic model for user profile page
+		$this->load->model('user_model');
+		$this->load->model('status_model');
+		$this->load->model('follow_model');
+		$this->load->model('join_band_model');
+		// Page model
 		$this->load->model('user_album_model');
-
+		$this->load->model('user_music_model');
 		$this->load->library('upload');
 		$this->load->library('image_lib');
 		$this->lang->load('upload', 'thai');
@@ -144,6 +150,37 @@ class User extends CI_Controller {
 				$display = array('album' => $album);
 				$this->load->view('user/edit_album', $display);
 			}
+		} else {
+			show_404();
+		}
+	}
+
+	public function view($album_id) {
+		$album = $this->user_album_model->get($album_id);
+		print_r($album);
+		if ( ! empty($album)) {
+			// Basic data for user profile page
+			$user_profile = $this->user_model->get($album->user_id);
+			$status = $this->status_model->get_last_by_user($user_profile->id);
+			$band_profile = $this->join_band_model->get_current_band($user_profile->id);
+			$join_band_history = $this->join_band_model->get_join_all($user_profile->id);
+			// Current user info
+			$current_user_id = $this->session->userdata('id');
+			$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
+
+			$albums = $this->user_album_model->get_by_user($user_profile->id);
+			$album_music = $this->user_music_model->get_by_album($album_id);
+
+			$display = array('user_profile' => $user_profile, 
+				'status' => $status,
+				'band_profile' => $band_profile,
+				'join_band_history' => $join_band_history,
+				'is_follow_user' => $is_follow_user,
+				'album' => $album,
+				'albums' => $albums,
+				'album_music' => $album_music);
+
+			$this->load->view('user/music', $display);
 		} else {
 			show_404();
 		}

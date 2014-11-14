@@ -28,9 +28,22 @@ class User_music_model extends CI_Model {
 		return $result;
 	}
 
-	function get_by_id($music_id){
+	function get_by_id($music_id) {
 		$query = $this->db->get_where('User_Music', array('User_Music.id' => $music_id));
 		$result = $query->row();
+
+		return $result;
+	}
+
+	function get_by_album($album_id) {
+		$this->db->select('*');
+		$this->db->select('User_Music.id AS id');
+		$this->db->select('User_Music.name AS name');
+		$this->db->select('User_Albums.name AS album_name');
+		$this->db->select('User_Music.timestamp AS upload_date');
+		$this->db->join('User_Albums', 'User_Albums.id = User_Music.album_id');
+		$query = $this->db->get_where('User_Music', array('User_Music.album_id' => $album_id));
+		$result = $query->result();
 
 		return $result;
 	}

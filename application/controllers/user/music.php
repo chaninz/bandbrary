@@ -10,7 +10,8 @@ class Music extends CI_Controller {
 		$this->load->model('follow_model');
 		$this->load->model('join_band_model');
 		// Page model
-		//$this->load->model('music_model');
+		$this->load->model('user_album_model');
+		$this->load->model('user_music_model');
 	}
 
 	public function index($username) {
@@ -25,12 +26,17 @@ class Music extends CI_Controller {
 			// Current user info
 			$current_user_id = $this->session->userdata('id');
 			$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
-			
+
+			$albums = $this->user_album_model->get_by_user($user_profile->id);
+			$album_music = $this->user_music_model->get_by_album($albums[0]->id);
+
 			$display = array('user_profile' => $user_profile, 
 				'status' => $status,
 				'band_profile' => $band_profile,
 				'join_band_history' => $join_band_history,
-				'is_follow_user' => $is_follow_user);
+				'is_follow_user' => $is_follow_user,
+				'albums' => $albums,
+				'album_music' => $album_music);
 
 			$this->load->view('user/music', $display);
 		} else {
