@@ -8,7 +8,7 @@
 		.checkbox();
 		$('.ui.accordion')
 		.accordion();
-		$("#confirm-pass,#password").change(function() {
+		$("#confirm-pass,#password").change(function(event) {
 			var confirmPass = $("#confirm-pass").val();
 			var password = $("#password").val();
 
@@ -45,7 +45,7 @@
 		/*********/
 
 		/* Submit sign in form */
-		$( "#signin-button" ).click(function() {
+		$( "#signin-button" ).click(function(event) {
 			event.preventDefault();
 			$( ".signin-form" ).submit();
 		});
@@ -209,7 +209,7 @@
 		});
 
 		/* Submit initial form */
-		$( "#initial-button" ).click(function() {
+		$( "#initial-button" ).click(function(event) {
 			event.preventDefault();
 			$( ".initial-form" ).submit();
 		});
@@ -232,7 +232,7 @@
 			$('.navbar-item2')
 			$('.bb-logo')
 			$('.navbar-item3')
-			$('.navbar-item4').click(function() {
+			$('.navbar-item4').click(function(event) {
 				if ($( document ).width() < 1024)
 					$('header').css('position', 'relative');
 				else
@@ -542,33 +542,49 @@
 			}
 		});
 
+		/* Upload album form */
+		$("#cover").change(function() {
+			var fileName = $("#cover")[0].files[0];
+			if (fileName) {
+				$("#cover-name").val(fileName.name);
+			} else {
+				$("#cover-name").val("");
+			}
+		})
+		/* END-Upload album form */
+
+		/**************/
+		/* View Music */
+		/**************/
+
+		/* Comment box */
+		$("#comment-form").submit(function(event) {
+			var commentText = $("#comment-box").val();
+			if (commentText == "") {
+				$("#comment-box").focus();
+				return false;
+			}
+		});
+		/* END-Comment box */
+
+		/* Navigation search box */
+		$("#nav-search-button").click(function(event) {
+			event.preventDefault();
+			if ($("#nav-search-box").val() != "") {
+				$( "#nav-search-form" ).submit();
+			} else {
+				$("#nav-search-box").focus();
+			}
+		});
+		$("#nav-search-box").keypress(function(event) {
+			if (event.which == 13) {
+				event.preventDefault();
+
+				if ($("#nav-search-box").val() != "") {
+					$( "#nav-search-form" ).submit();
+				}
+			}
+		});
+		/* END-Navigation search box */
+
 	});
-
-	/* Upload album form */
-	$("#cover").change(function() {
-		var fileName = $("#cover")[0].files[0];
-		if (fileName) {
-			$("#cover-name").val(fileName.name);
-		} else {
-			$("#cover-name").val("");
-		}
-	})
-	/* END-Upload album form */
-
-	/**************/
-	/* View Music */
-	/**************/
-
-	/* Comment box */
-	$("#comment-form").submit(function(event) {
-		var commentText = $("#comment-box").val();
-		if (commentText == "") {
-			$("#comment-box").focus();
-			return false;
-		}
-	});
-	/* END-Comment box */
-
-	function follow(url) {
-		location.href = url;
-	}

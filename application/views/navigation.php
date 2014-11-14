@@ -16,12 +16,12 @@
 					</a>
 				</div>
 				<div id="navbar-item2">
-					<div id="bb-search" class="ui icon input">
-						<form action="<?= base_url('search') ?>" method="post">
-						<input type="text" name="searchword" placeholder="" style="border-radius: 1px; padding: 0.3em 0.5em;">
-						<input type="submit" class="search link icon" style="font-size: 0.85em; padding-top: 0.6em; border-left: 1px solid rgba(0, 0, 0, 0.1);">
-						</form>
-					</div>
+					<form action="<?= base_url('search') ?>" id="nav-search-form" method="post">
+						<div id="bb-search" class="ui icon input">
+							<input type="text" name="searchword" id="nav-search-box" style="border-radius: 1px; padding: 0.3em 0.5em;">
+							<i class="search link icon" id="nav-search-button" style="font-size: 0.85em; padding-top: 0.6em; border-left: 1px solid rgba(0, 0, 0, 0.1);"></i>
+						</div>
+					</form>
 				</div>	
 				<div class="bb-logo">
 					<img src="<?= base_url('images/bandbrary_logo_16-9.png') ?>">

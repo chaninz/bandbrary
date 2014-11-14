@@ -55,19 +55,19 @@
 	$('.createall.modal')
 	.modal('attach events', '.mbtn.createall', 'show');
 
-	$(".reportband#bandreport").click(function(){
+	$(".reportband#bandreport").click(function(event){
 		var id = $(this).attr("post-id");
 		$('.bandid').val(id);
 	});
 	/* END-Report Modal */
 
 	/* User update Status */
-	$("#edit-status-button").click(function() {
+	$("#edit-status-button").click(function(event) {
 		$("#status-msg").css("display", "none");
 		$("#status-msg-field").css("display", "").val("").focus();
 	});
 
-	$("#status-msg-field").blur(function() {
+	$("#status-msg-field").blur(function(event) {
 		$("#status-msg").css("display", "");
 		$("#status-msg-field").css("display", "none");
 		var status = $("#status-msg-field").val();
@@ -89,12 +89,12 @@
 	/* END-User update Status */
 
 	/* Band update Status */
-	$("#band-edit-status-button").click(function() {
+	$("#band-edit-status-button").click(function(event) {
 		$("#status-msg").css("display", "none");
 		$("#band-status-msg-field").css("display", "").val("").focus();
 	});
 
-	$("#band-status-msg-field").blur(function() {
+	$("#band-status-msg-field").blur(function(event) {
 		$("#status-msg").css("display", "");
 		$("#band-status-msg-field").css("display", "none");
 		var status = $("#band-status-msg-field").val();
@@ -116,7 +116,7 @@
 	/* END-Band update Status */
 
 	/* Follow user button */
-	$("#follow-user-button").click(function() {
+	$("#follow-user-button").click(function(event) {
 		var userId = $(this).data("value");
 		if ($("#follow-user-button").hasClass("following")) {
 			var followUser = $.ajax({
@@ -147,7 +147,7 @@
 	/* END-Follow user button */
 
 	/* Follow band button */
-	$("#follow-band-button").click(function() {
+	$("#follow-band-button").click(function(event) {
 		var bandId = $(this).data("value");
 		if ($("#follow-band-button").hasClass("following")) {
 			var followBand = $.ajax({
@@ -215,7 +215,7 @@
 	/* END-Greedd user music button */
 
 	/* Greedd band music button */
-	$("#greedd-band-music-button").click(function() {
+	$("#greedd-band-music-button").click(function(event) {
 		var musicId = $(this).data("value");
 		if ($("#greedd-band-music-button").hasClass("active")) {
 			var greeddMusic = $.ajax({
