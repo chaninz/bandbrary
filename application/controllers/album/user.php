@@ -64,7 +64,7 @@ class User extends CI_Controller {
 				$this->load->view('user/add_album', $display);
 			} else {
 				$this->user_album_model->add($data);
-				redirect(base_url('user/'.$username.'/music'));
+				//redirect(base_url('user/'.$username.'/music'));
 			}
 			
 		} else {

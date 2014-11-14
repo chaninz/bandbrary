@@ -76,7 +76,7 @@ class Receive_noti_model extends CI_Model {
 	 function seen(){		
 	 	$user_id = $this->session->userdata('id');
 		$data = array(
-               'seen_date' => now()
+               'seen_date' => mdate("%Y-%m-%d %H:%i:%s", now())
             );
 
 		$this->db->where('user_id', $user_id);
@@ -86,7 +86,7 @@ class Receive_noti_model extends CI_Model {
 	 function seenPM($from_user_id){		
 	 	$user_id = $this->session->userdata('id');
 		$data = array(
-               'seen_date' => now()
+               'seen_date' => mdate("%Y-%m-%d %H:%i:%s", now())
             );
 		$this->db->where('to_user_id', $user_id);
 		$this->db->where('from_user_id', $from_user_id);

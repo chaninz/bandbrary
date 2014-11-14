@@ -3,7 +3,7 @@
 class Feed extends CI_Controller {
 
 	public function index() {
-		$greedd = $this->greedd_model->countGreedd($music_id);
+		//$greedd = $this->greedd_model->countGreedd($music_id);
 		$this->load->view('feed');
 	}
 

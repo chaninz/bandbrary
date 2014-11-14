@@ -544,6 +544,31 @@
 
 	});
 
+	/* Upload album form */
+	$("#cover").change(function() {
+		var fileName = $("#cover")[0].files[0];
+		if (fileName) {
+			$("#cover-name").val(fileName.name);
+		} else {
+			$("#cover-name").val("");
+		}
+	})
+	/* END-Upload album form */
+
+	/**************/
+	/* View Music */
+	/**************/
+
+	/* Comment box */
+	$("#comment-form").submit(function(event) {
+		var commentText = $("#comment-box").val();
+		if (commentText == "") {
+			$("#comment-box").focus();
+			return false;
+		}
+	});
+	/* END-Comment box */
+
 	function follow(url) {
 		location.href = url;
 	}

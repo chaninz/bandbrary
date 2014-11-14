@@ -13,11 +13,11 @@
 						<div class="header">สร้างงาน</div> 
 					</div></a>
 				</div>
-				<div class="item" style="padding: 0.9em;">
+				<a class="item" style="padding: 0.9em;" href="<?= base_url('music/user') ?>">
 					<div class="content">
-						<div class="header">สร้างอัลบั้มเพลง</div>
+						<div class="header">จัดการเพลง</div>
 					</div>
-				</div>
+				</a>
 				<div class="item" style="padding: 0.9em;">
 					<a href="<?= base_url().'band/create' ?>" > <div class="content">
 						<div class="header">สร้างวงดนตรี</div>
@@ -33,8 +33,8 @@
 	</div>
 </div>
 
-<script src="<?php echo base_url().'assets/js/bandbrary.js'; ?>"></script>
-<script src="<?php echo base_url().'assets/js/jquery-ui.min.js'; ?>"></script>
+<script src="<?= base_url('assets/js/bandbrary.js') ?>"></script>
+<script src="<?= base_url('assets/js/jquery.uploadifive.js') ?>"></script>
 <script>
 	/* Report Modal */
 	$('.pm.modal')
@@ -176,6 +176,80 @@
 		}
 	});
 	/* END-Follow band button */
+
+	/* Greedd user music button */
+	$("#greedd-user-music-button").click(function() {
+		var musicId = $(this).data("value");
+		if ($("#greedd-user-music-button").hasClass("active")) {
+			var greeddMusic = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('music/user/ungreedd').'/' ?>" + musicId,
+				dataType: "text"
+			});
+
+			greeddMusic.done(function(msg) {
+				$("#greedd-user-music-button").html('<i class="heart icon"></i> กรี๊ด');
+				$("#greedd-user-music-button").removeClass("active");
+				var countGreedd = parseInt($("#count-greedd").text());
+				countGreedd--;
+				$("#count-greedd").text(countGreedd);
+			});
+		} else {
+			var greeddMusic = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('music/user/greedd').'/' ?>" + musicId,
+				dataType: "text"
+			});
+
+			greeddMusic.done(function(msg) {
+				$("#greedd-user-music-button").html('<i class="heart icon"></i> เลิกกรี๊ด');
+				$("#greedd-user-music-button").addClass("active");
+				var countGreedd = parseInt($("#count-greedd").text());
+				countGreedd++;
+				$("#count-greedd").text(countGreedd);
+			});
+		}
+	});
+	/* END-Greedd user music button */
+
+	/* Greedd band music button */
+	$("#greedd-band-music-button").click(function() {
+		var musicId = $(this).data("value");
+		if ($("#greedd-band-music-button").hasClass("active")) {
+			var greeddMusic = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('music/band/ungreedd').'/' ?>" + musicId,
+				dataType: "text"
+			});
+
+			greeddMusic.done(function(msg) {
+				$("#greedd-band-music-button").html('<i class="heart icon"></i> กรี๊ด');
+				$("#greedd-band-music-button").removeClass("active");
+				var countGreedd = parseInt($("#count-greedd").text());
+				countGreedd--;
+				$("#count-greedd").text(countGreedd);
+			});
+		} else {
+			var greeddMusic = $.ajax({
+				type: "GET",
+				//async: false,
+				url: "<?= base_url('music/band/greedd').'/' ?>" + musicId,
+				dataType: "text"
+			});
+
+			greeddMusic.done(function(msg) {
+				$("#greedd-band-music-button").html('<i class="heart icon"></i> เลิกกรี๊ด');
+				$("#greedd-band-music-button").addClass("active");
+				var countGreedd = parseInt($("#count-greedd").text());
+				countGreedd++;
+				$("#count-greedd").text(countGreedd);
+			});
+		}
+	});
+	/* END-Greedd band music button */
 
 	/* Member transition */
 	$('.member.image')

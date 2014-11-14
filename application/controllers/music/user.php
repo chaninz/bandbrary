@@ -4,99 +4,144 @@ class User extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('user_music_model');
+		// Basic model for user profile page
 		$this->load->model('user_model');
-		$this->load->model('user_musiccomment_model');
+		$this->load->model('status_model');
 		$this->load->model('follow_model');
+		$this->load->model('join_band_model');
+		// Page model
+		$this->load->model('user_music_model');
+		$this->load->model('user_musiccomment_model');
 		$this->load->model('user_album_model');
 		$this->load->model('notification_model','notification');
 		$this->load->model('receive_noti_model','receive_noti');
-		$this->load->model('join_band_model','join_band');
+		$this->load->model('greedd_model');
 	}
 
 	public function index() {
-		 $this->load->view('user/manageMusic');
+		 $this->load->view('user/manage_music');
 	}
 	
-	public function upload() {
-		if ($this->input->post()) {
-			$current_id = $this->session->userdata('id');
-			$data = array(
-				'name' => $this->input->post('name'),
-				'album_id' => $this->input->post('album'),	
-				'lyric' => $this->input->post('lyric'),
-				'license_type' => $this->input->post('licenese'),
-				'visibility' => $this->input->post('visibility')
-			);
-			//print_r($data);
-			$this->user_music_model->upload($data);
-		}
-		else{
-			 $data = array('albums' => $this->user_album_model->get_all());
-			$this->load->view('user/uploadMusic',$data);
-			//redirect('/band/'.$band_id.'/post');
+	public function add() {
+		$current_user_id = $this->session->userdata('id');
+		$name = $this->input->post('name');
+		$album = $this->input->post('album');
+		$lyric = $this->input->post('lyric');
+		$music_url = $this->input->post('music-url');
+		$license = $this->input->post('license');
+		$visibility = $this->input->post('visibility');
 
+		if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($music_url) && ! empty($license) &&
+			 ! empty($visibility)) {
+			$data = array('name' => $name,
+				'album_id' => $album,	
+				'lyric' => $lyric,
+				'music_url' => $music_url,
+				'license_type' => $license,
+				'visibility' => $visibility);
+			
+			$this->user_music_model->add($data);
+			redirect(base_url('music/user'));
+		} else {
+			$display = array('albums' => $this->user_album_model->get_by_user($current_user_id));
+			$this->load->view('user/add_music', $display);
 		}
 	}
 
 	public function edit($music_id) {
-		if ($this->input->post()) {
-			$current_id = $this->session->userdata('id');
-			$data = array(
-				'name' => $this->input->post('name'),
-				'album_id' => $this->input->post('album'),	
-				'lyric' => $this->input->post('lyric'),
-				'license_type' => $this->input->post('license'),
-				'visibility' => $this->input->post('visibility')
-			);
-			//print_r($data);
-			$this->user_music_model->edit($data,$music_id);
-		}
-		else{
-			$music = $this->user_music_model->getMusic($music_id);
-			$data = array(
-			'music' => $music ,
-			'albums' => $this->user_album_model->getAll(),
-			'albumMusic' => $this->user_album_model->getAlbum($music->album_id)
-			 );
-			//print_r($data);
-			$this->load->view('user/editMusic',$data);
+		$music = $this->user_music_model->get($music_id);
+		$current_user_id = $this->session->userdata('id');
+
+		if ($music->user_id == $current_user_id) {
+			$name = $this->input->post('name');
+			$album = $this->input->post('album');
+			$lyric = $this->input->post('lyric');
+			$license = $this->input->post('license');
+			$visibility = $this->input->post('visibility');
+
+			if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($license) && ! empty($visibility)) {
+				$data = array('name' => $name,
+					'album_id' => $album,	
+					'lyric' => $lyric,
+					'music_url' => $music_url,
+					'license_type' => $license,
+					'visibility' => $visibility);
+
+				$this->user_music_model->edit($data, $music_id);
+				redirect(base_url('music/user/view/' . $music_id));
+			} else {
+				$music = $this->user_music_model->get($music_id);
+
+				$display = array('music' => $music,
+					'albums' => $this->user_album_model->get_by_user($current_user_id));
+				$this->load->view('user/edit_music', $display);
+			}
+		} else {
+			show_404();
 		}
 	}
 
-	public function delete($music_id){
+	public function delete($music_id) {
+		$music = $this->user_music_model->get($music_id);
+		$current_user_id = $this->session->userdata('id');
+		$username = $this->session->userdata('username');
+
+		if ($music->user_id == $current_user_id) {
 			$this->user_music_model->delete($music_id);
-			//redirect('/band/'.$band_id.'/post');
-
+			redirect(base_url('user/' . $username . '/music'));
+		} else {
+			show_404();
+		}
 	}
 
-	public function view($music_id){
-	
-		 $current_user_id = $this->session->userdata('id');
-		 $music = $this->user_music_model->getMusic($music_id);
-		 $albumMusic = $this->user_album_model->getAlbum($music->album_id);
-		 $user_profile = $this->user_model->get($albumMusic->user_id);
-		 $is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
-		 $comments = $this->user_musiccomment_model->getComment($music_id);
+	public function view($music_id) {
+		$music = $this->user_music_model->get($music_id);
 
-		 $data = array (
-		 'music' => $music,
-		 'albumMusic' => $albumMusic,
-		 'user_profile' => $user_profile,
-		 'is_follow_user' => $is_follow_user,
-		 'comments' => $comments
-		 );
-		 //print_r($data);
-		$this->load->view('user/viewMusic',$data);
+		if ( ! empty($music)) {
+			// Basic data for user profile page
+			$user_profile = $this->user_model->get($music->user_id);
+			$status = $this->status_model->get_last_by_user($user_profile->id);
+			$band_profile = $this->join_band_model->get_current_band($user_profile->id);
+			$join_band_history = $this->join_band_model->get_join_all($user_profile->id);
+			// Current user info
+			$current_user_id = $this->session->userdata('id');
+			$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
+
+			$count_greedd_user_music = $this->greedd_model->count_greedd_user_music($music_id);
+			$is_greedd_user_music = $this->greedd_model->is_greedd_user_music($current_user_id, $music_id);
+			$comments = $this->user_musiccomment_model->getComment($music_id);
+
+			$display = array('user_profile' => $user_profile, 
+				'status' => $status,
+				'band_profile' => $band_profile,
+				'join_band_history' => $join_band_history,
+				'is_follow_user' => $is_follow_user,
+				'music' => $music,
+				'count_greedd_user_music' => $count_greedd_user_music,
+				'is_greedd_user_music' => $is_greedd_user_music,
+				'comments' => $comments);
+			$this->load->view('user/view_music', $display);
+		} else {
+			show_404();
+		}
+	}
+
+	public function greedd($music_id) {
+		$user_id = $this->session->userdata('id');
+		$this->greedd_model->greedd_user_music($user_id, $music_id);
+	}
+
+	public function ungreedd($music_id) {
+		$user_id = $this->session->userdata('id');
+		$this->greedd_model->ungreedd_user_music($user_id, $music_id);
 	}
 
 	public function addComment($music_id) {
 		if ($this->input->post()) {
-		 	$data = array(
-		 	'user_id' =>  $this->session->userdata('id'),
-		 	'music_id' => $music_id,
-		 	'comment' => $this->input->post('comment')
-		 );
+			$data = array('user_id' =>  $this->session->userdata('id'),
+				'music_id' => $music_id,
+				'comment' => $this->input->post('comment'));
+
 		 	$this->user_musiccomment_model->add($data);
 
 		 	//noti to comment user music
@@ -119,11 +164,6 @@ class User extends CI_Controller {
 		 	
 			redirect(base_url('music/user/view/'.$music_id));
 		}
-		// } else {
-		// 	$data = $this->post_model->getPost();
-		// 	$this->load->view('temp/getPost',$data);
-		// }
-		
 	}
 
 }

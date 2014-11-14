@@ -125,7 +125,11 @@
 							<div class="ui dimmer">
 								<div class="content">
 									<div class="center">
-										<a class="ui tiny button"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+										<?php if ($music->type == 1): ?>
+											<a class="ui tiny button" href="<?= base_url('music/user/view/'. $music->id) ?>" target="_blank"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+										<?php elseif ($music->type == 2): ?>
+											<a class="ui tiny button" href="<?= base_url('music/band/view/'. $music->id) ?>" target="_blank"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
@@ -157,7 +161,11 @@
 								<div class="ui dimmer">
 									<div class="content">
 										<div class="center">
-											<a class="ui tiny button"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+											<?php if ($music->type == 1): ?>
+												<a class="ui tiny button" href="<?= base_url('music/user/view/'. $music->id) ?>" target="_blank"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+											<?php elseif ($music->type == 2): ?>
+												<a class="ui tiny button" href="<?= base_url('music/band/view/'. $music->id) ?>" target="_blank"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+											<?php endif; ?>
 										</div>
 									</div>
 								</div>
@@ -219,7 +227,11 @@
 						<!--เพลงยอดนิยม-->
 						<?php $count = 1 ?>
 						<?php foreach ($top_music as $music): ?>
-							<a class="item" style="padding: 15px" href="http://www.google.com" target="_blank">
+							<?php if ($music->type == 1): ?>
+								<a class="item" style="padding: 15px" href="<?= base_url('music/user/view/'. $music->music_id) ?>" target="_blank">
+							<?php elseif ($music->type == 2): ?>
+								<a class="item" style="padding: 15px" href="<?= base_url('music/band/view/'. $music->music_id) ?>" target="_blank">
+							<?php endif; ?>
 								<?php if ($music->image_url != NULL): ?>
 									<img class="ui avatar image" src="<?= base_url('uploads/album/'.$music->image_url) ?>">
 								<?php else: ?>
@@ -244,8 +256,7 @@
 	$('.ui.dimmable .dimmer')
 	.dimmer({
 		on: 'hover'
-	})
-	;
+	});
 	</script>
 	<?php $this->load->view('footer'); ?>
 </body>

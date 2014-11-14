@@ -1,9 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Band_music_model extends CI_Model {
-	function upload($data) {
+
+	function add($data) {
 		$this->db->insert('Band_Music', $data);
 	}
+
 	function delete($music_id){
 		$this->db->where('id',$music_id);
 		$this->db->delete('User_Music');
@@ -14,13 +16,24 @@ class Band_music_model extends CI_Model {
 		$this->db->update('Band_Music',$data);
 	}
 
-	function getMusic($music_id){
+	function get($music_id) {
 		$this->db->select('*');
-		$this->db->from('Band_Music');
-		$this->db->where('id',$music_id);
+		$this->db->select('Band_Music.id AS id');
+		$this->db->select('Band_Music.name AS name');
+		$this->db->select('Band_Albums.name AS album_name');
+		$this->db->select('Band_Music.timestamp AS upload_date');
+		$this->db->join('Band_Albums', 'Band_Albums.id = Band_Music.album_id');
+		$query = $this->db->get_where('Band_Music', array('Band_Music.id' => $music_id));
+		$result = $query->row();
 
-		$query = $this->db->get();
-		return $query->row();
+		return $result;
+	}
+
+	function get_by_id($music_id){
+		$query = $this->db->get_where('Band_Music', array('Band_Music.id' => $music_id));
+		$result = $query->row();
+
+		return $result;
 	}
 
 	function get_band($music_id){

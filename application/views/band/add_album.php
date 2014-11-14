@@ -41,7 +41,8 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url('album/user/add') ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('album/band/add') ?>" method="post" enctype="multipart/form-data">
+
 					<div class="field">
 						<label>ชื่ออัลบั้ม</label>
 						<input type="text" placeholder="" name="name" value="<?= ! empty($name) ? $name : '' ?>">

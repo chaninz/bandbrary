@@ -29,7 +29,7 @@
 									<a class="ui button" id="follow-user-button" data-value="<?= $user_profile->id ?>"><i class="add icon"></i>ติดตาม</a>
 								<?php else: ?>
 									<!-- <a class="ui button" id="" href="<?= base_url('following/user/unfollow/'.$user_profile->id.'?ref='.uri_string()) ?>"><i class="checkmark icon"></i>กำลังติดตาม</a> -->
-									<a class="ui button following" id="follow-user-button"><i class="checkmark icon"></i>กำลังติดตาม</a>
+									<a class="ui button following" id="follow-user-button" data-value="<?= $user_profile->id ?>"><i class="checkmark icon"></i> กำลังติดตาม</a>
 								<?php endif; ?>
 								<div class="ui button mbtn pm">ข้อความ</div>
 								<div class="ui labeled top right pointing dropdown black button"><i class="ellipsis horizontal icon" style="margin: 0px"></i>
