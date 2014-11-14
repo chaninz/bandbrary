@@ -10,6 +10,8 @@ class Event extends CI_Controller {
 		$this->load->model('follow_model');
 		$this->load->model('join_band_model');
 		$this->load->model('skill_model');
+		$this->load->model('post_model');
+		$this->load->model('band_music_model');
 		// Page model
 		$this->load->model('event_model');
 		$this->load->model('province_model');
@@ -32,6 +34,11 @@ class Event extends CI_Controller {
 			$provinces = $this->province_model->get_all();
 			$events = $this->event_model->get_current_by_band($band_id);
 
+
+			$total_follower = $this->follow_model->get_count_following_band($band_profile->id);
+			$total_music = $this->band_music_model->get_count_music_band($band_profile->id);
+			$total_post = $this->post_model->get_count_post_band($band_profile->id);
+			$timelines = $this->band_model->timeline($band_id);
 			$display = array('band_profile' => $band_profile,
 				'status' => $status,
 				'band_members' => $band_members,
@@ -39,7 +46,11 @@ class Event extends CI_Controller {
 				'user_status' => $user_status,
 				'current_user_skills' => $current_user_skills,
 				'events' => $events,
-				'provinces' => $provinces);
+				'provinces' => $provinces,
+				'total_timeline' => count($timelines),
+				'total_follower' => $total_follower,
+				'total_post' => $total_post,
+				'total_music' => $total_music);
 
 			$this->load->view('band/event', $display);
 		} else {
