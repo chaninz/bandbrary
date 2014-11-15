@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title>สร้างงาน | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	<script>
@@ -31,6 +31,7 @@
 	</style>
 </head>
 <body>
+	
 	<?php $this->load->view('navigation'); ?>
 
 	<div class="container">
@@ -165,9 +166,7 @@
 								</div>
 							</div>
 						</div>
-
 						<input class="ui small red submit button" style="float: right;" type="submit" value="บันทึก">
-
 					</div>
 				</form>
 			</div>
