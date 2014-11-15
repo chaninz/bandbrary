@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title><?= $band_profile->name ?> - เพลง | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 
 	<style>
@@ -52,217 +52,48 @@
 
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-xs-9">
-						<div class="center">
-							<div class="album-group">
-								<img src="../../images/bodyslam.jpg" alt="" class="album-cover1">
-								<img src="../../images/drive.jpg" alt="" class="album-cover1">
-								<img src="../../images/believe.jpg" alt="" class="album-cover1">
-								<img src="../../images/kramm.jpg" alt="" class="album-cover1">
-								<img src="../../images/dharmajati.jpg" alt="" class="album-cover1">
-							</div>
-							<table class="ui table segment">
-								<thead>
-									<tr><th>#</th>
-										<th>Name</th>
-										<th>Artist</th>
-										<th>Genre</th>
-										<th>Rating</th>
-										<th>...</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>1</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											เตรียมตัวตาย
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											เรือเล็กควรออกจากฝั่ง
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											ชีวิตยังคงสวยงาม
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											ปลิดปลิว (feat. เมธี Labanoon)
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											dharmajāti (ดัม-มะ-ชา-ติ)
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td><img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											ครึ่งหลับครึ่งตื่น
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">คิดถึง
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											รักอยู่ข้างเธอ (feat. อัญชลี จงคดีกิจ)
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>9</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											ความฝันกับจักรวาล
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>10</td>
-										<td>
-											<img src="../../images/dharmajati.jpg" alt class="album-cover2">
-											ช่างมันเถอะเหงา
-										</td>
-										<td>Bodyslam</td>
-										<td>Rock</td>
-										<td>
-											<div class="ui large rating">
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-												<i class="icon"></i>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-								</tbody>
-							</table>
+					<div class="center">
+						<div class="album-group">
+							<?php if ( ! empty($albums)): ?>
+								<?php foreach($albums as $album): ?>
+									<?php if ( ! empty($album->image_url)): ?>
+										<a href="<?= base_url('album/band/view/' . $album->id) ?>"><img src="<?= base_url('uploads/album/' . $album->image_url) ?>" class="album-cover1"></a>
+									<?php else: ?>
+										<a href="<?= base_url('album/band/view/' . $album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							<?php endif; ?>
 						</div>
+						<table class="ui table segment">
+							<thead>
+								<tr><th>#</th>
+									<th>Name</th>
+									<th>Album</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if ( ! empty($album_music)): ?>
+									<?php $count = 1 ?>
+									<?php foreach($album_music as $music): ?>
+										<tr>
+											<td><?= $count ?></td>
+											<td>
+												<?php if ( ! empty($music->image_url)): ?>
+													<img src="<?= base_url('uploads/album/' . $music->image_url) ?>" alt class="album-cover2">
+												<?php else: ?>
+													<img src="<?= base_url('images/no_album_cover.jpg') ?>" alt class="album-cover2">
+												<?php endif; ?>
+												<a href="<?= base_url('music/band/view/' . $music->id) ?>" target="_blank"><?= $music->name ?></a>
+											</td>
+											<td><?= $music->album_name ?></td>
+										</tr>
+										<?php $count++ ?>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</tbody>
+						</table>
 					</div>
+				</div>
 				</div>
 			</div>
 		</article>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title><?= $user_profile->name . " " . $user_profile->surname ?> - ไทม์ไลน์ | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 
 	<style>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>สร้างโพสต์ | Bandbrary</title>
+	<title>เพิ่มโพสต์ | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
 	#angle-bth {
@@ -32,9 +32,9 @@
 					<?php $this->load->view('band/sidebar_left'); ?>
 					<div class="col-md-9">
 						<div class="center"> 
-							<form action="<?= base_url('band/post/add') ?>" method="post" enctype="multipart/form-data">
+							<form action="<?= base_url('band/post/add') ?>" id="post-form" method="post" enctype="multipart/form-data">
 								<div class="ui form segment">
-									 <h3 class="ui header">สร้างโพสต์</h3>
+									 <h3 class="ui header">เพิ่มโพสต์</h3>
 									 <div class="line"></div><p/>
 								<div class="field">
 									<label>ชื่อเรื่อง</label>

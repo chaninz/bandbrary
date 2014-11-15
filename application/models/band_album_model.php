@@ -34,6 +34,7 @@ class Band_album_model extends CI_Model {
 	}
 
 	function get_by_user($band_id) {
+		$this->db->order_by('timestamp DESC');
 		$query = $this->db->get_where('Band_Albums', array('band_id' => $band_id));
 		$result = $query->result();
 

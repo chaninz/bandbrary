@@ -13,10 +13,11 @@ class Test extends CI_Controller {
 		// $data = array('username' => 'b',
 		// 'email' => 'chaninz@live.com');
 		// $this->load->model('user_model');
-		$data = array('name' => 'abnormal');
-		$this->load->model('band_model');
-		$result = $this->band_model->is_exist($data);
-		echo $result;
+		// $data = array('name' => 'abnormal');
+		// $this->load->model('band_model');
+		// $result = $this->band_model->is_exist($data);
+		// echo $result;
+		//echo 
 	}
 
 	public function email() {

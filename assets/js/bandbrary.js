@@ -542,6 +542,22 @@
 			}
 		});
 
+		/*********๕๕๕๕**/
+		/* Add Event */
+		/********๕๕๕***/
+
+		$('#post-form')
+		.form({
+			topic: {
+				identifier : 'topic',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			}
+		});
+
 		/* Upload album form */
 		$("#cover").change(function() {
 			var fileName = $("#cover")[0].files[0];
