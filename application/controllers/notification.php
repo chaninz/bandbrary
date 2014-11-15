@@ -7,6 +7,7 @@ class Notification extends CI_Controller {
 		$this->load->model('receive_noti_band_model','receive_noti_band');
 		$this->load->model('receive_noti_model','receive_noti');
 		$this->load->model('pm_model','pm');
+		$this->load->model('receive_noti_user_band_model','receive_noti_user_band');
 	}
 
 		public function index() {
@@ -36,8 +37,12 @@ class Notification extends CI_Controller {
 		header('Cache-Control: no-cache');
 		$band = $this->receive_noti_band->get_total_noti_band();
 		$user = $this->pm->count_noti_pm_user();
+		$user_band = $this->receive_noti_user_band->get_total_noti_PM();
+		// echo $band;
+		// echo $user;
+		// echo $user_band;
 		echo "event:total_pm\n";
-        echo "data: " .($band+$user). "\n\n";
+        echo "data: " .($band+$user+$user_band). "\n\n";
 	}
 
 	

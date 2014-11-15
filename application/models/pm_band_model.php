@@ -37,56 +37,6 @@ class Pm_band_model extends CI_Model {
 		return $query->result();
 	}
 
-	function getMsgToBand(){
-		$user_id = $this->session->userdata('id');
-		$band_id = $this->Join_Band->get_current_band($user_id);
-		if($band_id == null){
-			$band_id = 0;
-		}else{
-			$band_id = $band_id->band_id;
-		}
-
-		$query = $this->db->query('
-			select distinct pm1.*,count(*) as total_msg ,u.name,u.surname,u.photo_url
-			from (select * from PM_Bands order by PM_Bands.timestamp desc) as pm1 
-			join Users u on pm1.user_id  = u.id
-            join Receive_Noti_Band r on pm1.id = r.receive_id
-			where  r.user_id = '.$user_id.' and r.band_id = '.$band_id.' and r.seen_date is null and
-            NOT EXISTS (select * from Join_Band j where pm1.user_id = j.user_id)
-			group by pm1.user_id
-			order by pm1.timestamp desc
-						
-		');
-		return $query->result();
-	}
-
-	function getTotalMsgToBand(){
-		$user_id = $this->session->userdata('id');
-		$band_id = $this->Join_Band->get_current_band($user_id);
-		if($band_id == null){
-			$band_id = 0;
-		}else{
-			$band_id = $band_id->band_id;
-		}
-
-		$query = $this->db->query('
-			select count(*) as total_msg 
-			from (select * from PM_Bands order by PM_Bands.timestamp desc) as pm1 
-			join Users u on pm1.user_id  = u.id
-            join Receive_Noti_Band r on pm1.id = r.receive_id
-			where  r.user_id = '.$user_id.' and r.band_id = '.$band_id.' and r.seen_date is null and
-            NOT EXISTS (select * from Join_Band j where pm1.user_id = j.user_id)
-			group by pm1.user_id
-			order by pm1.timestamp desc
-						
-		');
-		$total = 0;
-		foreach ($query->result() as $value) {
-			$total += $value->total_msg;
-		}
-		return $total;
-	}
-	
 	function view($band_id){
 		$current_id = $this->session->userdata('id');
 		$query = $this->db->query('select *,Users.photo_url AS from_photo FROM PM_Bands
@@ -105,8 +55,6 @@ class Pm_band_model extends CI_Model {
 		$this->db->where('id',$current_id);
 		$this->db->delete('Greedd',$data);
 	}
-
-	
 	
 	function get_pm_by_bandid($id){
 		$this->db->select('PM_Bands.*,f.name as from_user_name ,f.surname as from_user_surname ,f.photo_url as from_photo,Bands.name as bandname');
