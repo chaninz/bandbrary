@@ -167,15 +167,30 @@ class User_model extends CI_Model {
 		where Users.id = '.$user_id.'
 		union all
 		select User_Music.id,User_Music.name as text,User_Music.timestamp,"Music" as type,Users.name as username,Users.surname as surname
-		from User_Music
+		FROM User_Music
 		JOIN User_Albums on User_Music.album_id = User_Albums.id
 		JOIN Users on User_Albums.user_id = Users.id
-		where Users.id = '.$user_id.'
+		WHERE Users.id = '.$user_id.'
 
-		ORDER BY timestamp desc');
+		ORDER BY timestamp DESC');
 		return $query->result();
+	}
 
+	function get_count_timeline($user_id) {
+		$query = $this->db->query('SELECT COUNT(*) AS count
+			FROM (SELECT User_Status.id,User_Status.status AS text, User_Status.timestamp,"Status" AS type,Users.name AS username,Users.surname AS surname
+			FROM User_Status
+			JOIN Users ON User_Status.user_id = Users.id
+			where Users.id = '.$user_id.'
+			UNION ALL
+			SELECT User_Music.id,User_Music.name AS text,User_Music.timestamp,"Music" AS type,Users.name AS username,Users.surname AS surname
+			FROM User_Music
+			JOIN User_Albums on User_Music.album_id = User_Albums.id
+			JOIN Users on User_Albums.user_id = Users.id
+			WHERE Users.id = '.$user_id.') AS timeline');
+		$result = $query->row()->count;
 
+		return $result;
 	}
 
 }

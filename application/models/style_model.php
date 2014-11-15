@@ -30,6 +30,14 @@ class Style_model extends CI_Model {
 		$this->db->delete('Has_Styles');
 	}
 
+	function get_by_user($user_id) {
+		$this->db->join('Styles', 'Styles.id = Has_Styles.style_id');
+		$query = $this->db->get_where('Has_Styles', array('user_id' => $user_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function get_by_user_array($user_id) {
 		$query = $this->db->get_where('Has_Styles', array('user_id' => $user_id));
 		$result_set = $query->result();

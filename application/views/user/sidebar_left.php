@@ -44,7 +44,7 @@
 						<i class="facebook sign icon"></i>
 						<div class="content">
 							<div class="header">เฟสบุ๊ค</div>
-							<div class="description"><?= $user_profile->fb_url ?></div>
+							<div class="description"><a href="<?= 'https://' . $user_profile->fb_url ?>"><?= $user_profile->fb_url ?></a></div>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -53,7 +53,7 @@
 						<i class="twitter icon"></i>
 						<div class="content">
 							<div class="header">ทวิตเตอร์</div>
-							<div class="description"><?= $user_profile->tw_url; ?> </div>
+							<div class="description"><a href="<?= 'https://' . $user_profile->tw_url ?>"><?= $user_profile->tw_url ?></a></div>
 						</div>
 					</div>
 				<?php endif; ?>
@@ -62,24 +62,47 @@
 						<i class="youtube play icon"></i>
 						<div class="content">
 							<div class="header">ยูทูป</div>
-							<div class="description"><?= $user_profile->yt_url ?></div>
+							<div class="description"><a href="<?= 'https://' . $user_profile->yt_url ?>"><?= $user_profile->yt_url ?></a></div>
 						</div>
 					</div>
 				<?php endif; ?>
-				<!-- <div class="item">
-					<i class="certificate icon"></i>
-					<div class="content">
-						<div class="header">รางวัลที่ได้รับ</div>
-						<div class="description">MTV Award 2014</div>
+				<?php if ( ! empty($skills)): ?>
+					<div class="item">
+						<!-- <i class="certificate icon"></i> -->
+						<div class="content">
+							<div class="header">ความสามารถ</div>
+							<div class="description">
+								<?php $count = 1 ?>
+								<?php foreach ($skills as $skill): ?>
+									<?= $count == 1 ? "" : "/" ?><?= $skill->skill ?>
+									<?php $count++ ?>
+								<?php endforeach; ?>
+							</div>
+						</div>
 					</div>
-				</div> -->
+				<?php endif; ?>
+				<?php if ( ! empty($styles)): ?>
+					<div class="item">
+						<!-- <i class="certificate icon"></i> -->
+						<div class="content">
+							<div class="header">สไตล์</div>
+							<div class="description">
+								<?php $count = 1 ?>
+								<?php foreach ($styles as $style): ?>
+									<?= $count == 1 ? "" : "/" ?><?= $style->style ?>
+									<?php $count++ ?>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					</div>
+				<?php endif; ?>
 				<?php if ( ! empty($join_band_history)): ?>
 					<div class="item">
 						<i class="info icon"></i>
 						<div class="content">
 							<div class="header">วงดนตรีที่เคยเข้าร่วม</div>
 							<?php foreach ($join_band_history as $history): ?>
-								<div class="description"><?= mdate("%m/%Y", strtotime($history->leave_date)) ?> - <?= $history->name ?></div>
+								<div class="description"><?= mdate("%m/%Y", strtotime($history->leave_date)) ?> - <a href="<?= base_url('band/' . $history->id) ?>"><?= $history->name ?></a></div>
 							<?php endforeach; ?>
 						</div>
 					</div>

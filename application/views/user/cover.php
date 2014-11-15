@@ -19,7 +19,7 @@
 						<div class="profile-name">
 							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div>
 							<?php if( ! empty($band_profile)): ?>
-								<div id="pn2">สมาชิกวง <?= $band_profile->name ?></div>
+								<div id="pn2">สมาชิกวง <a style="color: white;" href="<?= base_url('band/' . $band_profile->id) ?>"><?= $band_profile->name ?></a></div>
 							<?php endif; ?>
 						</div>
 						<?php if ($user_profile->id != $this->session->userdata('id')): ?>
@@ -61,7 +61,7 @@
 								กำลังกรี๊ด <span class="bb-count"><?= $total_following ?></span>
 							</a>
 							<a class="item" id="menu-items" href="<?= base_url().'user/'.$user_profile->username.'/event' ?>">
-								ตารางงาน <span class="bb-count">22</span>
+								ตารางงาน <span class="bb-count"><?= $total_event ?></span>
 							</a>
 						</div>
 					</div>
