@@ -9,14 +9,14 @@ class Search_model extends CI_Model {
 	
 	function music($words){
 		$query = $this->db->query('
-			SELECT User_Music.id as musicid,User_Music.name as musicname,User_Albums.image_url
+			SELECT User_Music.id as musicid,User_Music.name as musicname,User_Albums.image_url,"user" as type,Users.name as owner
 			FROM User_Music
 			JOIN User_Albums ON User_Albums.id = User_Music.album_id
 			JOIN Users ON Users.id = User_Albums.user_id
 			WHERE User_Music.name LIKE \'%'.$words.'%\' 
 
 			UNION ALL
-			SELECT Band_Music.id as musicid,Band_Music.name as musicname,Band_Albums.image_url
+			SELECT Band_Music.id as musicid,Band_Music.name as musicname,Band_Albums.image_url,"band" as type,Bands.name as owner
 			FROM Band_Music
 			JOIN Band_Albums ON Band_Albums.id = Band_Music.album_id
 			JOIN Bands ON Bands.id = Band_Albums.band_id
@@ -26,7 +26,7 @@ class Search_model extends CI_Model {
 
 	function user($words){
 		$query = $this->db->query('
-			SELECT id,name,surname,photo_url
+			SELECT id,username,name,surname,photo_url
 			FROM Users
 			WHERE Users.name LIKE \'%'.$words.'%\'  or Users.surname LIKE \'%'.$words.'%\'');
 		return $query->result();
@@ -43,14 +43,14 @@ class Search_model extends CI_Model {
 
 	function album($words){
 		$query = $this->db->query('
-			SELECT User_Albums.id as albumid,User_Albums.name as albumname,User_Albums.image_url
+			SELECT User_Albums.id as albumid,User_Albums.name as albumname,User_Albums.image_url,"user" as type,Users.name as owner
 			FROM User_Albums
 			JOIN Users ON Users.id = User_Albums.user_id
 			WHERE User_Albums.name LIKE \'%'.$words.'%\'
 
 			UNION ALL
 
-			SELECT Band_Albums.id as albumid,Band_Albums.name as albumname,Band_Albums.image_url
+			SELECT Band_Albums.id as albumid,Band_Albums.name as albumname,Band_Albums.image_url,"band" as type,Bands.name as owner
 			FROM Band_Albums 
 			JOIN Bands ON Bands.id = Band_Albums.band_id
 			WHERE Band_Albums.name LIKE \'%'.$words.'%\'');

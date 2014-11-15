@@ -16,7 +16,8 @@
 	}
 	</style>
 
-	<body>
+	<body>  
+		<?php $this->load->view('navigation'); ?>
 		<div class="container" style="margin-top: 120px">
 			<div class="row">
 				<div class="col-xs-3">
@@ -50,7 +51,7 @@
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/profile/user/'.$user->photo_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 								<div class="content">
-								<h5 class="ui header"><?= $user->name ?> <?= $user->surname ?></h5>
+								<h5 class="ui header"> <a  href="<?= base_url().'user/'.$user->username ?>"> <?= $user->name ?> <?= $user->surname ?> </a></h5>
 								</div>
 							</div>
 							<?php endforeach; ?>
@@ -60,7 +61,7 @@
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/profile/band/'.$band->photo_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 								<div class="content">
-									<h5 class="ui header"><?= $band->name ?></h5>
+									<h5 class="ui header"><a  href="<?= base_url().'band/'.$band->id ?>"> <?= $band->name ?> </a></h5>
 									Rock
 								</div>
 							</div>
@@ -71,8 +72,15 @@
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/album/'.$music->image_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_album_cover.jpg' ?>"><?php endif; ?>
 								<div class="content">
-									<h5 class="ui header">เพลง <?= $music->musicname ?></h5>
-									ศิลปิน กบ ทรงสิทธิ์
+									<h5 class="ui header">เพลง 
+									<?php if($music->type =="user"): ?>
+									<a href="<?= base_url('music/user/view/'. $music->musicid) ?>"> <?= $music->musicname ?> </a> 
+									<?php else: ?>
+									<a href="<?= base_url('music/band/view/'. $music->musicid) ?>"> <?= $music->musicname ?> </a> 
+									<?php endif; ?></h5>
+									ศิลปิน 
+											
+									<?= $music->owner ?>
 								</div>
 							</div>
 							<?php endforeach; ?>
@@ -82,8 +90,15 @@
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/album/'.$album->image_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_album_cover.jpg' ?>"><?php endif; ?>								
 								<div class="content">
-									<h5 class="ui header">อัลบั้ม <?= $album->albumname ?></h5>
-									ศิลปิน Bodyslam
+									
+									<h5 class="ui header">อัลบั้ม
+									 <?php if($album->type =="user"): ?>
+									<a href="<?= base_url('album/user/view/'. $album->albumid) ?>"> <?= $album->albumname ?> </a> 
+									<?php else: ?>
+									<a href="<?= base_url('album/band/view/'. $album->albumid) ?>"> <?= $album->albumname ?> </a> 
+									<?php endif; ?>
+									</h5>
+									ศิลปิน <?= $album->owner ?>
 								</div>
 							</div>
 							<?php endforeach; ?>
