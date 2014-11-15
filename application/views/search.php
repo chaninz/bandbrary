@@ -45,7 +45,7 @@
 						</h3>
 						<div class="ui celled list">
 							<?php foreach($users as $user): ?>
-							<div class="searchuser" style="padding: 20px;">
+							<div class="item searchuser" style="padding: 20px;">
 								<?php if($user->photo_url): ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/profile/user/'.$user->photo_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
@@ -55,7 +55,7 @@
 							</div>
 							<?php endforeach; ?>
 							<?php foreach($bands as $band): ?>											
-							<div class="searchband" style="padding: 20px;">
+							<div class="item searchband" style="padding: 20px;">
 								<?php if($band->photo_url): ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/profile/band/'.$band->photo_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
@@ -66,7 +66,7 @@
 							</div>
 							<?php endforeach; ?>
 							<?php foreach($musics as $music): ?>
-							<div class="searchmusic" style="padding: 20px;" >
+							<div class="item searchmusic" style="padding: 20px;" >
 								<?php if($music->image_url): ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/album/'.$music->image_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_album_cover.jpg' ?>"><?php endif; ?>
@@ -77,7 +77,7 @@
 							</div>
 							<?php endforeach; ?>
 							<?php foreach($albums as $album): ?>
-							<div class="searchalbum" style="padding: 20px;">
+							<div class="item searchalbum" style="padding: 20px;">
 							<?php if($album->image_url): ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/album/'.$album->image_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_album_cover.jpg' ?>"><?php endif; ?>								
