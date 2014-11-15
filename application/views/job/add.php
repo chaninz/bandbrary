@@ -31,7 +31,7 @@
 	</style>
 </head>
 <body>
-	
+
 	<?php $this->load->view('navigation'); ?>
 
 	<div class="container">
