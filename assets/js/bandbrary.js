@@ -40,6 +40,22 @@
 		.on('click', handler.activate)
 		;
 
+		/* Navigation logo */
+		$(window).scroll (function (event) {
+			var sT = $(this).scrollTop();
+			isScroll = true;
+			if (sT >= 40 && isScroll) {
+				$(".bb-logo").css({
+					"margin-top": "-45px"
+				});
+			} else {
+				$(".bb-logo").css({
+					"margin-top": "22px"
+				});
+			}
+		});
+		/* END-Navigation logo */
+
 		/*********/
 		/* Home */
 		/*********/
