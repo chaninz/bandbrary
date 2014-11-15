@@ -90,8 +90,45 @@ class Event_model extends CI_Model {
 					AND Band_Employment.status = 2 
 					AND Jobs.status = 0) AS Events 
 			JOIN Provinces ON Events.province_id = Provinces.id 
+			WHERE date >= CURDATE() 
 			ORDER BY date, time');
 		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_count_by_user($user_id) {
+		$query = $this->db->query('SELECT COUNT(*) AS count 
+			FROM (SELECT user_id, event, description, venue, province_id, date, time, duration, id AS event_id 
+				FROM User_Events 
+				WHERE user_id = '.$user_id.' 
+				UNION 
+				SELECT Employment.user_id, name, description, venue, province_id, date, time, duration, 0 AS event_id 
+				FROM Jobs 
+				JOIN Employment ON Employment.job_id = Jobs.id 
+				WHERE Employment.user_id = '.$user_id.' 
+					AND Employment.status = 2 
+					AND Jobs.status = 0) AS Events 
+			JOIN Provinces ON Events.province_id = Provinces.id');
+		$result = $query->row()->count;
+
+		return $result;
+	}
+
+	function get_count_by_band($band_id) {
+		$query = $this->db->query('SELECT COUNT(*) AS count 
+			FROM (SELECT band_id, event, description, venue, province_id, date, time, duration, id AS event_id 
+				FROM Band_Events 
+				WHERE band_id = '.$band_id.' 
+				UNION 
+				SELECT Band_Employment.band_id, name, description, venue, province_id, date, time, duration, 0 AS event_id 
+				FROM Jobs 
+				JOIN Band_Employment ON Band_Employment.job_id = Jobs.id 
+				WHERE Band_Employment.band_id = '.$band_id.' 
+					AND Band_Employment.status = 2 
+					AND Jobs.status = 0) AS Events 
+			JOIN Provinces ON Events.province_id = Provinces.id');
+		$result = $query->row()->count;
 
 		return $result;
 	}

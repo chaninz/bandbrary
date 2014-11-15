@@ -53,13 +53,15 @@
 				<div class="col-xs-9">
 					<div class="center">
 						<div class="album-group">
-							<?php foreach($albums as $album): ?>
-								<?php if ( ! empty($album->image_url)): ?>
-									<a href="<?= base_url('album/user/view/' . $album->id) ?>"><img src="<?= base_url('uploads/album/' . $album->image_url) ?>" class="album-cover1"></a>
-								<?php else: ?>
-									<a href="<?= base_url('album/user/view/' . $album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
-								<?php endif; ?>
-							<?php endforeach; ?>
+							<?php if ( ! empty($albums)): ?>
+								<?php foreach($albums as $album): ?>
+									<?php if ( ! empty($album->image_url)): ?>
+										<a href="<?= base_url('album/user/view/' . $album->id) ?>"><img src="<?= base_url('uploads/album/' . $album->image_url) ?>" class="album-cover1"></a>
+									<?php else: ?>
+										<a href="<?= base_url('album/user/view/' . $album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							<?php endif; ?>
 						</div>
 						<table class="ui table segment">
 							<thead>
@@ -69,22 +71,24 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php $count = 1 ?>
-								<?php foreach($album_music as $music): ?>
-									<tr>
-										<td><?= $count ?></td>
-										<td>
-											<?php if ( ! empty($music->image_url)): ?>
-												<img src="<?= base_url('uploads/album/' . $music->image_url) ?>" alt class="album-cover2">
-											<?php else: ?>
-												<img src="<?= base_url('images/no_album_cover.jpg') ?>" alt class="album-cover2">
-											<?php endif; ?>
-											<a href="<?= base_url('music/user/view/' . $music->id) ?>" target="_blank"><?= $music->name ?></a>
-										</td>
-										<td><?= $music->album_name ?></td>
-									</tr>
-									<?php $count++ ?>
-								<?php endforeach; ?>
+								<?php if ( ! empty($album_music)): ?>
+									<?php $count = 1 ?>
+									<?php foreach($album_music as $music): ?>
+										<tr>
+											<td><?= $count ?></td>
+											<td>
+												<?php if ( ! empty($music->image_url)): ?>
+													<img src="<?= base_url('uploads/album/' . $music->image_url) ?>" alt class="album-cover2">
+												<?php else: ?>
+													<img src="<?= base_url('images/no_album_cover.jpg') ?>" alt class="album-cover2">
+												<?php endif; ?>
+												<a href="<?= base_url('music/user/view/' . $music->id) ?>" target="_blank"><?= $music->name ?></a>
+											</td>
+											<td><?= $music->album_name ?></td>
+										</tr>
+										<?php $count++ ?>
+									<?php endforeach; ?>
+								<?php endif; ?>
 							</tbody>
 						</table>
 					</div>

@@ -160,7 +160,7 @@ class Join_band_model extends CI_Model {
 	}
 
 	function get_join_all($user_id) {
-		$this->db->select('Bands.name, leave_date');
+		$this->db->select('Bands.id AS id, Bands.name, leave_date');
 		$this->db->order_by('leave_date DESC');
 		$this->db->join('Bands', 'Bands.id = Join_Band.band_id');
 		$this->db->where('leave_date IS NOT NULL');
