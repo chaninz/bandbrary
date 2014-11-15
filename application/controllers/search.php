@@ -13,14 +13,15 @@ class Search extends CI_Controller {
 			$words = $this->input->post('searchword');
 
 			$data = array(
+			'words' => $words,
 			'users' =>	$this->search_model->user($words),
 			'bands' =>	$this->search_model->band($words),
-			'music' => 	$this->search_model->music($words),
+			'musics' => $this->search_model->music($words),
 			'albums' => $this->search_model->album($words)
 
 			);
-			print_r($data);
-			//$this->load->view('search', $data);
+			//print_r($data);
+			$this->load->view('search', $data);
 			//edirect('/band/'.$band.'/timeline');
 
 		}

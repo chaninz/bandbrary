@@ -63,11 +63,20 @@
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
+						<div class="ui down button">
+						  <i class="edit icon"></i>
+						  แก้ไขอัลบั้ม
+						</div>
+						<div class="ui down button">
+						  <i class="delete icon"></i>
+						  ลบอัลบั้ม
+						</div>
 						<table class="ui table segment">
 							<thead>
 								<tr><th>#</th>
 									<th>Name</th>
 									<th>Album</th>
+									<th>...</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -85,6 +94,14 @@
 												<a href="<?= base_url('music/user/view/' . $music->id) ?>" target="_blank"><?= $music->name ?></a>
 											</td>
 											<td><?= $music->album_name ?></td>
+											<td>
+												<div class="ui icon button">
+												  <i class="edit icon"></i>
+												</div>
+												<div class="ui icon button">
+												  <i class="delete icon"></i>
+												</div>
+											</td>
 										</tr>
 										<?php $count++ ?>
 									<?php endforeach; ?>
