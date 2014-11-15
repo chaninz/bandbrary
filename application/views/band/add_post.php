@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
-					<form action="<?= base_url('band/post/add') ?>" method="post" enctype="multipart/form-data">
+					<form action="<?= base_url('band/post/add') ?>" id="post-form" method="post" enctype="multipart/form-data">
 						<div class="ui form segment">
 							<div class="field">
 								<label>ชื่อเรื่อง</label>

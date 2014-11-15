@@ -36,6 +36,19 @@ class Band_music_model extends CI_Model {
 		return $result;
 	}
 
+	function get_by_album($album_id) {
+		$this->db->select('*');
+		$this->db->select('Band_Music.id AS id');
+		$this->db->select('Band_Music.name AS name');
+		$this->db->select('Band_Albums.name AS album_name');
+		$this->db->select('Band_Music.timestamp AS upload_date');
+		$this->db->join('Band_Albums', 'Band_Albums.id = Band_Music.album_id');
+		$query = $this->db->get_where('Band_Music', array('Band_Music.album_id' => $album_id));
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function get_band($music_id){
 		$this->db->select('Bands.id');
 		$this->db->from('Band_Music');

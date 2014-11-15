@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
+	<title><?= $band_profile->name ?> - ตารางงาน | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	
 	<style>
@@ -36,43 +36,40 @@
 							</a>
 						<?php endif; ?>
 						<div class="ui fluid accordion">
-							<div class="event-hea">
-								<table>
-									<tbody>
-										<td class="eh1">วัน</td>
-										<td class="eh2">เวลา</td>
-										<td class="eh3">ชื่องาน</td>
-									</tbody>
-								</table>
-							</div>
-							<?php if ( ! empty($events)): foreach ($events as $event): ?>
-								<div class="title">
-									<i class="dropdown icon" style="float: left"></i>
-									<table>
-										<tbody>
-											<td class="eh4"><?= mdate("%d/%n/%Y", strtotime($event->date)) ?></td>
-											<td class="eh5"><?= mdate("%H:%i", strtotime($event->time)) ?></td>
-											<td class="eh6"><?= $event->event ?></td>
-										</tbody>
-									</table>
-								</div>
-								<div class="content">รายละเอียด
-									<?= $event->description ?>
-									<div>สถานที่: <?= $event->venue ?></div>
-									<div>จังหวัด: <?= $event->province ?></div>
-									<?php if ($this->session->userdata('id') == $band_profile->id && $event->event_id != 0): ?>
+								<?php if ( ! empty($events)): ?>
+									<div class="event-hea">
+										<table>
+											<tbody>
+												<td class="eh1">วัน</td>
+												<td class="eh2">เวลา</td>
+												<td class="eh3">ชื่องาน</td>
+											</tbody>
+										</table>
+									</div>
+									<?php foreach ($events as $event): ?>
+										<div class="title">
+											<i class="dropdown icon" style="float: left"></i>
+											<table>
+												<tbody>
+													<td class="eh4"><?= mdate("%d/%n/%Y", strtotime($event->date)) ?></td>
+													<td class="eh5"><?= mdate("%H:%i", strtotime($event->time)) ?></td>
+													<td class="eh6"><?= $event->event ?></td>
+												</tbody>
+											</table>
+										</div>
+										<div class="content">รายละเอียด
+											<?= $event->description ?>
+											<div>สถานที่: <?= $event->venue ?></div>
+											<div>จังหวัด: <?= $event->province ?></div>
+											<?php if ($this->session->userdata('id') == $band_profile->id && $event->event_id != 0): ?>
 										<a href="<?= base_url('event/band/edit/'.$event->event_id) ?>">แก้ไข</a>
-										<a href="<?= base_url('event/band/delete/'.$event->event_id) ?>">ลบ</a>
+										<a href="<?= base_url('event/band/delete/'.$event->event_id) ?>" onclick="return window.confirm('คุณต้องการลบงานนี้ ?')">ลบ</a>
 									<?php endif; ?>
-								</div>
-								<?php endforeach; ?>
+										</div>
+									<?php endforeach; ?>
 								<?php else: ?>
-									<table>
-										<tbody>
-											<td class="eh5" colspan="3">ไม่มีข้อมูล</td>
-										</tbody>
-									</table>
-							<?php endif; ?>
+									<div class="text-center">ไม่มีข้อมูล</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

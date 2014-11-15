@@ -24,7 +24,7 @@
 					</form>
 				</div>	
 				<div class="bb-logo">
-					<img src="<?= base_url('images/bandbrary_logo_16-9.png') ?>">
+					<img id="bb-logo-img" src="<?= base_url('images/bandbrary_logo_16-9.png') ?>">
 				</div>
 					<!-- <div class="ui inverted menu">
 						<div class="ui item"><?php if($this->session->userdata('photo_url')): ?>

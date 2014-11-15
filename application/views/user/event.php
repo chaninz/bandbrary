@@ -6,8 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?= $user_profile->name . " " . $user_profile->surname ?> - ตารางงาน | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
-	<script src="<?php echo base_url().'assets/js/jquery-ui.min.js'; ?>"></script>
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	
 	<style>
 	.ui.accordion, .ui.accordion .accordion {
@@ -66,7 +64,7 @@
 											<div>จังหวัด: <?= $event->province ?></div>
 											<?php if ($this->session->userdata('id') == $user_profile->id && $event->event_id != 0): ?>
 												<a href="<?= base_url('event/user/edit/'.$event->event_id) ?>">แก้ไข</a>
-												<a href="<?= base_url('event/user/delete/'.$event->event_id) ?>">ลบ</a>
+												<a href="<?= base_url('event/user/delete/'.$event->event_id) ?>" onclick="return window.confirm('คุณต้องการลบงานนี้ ?')">ลบ</a>
 											<?php endif; ?>
 										</div>
 									<?php endforeach; ?>

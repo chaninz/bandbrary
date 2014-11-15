@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>โพสต์ | Bandbrary</title>
+	<title><?= $band_profile->name ?> - โพสต์ | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 	<style>
 	#angle-bth {
@@ -31,14 +31,14 @@
 						<div class="center">
 							<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
 								<a href="<?= base_url('band/post/add') ?>" class="create-post mbtn createpost">
-									
-										<div id="create-post-button" class="ui icon button">
-											<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
-										</div>
-										<div class="create-post-text">สร้างโพสต์</div>
+									<div id="create-post-button" class="ui icon button">
+										<i class="add sign icon" style="font-size: 3.1rem; color: #D6D6D6;"></i>
+									</div>
+									<div class="create-post-text">เพิ่มโพสต์</div>
 								</a>
 							<?php endif; ?>
 							<?php foreach($posts as $post): ?>
+								<a href="<?= base_url().'band/post/view/'.$post->id ?>">
 								<div class="preview-post">
 									<div class="post-date">
 										<div class="post-day"><?= mdate("%d", strtotime($post->timestamp)) ?></div>
@@ -46,13 +46,13 @@
 										<div class="post-white-line"></div>
 										<!--	<div class="post-white-line"><?= mdate("%Y", strtotime($post->timestamp)) ?></div> -->
 									</div>
-									<div class="post-heading"> <a href="<?= base_url().'band/post/view/'.$post->id ?> "><?= $post->topic ?> </a></div>
+									<div class="post-heading"><a href="<?= base_url().'band/post/view/'.$post->id ?> "><?= $post->topic ?> </a></div>
 									<div id="angle-bth" class="ui labeled icon top right pointing dropdown">
 										<i class="angle down icon" style="margin: 0px;"></i>
 										<div class="menu" style="margin-top: 0.4em; margin-right: -0.79em;">
 											<?php if($this->session->userdata("band_id") == $band_profile->id): ?> 
 											<a href="<?= base_url('band/post/edit/'.$post->id) ?>"><div class="item">แก้ไข</div> </a>
-											<a href="<?= base_url('band/post/delete/'.$post->id) ?>"><div class="item">ลบ</div></a>
+											<a href="<?= base_url('band/post/delete/'.$post->id) ?>" onclick="return window.confirm('คุณต้องการลบโพสต์นี้ ?')"><div class="item">ลบ</div></a>
 											<?php endif; ?>
 											<div class="item mbtn reportpost" id="postreport" post-id="<?= $post->id; ?>"> รายงานปัญหาโพสต์นี้</div>
 										</div>
@@ -63,7 +63,8 @@
 										<div class="amount-comment"><?= $post->total_comments ?></div>
 									</div>
 								</div>
-						<?php endforeach; ?>
+								<a>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

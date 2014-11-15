@@ -112,7 +112,7 @@
 									<a class="ui small icon button" href="<?= base_url('music/user/edit/' . $music->id) ?>">
 	  									<i class="edit icon"></i>แก้ไข
 									</a>
-									<a class="ui small icon button" href="<?= base_url('music/user/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?');">
+									<a class="ui small icon button" href="<?= base_url('music/user/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
 	  									<i class="trash icon"></i>ลบ
 									</a>
 								<?php endif; ?>	

@@ -4,11 +4,20 @@ class Band extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('band_album_model');
-
+		// Basic model for band profile page
+		$this->load->model('band_model');
+		$this->load->model('status_model');
+		$this->load->model('follow_model');
+		$this->load->model('join_band_model');
+		$this->load->model('skill_model');
+		$this->load->model('post_model');
+		$this->load->model('band_music_model');
+		$this->load->model('event_model');
+		// Page model
 		$this->load->library('upload');
 		$this->load->library('image_lib');
 		$this->lang->load('upload', 'thai');
+		$this->load->model('band_album_model');
 	}
 
 	public function add(){
@@ -76,8 +85,6 @@ class Band extends CI_Controller {
 		$album = $this->band_album_model->get($album_id);
 		$band_id = $this->session->userdata('band_id');
 		$is_master = $this->session->userdata('is_master');
-		print_r($album);
-		echo $is_master;
 
 		if ($album->band_id == $band_id && $is_master == 1) {
 			// Check if album is added by themselves
@@ -148,6 +155,50 @@ class Band extends CI_Controller {
 			show_404();
 		}
 	}
+
+	public function view($album_id) {
+		$album = $this->band_album_model->get($album_id);
+		
+		if ( ! empty($album)) {
+			// Basic data for user profile page
+			$band_profile = $this->band_model->get($album->band_id);
+			$status = $this->status_model->get_last_by_band($band_profile->id);
+			$band_members = $this->join_band_model->get_current_member($band_profile->id);
+			// Cover
+			$total_timeline = $this->band_model->get_count_timeline($band_profile->id);
+			$total_follower = $this->follow_model->get_count_following_band($band_profile->id);
+			$total_music = $this->band_music_model->get_count_music_band($band_profile->id);
+			$total_post = $this->post_model->get_count_post_band($band_profile->id);
+			$total_event = $this->event_model->get_count_by_band($band_profile->id);
+			// Current user info
+			$current_user_id = $this->session->userdata('id');
+			$is_follow_band = $this->follow_model->is_follow_band($current_user_id, $band_profile->id);
+			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_profile->id);
+			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
+			// Page data
+			$albums = $this->band_album_model->get_by_user($band_profile->id);
+			$album_music = $this->band_music_model->get_by_album($album_id);
+
+			$display = array('band_profile' => $band_profile,
+				'status' => $status,
+				'band_members' => $band_members,
+				'total_timeline' => $total_timeline,
+				'total_follower' => $total_follower,
+				'total_music' => $total_music,
+				'total_post' => $total_post,
+				'total_event' => $total_event,
+				'is_follow_band' => $is_follow_band,
+				'user_status' => $user_status,
+				'current_user_skills' => $current_user_skills,
+				'albums' => $albums,
+				'album_music' => $album_music);
+
+			$this->load->view('band/music', $display);
+		} else {
+			show_404();
+		}
+	}
+
 }
 
 /* End of file music.php */

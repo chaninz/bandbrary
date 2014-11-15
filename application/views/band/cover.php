@@ -17,7 +17,7 @@
 							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail" style="border: 4px solid #E72A30;"/>
 						<?php endif; ?>
 						<div class="profile-name">
-							<div id="pn1"><?= $band_profile->name ?></div>
+							<div id="pn1">วง <?= $band_profile->name ?></div>
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div>
 						<div id="band-follow" class="ui small black buttons">
@@ -57,7 +57,7 @@
 									คนตามกรี๊ด <span class="bb-count"><?= $total_follower ?></span>
 								</a>
 								<a class="item" id="menu-items" href="<?= base_url('band/'.$band_profile->id.'/event') ?>">
-									ตารางงาน <span class="bb-count">22</span>
+									ตารางงาน <span class="bb-count"><?= $total_event ?></span>
 								</a>
 							</div>
 						</div>
@@ -69,13 +69,15 @@
 						<div id="band-member" class="ui animated list">
 							<?php foreach ($band_members as $band_member): ?>
 								<div id="member-size" class="item">
-									<?php if($band_member->photo_url): ?>
-										<p/><img id="member-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
-									<?php else: ?>
-										<p/><img id="member-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
-									<?php endif; ?>
+									<a href="<?= base_url('user/' . $band_member->username) ?>">
+										<?php if($band_member->photo_url): ?>
+											<p/><img id="member-img" class="ui avatar image member" src="<?= base_url('uploads/profile/user/'.$band_member->photo_url) ?>">
+										<?php else: ?>
+											<p/><img id="member-img" class="ui avatar image member" src="<?= base_url('images/no_profile.jpg') ?>">
+										<?php endif; ?>
+									</a>
 									<div class="content">
-										<div class="header"><?= $band_member->name.' '.$band_member->surname ?></div>
+										<div class="header"><a href="<?= base_url('user/' . $band_member->username) ?>"><?= $band_member->name.' '.$band_member->surname ?></a></div>
 										<?= $band_member->position ?>
 									</div>
 								</div>
