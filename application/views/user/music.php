@@ -54,29 +54,32 @@
 					<div class="center">
 						<div class="album-group">
 							<?php if ( ! empty($albums)): ?>
-								<?php foreach($albums as $album): ?>
-									<?php if ( ! empty($album->image_url)): ?>
-										<a href="<?= base_url('album/user/view/' . $album->id) ?>"><img src="<?= base_url('uploads/album/' . $album->image_url) ?>" class="album-cover1"></a>
+								<?php foreach($albums as $e_album): ?>
+									<?php if ( ! empty($e_album->image_url)): ?>
+										<a href="<?= base_url('album/user/view/' . $e_album->id) ?>"><img src="<?= base_url('uploads/album/' . $e_album->image_url) ?>" class="album-cover1"></a>
 									<?php else: ?>
-										<a href="<?= base_url('album/user/view/' . $album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
+										<a href="<?= base_url('album/user/view/' . $e_album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
 									<?php endif; ?>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
-						<div class="ui down button">
-						  <i class="edit icon"></i>
-						  แก้ไขอัลบั้ม
-						</div>
-						<div class="ui down button">
-						  <i class="delete icon"></i>
-						  ลบอัลบั้ม
-						</div>
+						อัลบั้ม <?= $album->name ?>
+						<?php if ($this->session->userdata('id') == $user_profile->id && ! empty($albums)): ?>
+							<a class="ui icon tiny button" href="<?= base_url('album/user/edit/' . $album->id) ?>">
+							  <i class="edit icon"></i>
+							  แก้ไขอัลบั้ม
+							</a>
+							<a class="ui icon tiny button" href="<?= base_url('album/user/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
+							  <i class="delete icon"></i>
+							  ลบอัลบั้ม
+							</a>
+						<?php endif; ?>
 						<table class="ui table segment">
 							<thead>
 								<tr><th>#</th>
-									<th>Name</th>
-									<th>Album</th>
-									<th>...</th>
+									<th>ชื่อเพลง</th>
+									<th>อัลบั้ม</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -95,12 +98,14 @@
 											</td>
 											<td><?= $music->album_name ?></td>
 											<td>
-												<div class="ui icon button">
-												  <i class="edit icon"></i>
-												</div>
-												<div class="ui icon button">
-												  <i class="delete icon"></i>
-												</div>
+												<?php if ($this->session->userdata('id') == $user_profile->id): ?>
+													<a class="ui icon tiny button" href="<?= base_url('music/user/edit/' . $music->id) ?>">
+													  <i class="edit icon"></i>
+													</a>
+													<a class="ui icon tiny button" href="<?= base_url('music/user/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
+													  <i class="delete icon"></i>
+													</a>
+												<?php endif; ?>
 											</td>
 										</tr>
 										<?php $count++ ?>

@@ -40,8 +40,10 @@ class Music extends CI_Controller {
 			// Page data
 			$albums = $this->user_album_model->get_by_user($user_profile->id);
 			$album_music = NULL;
+			$album = NULL;
 			if ( ! empty($albums)) {
 				$album_music = $this->user_music_model->get_by_album($albums[0]->id);
+				$album = $albums[0];
 			}
 
 			$display = array('user_profile' => $user_profile, 
@@ -56,6 +58,7 @@ class Music extends CI_Controller {
 				'total_music' => $total_music,
 				'total_event' => $total_event,
 				'is_follow_user' => $is_follow_user,
+				'album' => $album,
 				'albums' => $albums,
 				'album_music' => $album_music);
 

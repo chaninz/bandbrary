@@ -39,7 +39,10 @@ class User extends CI_Controller {
 
 			redirect(base_url('user/'.$username.'/event'));
 		} else {
-			show_404();
+			$provinces = $this->province_model->get_all();
+			$display = array('provinces' => $provinces);
+
+			$this->load->view('user/add_event', $display);
 		}
 	}
 
@@ -72,25 +75,12 @@ class User extends CI_Controller {
 
 				redirect(base_url('user/'.$username.'/event'));
 			} else if ($user_id == $current_id) {
-				// Basic data for user profile page
-				$user_profile = $this->user_model->get($event->user_id);
-				$band_profile = $this->join_band_model->get_current_band($user_profile->id);
-				$status = $this->status_model->get_last_by_user($user_profile->id);
-				// Current user info
-				$current_user_id = $this->session->userdata('id');
-				$is_follow_user = $this->follow_model->is_follow_user($current_user_id, $user_profile->id);
-
 				$provinces = $this->province_model->get_all();
-				
 
-				$data = array('user_profile' => $user_profile, 
-					'band_profile' => $band_profile,
-					'status' => $status,
-					'event' => $event,
-					'provinces' => $provinces,
-					'is_follow_user' => $is_follow_user);
+				$display = array('event' => $event,
+					'provinces' => $provinces);
 
-				$this->load->view('user/edit_event', $data);
+				$this->load->view('user/edit_event', $display);
 			} else {
 				show_404();
 			}
@@ -114,19 +104,6 @@ class User extends CI_Controller {
 			redirect(base_url('user/'.$username.'/event'));
 		} else {
 			show_404();
-		}
-	}
-
-//-------------------
-
-	public function view() {
-		$user_id = array('user_id' => $this->input->get('user_id'));
-		$user_type = 1;
-		$query = $this->event->get_by_user($user_id, $user_type);
-		// test to print. pls edit to sent data to view
-		foreach ($query->result() as $row) {
-				echo $row->user_id.' ';
-				echo $row->event.'<br/>';
 		}
 	}
 

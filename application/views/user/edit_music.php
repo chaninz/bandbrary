@@ -55,11 +55,11 @@
 						</div>
 						<div class="field">
 							<label>ชื่อเพลง</label>
-							<input type="text" placeholder="" name="name" value="<?= $music->name ?>" readonly>
+							<input type="text" name="name" value="<?= $music->name ?>">
 						</div>
 						<div class="field">
 							<label>เนื้อเพลง</label>
-							<textarea name="lyric"><?= $music->lyric ?></textarea>
+							<textarea class="ckeditor" name="lyric"><?= $music->lyric ?></textarea>
 						</div>
 						<div class="field">
 							<label>ลิขสิทธิ์</label>
@@ -74,7 +74,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="field">
+						<!-- <div class="field">
 							<label>ความเป็นส่วนตัว</label>
 							<div class="grouped inline fields">
 								<div class="field">
@@ -90,7 +90,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 					</form>
 				</div>

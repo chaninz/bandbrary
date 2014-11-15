@@ -32,16 +32,15 @@ class User extends CI_Controller {
 		$lyric = $this->input->post('lyric');
 		$music_url = $this->input->post('music-url');
 		$license = $this->input->post('license');
-		$visibility = $this->input->post('visibility');
+		//$visibility = $this->input->post('visibility');
 
-		if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($music_url) && ! empty($license) &&
-			 ! empty($visibility)) {
+		if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($music_url) && ! empty($license)) {
 			$data = array('name' => $name,
 				'album_id' => $album,	
 				'lyric' => $lyric,
 				'music_url' => $music_url,
-				'license_type' => $license,
-				'visibility' => $visibility);
+				'license_type' => $license,);
+				//'visibility' => $visibility);
 			
 			$this->user_music_model->add($data);
 			redirect(base_url('music/user'));
@@ -60,15 +59,14 @@ class User extends CI_Controller {
 			$album = $this->input->post('album');
 			$lyric = $this->input->post('lyric');
 			$license = $this->input->post('license');
-			$visibility = $this->input->post('visibility');
+			//$visibility = $this->input->post('visibility');
 
-			if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($license) && ! empty($visibility)) {
+			if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($license)) {
 				$data = array('name' => $name,
 					'album_id' => $album,	
 					'lyric' => $lyric,
 					'music_url' => $music_url,
-					'license_type' => $license,
-					'visibility' => $visibility);
+					'license_type' => $license);
 
 				$this->user_music_model->edit($data, $music_id);
 				redirect(base_url('music/user/view/' . $music_id));

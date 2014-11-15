@@ -43,14 +43,13 @@
 		/* Navigation logo */
 		$(window).scroll (function (event) {
 			var sT = $(this).scrollTop();
-			isScroll = true;
-			if (sT >= 40 && isScroll) {
+			if (sT >= 40) {
 				$(".bb-logo").css({
 					"margin-top": "-45px"
 				});
 			} else {
 				$(".bb-logo").css({
-					"margin-top": "22px"
+					"margin-top": "0px"
 				});
 			}
 		});
@@ -553,6 +552,62 @@
 				rules: [
 				{
 					type   : 'time'
+				}
+				]
+			}
+		});
+
+		/*******************/
+		/* Add, Edit Album */
+		/*******************/
+
+		$('#album-form')
+		.form({
+			name: {
+				identifier : 'name',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			}
+		});
+
+		/*******************/
+		/* Add, Edit Music */
+		/*******************/
+
+		$('#music-form')
+		.form({
+			album: {
+				identifier : 'album',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			name: {
+				identifier : 'name',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			musicUrl: {
+				identifier : 'music-url',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			},
+			license: {
+				identifier : 'license',
+				rules: [
+				{
+					type   : 'empty'
 				}
 				]
 			}

@@ -30,7 +30,7 @@
 					<div class="col-xs-9">
 						<div class="center">
 							<?php if ($this->session->userdata('id') == $user_profile->id): ?>
-								<a id="event-add-btn" class="ui red button mbtn event">
+								<a id="event-add-btn" class="ui red button mbtn event" href="<?= base_url('event/user/add') ?>">
 									<i class="add icon"></i>
 									เพิ่มกิจกรรม
 								</a>
@@ -79,72 +79,13 @@
 		</article>
 	</section>
 
-	<!--Add event modal-->
-	<div class="ui form segment create modal">
-		<form id="event-form" action="<?= base_url('event/user/add') ?>" method="post">
-			<h3>เพิ่มกิจกรรม</h3>
-			<br/><p/>
-			<div class="line"></div>
-			<p/>
-			<div class="field">
-				<label>ชื่องาน</label>
-				<input type="text" placeholder="" name="event">
-			</div>
-			<div class="field">
-				<label>สถานที่</label>
-				<input type="text" name="venue"/>
-			</div>
-			<div class="field">
-				<label>จังหวัด</label>
-				<div class="ui labeled icon input">
-					<div class="ui fluid selection dropdown">
-						<div class="text">เลือก</div>
-						<i class="dropdown icon"></i>
-						<input type="hidden" name="province">
-						<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
-							<div class="item" data-value="<?= $province->id ?>"><?= $province->province ?></div><?php endforeach; endif; ?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="line"></div>
-			<p/>
-			<div class="field">
-				<label>รายละเอียด</label>
-				<textarea name="description"></textarea>
-			</div>
-			<div class="two fields">
-				<div class="date field">
-					<label>วันที่</label>
-					<div class="ui left labeled icon input">
-						<i class="icon calendar"></i>
-						<input type="text" placeholder="ปปปป-ดด-วว" name="date" id="date" />
-					</div>
-				</div>
-				<div class="field">
-					<label>เวลา</label>
-					<div class="ui left labeled icon input">
-						<input type="text" placeholder="ชม.นท" name="time"/>
-						<i class="time icon"></i>
-					</div>
-				</div>
-			</div>
-			<div class="line"></div>
-			<p/>
-			<div class="actions">
-				<div id="add-event-button" class="ui ok small red submit button">เพิ่มกิจกรรม</div>
-				<div class="ui cancel small button">ยกเลิก</div>
-			</div>
-		</form>
-	</div>
-
 	<?php $this->load->view('footer'); ?>
 	<script>
-		$(".create.modal").modal("setting", {
-			onApprove : function() {
-				return $("#event-form").form("validate form");
-			}
-		}).modal("attach events", ".mbtn.event", "show");
+		// $(".create.modal").modal("setting", {
+		// 	onApprove : function() {
+		// 		return $("#event-form").form("validate form");
+		// 	}
+		// }).modal("attach events", ".mbtn.event", "show");
 
 		$(function() {
 			$( "#date" ).datepicker({

@@ -42,7 +42,7 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url('music/user/add') ?>" method="post">
+				<form action="<?= base_url('music/user/add') ?>" id="music-form" method="post">
 					<div class="field">
 						<label>อัลบั้ม</label>
 						<div class="ui fluid selection dropdown">
@@ -64,7 +64,7 @@
 					</div>
 					<div class="field">
 						<label>เนื้อเพลง</label>
-						<textarea name="lyric"></textarea>
+						<textarea class="ckeditor" name="lyric"></textarea>
 					</div>
 					<div class="field">
 						<label>เพลง</label>
@@ -86,7 +86,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="field">
+					<!-- <div class="field">
 						<label>ความเป็นส่วนตัว</label>
 						<div class="grouped inline fields">
 							<div class="field">
@@ -102,7 +102,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 			</form>

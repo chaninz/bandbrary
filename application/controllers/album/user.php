@@ -22,14 +22,14 @@ class User extends CI_Controller {
 
 	public function add(){
 		$name = $this->input->post('name');
-		$description = $this->input->post('description');
+		//$description = $this->input->post('description');
 		$user_id = $this->session->userdata('id');
 		$username = $this->session->userdata('username');
 
 		if ( ! empty($name)) {
 			$data = array('user_id' => $user_id,
 				'name' => $name,
-				'description' => $description,
+				//'description' => $description,
 				'image_url' => NULL);
 			$is_uploaded = 1;
 
@@ -73,7 +73,7 @@ class User extends CI_Controller {
 				$this->load->view('user/add_album', $display);
 			} else {
 				$this->user_album_model->add($data);
-				//redirect(base_url('user/'.$username.'/music'));
+				redirect('user/' . $username . '/music');
 			}
 			
 		} else {
@@ -85,18 +85,16 @@ class User extends CI_Controller {
 		$album = $this->user_album_model->get($album_id);
 		$user_id = $this->session->userdata('id');
 
-		if ($album->user_id == $user_id) {
+		if (! empty($album) && $album->user_id == $user_id) {
 			// Check if album is added by themselves
 			$name = $this->input->post('name');
-			$description = $this->input->post('description');
+			//$description = $this->input->post('description');
 			$is_image_upload = $this->input->post('image-upload');
 
 			if ( ! empty($name)) {
-				echo $name.$description;
 				$new_data = array('user_id' => $user_id,
-					'name' => $name,
-					'description' => $description,
-					'image_url' => NULL);
+					'name' => $name);
+					//'description' => $description);
 				$msg_image = NULL;
 
 				$upload_photo_name = $this->input->post('cover-name');
@@ -137,22 +135,37 @@ class User extends CI_Controller {
 				// Update new data to database
 				$this->user_album_model->edit($album_id, $new_data);
 
-				// Retrieve data for refresh page
-				$album = $this->user_album_model->get($album_id);
-				$msg = array('type' => 3, 
-					'header' => '',
-					'text' => 'บันทึกข้อมูลเรียบร้อย');
-				$display = array('album' => $album,
-					'msg_image' => $msg_image,
-					'msg' => $msg);
+				// // Retrieve data for refresh page
+				// $album = $this->user_album_model->get($album_id);
+				// $msg = array('type' => 3, 
+				// 	'header' => '',
+				// 	'text' => 'บันทึกข้อมูลเรียบร้อย');
+				// $display = array('album' => $album,
+				// 	'msg_image' => $msg_image,
+				// 	'msg' => $msg);
 
-				$this->load->view('user/edit_album', $display);
+				// $this->load->view('user/edit_album', $display);
+				$this->view($album_id);
 			} else {
 				// If not send data from form
 
 				$display = array('album' => $album);
 				$this->load->view('user/edit_album', $display);
 			}
+		} else {
+			show_404();
+		}
+	}
+
+	public function delete($album_id) {
+		$album = $this->user_album_model->get($album_id);
+		$user_id = $this->session->userdata('id');
+
+		if (! empty($album) && $album->user_id == $user_id) {
+			$this->user_album_model->delete($album_id);
+			$username = $this->session->userdata('username');
+
+			redirect('user/' . $username . '/music');
 		} else {
 			show_404();
 		}

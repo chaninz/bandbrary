@@ -28,87 +28,78 @@
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<?php $this->load->view('user/cover'); ?>
-	<section>
-		<article>
-			<div class="container">
-				<div class="row">
-					<?php $this->load->view('user/sidebar_left'); ?>
-					<div class="col-xs-9">
-						<div class="ui form segment">
-							<form id="event-form" action="<?= base_url('event/user/edit/'.$event->id) ?>" method="post">
-								<h3>แก้ไขตารางงาน</h3>
-								<br/><p/>
-								<div class="line"></div>
-								<p/>
-								<div class="field">
-									<label>ชื่องาน</label>
-									<input type="text" placeholder="" name="event" value="<?= $event->event ?>">
-								</div>
-								<div class="field">
-									<label>สถานที่</label>
-									<input type="text" name="venue" value="<?= $event->venue ?>"/>
-								</div>
-								<div class="field">
-									<label>จังหวัด</label>
-									<div class="ui labeled icon input">
-										<div class="ui fluid selection dropdown">
-											<div class="text">เลือก</div>
-											<i class="dropdown icon"></i>
-											<input type="hidden" name="province" value="<?= $event->province_id ?>">
-											<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
-												<div class="item" data-value="<?= $province->id ?>"><?= $province->province ?></div><?php endforeach; endif; ?>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="line"></div>
-								<p/>
-								<div class="field">
-									<label>รายละเอียด</label>
-									<textarea name="description"><?= $event->description ?></textarea>
-								</div>
-								<div class="two fields">
-									<div class="date field">
-										<label>วันที่</label>
-										<div class="ui left labeled icon input">
-											<i class="icon calendar"></i>
-											<input type="text" placeholder="ปปปป-ดด-วว" name="date" id="date" value="<?= $event->date ?>"/>
-										</div>
-									</div>
-									<div class="field">
-										<label>เวลา</label>
-										<div class="ui left labeled icon input">
-											<input type="text" placeholder="ชม.นท" name="time" value="<?= mdate("%H:%i", strtotime($event->time)) ?>"/>
-											<i class="time icon"></i>
-										</div>
-									</div>
-								</div>
-								<div class="line"></div>
-								<p/>
-								<div class="actions">
-									<input id="add-event-button" class="ui ok small red submit button" type="submit" value="แก้ไข"/>
-								</div>
-							</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-9">
+				<div class="ui form segment">
+					<form id="event-form" action="<?= base_url('event/user/edit/'.$event->id) ?>" method="post">
+						<h3>แก้ไขตารางงาน</h3>
+						<br/><p/>
+						<div class="line"></div>
+						<p/>
+						<div class="field">
+							<label>ชื่องาน</label>
+							<input type="text" placeholder="" name="event" value="<?= $event->event ?>">
 						</div>
-					</div>
+						<div class="field">
+							<label>สถานที่</label>
+							<input type="text" name="venue" value="<?= $event->venue ?>"/>
+						</div>
+						<div class="field">
+							<label>จังหวัด</label>
+							<div class="ui labeled icon input">
+								<div class="ui fluid selection dropdown">
+									<div class="text">เลือก</div>
+									<i class="dropdown icon"></i>
+									<input type="hidden" name="province" value="<?= $event->province_id ?>">
+									<div class="menu"><?php if (! empty($provinces)): foreach ($provinces as $province): ?>
+										<div class="item" data-value="<?= $province->id ?>"><?= $province->province ?></div><?php endforeach; endif; ?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="line"></div>
+						<p/>
+						<div class="field">
+							<label>รายละเอียด</label>
+							<textarea name="description"><?= $event->description ?></textarea>
+						</div>
+						<div class="two fields">
+							<div class="date field">
+								<label>วันที่</label>
+								<div class="ui left labeled icon input">
+									<i class="icon calendar"></i>
+									<input type="text" placeholder="ปปปป-ดด-วว" name="date" id="date" value="<?= $event->date ?>"/>
+								</div>
+							</div>
+							<div class="field">
+								<label>เวลา</label>
+								<div class="ui left labeled icon input">
+									<input type="text" placeholder="ชม.นท" name="time" value="<?= mdate("%H:%i", strtotime($event->time)) ?>"/>
+									<i class="time icon"></i>
+								</div>
+							</div>
+						</div>
+						<div class="line"></div>
+						<p/>
+						<div class="actions">
+							<input id="add-event-button" class="ui ok small red submit button" type="submit" value="แก้ไข"/>
+						</div>
+					</form>
 				</div>
 			</div>
-		</article>
-	</section>
-
-
-
-<?php $this->load->view('footer'); ?>
-<script>
-	$(function() {
-		$( "#date" ).datepicker({
-			changeMonth: true,
-			changeYear: true,
-			dateFormat: "yy-mm-dd",
-			// minDate: "Date()"
+		</div>
+	</div>
+	<?php $this->load->view('footer'); ?>
+	<script>
+		$(function() {
+			$( "#date" ).datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: "yy-mm-dd",
+				// minDate: "Date()"
+			});
 		});
-	});
-</script>
+	</script>
 </body>
 </html>
