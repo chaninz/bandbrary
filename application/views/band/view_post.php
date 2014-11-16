@@ -64,7 +64,7 @@
 									<div class="field">
 										<textarea name="comment" id="comment-box" style="margin-left: 50px;"></textarea>
 									</div>
-									<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์" >
+									<input type="submit" class="ui small button submit" style="margin-left: 537px;" value="โพสต์" >
 								</form>
 							</div>
 						</div>

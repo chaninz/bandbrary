@@ -68,7 +68,7 @@
 				<?php endif; ?>
 				<?php if ( ! empty($skills)): ?>
 					<div class="item">
-						<!-- <i class="certificate icon"></i> -->
+						<i class="music icon"></i>
 						<div class="content">
 							<div class="header">ความสามารถ</div>
 							<div class="description">
@@ -83,7 +83,7 @@
 				<?php endif; ?>
 				<?php if ( ! empty($styles)): ?>
 					<div class="item">
-						<!-- <i class="certificate icon"></i> -->
+						<i class="headphones icon"></i>
 						<div class="content">
 							<div class="header">สไตล์</div>
 							<div class="description">

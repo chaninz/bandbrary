@@ -14054,7 +14054,7 @@ body.pushed.scrolling.ui.dimmable {
 }
 .ui.comments > .reply.form {
   margin-top: 1.5em;
-  max-width: 40em;
+  max-width: 40.2em;
 }
 .ui.comments .reply.form textarea {
   height: 12em;
