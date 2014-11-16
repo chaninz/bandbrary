@@ -105,7 +105,6 @@
 		</div>
 	</div>
 
-
 	<?php $this->load->view('job/sidebar_left'); ?>
 	<?php $this->load->view('footer'); ?>
 </div>

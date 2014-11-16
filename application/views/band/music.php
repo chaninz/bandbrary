@@ -103,10 +103,10 @@
 											<td><?= $music->album_name ?></td>
 											<td>
 												<?php if (! empty($albums) && $this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1 && $band_profile->id == $this->session->userdata('band_id')): ?>
-													<a class="ui icon tiny button" href="<?= base_url('music/band/edit/' . $music->id) ?>">
+													<a class="ui icon" style="font-size: 1.2em;" href="<?= base_url('music/band/edit/' . $music->id) ?>">
 													  <i class="edit icon"></i>
 													</a>
-													<a class="ui icon tiny button" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
+													<a class="ui icon" style="font-size: 1.2em;" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
 													  <i class="trash icon"></i>
 													</a>
 												<?php endif; ?>

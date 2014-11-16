@@ -36,8 +36,8 @@
 			<b>ค้นหางาน</b>
 			<p></p>
 			<form id="sidebar-search" action="<?= base_url('job/search') ?>" method="post">
-				<div class="ui icon input">
-					<input type="text" placeholder="ใส่คำค้นหา" name="keyword"/>
+				<div class="ui icon input" style="width: 100%;">
+					<input type="text" name="keyword"/>
 					<i class="inverted search icon"></i>
 				</div>
 			</form>
