@@ -134,7 +134,7 @@
 								<br/>
 								<h5 class="ui header">ความคิดเห็นทั้งหมด</h5>
 							</div>
-							<div class="ui comments" style="margin-top: 20px;">
+							<div class="ui comments" style="margin-top: 20px; margin-bottom: 25px;">
 								<?php foreach($comments as $comment): ?>
 									<div class="comment">
 										<a class="avatar">
@@ -145,7 +145,7 @@
 											<?php endif; ?>
 										</a>
 										<div class="content">
-											<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><?= $comment->name.' '.$comment->surname ?></a>
+											<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><b><?= $comment->name.' '.$comment->surname ?></b></a>
 											<div class="metadata">
 												<div class="date">
 													<?= mdate("%d %M %Y", strtotime($comment->timestamp)) ?>

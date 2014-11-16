@@ -38,7 +38,7 @@
 										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-									 	<?= $timeline->username ?> <?= $timeline->surname ?> ได้เพิ่มเพลงใหม่
+									 	<b><?= $timeline->username ?> <?= $timeline->surname ?></b> ได้เพิ่มเพลงใหม่
 									</div>
 									<div class="extra text">
 										<a href="<?= base_url('music/user/view/'.$timeline->id) ?>">เพลง <?= $timeline->text ?></a>
@@ -71,7 +71,7 @@
 										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										<?= $timeline->username ?> <?= $timeline->surname ?>ได้อัพเดตสถานะใหม่
+										<b><?= $timeline->username ?> <?= $timeline->surname ?> </b>ได้อัพเดตสถานะใหม่
 									</div>
 									<div class="extra text">
 										 <?= $timeline->text ?>

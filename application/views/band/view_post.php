@@ -48,7 +48,7 @@
 											<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 										</a>
 										<div class="content">
-											<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><?= $comment->name.' '.$comment->surname ?></a>
+											<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><b><?= $comment->name.' '.$comment->surname ?></b></a>
 											<div class="metadata">
 												<div class="date">
 													<?= mdate("%d %M %Y", strtotime($comment->timestamp)) ?> 

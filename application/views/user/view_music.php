@@ -116,7 +116,7 @@
 	  									<i class="trash icon"></i>ลบ
 									</a>
 								<?php endif; ?>	
-								<div style="margin-top: 25px;">
+								<div style="margin-top: 25px; margin-bottom: 25px;">
 									มีคนกรี๊ดเพลงนี้ <span id="count-greedd"><?= $count_greedd_user_music ?></span> คน
 								</div>
 								<div>
@@ -142,7 +142,7 @@
 										<img src="<?= base_url().'images/no_profile.jpg' ?>"><?php endif; ?>
 									</a>
 									<div class="content">
-										<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><?= $comment->name.' '.$comment->surname ?></a>
+										<a class="author" href="<?= base_url('user/'.$comment->username) ?>"><b><?= $comment->name.' '.$comment->surname ?><b></a>
 										<div class="metadata">
 											<div class="date">
 												<?= mdate("%d %M %Y", strtotime($comment->timestamp)) ?> 

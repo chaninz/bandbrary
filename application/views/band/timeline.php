@@ -39,7 +39,7 @@
 										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-									 	<?= $timeline->bandname ?> ได้เพิ่มเพลงใหม่
+									 	<b><?= $timeline->bandname ?></b> ได้เพิ่มเพลงใหม่
 									</div>
 									<div class="extra text">
 										<a href="<?= base_url('music/band/view/'.$timeline->id) ?>">เพลง <?= $timeline->text ?></a>
@@ -56,7 +56,7 @@
 										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										<?= $timeline->bandname ?> ได้เขียนโพสต์ใหม่
+										<b><?= $timeline->bandname ?></b> ได้เขียนโพสต์ใหม่
 									</div>
 									<div class="extra text">
 										<a href="<?= base_url('band/post/view/'.$timeline->id) ?>"> <?= $timeline->text ?> </a>
@@ -73,7 +73,7 @@
 										<?= $timeline->timestamp ?>
 									</div>
 									<div class="summary">
-										<?= $timeline->bandname ?> ได้อัพเดตสถานะใหม่
+										<b><?= $timeline->bandname ?></b> ได้อัพเดตสถานะใหม่
 									</div>
 									<div class="extra text">
 										 <?= $timeline->text ?>
