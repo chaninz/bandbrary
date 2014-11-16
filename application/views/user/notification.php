@@ -21,6 +21,9 @@
     -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
     box-shadow: 0 1px 1px rgba(0,0,0,.24),0 1px 5px rgba(0,0,0,.05);
   }
+  footer {
+    margin-top: 0px;
+  }
 
   </style>
 
@@ -31,7 +34,7 @@
     <div id="notice-container" class="container">
       <div class="row">
 
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="padding-bottom: 45px;">
 
           <h3 class="ui block header" style="margin: 120px 0px 20px 0px; background-color: #FFFFFF;">
             <i class="bell icon"></i>
@@ -147,6 +150,8 @@
 </div>
 </div>
 </div>
+
+<?php $this->load->view('footer'); ?>
 
 </body>
 </html>

@@ -28,13 +28,16 @@
 	.col-xs-6 {
 		padding-bottom: 70px;
 	}
+	footer {
+		margin-top: 0px;
+	}
 	</style>
 </head>
 <body>
 
 	<?php $this->load->view('navigation'); ?>
 
-	<div class="container">
+	<div id="bb-container" class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
