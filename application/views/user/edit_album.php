@@ -69,7 +69,7 @@
 							<input type="hidden" name="image-upload" id="image-upload" value="0"/>
 						</div>
 						<?php if($album->image_url != NULL): ?>
-						<div style="margin-top: 20px;">
+						<div style="margin-top: 10px;">
 							<img id="img-preview" src="<?= base_url('uploads/album/'.$album->image_url) ?>"/>
 						</div>
 						<?php endif; ?>
