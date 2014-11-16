@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>เพิ่มกิจกรรม | Bandbrary</title>
 
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	<?php $this->load->view('header'); ?>
 
 	<style>

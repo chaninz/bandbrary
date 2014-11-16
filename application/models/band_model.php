@@ -45,6 +45,16 @@ class Band_model extends CI_Model {
 		return $result;
 	}
 
+	function close_join($band_id) {
+		$this->db->where('id', $band_id);
+		$this->db->update('Bands', array('status' => 0));
+	}
+
+	function open_join($band_id) {
+		$this->db->where('id', $band_id);
+		$this->db->update('Bands', array('status' => 1));
+	}
+
 	function timeline($band_id){
 			$query = $this->db->query('
 		SELECT Band_Status.id,Band_Status.status as text,Band_Status.timestamp,"Status" as type,Bands.name as bandname

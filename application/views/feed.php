@@ -44,7 +44,8 @@
 		color: #E72A30;
 	}
 	.audio-player {
-		width: 508px;
+		width: 150px;
+		height: 150px;
 		margin: 0px;
 	}
 	body {
@@ -73,101 +74,60 @@
 
 			<div id="feed-left" class="col-xs-3">
 				<!--start username-->
-				<div class="col1">
-					<div class="feed-user box">
-						<div class="feed-name">
-							<a class="ui header">Chetniphat Varasai</a>
-							<div class="sub header">2 days ago</div>
-						</div>
-						<div class="user-avatar box">
-							<img src="images/no_profile.jpg">
+				<?php foreach ($music as $e_music): ?>
+					<div class="col1">
+						<div class="feed-user box">
+							<div class="feed-name">
+								<a class="ui header"><?= $e_music->artist ?></a>
+								<div class="sub header"><?= $e_music->timestamp ?></div>
+							</div>
+							<div class="user-avatar box">
+								<?php if ($e_music->type == 1): ?>
+									<img src="<?= $e_music->photo_url != NULL ? base_url('uploads/profile/user/' . $e_music->photo_url) : base_url('images/no_profile.jpg') ?>">
+								<?php elseif ($e_music->type == 2): ?>
+									<img src="<?= $e_music->photo_url != NULL ? base_url('uploads/profile/band/' . $e_music->photo_url) : base_url('images/no_profile.jpg') ?>">
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
-				</div>
+				<?php endforeach; ?>
 				<!--end username-->
 			</div>
 
 			<div id="feed-center" class="col-xs-7">
 				<!--start feedbox-->
+				<?php foreach ($music as $e_music): ?>
 				<div class="col2">
 					<div class="feed-box box">
-						<img src="images/audio_player.jpg" alt="" class="audio-player">
+							<?php if ($e_music->type == 1): ?>
+								<a href="<?= base_url('music/user/view/' . $e_music->music_id) ?>"><img src="<?= $e_music->cover_image != NULL ? base_url('uploads/album/' . $e_music->cover_image) : base_url('images/no_album_cover.jpg') ?>" class="audio-player"></a>
+							<?php elseif ($e_music->type == 2): ?>
+								<a href="<?= base_url('music/band/view/' . $e_music->music_id) ?>"><img src="<?= $e_music->cover_image != NULL ? base_url('uploads/album/' . $e_music->cover_image) : base_url('images/no_album_cover.jpg') ?>" class="audio-player"></a>
+							<?php endif; ?>
 						<div>
-							<div class="ui red tiny icon button">
+							<?php if ($e_music->type == 1): ?>
+								<p/>เพลง: <a href="<?= base_url('music/user/view/' . $e_music->music_id) ?>"><?= $e_music->name ?></a>
+							<?php elseif ($e_music->type == 2): ?>
+								<p/>เพลง: <a href="<?= base_url('music/band/view/' . $e_music->music_id) ?>"><?= $e_music->name ?></a>
+							<?php endif; ?>
+							<p/>ศิลปิน: <?= $e_music->artist ?>
+							<p/>อัลบั้ม: <?= $e_music->album ?>
+						</div>
+						<div>
+							<!-- <div class="ui red tiny icon button">
 								<i class="heart icon greedd popup" title="กรี๊ด" data-variation="inverted"></i>
-							</div>
-							<div class="ui tiny icon button">
-								<i class="retweet icon rebox popup" title="รีกล่อง" data-variation="inverted"></i>
-							</div>
-							<div class="ui black tiny icon button">
-								<i class="share icon share popup" title="แบ่งปัน" data-variation="inverted"></i>
-							</div>
+							</div> -->
 						</div>
-						<div class="line"></div>
-						<div class="ui comments">
-							<div class="comment">
-								<a class="avatar">
-									<img src="<?= base_url('images/tle.jpg') ?>">
-								</a>
-								<div class="content">
-									<a class="author">Chetniphat Varasai</a>
-									<div class="metadata">
-										<div class="date">2 days ago</div>
-									</div>
-									<div class="text">
-										...ทั้งหมดนั้น...ที่ไม่เคยบอก...เพราะสิ่งนั้น...ยังไม่ชัดเจน...
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ui comments">
-							<div class="comment">
-								<a class="avatar">
-									<img src="<?= base_url('images/nin.jpg') ?>">
-								</a>
-								<div class="content">
-									<a class="author">Chanin N.</a>
-									<div class="metadata">
-										<div class="date">3 days ago</div>
-									</div>
-									<div class="text">
-										เห่ย! เพราะโครต
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ui comments">
-							<div class="comment">
-								<a class="avatar">
-									<img src="<?= base_url('images/pun.jpg') ?>">
-								</a>
-								<div class="content">
-									<a class="author">Punpun Sa</a>
-									<div class="metadata">
-										<div class="date">4 days ago</div>
-									</div>
-									<div class="text">
-										กรี๊ด ชอบมากกกกกกกกก 
-									</div>
-								</div>
-							</div>
-						</div>
+						<!-- <div class="line"></div>
 						<div>
 							<div class="ui tiny icon button" style="margin-left: 185px">
 								ดูความคิดเห็นทั้งหมด
 							</div>
-						</div>
+						</div> -->
 						<div class="line"></div>
-						<div class="ui form">
-							<div class="field">
-								<input placeholder="Write a Comment..." type="text" style="width: 455px; border-radius: 0px;">
-								<div class="ui tiny icon button" style="margin: 0px; padding: 0.99em; margin-bottom: 2px;">
-									ส่ง
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
+				<?php endforeach; ?>
 				<!--end feedbox-->
 			</div>
 

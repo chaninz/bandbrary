@@ -84,6 +84,11 @@
 				<div class="ui form segment"><p>
 					<h2 class="ui header">คำร้องขอเข้าร่วมวง</h2>
 					<div class="line"></div><br><p>
+					<?php if ($band_profile->status == 1): ?>
+						<a href="<?= base_url('band/join/close') ?>">ปิดรับสมัครสมาชิก</a>
+					<?php elseif ($band_profile->status == 0): ?>
+						<a href="<?= base_url('band/join/open') ?>">เปิดรับสมัครสมาชิก</a>
+					<?php endif; ?>
 					<?php if ($band_requests): ?>
 						<?php foreach ($band_requests as $band_request) : ?>
 							<div id="join-rq" class="field">

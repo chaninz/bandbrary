@@ -71,9 +71,34 @@ class Join extends CI_Controller {
 		}
 	}
 
+	public function open() {
+		$current_band_id = $this->session->userdata('band_id');
+		$is_master = $this->session->userdata('is_master');
+		
+		if ( ! empty($current_band_id) && ! empty($is_master) && $is_master == 1) {
+			$this->band_model->open_join($current_band_id);
+			redirect('band/request');
+		} else {
+			show_404();
+		}
+	}
+
+	public function close() {
+		$current_band_id = $this->session->userdata('band_id');
+		$is_master = $this->session->userdata('is_master');
+
+		if ( ! empty($current_band_id) && ! empty($is_master) && $is_master == 1) {
+			$this->band_model->close_join($current_band_id);
+			redirect('band/request');
+		} else {
+			show_404();
+		}
+	}
+
+
 	public function test() {
 		// echo $this->band_model->check_user_status($this->session->userdata('id'), 1);
-		$this->band_model->set_master($this->session->userdata('id'), 1, 3);
+		$this->band_model->open_join(2);
 	}
 
 }

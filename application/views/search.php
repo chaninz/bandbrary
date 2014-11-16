@@ -19,11 +19,11 @@
 
 		<?php $this->load->view('navigation'); ?>
 		
-		<div class="container" style="margin-top: 120px">
+		<div class="container" style="padding-top: 120px">
 			<div class="row">
 				<div class="col-xs-3">
 					<div class="ui fluid vertical pointing menu">
-						<a class="active item" id="searchusers">
+						<a class="item" id="searchusers">
 							<i class="user icon"></i> ผู้ใช้
 						</a>
 						<a class="item" id="searchbands">
@@ -91,7 +91,6 @@
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'uploads/album/'.$album->image_url ?>"><?php else: ?>
 								<img class="ui avatar image" style="border-radius: 0px;" src="<?= base_url().'images/no_album_cover.jpg' ?>"><?php endif; ?>								
 								<div class="content">
-									
 									<h5 class="ui header">อัลบั้ม
 									 <?php if($album->type =="user"): ?>
 									<a href="<?= base_url('album/user/view/'. $album->albumid) ?>"> <?= $album->albumname ?> </a> 
