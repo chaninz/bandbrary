@@ -17,7 +17,7 @@
 							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail" style="border: 4px solid #E72A30;"/>
 						<?php endif; ?>
 						<div class="profile-name">
-							<div id="pn1">วง <?= $band_profile->name ?></div>
+							<div id="pn1">วง <?= $band_profile->name ?><a class="ui red label" style="margin-left: 10px;"><?= $total_follower ?> Greedd</a></div>
 							<div id="pn2"><?= $band_profile->style ?></div>
 						</div>
 						<div id="band-follow" class="ui small black buttons">

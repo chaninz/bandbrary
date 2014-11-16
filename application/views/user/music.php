@@ -68,7 +68,7 @@
 						</h3>
 						<?php if ($this->session->userdata('id') == $user_profile->id && ! empty($albums)): ?>
 							<a class="ui icon tiny button" style="float: right; margin-left: 10px" href="<?= base_url('album/user/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
-							  <i class="delete icon"></i>
+							  <i class="trash icon"></i>
 							  ลบอัลบั้ม
 							</a>
 							<a class="ui icon tiny button" style="float: right;" href="<?= base_url('album/user/edit/' . $album->id) ?>">
@@ -106,7 +106,7 @@
 													  <i class="edit icon"></i>
 													</a>
 													<a class="ui icon tiny button" href="<?= base_url('music/user/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
-													  <i class="delete icon"></i>
+													  <i class="trash icon"></i>
 													</a>
 												<?php endif; ?>
 											</td>

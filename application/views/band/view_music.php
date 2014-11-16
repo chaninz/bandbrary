@@ -52,9 +52,9 @@
 					<div class="col-md-9">
 						<div class="center">
 							<!-- Music Player -->
-							<img width="111px" src="<?= base_url('uploads/album/'.$music->image_url) ?>" />
+							<img style="float: left" width="111px" width="111px" src="<?= base_url('uploads/album/'.$music->image_url) ?>" />
 							<div id="jquery_jplayer_1" class="jp-jplayer"></div>
-							<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+							<div id="jp_container_1" class="jp-audio" style="margin-left: 111px;" role="application" aria-label="media player">
 								<div class="jp-type-single">
 									<div class="jp-gui jp-interface">
 										<div class="jp-controls">
@@ -161,7 +161,7 @@
 								<div class="field">
 									<textarea name="comment" style="margin-left: 50px;" id="comment-box"></textarea>
 								</div>
-								<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์" >
+								<input type="submit" class="ui small button submit" style="margin-left: 537px;" value="โพสต์" >
 							</form>
 						</div>
 					</div>

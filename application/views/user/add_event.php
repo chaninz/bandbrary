@@ -19,12 +19,15 @@
 	.col-xs-6 {
 		padding-bottom: 70px;
 	}
+	footer {
+		margin-top: 0px;
+	}
 	</style>
 
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<div class="container">
+	<div id="bb-container" class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
@@ -40,8 +43,8 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
+				<form id="event-form" action="<?= base_url('event/user/add') ?>" method="post">
 				<div class="ui form segment">
-					<form id="event-form" action="<?= base_url('event/user/add') ?>" method="post">
 						<br/><p/>
 						<div class="line"></div>
 						<p/>
@@ -90,15 +93,15 @@
 						</div>
 						<div class="line"></div>
 						<p/>
-						<div class="actions">
-							<div id="add-event-button" class="ui ok small red submit button">เพิ่มกิจกรรม</div>
 						</div>
-					</form>
+						<div class="actions">
+							<div id="add-event-button" class="ui ok small red submit button" style="float: right">เพิ่มกิจกรรม</div>
+						</div>
+				</form>
 				</div>
 				<div class="col-xs-3"></div>
-			</div>
 		</div>
+	</div>
 		<?php $this->load->view('footer'); ?>
-		
 	</body>
 	</html>

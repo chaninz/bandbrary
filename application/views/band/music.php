@@ -64,22 +64,26 @@
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
+						 <h3 class="ui header" style="float: left; margin: 0px;">
 						อัลบั้ม <?= $album->name ?>
+						</h3>
 						<?php if (! empty($albums) && $this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1 && $band_profile->id == $this->session->userdata('band_id')): ?>
-							<a class="ui icon tiny button" href="<?= base_url('album/band/edit/' . $album->id) ?>">
+							<a class="ui icon tiny button" style="float: right; margin-left: 10px" href="<?= base_url('album/band/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
+							  <i class="trash icon"></i>
+							  ลบอัลบั้ม
+							</a>
+							<a class="ui icon tiny button" style="float: right;" href="<?= base_url('album/band/edit/' . $album->id) ?>">
 							  <i class="edit icon"></i>
 							  แก้ไขอัลบั้ม
 							</a>
-							<a class="ui icon tiny button" href="<?= base_url('album/band/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
-							  <i class="delete icon"></i>
-							  ลบอัลบั้ม
-							</a>
 						<?php endif; ?>
+						<div style="height: 30px"></div>
 						<table class="ui table segment">
 							<thead>
 								<tr><th>#</th>
 									<th>ชื่อเพลง</th>
 									<th>อัลบั้ม</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -103,7 +107,7 @@
 													  <i class="edit icon"></i>
 													</a>
 													<a class="ui icon tiny button" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
-													  <i class="delete icon"></i>
+													  <i class="trash icon"></i>
 													</a>
 												<?php endif; ?>
 											</td>
