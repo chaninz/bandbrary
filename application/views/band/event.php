@@ -59,8 +59,9 @@
 											</div>
 											<div class="content">รายละเอียด
 												<?= $event->description ?>
-												<div>สถานที่: <?= $event->venue ?></div>
-												<div>จังหวัด: <?= $event->province ?></div>
+												<p>
+												<div><b>สถานที่:</b> <?= $event->venue ?></div>
+												<div><b>จังหวัด:</b> <?= $event->province ?></div>
 												<?php if ($this->session->userdata('id') == $band_profile->id && $event->event_id != 0): ?>
 												<div style="margin-top: 20px">
 												<a class="ui icon tiny button" href="<?= base_url('event/band/edit/'.$event->event_id) ?>">
