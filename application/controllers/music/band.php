@@ -63,9 +63,8 @@ class Band extends CI_Controller {
 			$album = $this->input->post('album');
 			$lyric = $this->input->post('lyric');
 			$license = $this->input->post('license');
-			$visibility = $this->input->post('visibility');
 
-			if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($license) && ! empty($visibility)) {
+			if ( ! empty($name) && ! empty($album) && ! empty($lyric) && ! empty($license)) {
 				$data = array('name' => $name,
 					'album_id' => $album,	
 					'lyric' => $lyric,
@@ -76,10 +75,11 @@ class Band extends CI_Controller {
 				$this->band_music_model->edit($data, $music_id);
 				redirect(base_url('music/band/view/' . $music_id));
 			} else {
-				$music = $this->user_music_model->get($music_id);
+				$music = $this->band_music_model->get($music_id);
+				$albums = $this->band_album_model->get_by_band($band_id);
 
 				$display = array('music' => $music,
-					'albums' => $this->user_album_model->get_by_user($current_user_id));
+					'albums' => $albums);
 				$this->load->view('band/edit_music', $display);
 			}
 
@@ -94,7 +94,7 @@ class Band extends CI_Controller {
 		$is_master = $this->session->userdata('is_master');
 
 		if ( ! empty($band_id) && ! empty($is_master) && ! empty($music) && $music->band_id == $band_id) {
-			$this->user_music_model->delete($music_id);
+			$this->band_music_model->delete($music_id);
 			redirect(base_url('band/' . $band_id . '/music'));
 		} else {
 			show_404();
@@ -122,8 +122,8 @@ class Band extends CI_Controller {
 			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
 			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
 			
-			$count_greedd_user_music = $this->greedd_model->count_greedd_band_music($music_id);
-			$is_greedd_user_music = $this->greedd_model->is_greedd_band_music($current_user_id, $music_id);
+			$count_greedd_band_music = $this->greedd_model->count_greedd_band_music($music_id);
+			$is_greedd_band_music = $this->greedd_model->is_greedd_band_music($current_user_id, $music_id);
 			$comments = $this->band_musiccomment_model->getComment($music_id);
 
 			$display = array('band_profile' => $band_profile,
@@ -138,8 +138,8 @@ class Band extends CI_Controller {
 				'user_status' => $user_status,
 				'current_user_skills' => $current_user_skills,
 				'music' => $music,
-				'count_greedd_user_music' => $count_greedd_user_music,
-				'is_greedd_user_music' => $is_greedd_user_music,
+				'count_greedd_band_music' => $count_greedd_band_music,
+				'is_greedd_band_music' => $is_greedd_band_music,
 				'comments' => $comments);
 
 			$this->load->view('band/view_music', $display);

@@ -7,8 +7,8 @@ class Band_music_model extends CI_Model {
 	}
 
 	function delete($music_id){
-		$this->db->where('id',$music_id);
-		$this->db->delete('User_Music');
+		$this->db->where('id', $music_id);
+		$this->db->delete('Band_Music');
 	}
 
 	function edit($data,$music_id){

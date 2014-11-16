@@ -99,7 +99,7 @@
 								<p/>อัลบั้ม: <?= $music->album_name ?>
 								</div>
 								<br/>
-								<?php if(empty($is_greedd_user_music)): ?>
+								<?php if(empty($is_greedd_band_music)): ?>
 									<a class="ui small icon button" id="greedd-band-music-button" data-value="<?= $music->id ?>">
 	  									<i class="heart icon"></i> กรี๊ด
 	  								</a>
@@ -109,15 +109,15 @@
 	  								</a>
 								<?php endif; ?>
 								<?php if($band_profile->id == $this->session->userdata('band_id') && $this->session->userdata('is_master') == 1): ?>
-									<div class="ui small icon button">
+									<a class="ui small icon button" href="<?= base_url('music/band/edit/' . $music->id) ?>">
 	  									<i class="edit icon"></i>แก้ไข
-									</div>
-									<div class="ui small icon button">
+									</a>
+									<a class="ui small icon button" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
 	  									<i class="trash icon"></i>ลบ
-									</div>
+									</a>
 								<?php endif; ?>	
 								<div>
-									มีคนกรี๊ดเพลงนี้ <span id="count-greedd"><?= $count_greedd_user_music ?></span> คน
+									มีคนกรี๊ดเพลงนี้ <span id="count-greedd"><?= $count_greedd_band_music ?></span> คน
 								</div>
 								<div>
 									<a class="fb-share-button" data-href="<?= base_url(uri_string()) ?>" data-layout="button_count"></a>

@@ -5,8 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>แก้ไขกิจกรรม | Bandbrary</title>
-	<?php $this->load->view('header'); ?>
+
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
+	<?php $this->load->view('header'); ?>
 	
 	<style>
 	.ui.header {
