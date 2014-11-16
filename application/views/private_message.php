@@ -33,6 +33,9 @@
   .ui.feed .label + .content {
     padding: 0em 1em 0em;
   }
+  footer {
+    margin-top: 0px;
+  }
   </style>
 </head>
 <body id="feed">
