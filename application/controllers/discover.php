@@ -15,7 +15,7 @@ class Discover extends CI_Controller {
 		$new_music = $this->user_music_model->get_new_music();
 		$top_follower_artists = $this->follow_model->get_top_follower();
 		$top_music = $this->greedd_model->top_greedd_music();
-
+		
 		$display = array('recommended_music' => $recommended_music,
 			'new_music' => $new_music,
 			'top_follower_artists' => $top_follower_artists,

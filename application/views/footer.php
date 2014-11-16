@@ -18,16 +18,20 @@
 						<div class="header">จัดการเพลงของคุณ</div>
 					</div>
 				</a>
-				<a class="item" style="padding: 0.9em;" href="<?= base_url('music/band') ?>">
-					<div class="content">
-						<div class="header">จัดการเพลงของวง</div>
-					</div>
-				</a>
-				<a class="item" style="padding: 0.9em;" a href="<?= base_url().'band/create' ?>" > 
-					<div class="content">
-						<div class="header">สร้างวงดนตรี</div>
-					</div>
-				</a>
+				<?php if ($this->session->userdata('is_master') != NULL && $this->session->userdata('band_id') != NULL): ?>
+					<a class="item" style="padding: 0.9em;" href="<?= base_url('music/band') ?>">
+						<div class="content">
+							<div class="header">จัดการเพลงของวง</div>
+						</div>
+					</a>
+				<?php endif; ?>
+				<?php if ($this->session->userdata('band_id') == NULL): ?>
+					<a class="item" style="padding: 0.9em;" a href="<?= base_url().'band/create' ?>" > 
+						<div class="content">
+							<div class="header">สร้างวงดนตรี</div>
+						</div>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

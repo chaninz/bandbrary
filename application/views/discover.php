@@ -197,7 +197,11 @@
 							<div class="ui dimmer">
 								<div class="content">
 									<div class="center">
-										<a class="ui tiny button"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+										<?php if ($top_follower_artist->type == 1): ?>
+											<a class="ui tiny button" href="<?= base_url('user/' . $top_follower_artist->username) ?>" target="_blank"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+										<?php elseif ($top_follower_artist->type == 2): ?>
+											<a class="ui tiny button" href="<?= base_url('band/' . $top_follower_artist->user_id) ?>" target="_blank"><i class="play circle icon" style="margin: 0px; font-size: 2em"></i></a>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>

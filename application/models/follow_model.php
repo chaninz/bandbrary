@@ -136,12 +136,12 @@ class Follow_model extends CI_Model {
 	}
 	
 	function get_top_follower(){
-		$query = $this->db->query('SELECT Follow_Users.follow_user AS user_id, CONCAT(Users.name, \' \', Users.surname) AS name, Users.photo_url, 1 AS type, COUNT(*) AS count
+		$query = $this->db->query('SELECT Follow_Users.follow_user AS user_id, Users.username, CONCAT(Users.name, \' \', Users.surname) AS name, Users.photo_url, 1 AS type, COUNT(*) AS count
 			FROM Follow_Users 
 			JOIN Users ON Users.id = Follow_Users.follow_user 
 			GROUP BY follow_user 
 			UNION ALL 
-			SELECT Follow_Bands.follow_band AS band_id, Bands.name, Bands.photo_url, 2 AS type, COUNT(*) AS count 
+			SELECT Follow_Bands.follow_band AS band_id, "NULL", Bands.name, Bands.photo_url, 2 AS type, COUNT(*) AS count 
 			FROM Follow_Bands 
             JOIN Bands on Bands.id = Follow_Bands.follow_band 
 			GROUP BY follow_band 
