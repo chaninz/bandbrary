@@ -52,9 +52,9 @@
 					<div class="col-md-9">
 						<div class="center">
 							<!-- Music Player -->
-							<img width="111px" src="<?= base_url('uploads/album/'.$music->image_url) ?>" />
+							<img style="float: left" width="111px" src="<?= base_url('uploads/album/'.$music->image_url) ?>" />
 							<div id="jquery_jplayer_1" class="jp-jplayer"></div>
-							<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+							<div id="jp_container_1" class="jp-audio" style="margin-left: 111px;" role="application" aria-label="media player">
 								<div class="jp-type-single">
 									<div class="jp-gui jp-interface">
 										<div class="jp-controls">
@@ -116,14 +116,13 @@
 	  									<i class="trash icon"></i>ลบ
 									</a>
 								<?php endif; ?>	
-								<div>
+								<div style="margin-top: 25px;">
 									มีคนกรี๊ดเพลงนี้ <span id="count-greedd"><?= $count_greedd_user_music ?></span> คน
 								</div>
 								<div>
-									<div class="fb-share-button" data-href="<?= base_url(uri_string()) ?>" data-layout="box_count"></div>
+									<a class="fb-share-button" data-href="<?= base_url(uri_string()) ?>" data-layout="box_count"></a>
 									<a class="twitter-share-button" data-count="vertical" href="<?= base_url(uri_string()) ?>"> Tweet</a>
 								</div>
-								<br/>
 									<div class="ui piled segment">
 								 <b>อัปโหลดเมื่อ <?= $music->upload_date ?></b>
 								 <p>
@@ -159,7 +158,7 @@
 								<div class="field">
 									<textarea name="comment" style="margin-left: 50px;" id="comment-box"></textarea>
 								</div>
-								<input type="submit" class="ui small button submit" style="margin-left: 534px;" value="โพสต์">
+								<input type="submit" class="ui small button submit" style="margin-left: 537px;" value="โพสต์">
 							</form>
 						</div>
 					</div>
