@@ -93,15 +93,15 @@
 								<td><a href="<?= base_url('user/'.$band_member->username) ?>"><?= $band_member->name.' '.$band_member->surname ?></a></td>
 								<td><?php if ($this->session->userdata('is_master') == 1 && $this->session->userdata('id') != $band_member->id): ?>
 										<?php if ($band_member->is_master == 1): ?>
-											<a class="ui small green submit button" href="<?= base_url('band/role/unmaster/'.$band_member->id) ?>">เป็น</a>
+											<a class="ui tiny red submit button" href="<?= base_url('band/role/unmaster/'.$band_member->id) ?>">เป็น</a>
 										<?php else: ?>
-											<a class="ui small submit button" href="<?= base_url('band/role/master/'.$band_member->id) ?>">ไม่เป็น</a>
+											<a class="ui tiny button" href="<?= base_url('band/role/master/'.$band_member->id) ?>">ไม่เป็น</a>
 										<?php endif; ?>
 									<?php else: ?>
 										<?php if ($band_member->is_master == 1): ?>
-											<div class="ui small green label">เป็น</div>
+											<div class="ui tiny green label">เป็น</div>
 										<?php else: ?>
-											<div class="ui small label">ไม่เป็น</div>
+											<div class="ui tiny green label">ไม่เป็น</div>
 										<?php endif; ?>
 									<?php endif; ?>
 								</td>
