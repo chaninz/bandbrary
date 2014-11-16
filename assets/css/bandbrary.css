@@ -942,6 +942,7 @@ header .ui.menu .item:before {
 }
 .discover-content {
 	padding: 10px;
+	word-wrap: break-word;
 }
 
 #bb-container {

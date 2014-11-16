@@ -17,7 +17,7 @@
 							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="profile-pic2" class="img-thumbnail"/>
 						<?php endif; ?>
 						<div class="profile-name">
-							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?></div>
+							<div id="pn1"><?= $user_profile->name." ".$user_profile->surname; ?><a class="ui red label" style="margin-left: 10px;"><?= $total_follower ?> Greedd</a></div>
 							<?php if( ! empty($band_profile)): ?>
 								<div id="pn2">สมาชิกวง <a style="color: white;" href="<?= base_url('band/' . $band_profile->id) ?>"><?= $band_profile->name ?></a></div>
 							<?php endif; ?>
