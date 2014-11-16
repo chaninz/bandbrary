@@ -32,7 +32,7 @@ class Report_Band_model extends CI_Model {
 		$this->db->from('Report_Band');
 		$this->db->join('Users', 'Report_Band.user_report = Users.id');
 		$this->db->join('Bands', 'Report_Band.band_id = Bands.id');
-		$this->db->where('status',2);
+		$this->db->where('Report_Band.status',2);
 		$this->db->order_by("Report_Band.timestamp", "desc"); 
 
 		$query = $this->db->get();
@@ -44,7 +44,7 @@ class Report_Band_model extends CI_Model {
 		$this->db->from('Report_Band');
 		$this->db->join('Users', 'Report_Band.user_report = Users.id');
 		$this->db->join('Bands', 'Report_Band.band_id = Bands.id');
-		$this->db->where('status',1);
+		$this->db->where('Report_Band.status',1);
 		$this->db->order_by("Report_Band.timestamp", "desc"); 
 
 		$query = $this->db->get();

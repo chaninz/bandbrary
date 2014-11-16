@@ -23,7 +23,7 @@ class Pm_band_model extends CI_Model {
 		}
 
 		$query = $this->db->query('
-			select PM_Bands.band_id AS band_id,Bands.name,PM_Bands.timestamp,PM_Bands.text,Users.name AS username,Users.photo_url AS from_photo  FROM PM_Bands
+			select PM_Bands.band_id AS band_id,Bands.name,Bands.photo_url as band_photo,PM_Bands.timestamp,PM_Bands.text,Users.name AS username,Users.photo_url AS from_photo  FROM PM_Bands
 						Join Users on PM_Bands.user_id = Users.id
 						Join Bands on PM_Bands.band_id = Bands.id
 						WHERE PM_Bands.timestamp = (SELECT MAX(timestamp)

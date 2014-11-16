@@ -33,7 +33,7 @@ class Report_User_model extends CI_Model {
 		$this->db->from('Report_User');
 		$this->db->join('Users AS u', 'Report_User.user_id = u.id');
 		$this->db->join('Users AS r', 'Report_User.user_report = r.id');
-		$this->db->where('status',2);
+		$this->db->where('Report_User.status',2);
 		$this->db->order_by("Report_User.timestamp", "desc"); 
 
 		$query = $this->db->get();
@@ -45,7 +45,7 @@ class Report_User_model extends CI_Model {
 		$this->db->from('Report_User');
 		$this->db->join('Users AS u', 'Report_User.user_id = u.id');
 		$this->db->join('Users AS r', 'Report_User.user_report = r.id');
-		$this->db->where('status',1);
+		$this->db->where('Report_User.status',1);
 		$this->db->order_by("Report_User.timestamp", "desc"); 
 
 		$query = $this->db->get();

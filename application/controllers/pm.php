@@ -33,6 +33,7 @@ public function __construct() {
 			'count_pm_band' => $this->receive_noti_band->get_total_noti_band(),
 			'msg_to_band' => $this->pm_user_and_band->getMsgToBand(),
 			'count_msg_to_band' => $this->pm_user_and_band->getCountMsgToBand(),
+			'owner_group' => $this->pm_user_and_band->getOwnerGroup(),
 			'countall_msg_band' =>	$countall_msg_band
 			//'total_msg_in_band' => (int)$this->receive_noti_band->get_total_noti_band() - (int)$this->pm_band_model->getTotalMsgToBand()
 		
@@ -84,6 +85,15 @@ $receiver_list = array();
 						$r  = array('receive_id' => $insert_id,
 									'band_id'    => $band_id,
 									'user_id'    => $value->user_id		
+						);
+						
+						array_push($receiver_list, $r);
+				}
+				if($role == "band"){
+					$owner_group = $this->pm_user_and_band->getOwnerbyGroup($target_user);
+					$r  = array('receive_id' => $insert_id,
+									'band_id'    => $band_id,
+									'user_id'    => $owner_group->id		
 						);
 						
 						array_push($receiver_list, $r);
@@ -141,7 +151,9 @@ $receiver_list = array();
 				redirect(base_url('user/'.$username));
 			}
 			else {
+				echo $target_user;
 	 			$member =  $this->join_band_model->get_member_band($target_user);
+	 			print_r($member);
 	 			$user_id = $this->session->userdata('id');
 				
 				$role = "user";
@@ -171,7 +183,8 @@ $receiver_list = array();
 					'text' => $this->input->post('text'),
 					'role' => $role
 				);
-				
+
+
 				$insert_id = $this->pm_user_and_band->add($data);
 			
 				$receiver_list = array();
@@ -183,7 +196,7 @@ $receiver_list = array();
 						
 						array_push($receiver_list, $r);
 				}
-				//print_r($receiver_list);
+				print_r($receiver_list);
 				
 				$this->receive_noti_user_band->add($receiver_list);
 				redirect(base_url('band/'.$target_user));

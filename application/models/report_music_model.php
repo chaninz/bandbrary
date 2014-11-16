@@ -6,7 +6,7 @@ class Report_Music_model extends CI_Model {
 		parent::__construct();	
 	}
 	function add($data){
-		$this->db->insert('Report_Music',$data);
+		$this->db->insert('Report_Music_User',$data);
 	}
 
 }

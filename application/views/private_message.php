@@ -87,6 +87,12 @@
      <div id="pmband-inbox" class="ui fluid divided inbox selection list tab" data-tab="band">
       <?php foreach($pm_bands as $pm_band): ?>
       <a class="item in_band" data-id="<?= $pm_band->band_id ?>" >
+        <?php if($pm_band->band_photo): ?>
+        <img class="pm-profile-pic" src="<?= base_url().'uploads/profile/band/'.$pm_band->band_photo ?>">
+      <?php else: ?>
+           <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>">
+         <?php endif; ?>
+           
        <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($pm_band->timestamp)) ?> <?= mdate("%M", strtotime($pm_band->timestamp)) ?> <?= mdate("%Y", strtotime($pm_band->timestamp)) ?></div>
        <div class="description" style="margin-top: 4px;">
         <b>
@@ -100,18 +106,39 @@
 
      </a>
    <?php endforeach;  ?>
-
      <?php foreach($msg_to_band as $msgToBand): 
      ?>
-
       <a class="item user_and_band" data-id="<?= $msgToBand->pm_group_id?>" >
+<?php 
+  $current_band = $this->session->userdata("band_id"); 
+           if($current_band == $msgToBand->band_id){
+              foreach ($owner_group as $og) {
+               if($msgToBand->pm_group_id == $og->pm_group_id){
+                  if($og->photo_url): ?>
+        <img class="pm-profile-pic" src="<?= base_url().'uploads/profile/user/'.$og->photo_url ?>">
+      <?php else: ?>
+           <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>">
+         <?php endif; 
+               }
+           }
+            }else{
+               if($msgToBand->band_photo): ?>
+        <img class="pm-profile-pic" src="<?= base_url().'uploads/profile/band/'.$msgToBand->band_photo ?>">
+      <?php else: ?>
+           <img class="pm-profile-pic" src="<?= base_url().'images/no_profile.jpg' ?>">
+         <?php endif; 
+            }
+?>
        <div class="right floated date" style="margin-top: 4px;"> <?= mdate("%d", strtotime($msgToBand->timestamp)) ?> <?= mdate("%M", strtotime($msgToBand->timestamp)) ?> <?= mdate("%Y", strtotime($msgToBand->timestamp)) ?></div>
        <div class="description" style="margin-top: 4px;">
          <b>
           <?php
-          $current_band = $this->session->userdata("band_id"); 
-            if($current_band == $msgToBand->band_id){
-              echo $msgToBand->name.' '.$msgToBand->surname;
+          if($current_band == $msgToBand->band_id){
+              foreach ($owner_group as $og) {
+             if($msgToBand->pm_group_id == $og->pm_group_id){
+                echo $og->name.' '.$og->surname;
+             }
+           }
             }else{
               echo $msgToBand->band_name;
             }
@@ -372,7 +399,12 @@ $("#pmband-inbox .user_and_band").click(function(){
       var path = '<?= base_url().'uploads/profile/user/' ?>';
       if(value.role =="band"){
         path = '<?= base_url().'uploads/profile/band/' ?>';
-        image = '<img src=\"'+path+value.band_photo+'\"/>';
+        if(value.band_photo){
+             image = '<img src=\"'+path+value.band_photo+'\"/>';
+           }else{
+               image = '<img src=\"'+'<?= base_url().'images/no_profile.jpg'?>'+'\"/>';
+           }
+     
       }else if(value.from_photo){
         image = '<img src=\"'+path+value.from_photo+'\"/>';
       }else{

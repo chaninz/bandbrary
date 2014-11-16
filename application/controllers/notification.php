@@ -38,9 +38,7 @@ class Notification extends CI_Controller {
 		$band = $this->receive_noti_band->get_total_noti_band();
 		$user = $this->pm->count_noti_pm_user();
 		$user_band = $this->receive_noti_user_band->get_total_noti_PM();
-		// echo $band;
-		// echo $user;
-		// echo $user_band;
+		
 		echo "event:total_pm\n";
         echo "data: " .($band+$user+$user_band). "\n\n";
 	}
