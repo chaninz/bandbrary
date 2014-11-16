@@ -52,7 +52,7 @@
 				<?php $this->load->view('user/sidebar_left'); ?>
 				<div class="col-xs-9">
 					<div class="center">
-						<div class="album-group">
+						<div class="album-group" style="margin-bottom: 15px;">
 							<?php if ( ! empty($albums)): ?>
 								<?php foreach($albums as $e_album): ?>
 									<?php if ( ! empty($e_album->image_url)): ?>
@@ -63,17 +63,20 @@
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
+						 <h3 class="ui header" style="float: left; margin: 0px;">
 						อัลบั้ม <?= $album->name ?>
+						</h3>
 						<?php if ($this->session->userdata('id') == $user_profile->id && ! empty($albums)): ?>
-							<a class="ui icon tiny button" href="<?= base_url('album/user/edit/' . $album->id) ?>">
-							  <i class="edit icon"></i>
-							  แก้ไขอัลบั้ม
-							</a>
-							<a class="ui icon tiny button" href="<?= base_url('album/user/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
+							<a class="ui icon tiny button" style="float: right; margin-left: 10px" href="<?= base_url('album/user/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
 							  <i class="delete icon"></i>
 							  ลบอัลบั้ม
 							</a>
+							<a class="ui icon tiny button" style="float: right;" href="<?= base_url('album/user/edit/' . $album->id) ?>">
+							  <i class="edit icon"></i>
+							  แก้ไขอัลบั้ม
+							</a>
 						<?php endif; ?>
+						<div style="height: 30px"></div>
 						<table class="ui table segment">
 							<thead>
 								<tr><th>#</th>
