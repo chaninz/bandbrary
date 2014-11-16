@@ -22,7 +22,7 @@ class Band extends CI_Controller {
 	}
 
 	public function index() {
-		 $this->load->view('user/manageMusic');
+		 $this->load->view('band/manage_music');
 	}
 	
 	public function add() {
@@ -33,10 +33,10 @@ class Band extends CI_Controller {
 		$lyric = $this->input->post('lyric');
 		$music_url = $this->input->post('music-url');
 		$license = $this->input->post('license');
-		$visibility = $this->input->post('visibility');
+		//$visibility = $this->input->post('visibility');
 
 		if ( ! empty($band_id) && ! empty($is_master) && ! empty($name) && ! empty($album) && ! empty($lyric) &&
-			! empty($music_url) && ! empty($license) && ! empty($visibility)) {
+			! empty($music_url) && ! empty($license)) {
 			$data = array('name' => $name,
 				'album_id' => $album,	
 				'lyric' => $lyric,
@@ -47,8 +47,9 @@ class Band extends CI_Controller {
 			$this->band_music_model->add($data);
 			redirect(base_url('music/band'));
 		} else {
-			$display = array('albums' => $this->band_album_model->get_by_user($user_id));
-			$this->load->view('band/upload_music', $display);
+			$albums = $this->band_album_model->get_by_band($band_id);
+			$display = array('albums' => $albums);
+			$this->load->view('band/add_music', $display);
 		}
 	}
 
