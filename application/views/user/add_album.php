@@ -27,7 +27,7 @@
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<div id="bb-container" class="container" style="height: 700px;">
+	<div id="bb-container" class="container" style="height: 650px;">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">

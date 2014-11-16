@@ -7,7 +7,6 @@
 	<title>จัดการเพลง | Bandbrary</title>
 	<?php $this->load->view('header'); ?>
 
-
 	<style>
 	.ui.header {
 		margin-left: 60px;
@@ -27,12 +26,12 @@
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<div id="bb-container" class="container">
+	<div id="bb-container" class="container" style="height: 650px;">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
 				<h2 class="ui header">
-					จัดการเพลง
+					จัดการเพลงของคุณ
 				</h2>
 				<p/>
 				<div class="line"></div>

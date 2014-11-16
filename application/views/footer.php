@@ -8,14 +8,14 @@
 	<div class="content">
 		<div class="ui inverted segment" style="padding: 0px;">
 			<div class="ui inverted relaxed divided list" style="padding: 0px;">
-				<div class="item" style="padding: 0.9em;">
-					<a href="<?= base_url().'job/add' ?>" ><div class="content">
+				<a class="item" style="padding: 0.9em;" href="<?= base_url().'job/add' ?>">
+					<div class="content">
 						<div class="header">สร้างงาน</div> 
-					</div></a>
-				</div>
+					</div>
+				</a>
 				<a class="item" style="padding: 0.9em;" href="<?= base_url('music/user') ?>">
 					<div class="content">
-						<div class="header">จัดการเพลง</div>
+						<div class="header">จัดการเพลงของคุณ</div>
 					</div>
 				</a>
 				<a class="item" style="padding: 0.9em;" href="<?= base_url('music/band') ?>">
@@ -23,11 +23,11 @@
 						<div class="header">จัดการเพลงของวง</div>
 					</div>
 				</a>
-				<div class="item" style="padding: 0.9em;">
-					<a href="<?= base_url().'band/create' ?>" > <div class="content">
+				<a class="item" style="padding: 0.9em;" a href="<?= base_url().'band/create' ?>" > 
+					<div class="content">
 						<div class="header">สร้างวงดนตรี</div>
-					</div> </a>
-				</div>
+					</div>
+				</a>
 			</div>
 		</div>
 	</div>

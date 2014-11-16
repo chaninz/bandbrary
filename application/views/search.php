@@ -8,7 +8,6 @@
 
 	<?php $this->load->view('header'); ?>
 
-
 	<style> 
 	.ui.avatar.image {
 		width: 5em;
@@ -17,7 +16,9 @@
 	</style>
 
 	<body>  
+
 		<?php $this->load->view('navigation'); ?>
+		
 		<div class="container" style="margin-top: 120px">
 			<div class="row">
 				<div class="col-xs-3">
@@ -107,6 +108,7 @@
 				</div>
 			</div>
 		</div>
+		
       <script>
       $(function(){
 		 $("#searchalbums").click(function(){

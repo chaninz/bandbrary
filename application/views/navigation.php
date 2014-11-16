@@ -87,17 +87,14 @@
 					<i id="navbar-reorder" class="reorder icon"></i>
 					<div class="menu" style="margin-left: -37px;">
 						<?php if ($this->session->userdata('band_id') != NULL): ?>
-							<div class="item">
-								<a href="<?= base_url('band/'.$this->session->userdata('band_id')) ?>">
-								<img class="ui tiny image" src="">ไปที่วงดนตรี</a>
-							</div>
+							<a class="item" href="<?= base_url('band/'.$this->session->userdata('band_id')) ?>">
+								ไปที่วงดนตรี
+							</a>
 						<?php endif; ?>
 						<div class="line"></div>
-						<div class="item"><a href="<?= base_url().'account/edit' ?>">การตั้งค่า</div>
-						<div class="item"><a href="<?= base_url().'account/signout' ?>">ออกจากระบบ</a></div>
+						<a class="item" href="<?= base_url().'account/edit' ?>">การตั้งค่า</a>
+						<a class="item" href="<?= base_url().'account/signout' ?>">ออกจากระบบ</a>
 						<div class="line"></div>
-						<div class="item">ความช่วยเหลือ</div>
-						<!-- <div class="item">รายงานปัญหา</div> -->
 					</div>
 				</div>
 			</div>
