@@ -55,20 +55,31 @@
 					<div class="center">
 						<div class="album-group">
 							<?php if ( ! empty($albums)): ?>
-								<?php foreach($albums as $album): ?>
-									<?php if ( ! empty($album->image_url)): ?>
-										<a href="<?= base_url('album/band/view/' . $album->id) ?>"><img src="<?= base_url('uploads/album/' . $album->image_url) ?>" class="album-cover1"></a>
+								<?php foreach($albums as $e_album): ?>
+									<?php if ( ! empty($e_album->image_url)): ?>
+										<a href="<?= base_url('album/band/view/' . $e_album->id) ?>"><img src="<?= base_url('uploads/album/' . $e_album->image_url) ?>" class="album-cover1"></a>
 									<?php else: ?>
-										<a href="<?= base_url('album/band/view/' . $album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
+										<a href="<?= base_url('album/band/view/' . $e_album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
 									<?php endif; ?>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
+						อัลบั้ม <?= $album->name ?>
+						<?php if (! empty($albums) && $this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1 && $band_profile->id == $this->session->userdata('band_id')): ?>
+							<a class="ui icon tiny button" href="<?= base_url('album/band/edit/' . $album->id) ?>">
+							  <i class="edit icon"></i>
+							  แก้ไขอัลบั้ม
+							</a>
+							<a class="ui icon tiny button" href="<?= base_url('album/band/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
+							  <i class="delete icon"></i>
+							  ลบอัลบั้ม
+							</a>
+						<?php endif; ?>
 						<table class="ui table segment">
 							<thead>
 								<tr><th>#</th>
-									<th>Name</th>
-									<th>Album</th>
+									<th>ชื่อเพลง</th>
+									<th>อัลบั้ม</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -86,6 +97,16 @@
 												<a href="<?= base_url('music/band/view/' . $music->id) ?>" target="_blank"><?= $music->name ?></a>
 											</td>
 											<td><?= $music->album_name ?></td>
+											<td>
+												<?php if (! empty($albums) && $this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1 && $band_profile->id == $this->session->userdata('band_id')): ?>
+													<a class="ui icon tiny button" href="<?= base_url('music/band/edit/' . $music->id) ?>">
+													  <i class="edit icon"></i>
+													</a>
+													<a class="ui icon tiny button" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
+													  <i class="delete icon"></i>
+													</a>
+												<?php endif; ?>
+											</td>
 										</tr>
 										<?php $count++ ?>
 									<?php endforeach; ?>

@@ -145,6 +145,7 @@ class User extends CI_Controller {
 				// 	'msg' => $msg);
 
 				// $this->load->view('user/edit_album', $display);
+				
 				$this->view($album_id);
 			} else {
 				// If not send data from form

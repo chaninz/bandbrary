@@ -37,10 +37,12 @@ class Music extends CI_Controller {
 			$user_status =  $this->join_band_model->get_user_status($current_user_id, $band_id);
 			$current_user_skills = $this->skill_model->get_by_user($current_user_id);
 			// Page data
-			$albums = $this->band_album_model->get_by_user($band_id);
+			$albums = $this->band_album_model->get_by_band($band_id);
 			$album_music = NULL;
+			$album = NULL;
 			if ( ! empty($albums)) {
 				$album_music = $this->band_music_model->get_by_album($albums[0]->id);
+				$album = $albums[0];
 			}
 
 			$display = array('band_profile' => $band_profile,
@@ -54,6 +56,7 @@ class Music extends CI_Controller {
 				'is_follow_band' => $is_follow_band,
 				'user_status' => $user_status,
 				'current_user_skills' => $current_user_skills,
+				'album' => $album,
 				'albums' => $albums,
 				'album_music' => $album_music);
 

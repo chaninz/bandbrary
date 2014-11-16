@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bandbrary</title>
-
+	<title>อัพโหลดเพลง | Bandbrary</title>
+	<link type="text/css" rel="stylesheet" href="<?= base_url('assets/css/uploadifive.css') ?>">
 	<?php $this->load->view('header'); ?>
 
 	<style>
@@ -42,36 +42,43 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url().'music/band/upload' ?>" method="post">
-					<div class="field">
-						<label>ชื่อเพลง</label>
-						<input type="text" placeholder="" name="name">
-					</div>
-					<div class="field">
-						<label>เนื้อเพลง</label>
-						<textarea name="lyric"></textarea>
-					</div>
-					<div class="field">
-						<label>เพลง</label>
-						<input type="file" name="" value="">
-					</div>
+				<form action="<?= base_url('music/band/add') ?>" id="music-form" method="post">
 					<div class="field">
 						<label>อัลบั้ม</label>
 						<div class="ui fluid selection dropdown">
 							<div class="text">เลือก</div>
 							<i class="dropdown icon"></i>
 							<input type="hidden" name="album">
-							<div class="menu"><?php if (! empty($albums)): foreach ($albums as $album): ?>
-								<div class="item" data-value="<?= $album->id ?>" style="font-size: 14px;"><?= $album->name ?></div><?php endforeach; endif; ?>
+							<div class="menu">
+							<?php if (! empty($albums)): ?>
+								<?php foreach ($albums as $album): ?>
+									<div class="item" data-value="<?= $album->id ?>" style="font-size: 14px;"><?= $album->name ?></div>
+								<?php endforeach; ?>
+							<?php endif; ?>
 							</div>
 						</div>
+					</div>
+					<div class="field">
+						<label>ชื่อเพลง</label>
+						<input type="text" name="name">
+					</div>
+					<div class="field">
+						<label>เนื้อเพลง</label>
+						<textarea class="ckeditor" name="lyric"></textarea>
+					</div>
+					<div class="field">
+						<label>เพลง</label>
+						<div id="queue" style="margin-bottom: 1em;"></div>
+						<input id="file_upload" name="file_upload" type="file" multiple="true"/>
+						<a class="ui tiny red button" href="javascript:$('#file_upload').uploadifive('upload')">อัพโหลดเพลง</a>
+						<input type="hidden" id="music-url" name="music-url"/>
 					</div>
 					<div class="field">
 						<label>ลิขสิทธิ์</label>
 						<div class="ui fluid selection dropdown">
 							<div class="text">เลือก</div>
 							<i class="dropdown icon"></i>
-							<input type="hidden" name="licenese">
+							<input type="hidden" name="license">
 							<div class="menu">
 								<div class="item" style="font-size: 14px;" data-value="1">ห้ามทำซ้ำ</div>
 								<div class="item" style="font-size: 14px;" data-value="2">ทำซ้ำได้</div>
@@ -79,7 +86,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="field">
+					<!-- <div class="field">
 						<label>ความเป็นส่วนตัว</label>
 						<div class="grouped inline fields">
 							<div class="field">
@@ -95,7 +102,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 			</form>
@@ -103,6 +110,29 @@
 			</div>
 		</div>
 
+		<script>
+			<?php $timestamp = time();?>
+			$(function() {
+				$('#file_upload').uploadifive({
+					'auto' : false,
+					'multi' : false,
+					'buttonText' : 'เลือก',
+					'queueSizeLimit' : 1,
+					'fileSizeLimit' : '25MB',
+					'buttonClass' : 'ui tiny button',
+					'formData' : {'timestamp' : '<?php echo $timestamp;?>',
+						'token' : '<?php echo md5('unique_salt' . $timestamp);?>'},
+					'queueID' : 'queue',
+					'uploadScript' : '<?= base_url('music/upload') ?>',
+					'onUploadComplete' : function(file, data) { 
+						$('#music-url').val(data);
+					},
+					'onCancel' : function(file) {
+						$('#music-url').val("");
+					}
+				});
+			});
+		</script>
 		<?php $this->load->view('footer'); ?>
 		
 	</body>

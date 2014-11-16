@@ -18,6 +18,11 @@
 						<div class="header">จัดการเพลง</div>
 					</div>
 				</a>
+				<a class="item" style="padding: 0.9em;" href="<?= base_url('music/band') ?>">
+					<div class="content">
+						<div class="header">จัดการเพลงของวง</div>
+					</div>
+				</a>
 				<div class="item" style="padding: 0.9em;">
 					<a href="<?= base_url().'band/create' ?>" > <div class="content">
 						<div class="header">สร้างวงดนตรี</div>

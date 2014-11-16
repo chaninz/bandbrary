@@ -45,7 +45,8 @@ class User extends CI_Controller {
 			$this->user_music_model->add($data);
 			redirect(base_url('music/user'));
 		} else {
-			$display = array('albums' => $this->user_album_model->get_by_user($current_user_id));
+			$albums = $this->user_album_model->get_by_user($current_user_id);
+			$display = array('albums' => $albums);
 			$this->load->view('user/add_music', $display);
 		}
 	}

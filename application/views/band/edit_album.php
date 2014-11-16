@@ -47,10 +47,10 @@
 						<label>ชื่ออัลบั้ม</label>
 						<input type="text" placeholder="" name="name" value="<?= $album->name ?>">
 					</div>
-					<div class="field">
+					<!-- <div class="field">
 						<label>คำอธิบาย</label>
 						<textarea name="description"><?= $album->description ?></textarea>
-					</div>
+					</div> -->
 					<div class="field">
 						<label>ปกอัลบั้ม</label>
 						<div class="ui selection dropdown" style="margin-left: 10px;">

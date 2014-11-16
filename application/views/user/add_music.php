@@ -125,8 +125,10 @@
 					'queueID' : 'queue',
 					'uploadScript' : '<?= base_url('music/upload') ?>',
 					'onUploadComplete' : function(file, data) { 
-						console.log(data);
 						$('#music-url').val(data);
+					},
+					'onCancel' : function(file) {
+						$('#music-url').val("");
 					}
 				});
 			});

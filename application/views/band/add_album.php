@@ -41,16 +41,16 @@
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
 				<div class="ui form segment">
-				<form action="<?= base_url('album/band/add') ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('album/band/add') ?>" id="album-form" method="post" enctype="multipart/form-data">
 
 					<div class="field">
 						<label>ชื่ออัลบั้ม</label>
-						<input type="text" placeholder="" name="name" value="<?= ! empty($name) ? $name : '' ?>">
+						<input type="text" name="name" value="<?= ! empty($name) ? $name : '' ?>">
 					</div>
-					<div class="field">
+					<!-- <div class="field">
 						<label>คำอธิบาย</label>
 						<textarea name="description"><?= ! empty($description) ? $description : '' ?></textarea>
-					</div>
+					</div> -->
 					<div class="field">
 						<label>รูปภาพปก</label>
 						<input type="file" name="cover" id="cover"/>
