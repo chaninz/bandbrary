@@ -44,7 +44,8 @@
 		color: #E72A30;
 	}
 	.audio-player {
-		width: 508px;
+		width: 150px;
+		height: 150px;
 		margin: 0px;
 	}
 	body {
@@ -91,81 +92,24 @@
 				<!--start feedbox-->
 				<div class="col2">
 					<div class="feed-box box">
-						<img src="images/audio_player.jpg" alt="" class="audio-player">
+						<img src="images/tle.jpg" alt="" class="audio-player">
+						<div>
+								<p/>เพลง:
+								<p/>ศิลปิน: 
+								<p/>อัลบั้ม: 
+								</div>
 						<div>
 							<div class="ui red tiny icon button">
 								<i class="heart icon greedd popup" title="กรี๊ด" data-variation="inverted"></i>
 							</div>
-							<div class="ui tiny icon button">
-								<i class="retweet icon rebox popup" title="รีกล่อง" data-variation="inverted"></i>
-							</div>
-							<div class="ui black tiny icon button">
-								<i class="share icon share popup" title="แบ่งปัน" data-variation="inverted"></i>
-							</div>
 						</div>
 						<div class="line"></div>
-						<div class="ui comments">
-							<div class="comment">
-								<a class="avatar">
-									<img src="<?= base_url('images/tle.jpg') ?>">
-								</a>
-								<div class="content">
-									<a class="author">Chetniphat Varasai</a>
-									<div class="metadata">
-										<div class="date">2 days ago</div>
-									</div>
-									<div class="text">
-										...ทั้งหมดนั้น...ที่ไม่เคยบอก...เพราะสิ่งนั้น...ยังไม่ชัดเจน...
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ui comments">
-							<div class="comment">
-								<a class="avatar">
-									<img src="<?= base_url('images/nin.jpg') ?>">
-								</a>
-								<div class="content">
-									<a class="author">Chanin N.</a>
-									<div class="metadata">
-										<div class="date">3 days ago</div>
-									</div>
-									<div class="text">
-										เห่ย! เพราะโครต
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="ui comments">
-							<div class="comment">
-								<a class="avatar">
-									<img src="<?= base_url('images/pun.jpg') ?>">
-								</a>
-								<div class="content">
-									<a class="author">Punpun Sa</a>
-									<div class="metadata">
-										<div class="date">4 days ago</div>
-									</div>
-									<div class="text">
-										กรี๊ด ชอบมากกกกกกกกก 
-									</div>
-								</div>
-							</div>
-						</div>
 						<div>
 							<div class="ui tiny icon button" style="margin-left: 185px">
 								ดูความคิดเห็นทั้งหมด
 							</div>
 						</div>
 						<div class="line"></div>
-						<div class="ui form">
-							<div class="field">
-								<input placeholder="Write a Comment..." type="text" style="width: 455px; border-radius: 0px;">
-								<div class="ui tiny icon button" style="margin: 0px; padding: 0.99em; margin-bottom: 2px;">
-									ส่ง
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 				<!--end feedbox-->
