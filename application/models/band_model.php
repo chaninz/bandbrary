@@ -105,6 +105,19 @@ class Band_model extends CI_Model {
 		return $query->row()->count;
 	}
 
+	function get_suggestion($user_id) {
+		$query = $this->db->query('SELECT Bands.id, Bands.name, Bands.photo_url
+			FROM Bands
+			JOIN Users ON Users.province_id = Bands.province_id
+			JOIN Has_Styles ON Has_Styles.style_id = Bands.style_id
+			WHERE Has_Styles.user_id = ' . $user_id . ' AND Users.id = ' . $user_id . '
+			ORDER BY RAND() 
+			LIMIT 0, 3');
+		$result = $query->result();
+
+		return $result;
+	}
+
 }
 
 /* End of file band_model.php */

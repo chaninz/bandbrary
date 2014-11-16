@@ -140,8 +140,24 @@
 						<p>ต้องการนักร้องเพศหญิง มีความสามารถเต้นและร้องได้ โดยเฉพาะเพลงลูกทุ่ง จังหวะแดนซ์ ยิ่งเต้น... <a href="">Read more</a></p>
 					</div>
 				</div>
+				<?php if ( ! empty($bands)): ?>
+					<?php foreach ($bands as $band): ?>
+						<div class="col3">
+							<div class="advt box">
+								<a href="<?= base_url('band/' . $band->id) ?>"><h5 class="ui header" style="margin: 0px; margin-bottom: 5px;"><?= $band->name ?></h5></a>
+								<a href="<?= base_url('band/' . $band->id) ?>">
+								<?php if ($band->photo_url != NULL): ?>
+									<img class="ui small image"  style="margin: 0px; margin-left: 11px; margin-bottom: 5px;" src="<?= base_url('uploads/profile/band/' . $band->photo_url) ?>">
+								<?php else: ?>
+									<img class="ui small image"  style="margin: 0px; margin-left: 11px; margin-bottom: 5px;" src="<?= base_url('images/no_profile.jpg') ?>">
+								<?php endif; ?>
+								</a>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				<?php endif; ?>
+				<!--end advt-->
 			</div>
-			<!--end advt-->
 		</div>
 
 	</div>
