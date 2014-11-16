@@ -94,9 +94,9 @@
 
 							<div class="ui vertical segment">
 								<div>
-								<p/>เพลง : <?= $music->name ?>
-								<p/>ศิลปิน : <?= $band_profile->name ?>
-								<p/>อัลบั้ม : <?= $music->album_name ?>
+								<p/>เพลง: <?= $music->name ?>
+								<p/>ศิลปิน: <?= $band_profile->name ?>
+								<p/>อัลบั้ม: <?= $music->album_name ?>
 								</div>
 								<br/>
 								<?php if(empty($is_greedd_user_music)): ?>
@@ -120,8 +120,8 @@
 									มีคนกรี๊ดเพลงนี้ <span id="count-greedd"><?= $count_greedd_user_music ?></span> คน
 								</div>
 								<div>
-									<div class="fb-share-button" data-href="<?= base_url(uri_string()) ?>" data-layout="box_count"></div>
-									<a class="twitter-share-button" data-count="vertical" href="<?= base_url(uri_string()) ?>"> Tweet</a>
+									<a class="fb-share-button" data-href="<?= base_url(uri_string()) ?>" data-layout="button_count"></a>
+									<a class="twitter-share-button" data-count="horizontal" href="<?= base_url(uri_string()) ?>"> Tweet</a>
 								</div>
 								<br/>
 									<div class="ui piled segment">
