@@ -236,15 +236,17 @@ class Post extends CI_Controller {
 				// Update new data to database
 				$this->post_model->edit($post_id, $new_data);
 
-				// Retrieve data for refresh page
-				$post = $this->post_model->get($post_id);
-				$msg = array('type' => 3, 
-					'header' => '',
-					'text' => 'บันทึกข้อมูลเรียบร้อย');
-				$display = array('post' => $post,
-					'msg_image' => $msg_image,
-					'msg' => $msg);
-				$this->load->view('band/edit_post', $display);
+				// // Retrieve data for refresh page
+				// $post = $this->post_model->get($post_id);
+				// $msg = array('type' => 3, 
+				// 	'header' => '',
+				// 	'text' => 'บันทึกข้อมูลเรียบร้อย');
+				// $display = array('post' => $post,
+				// 	'msg_image' => $msg_image,
+				// 	'msg' => $msg);
+				//$this->load->view('band/edit_post', $display);
+
+				redirect('band/post/view/' . $post_id);
 			} else {
 				// If not send data from form
 				$display = array('post' => $post);

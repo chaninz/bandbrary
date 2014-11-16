@@ -13,7 +13,10 @@ class Request extends CI_Controller {
 	public function index() {
 		$band_id = $this->session->userdata('band_id');
 		$band_requests = $this->join_band_model->get_join_request($band_id);
-		$data = array('band_requests' => $band_requests);
+		$band_profile = $this->band_model->get($band_id);
+
+		$data = array('band_requests' => $band_requests,
+			'band_profile' => $band_profile);
 		$this->load->view('band/request', $data);
 	}
 
