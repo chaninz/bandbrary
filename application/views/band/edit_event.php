@@ -25,11 +25,14 @@
 		margin-bottom: 15px;
 		font-size: 0.8rem;
 	}
+	footer {
+		margin-top: 0px;
+	}
 	</style>
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<div class="container">
+	<div id="bb-container" class="container">
 		<div class="row">
 			<div class="col-xs-9">
 				<div class="ui form segment">

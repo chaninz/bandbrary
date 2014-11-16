@@ -19,12 +19,15 @@
 	.col-xs-6 {
 		padding-bottom: 70px;
 	}
+	footer {
+		margin-top: 0px;
+	}
 	</style>
 
 </head>
 <body>
 	<?php $this->load->view('navigation'); ?>
-	<div class="container">
+	<div id="bb-container" class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
@@ -40,8 +43,8 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
-				<div class="ui form segment">
-					<form action="<?php echo base_url('music/user/edit/' . $music->id) ?>"method="post">	
+				<form action="<?php echo base_url('music/user/edit/' . $music->id) ?>"method="post">
+				<div class="ui form segment">	
 						<div class="field">
 							<label>อัลบั้ม</label>
 							<div class="ui fluid selection dropdown">
@@ -91,12 +94,13 @@
 								</div>
 							</div>
 						</div> -->
+						</div>
 						<input class="ui small red submit button" style="float: right" type="submit" value="บันทึก">
 					</form>
-				</div>
 				<div class="col-xs-3"></div>
 			</div>
 		</div>
+	</div>
 
 		<?php $this->load->view('footer'); ?>
 

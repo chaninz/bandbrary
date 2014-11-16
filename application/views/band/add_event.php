@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>เพิ่มกิจกรรม | Bandbrary</title>
+	<title>เพิ่มกิจกรรมของวง | Bandbrary</title>
 
 	<?php $this->load->view('header'); ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/jquery-ui.css') ?>">
@@ -19,6 +19,9 @@
 	}
 	.col-xs-6 {
 		padding-bottom: 70px;
+	}
+	footer {
+		margin-top: 0px;
 	}
 	</style>
 
@@ -41,8 +44,8 @@
 		<div class="row">
 			<div class="col-xs-3"></div>
 			<div class="col-xs-6">
+				<form id="event-form" action="<?= base_url('event/band/add') ?>" method="post">
 				<div class="ui form segment">
-					<form id="event-form" action="<?= base_url('event/band/add') ?>" method="post">
 						<br/><p/>
 						<div class="line"></div>
 						<p/>
@@ -89,16 +92,14 @@
 								</div>
 							</div>
 						</div>
-						<div class="line"></div>
-						<p/>
-						<div class="actions">
-							<div id="add-event-button" class="ui ok small red submit button">เพิ่มกิจกรรม</div>
-						</div>
+					</div>
+							<div class="ui ok small red submit button" style="float: right">เพิ่มกิจกรรม</div>
 					</form>
 				</div>
 				<div class="col-xs-3"></div>
 			</div>
 		</div>
+
 		<?php $this->load->view('footer'); ?>
 		<script>
 			$(function() {

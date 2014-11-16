@@ -63,8 +63,18 @@
 											<div>สถานที่: <?= $event->venue ?></div>
 											<div>จังหวัด: <?= $event->province ?></div>
 											<?php if ($this->session->userdata('id') == $user_profile->id && $event->event_id != 0): ?>
-												<a href="<?= base_url('event/user/edit/'.$event->event_id) ?>">แก้ไข</a>
-												<a href="<?= base_url('event/user/delete/'.$event->event_id) ?>" onclick="return window.confirm('คุณต้องการลบงานนี้ ?')">ลบ</a>
+										<div style="margin-top: 20px">
+										<a class="ui icon tiny button" href="<?= base_url('event/user/edit/'.$event->event_id) ?>">
+										  <i class="edit icon"></i>
+										  แก้ไข
+										</a>
+										<a class="ui icon tiny button" style="margin-left: 10px" href="<?= base_url('event/user/delete/'.$event->event_id) ?>" onclick="return window.confirm('คุณต้องการลบงานนี้ ?')">
+										  <i class="trash icon"></i>
+										  ลบ
+										</a>
+										</div>
+												<!-- <a href="<?= base_url('event/user/edit/'.$event->event_id) ?>">แก้ไข</a>
+												<a href="<?= base_url('event/user/delete/'.$event->event_id) ?>" onclick="return window.confirm('คุณต้องการลบงานนี้ ?')">ลบ</a> -->
 											<?php endif; ?>
 										</div>
 									<?php endforeach; ?>

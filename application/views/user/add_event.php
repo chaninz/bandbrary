@@ -91,12 +91,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="line"></div>
-						<p/>
 						</div>
-						<div class="actions">
-							<div id="add-event-button" class="ui ok small red submit button" style="float: right">เพิ่มกิจกรรม</div>
-						</div>
+						<div class="ui ok small red submit button" style="float: right">เพิ่มกิจกรรม</div>
 				</form>
 				</div>
 				<div class="col-xs-3"></div>
