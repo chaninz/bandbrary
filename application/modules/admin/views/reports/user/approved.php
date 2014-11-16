@@ -136,9 +136,9 @@
                                         <span class="sr-only"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                         <li><a href="<?= base_url().'admin/reports/post/getNotApprove' ?>">Not Approved</a></li>
+                                         <li><a href="<?= base_url().'admin/reports/user/getNotApprove' ?>">Not Approved</a></li>
                                         <li><a href="#">Approved</a></li>
-                                        <li><a href="<?= base_url().'admin/reports/post/getAll' ?>">All</a></li>
+                                        <li><a href="<?= base_url().'admin/reports/user/getAll' ?>">All</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                                             <td><?= $report->reporter ?></td>
                                             <td><?= $report->reason ?></td>
                                             <td><?= $report->timestamp ?></td>
-                                    <td><span class="label label-success">Approved</span></td>
+                                     <td></td>
                                 </tr>
                             <?php endforeach; ?>
 
