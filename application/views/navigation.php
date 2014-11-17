@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div id="bb-feed" class="ui secondary menu">
-					<a class="item" style="padding: 0px;">
+					<a class="item" style="padding: 0px;" href="<?= base_url().'feed' ?>">
 						<i class="home icon" style="color: #FFFFFF; font-size: 1.7em; opacity: 0.9;"></i>
 					</a>
 				</div>

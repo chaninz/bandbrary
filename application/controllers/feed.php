@@ -12,7 +12,7 @@ class Feed extends CI_Controller {
 		$user_id = $this->session->userdata('id');
 		$music = $this->user_music_model->get_music_feed($user_id);
 		$bands = $this->band_model->get_suggestion($user_id);
-		print_r($bands);
+		
 		$display = array('music' => $music,
 			'bands' => $bands);
 		$this->load->view('feed', $display);

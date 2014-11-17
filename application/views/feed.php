@@ -44,24 +44,29 @@
 		color: #E72A30;
 	}
 	.audio-player {
-		width: 150px;
-		height: 150px;
+		width: 250px;
+		height: 250px;
 		margin: 0px;
 	}
 	body {
 		background: #edeeef url('images/noise-2.png');
 	}
 	.col1 {
-		height: 346px;
+		height: 396px;
 		margin-top: 110px;
 	}
 	.col2 {
-		height: 346px;
+		height: 396px;
 		margin-top: 110px;
 	}
 	.col3 {
-		height: 346px;
+		height: 396px;
 		margin-top: 110px;
+	}
+	footer{
+		width: 0px;
+		height: 0px;
+		margin: 0px;
 	}
 	</style>
 </head>
@@ -98,12 +103,13 @@
 				<!--start feedbox-->
 				<?php foreach ($music as $e_music): ?>
 				<div class="col2">
-					<div class="feed-box box">
+					<div class="feed-box box" style="padding: 10px;">
 							<?php if ($e_music->type == 1): ?>
 								<a href="<?= base_url('music/user/view/' . $e_music->music_id) ?>"><img src="<?= $e_music->cover_image != NULL ? base_url('uploads/album/' . $e_music->cover_image) : base_url('images/no_album_cover.jpg') ?>" class="audio-player"></a>
 							<?php elseif ($e_music->type == 2): ?>
 								<a href="<?= base_url('music/band/view/' . $e_music->music_id) ?>"><img src="<?= $e_music->cover_image != NULL ? base_url('uploads/album/' . $e_music->cover_image) : base_url('images/no_album_cover.jpg') ?>" class="audio-player"></a>
 							<?php endif; ?>
+							<div class="line" style="margin-top: 10px; margin-bottom: 10px;"></div>
 						<div>
 							<?php if ($e_music->type == 1): ?>
 								<p/>เพลง: <a href="<?= base_url('music/user/view/' . $e_music->music_id) ?>"><?= $e_music->name ?></a>
@@ -124,7 +130,6 @@
 								ดูความคิดเห็นทั้งหมด
 							</div>
 						</div> -->
-						<div class="line"></div>
 					</div>
 				</div>
 				<?php endforeach; ?>
@@ -133,13 +138,13 @@
 
 			<div id="feed-right" class="col-xs-2">
 				<!--start advt-->
-				<div class="col3">
+				<!-- <div class="col3">
 					<div class="advt box">
 						<h5 class="ui header" style="margin: 0px; margin-bottom: 5px;">นักร้องหญิงดิ้นได้</h5>
 						<img class="ui small image"  style="margin: 0px; margin-left: 11px; margin-bottom: 5px;" src="/images/demo/photo2.jpg">
 						<p>ต้องการนักร้องเพศหญิง มีความสามารถเต้นและร้องได้ โดยเฉพาะเพลงลูกทุ่ง จังหวะแดนซ์ ยิ่งเต้น... <a href="">Read more</a></p>
 					</div>
-				</div>
+				</div> -->
 				<?php if ( ! empty($bands)): ?>
 					<?php foreach ($bands as $band): ?>
 						<div class="col3">
