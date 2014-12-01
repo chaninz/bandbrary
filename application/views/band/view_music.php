@@ -52,7 +52,11 @@
 					<div class="col-md-9">
 						<div class="center">
 							<!-- Music Player -->
-							<img style="float: left" width="111px" width="111px" src="<?= base_url('uploads/album/'.$music->image_url) ?>" />
+							<?php if ($music->image_url != NULL): ?>
+								<img style="float: left" width="111px" width="111px" src="<?= base_url('uploads/album/'.$music->image_url) ?>" />
+							<?php else: ?>
+								<img style="float: left" width="111px" width="111px" src="<?= base_url('images/no_album_cover.jpg') ?>" />
+							<?php endif; ?>
 							<div id="jquery_jplayer_1" class="jp-jplayer"></div>
 							<div id="jp_container_1" class="jp-audio" style="margin-left: 111px;" role="application" aria-label="media player">
 								<div class="jp-type-single">
@@ -108,14 +112,22 @@
 	  									<i class="heart icon"></i> เลิกกรี๊ด
 	  								</a>
 								<?php endif; ?>
-								<?php if($band_profile->id == $this->session->userdata('band_id') && $this->session->userdata('is_master') == 1): ?>
-									<a class="ui small icon button" href="<?= base_url('music/band/edit/' . $music->id) ?>">
-	  									<i class="edit icon"></i>แก้ไข
-									</a>
-									<a class="ui small icon button" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
-	  									<i class="trash icon"></i>ลบ
-									</a>
-								<?php endif; ?>	
+								<div class="ui small icon button top left pointing dropdown">
+									<i class="setting icon"></i> ตัวเลือก
+									<div class="menu">
+										<a class="ui item" id="report-button">
+											<i class="warning circle icon"></i>รายงาน
+										</a>
+										<?php if($band_profile->id == $this->session->userdata('band_id') && $this->session->userdata('is_master') == 1): ?>
+											<a class="ui icon item" href="<?= base_url('music/band/edit/' . $music->id) ?>">
+												<i class="edit icon"></i>แก้ไข
+											</a>
+											<a class="ui icon item" href="<?= base_url('music/band/delete/' . $music->id) ?>" onclick="return window.confirm('คุณต้องการลบเพลงนี้ ?')">
+												<i class="trash icon"></i>ลบ
+											</a>
+										<?php endif; ?>	
+									</div>
+								</div>
 								<div>
 									มีคนกรี๊ดเพลงนี้ <span id="count-greedd"><?= $count_greedd_band_music ?></span> คน
 								</div>
@@ -170,6 +182,30 @@
 		</div>
 	</article>
 </section>
+<!-- Report music modal-->
+<div class="ui transition report-music modal" style="">
+	<div class="header">รายงานเพลงนี้ถึงผู้ดูแลระบบ</div>
+	<div class="content">
+		<form id="report-form" action="<?= base_url('report/music/band/' . $music->id) ?>" method="post">
+			<div class="left"></div>
+			<div class="right">
+				<div class="ui header">รายละเอียด</div>
+				<div class="ui form">
+					<div class="field">
+						<textarea id="music-report-reason" name="reason"></textarea>
+					</div>
+				</div>		
+			</div>
+		</form>
+	</div>
+	<div class="actions">
+		<div class="ui red small ok button">ส่งรายงาน</div>
+		<div class="ui black small cancel button">ยกเลิก</div>
+	</div>
+</div>
+<!-- END-Report music modal -->
+
+<!-- Social sharer -->
 <div id="fb-root"></div>
 <script>
 	window.fbAsyncInit = function() {
@@ -189,6 +225,7 @@
 	}(document, 'script', 'facebook-jssdk'));
 	window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
 </script>
+<!-- END-Social sharer -->
 
 <?php $this->load->view('footer'); ?>
 

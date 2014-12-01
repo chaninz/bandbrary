@@ -99,9 +99,9 @@
 										<?php endif; ?>
 									<?php else: ?>
 										<?php if ($band_member->is_master == 1): ?>
-											<div class="ui tiny green label">เป็น</div>
+											<div class="ui tiny red label">เป็น</div>
 										<?php else: ?>
-											<div class="ui tiny green label">ไม่เป็น</div>
+											<div class="ui tiny label">ไม่เป็น</div>
 										<?php endif; ?>
 									<?php endif; ?>
 								</td>

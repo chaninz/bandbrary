@@ -613,9 +613,9 @@
 			}
 		});
 
-		/*********๕๕๕๕**/
-		/* Add Event */
-		/********๕๕๕***/
+		/*************/
+		/* Add Post */
+		/************/
 
 		$('#post-form')
 		.form({
@@ -673,5 +673,47 @@
 			}
 		});
 		/* END-Navigation search box */
+
+		/* Report music modal */
+		$('.report-music.modal').modal({
+			onApprove: function() {
+				var reasonText = $("#music-report-reason").val();
+				if (reasonText == "") {
+					$("#music-report-reason").focus();
+					return false;
+				} else {
+					$("#report-form").submit();
+				}
+			}
+		}).modal('attach events', '#report-button', 'show');
+		/* END-Report music modal */
+
+		/***************/
+		/* Banner Post */
+		/***************/
+
+		$('#cover-banner-form')
+		.form({
+			topic: {
+				identifier : 'image-name',
+				rules: [
+				{
+					type   : 'empty'
+				}
+				]
+			}
+		});
+
+		/* Upload banner form */
+		$("#image").change(function(event) {
+			var fileName = $("#image")[0].files[0];
+			if (fileName) {
+				$("#image-name").val(fileName.name);
+			} else {
+				$("#image-name").val("");
+			}
+		})
+		/* END-Upload banner form */
+
 
 	});

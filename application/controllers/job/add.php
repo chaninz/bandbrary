@@ -13,6 +13,7 @@ class Add extends CI_Controller {
 		$name = $this->input->post('name');
 		$type = $this->input->post('type');
 		$style = $this->input->post('style');
+		$format = $this->input->post('format');
 		$description = $this->input->post('description');
 		$venue = $this->input->post('venue');
 		$province = $this->input->post('province');
@@ -21,13 +22,15 @@ class Add extends CI_Controller {
 		$time = $this->input->post('time');
 		$duration = $this->input->post('duration');
 
-		if ( ! empty($user_id) && ! empty($name) && ! empty($type) && ! empty($style) && ! empty($description) &&
-			! empty($venue) && ! empty($province) && ! empty($budget) && ! empty($time) && ! empty($duration)) {
+		if ( ! empty($user_id) && ! empty($name) && ! empty($type) && ! empty($style) &&  ! empty($format) && 
+			! empty($description) && ! empty($venue) && ! empty($province) && ! empty($budget) && ! empty($time) &&
+			! empty($duration)) {
 			$time = str_replace('.', ':', $time);
 			$data = array('user_id' => $user_id,
 				'name' => $name,
 				'type_id' => $type,
 				'style_id' => $style,
+				'format_id' => $format,
 				'description' => $description,
 				'venue' => $venue,
 				'province_id' => $province,

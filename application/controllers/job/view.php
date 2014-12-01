@@ -9,6 +9,7 @@ class View extends CI_Controller {
 		$this->load->model('employment_model');
 		$this->load->model('band_employment_model');
 		$this->load->model('user_model');
+		$this->load->model('join_band_model');
 	}
 
 	public function index($job_id) {
@@ -20,11 +21,13 @@ class View extends CI_Controller {
 		$current_band_employment_status = $this->band_employment_model->get_status($job_id, $band_id);
 
 		if ( ! empty($job)) {
+			$current_job_owner_band = $this->join_band_model->get_current_band(1);
 			$display = array('job' => $job,
 				'job_requests' => $job_requests,
 				'current_employment_status' => $current_employment_status,
-				'current_band_employment_status' => $current_band_employment_status);
-
+				'current_band_employment_status' => $current_band_employment_status,
+				'current_job_owner_band' => $current_job_owner_band);
+			
 			$this->load->view('job/view', $display);
 		} else {
 			show_404();

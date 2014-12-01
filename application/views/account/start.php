@@ -11,6 +11,7 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/bandbrary.css'; ?>">
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'; ?>">
 	<script src="<?php echo base_url().'assets/js/jquery.min.js'; ?>"></script>
+	<script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
 	<script src="<?php echo base_url().'assets/js/jquery.address.min.js'; ?>"></script>
 	<script src="<?php echo base_url().'assets/js/semantic.js'; ?>"></script>
 	<script>

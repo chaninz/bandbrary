@@ -82,13 +82,8 @@
 			<?php $this->load->view('account/sidebar_left'); ?>
 			<div class="col-xs-7">
 				<div class="ui form segment"><p>
-					<h2 class="ui header">คำร้องขอเข้าร่วมวง</h2>
+					<h2 class="ui header">คำร้องขอเข้าร่วมวง</h2> 
 					<div class="line"></div><br><p>
-					<?php if ($band_profile->status == 1): ?>
-						<a href="<?= base_url('band/join/close') ?>">ปิดรับสมัครสมาชิก</a>
-					<?php elseif ($band_profile->status == 0): ?>
-						<a href="<?= base_url('band/join/open') ?>">เปิดรับสมัครสมาชิก</a>
-					<?php endif; ?>
 					<?php if ($band_requests): ?>
 						<?php foreach ($band_requests as $band_request) : ?>
 							<div id="join-rq" class="field">
@@ -112,8 +107,15 @@
 							</div>
 						<?php endforeach; ?>
 					<?php else: ?>
-						ไม่มีคำร้องขอร่วมวง
+						ไม่มีคำร้องขอเข้าร่วมวง
 					<?php endif; ?>
+					<div class="text-center">
+						<?php if ($band_profile->status == 1): ?>
+							<a class="ui small red button" href="<?= base_url('band/join/close') ?>">ปิดรับสมัครสมาชิก</a>
+						<?php elseif ($band_profile->status == 0): ?>
+							<a class="ui small button" href="<?= base_url('band/join/open') ?>">เปิดรับสมัครสมาชิก</a>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		<div class="col-xs-2"></div>

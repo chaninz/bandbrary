@@ -32,13 +32,16 @@
 	</style>
 </head>
 <body>
-	<div class="container">
+
+	<?php $this->load->view('navigation'); ?>
+
+	<div id="bb-container" class="container">
 		<div class="row">
 			<div class="col-xs-2"></div>
 			<div class="col-xs-8">
-				<div class="ui header">
+				<h2 class="ui header">
 					แก้ไขงาน
-				</div>
+				</h2>
 				<p/>
 				<div class="line"></div>
 				<p/><br/>
@@ -50,18 +53,6 @@
 			<div class="col-xs-6">
 				<form id="add-job" action="<?= base_url('job/edit/'.$job->id) ?>" method="post"> 
 					<div class="ui form segment">
-						<div class="field">
-							<label>เจ้าของงาน</label>
-							<div class="ui fluid selection dropdown">
-								<div class="text">เลือก</div>
-								<i class="dropdown icon"></i>
-								<input type="hidden" name=""/>
-								<div class="menu">
-									<div class="item" data-value="1">สมาชิก</div>
-									<div class="item" data-value="2">วงดนตรี</div>
-								</div>
-							</div>
-						</div>
 						<div class="field">
 							<label>ชื่องาน</label>
 							<input type="text" name="name" value="<?= $job->name ?>"/>
@@ -95,6 +86,27 @@
 									<div class="item" data-value="7">เร้กเก้</div>
 									<div class="item" data-value="8">อาร์แอนด์บี</div>
 									<div class="item" data-value="9">ร็อก</div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<label>รูปแบบการจ้าง</label>
+							<div class="ui fluid selection dropdown">
+								<div class="text">เลือก</div>
+								<i class="dropdown icon"></i>
+								<input type="hidden" name="format" value="<?= $job->format_id ?>"/>
+								<div class="menu">
+									<div class="item" data-value="0">ไม่ระบุ</div>
+									<div class="item" data-value="1">เฉพาะนักร้อง</div>
+									<div class="item" data-value="2">เฉพาะมือกีตาร์</div>
+									<div class="item" data-value="3">เฉพาะมือเบส</div>
+									<div class="item" data-value="4">เฉพาะมือกลอง</div>
+									<div class="item" data-value="5">เฉพาะมือเปียโน</div>
+									<div class="item" data-value="6">เฉพาะมือคีย์บอร์ด</div>
+									<div class="item" data-value="7">เฉพาะมือแซกโซโฟน</div>
+									<div class="item" data-value="8">เฉพาะมือทรัมเป็ต</div>
+									<div class="item" data-value="9">เฉพาะมือไวโอลิน</div>
+									<div class="item" data-value="10">วงดนตรี</div>
 								</div>
 							</div>
 						</div>
@@ -140,7 +152,7 @@
 									</div>
 								</div>
 								<div class="field">
-									<label>ระยะเวลา</label>
+									<label>ระยะเวลาแสดง</label>
 									<div class="ui fluid selection dropdown">
 										<div class="text">เลือก</div>
 										<i class="dropdown icon"></i>
@@ -164,9 +176,7 @@
 								</div>
 							</div>
 						</div>
-
 						<input class="ui red submit button" type="submit" value="บันทึก">
-
 					</div>
 				</form>
 			</div>

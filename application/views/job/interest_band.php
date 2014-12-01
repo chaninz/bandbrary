@@ -76,15 +76,17 @@
 			<div class="col-xs-10">
 				<div class="ui four items"><?php foreach ($request_jobs as $job): ?>
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
-						<div class="angle ui corner label" style="padding-left: 7px;">
-							<div class="ui top right pointing dropdown">
-       					 	<i class="angle down icon"></i>
-       					 	<div class="menu">
-							    <a id="del-border" class="item">แก้ไข</a>
-							    <a id="del-border" class="item">ลบ</a>
-							 </div>
+						<?php if ($this->session->userdata('id') == $job->user_id): ?>
+							<div class="angle ui corner label" style="padding-left: 7px;">
+									<div class="ui top right pointing dropdown">
+										<i class="angle down icon"></i>
+										<div class="menu">
+											<a id="del-border" class="item" href="<?= base_url('job/edit/' . $job->id) ?>">แก้ไข</a>
+											<a id="del-border" class="item" href="<?= base_url('job/delete/' . $job->id) ?>">ลบ</a>
+										</div>
+									</div>
 							</div>
-      					</div>
+						<?php endif; ?>
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
 							<div class="description">
@@ -104,15 +106,17 @@
 				<div class="job-hea2">ยืนยันแล้ว <span class="job-total"><?= count($confirm_jobs) ?></span> งาน</div>
 				<div class="ui four items"><?php foreach ($confirm_jobs as $job): ?>
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
-						<div class="angle ui corner label" style="padding-left: 7px;">
-							<div class="ui top right pointing dropdown">
-       					 	<i class="angle down icon"></i>
-       					 	<div class="menu">
-							    <a id="del-border" class="item">แก้ไข</a>
-							    <a id="del-border" class="item">ลบ</a>
-							 </div>
+						<?php if ($this->session->userdata('id') == $job->user_id): ?>
+							<div class="angle ui corner label" style="padding-left: 7px;">
+									<div class="ui top right pointing dropdown">
+										<i class="angle down icon"></i>
+										<div class="menu">
+											<a id="del-border" class="item" href="<?= base_url('job/edit/' . $job->id) ?>">แก้ไข</a>
+											<a id="del-border" class="item" href="<?= base_url('job/delete/' . $job->id) ?>">ลบ</a>
+										</div>
+									</div>
 							</div>
-      					</div>
+						<?php endif; ?>
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
 							<div class="description">
@@ -132,15 +136,17 @@
 				<div class="job-hea2">ถูกปฏิเสธ <span class="job-total"><?= count($reject_jobs) ?></span> งาน</div>
 				<div class="ui four items"><?php foreach ($reject_jobs as $job): ?>
 					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
-						<div class="angle ui corner label" style="padding-left: 7px;">
-							<div class="ui top right pointing dropdown">
-       					 	<i class="angle down icon"></i>
-       					 	<div class="menu">
-							    <a id="del-border" class="item">แก้ไข</a>
-							    <a id="del-border" class="item">ลบ</a>
-							 </div>
+						<?php if ($this->session->userdata('id') == $job->user_id): ?>
+							<div class="angle ui corner label" style="padding-left: 7px;">
+									<div class="ui top right pointing dropdown">
+										<i class="angle down icon"></i>
+										<div class="menu">
+											<a id="del-border" class="item" href="<?= base_url('job/edit/' . $job->id) ?>">แก้ไข</a>
+											<a id="del-border" class="item" href="<?= base_url('job/delete/' . $job->id) ?>">ลบ</a>
+										</div>
+									</div>
 							</div>
-      					</div>
+						<?php endif; ?>
 						<div class="content">
 							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
 							<div class="description">

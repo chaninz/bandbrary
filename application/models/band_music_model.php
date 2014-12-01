@@ -22,7 +22,9 @@ class Band_music_model extends CI_Model {
 		$this->db->select('Band_Music.name AS name');
 		$this->db->select('Band_Albums.name AS album_name');
 		$this->db->select('Band_Music.timestamp AS upload_date');
+		$this->db->select('Bands.name AS artist');
 		$this->db->join('Band_Albums', 'Band_Albums.id = Band_Music.album_id');
+		$this->db->join('Bands', 'Bands.id = Band_Albums.band_id');
 		$query = $this->db->get_where('Band_Music', array('Band_Music.id' => $music_id));
 		$result = $query->row();
 
@@ -55,7 +57,6 @@ class Band_music_model extends CI_Model {
 		$this->db->join('Band_Albums', 'Band_Albums.id = Band_Music.album_id');
 		$this->db->join('Bands', 'Bands.id = Band_Albums.band_id');
 		$this->db->where('Band_Music.id', $music_id);
-
 
 		return $query->row();
 	}

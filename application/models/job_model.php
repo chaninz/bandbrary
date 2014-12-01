@@ -18,6 +18,7 @@ class Job_model extends CI_Model {
 		$this->db->select('Users.name AS users_name');
 		$this->db->join('Users', 'Users.id = Jobs.user_id');
 		$this->db->join('Job_Types', 'Job_Types.id = Jobs.type_id');
+		$this->db->join('Job_Formats', 'Job_Formats.id = Jobs.format_id');
 		$this->db->join('Styles', 'Styles.id = Jobs.style_id');
 		$this->db->join('Provinces', 'Provinces.id = Jobs.province_id');
 		$query = $this->db->get_where('Jobs', array('Jobs.id' => $job_id));
@@ -67,6 +68,7 @@ class Job_model extends CI_Model {
 	function get_by_user_employment($user_id, $status) {
 		$this->db->select('*');
 		$this->db->select('Jobs.id AS id');
+		$this->db->select('Jobs.user_id AS user_id');
 		$this->db->join('Employment', 'Employment.job_id = Jobs.id');
 		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
 		$query = $this->db->get_where('Jobs', array('Employment.user_id' => $user_id,
@@ -79,6 +81,7 @@ class Job_model extends CI_Model {
 	function get_by_band_employment($band_id, $status) {
 		$this->db->select('*');
 		$this->db->select('Jobs.id AS id');
+		$this->db->select('Jobs.user_id AS user_id');
 		$this->db->join('Band_Employment', 'Band_Employment.job_id = Jobs.id');
 		$this->db->join('Provinces', 'Jobs.province_id = Provinces.id');
 		$query = $this->db->get_where('Jobs', array('Band_Employment.band_id' => $band_id,
@@ -171,6 +174,35 @@ class Job_model extends CI_Model {
 	function delete($job_id) {
 		$this->db->delete('Jobs', array('id' => $job_id));
 	}
+
+	function get_user_suggestion($user_id) {
+		$query = $this->db->query('SELECT Jobs.id, Jobs.name, Jobs.budget, Jobs.venue, Jobs.date
+			FROM Jobs
+			JOIN Users ON Users.province_id = Jobs.province_id
+			JOIN Has_Skills ON Has_Skills.skill_id = Jobs.format_id AND Has_Skills.user_id = Users.id
+			JOIN Has_Styles ON Has_Styles.style_id = Jobs.style_id AND Has_Styles.user_id = Users.id
+			WHERE Users.id = ' . $user_id . ' AND Jobs.user_id <> ' . $user_id . ' 
+			ORDER BY RAND() 
+			LIMIT 0, 3');
+		$result = $query->result();
+
+		return $result;
+	}
+
+	function get_band_suggestion($band_id) {
+		$query = $this->db->query('SELECT Jobs.id, Jobs.name, Jobs.budget, Jobs.venue, Jobs.date
+			FROM Jobs
+			JOIN Bands ON Bands.province_id = Jobs.province_id AND Bands.style_id = Jobs.style_id
+			WHERE Jobs.user_id NOT IN (SELECT user_id
+				FROM Join_Band
+				WHERE Join_Band.band_id = ' . $band_id . ' AND Join_Band.status = 2) AND Jobs.format_id = 10 
+			ORDER BY RAND() 
+			LIMIT 0, 3');
+		$result = $query->result();
+
+		return $result;
+	}
+
 //-------------------------------------------------
 
 	function countJob(){

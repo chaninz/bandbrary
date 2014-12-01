@@ -103,9 +103,9 @@ class Band extends CI_Controller {
 
 	public function view($music_id){
 		$music = $this->band_music_model->get($music_id);
-		$band_profile = $this->band_model->get($music->band_id);
 
-		if ( ! empty($music) && ! empty($band_profile)) {
+		if ( ! empty($music)) {
+			$band_profile = $this->band_model->get($music->band_id);
 			$band_id = $music->band_id;
 			// Basic data for user profile page
 			$status = $this->status_model->get_last_by_band($band_id);

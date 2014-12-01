@@ -61,11 +61,12 @@
 										<a href="<?= base_url('album/user/view/' . $e_album->id) ?>"><img src="<?= base_url('images/no_album_cover.jpg') ?>" class="album-cover1"></a>
 									<?php endif; ?>
 								<?php endforeach; ?>
-							<?php endif; ?>
+							
 						</div>
 						 <h3 class="ui header" style="float: left; margin: 0px;">
 						อัลบั้ม <?= $album->name ?>
 						</h3>
+						<?php endif; ?>
 						<?php if ($this->session->userdata('id') == $user_profile->id && ! empty($albums)): ?>
 							<a class="ui icon tiny button" style="float: right; margin-left: 10px" href="<?= base_url('album/user/delete/' . $album->id) ?>" onclick="return window.confirm('คุณต้องการลบอัลบั้ม <?= $album->name ?> ?')">
 							  <i class="trash icon"></i>

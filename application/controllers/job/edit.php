@@ -17,6 +17,7 @@ class Edit extends CI_Controller {
 			$name = $this->input->post('name');
 			$type = $this->input->post('type');
 			$style = $this->input->post('style');
+			$format = $this->input->post('format');
 			$description = $this->input->post('description');
 			$venue = $this->input->post('venue');
 			$province = $this->input->post('province');
@@ -26,13 +27,14 @@ class Edit extends CI_Controller {
 			$duration = $this->input->post('duration');
 
 			if ( ! empty($current_id) && ! empty($user_id) && ! empty($name) && ! empty($type) && ! empty($style) &&
-				! empty($description) && ! empty($venue) && ! empty($province) && ! empty($budget) && ! empty($date) &&
-				! empty($time) && ! empty($duration) && $user_id == $current_id) {
+				! empty($format) && ! empty($description) && ! empty($venue) && ! empty($province) && ! empty($budget) &&
+				! empty($date) && ! empty($time) && ! empty($duration) && $user_id == $current_id) {
 				$time = str_replace('.', ':', $time);
 				$data = array('user_id' => $user_id,
 					'name' => $name,
 					'type_id' => $type,
 					'style_id' => $style,
+					'format_id' => $format,
 					'description' => $description,
 					'venue' => $venue,
 					'province_id' => $province,

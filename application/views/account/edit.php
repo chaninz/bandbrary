@@ -142,9 +142,12 @@
 						<div class="line"></div>
 						<p/>
 						<div class="field">
-							<label>รูปโปรไฟล์</label><?php if($user->photo_url): ?>
-							<img src="<?= base_url('uploads/profile/user/thumb/'.$user->photo_url) ?>" alt="" id="img-preview"/><?php else: ?>
-							<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="img-preview"/><?php endif; ?>
+							<label>รูปโปรไฟล์</label>
+							<?php if($user->photo_url): ?>
+								<img src="<?= base_url('uploads/profile/user/thumb/'.$user->photo_url) ?>" alt="" id="img-preview"/>
+							<?php else: ?>
+								<img src="<?= base_url('images/no_profile.jpg') ?>" alt="" id="img-preview"/>
+							<?php endif; ?>
 							<div class="ui selection dropdown" style="margin-left: 10px;">
 								<div class="default text"><b>เปลี่ยนรูปโปรไฟล์</b></div>
 								<i class="dropdown icon"></i>
@@ -158,7 +161,11 @@
 						</div>
 						<div class="field">
 							<label>รูปภาพปก</label>
-							<img src="<?= base_url('uploads/cover/user/thumb/'.$user->cover_url) ?>" alt="" id="img-preview">
+							<?php if($user->cover_url): ?>
+								<img src="<?= base_url('uploads/cover/user/thumb/'.$user->cover_url) ?>" alt="" id="img-preview">
+							<?php else: ?>
+								<img src="<?= base_url('images/no_image.jpg') ?>" alt="" id="img-preview"/>
+							<?php endif; ?>
 							<div class="ui selection dropdown" style="margin-left: 10px;">
 								<div class="default text"><b>เปลี่ยนรูปภาพปก</b></div>
 								<i class="dropdown icon"></i>

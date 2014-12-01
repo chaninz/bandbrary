@@ -3,12 +3,12 @@
 class Employment_model extends CI_Model {
 
 	function get_request($job_id){
-		$query = $this->db->query('SELECT job_id, user_id, Employment.status, Users.id, name, surname, photo_url, 1 AS type 
+		$query = $this->db->query('SELECT job_id, user_id, Employment.status, Users.id, name, surname, photo_url, username, 1 AS type 
 			FROM Employment 
 			JOIN Users ON Users.id = Employment.user_id 
 			WHERE Employment.job_id = '.$job_id.' 
 			UNION 
-			SELECT job_id, band_id, Band_Employment.status, Bands.id, Bands.name, \'\', photo_url, 2 AS type 
+			SELECT job_id, band_id, Band_Employment.status, Bands.id, Bands.name, \'\', photo_url, \'\',2 AS type 
 			FROM Band_Employment 
 			JOIN Bands ON Bands.id = Band_Employment.band_id 
 			WHERE Band_Employment.job_id = '.$job_id);

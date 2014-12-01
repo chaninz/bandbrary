@@ -5,6 +5,7 @@ class User_music_model extends CI_Model {
 	function add($data) {
 		$this->db->insert('User_Music', $data);
 	}
+	
 	function delete($music_id){
 		$this->db->where('id',$music_id);
 		$this->db->delete('User_Music');
@@ -20,8 +21,10 @@ class User_music_model extends CI_Model {
 		$this->db->select('User_Music.id AS id');
 		$this->db->select('User_Music.name AS name');
 		$this->db->select('User_Albums.name AS album_name');
+		$this->db->select('Users.name AS artist');
 		$this->db->select('User_Music.timestamp AS upload_date');
 		$this->db->join('User_Albums', 'User_Albums.id = User_Music.album_id');
+		$this->db->join('Users', 'Users.id = User_Albums.user_id');
 		$query = $this->db->get_where('User_Music', array('User_Music.id' => $music_id));
 		$result = $query->row();
 

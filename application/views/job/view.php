@@ -68,13 +68,25 @@
 		<div class="row">
 			<div class="col-xs-10">
 				<div class="job-hea2"><?= $job->name ?></div>
-				<?php if ($current_employment_status == 2): ?>
+				<?php if ($this->session->userdata('id') != $job->user_id && ! empty($current_job_owner_band) && $job->format_id == 10 && $current_job_owner_band->band_id == $this->session->userdata('band_id')): ?>
+					<div class="ui visible info message">
+						<i class="icon info"></i> ขออภัย วงของคุณเป็นผู้ประกาศงานนี้
+					</div>
+				<?php elseif ($current_employment_status == 2): ?>
 					<div class="ui visible success message">
 						<i class="icon ok sign"></i> ยินดีด้วย คุณได้งานนี้
 					</div>
 				<?php elseif ($job->status == 0): ?>
 					<div class="ui visible info message">
 						<i class="icon info"></i> ขออภัย งานนี้ปิดรับสมัครแล้ว
+					</div>
+				<?php elseif ($this->session->userdata('user_type') != 2 && $job->user_id != $this->session->userdata('id')): ?>
+					<div class="ui visible info message">
+						<i class="icon info"></i> ขออภัย คุณไมใช่นักดนตรี
+					</div>
+				<?php elseif ($job->format_id == 10 && $this->session->userdata('band_id') == NULL): ?>
+					<div class="ui visible info message">
+						<i class="icon info"></i> ขออภัย งานนี้รับเฉพาะวงดนตรีเท่านั้น
 					</div>
 				<?php endif; ?>
 				<div class="ui divided list">
@@ -102,10 +114,18 @@
 							<?= $job->province ?>
 						</div>
 					</div>
+					<?php if ($job->status == 0): ?>
+						<div class="item">
+							<div class="content">
+								<div class="header">ค่าจ้าง/งาน</div>
+								<?= $job->budget ?>
+							</div>
+						</div>
+					<?php endif; ?>
 					<div class="item">
 						<div class="content">
-							<div class="header">ค่าจ้าง</div>
-							<?= $job->budget ?>
+							<div class="header">รูปแบบการจ้าง</div>
+							<?= $job->format ?>
 						</div>
 					</div>
 					<div class="item">
@@ -141,7 +161,7 @@
 					<div class="item">
 						<div class="content">
 							<div class="header">ผู้สนใจ</div>
-							<?php if ($job_requests): ?>
+							<?php if ($job_requests && $this->session->userdata('id') == $job->user_id): ?>
 							<?php foreach ($job_requests as $job_request) : ?>
 								<?php if($job_request != NULL && $job_request->type == 1): ?>
 									<div id="job-pd" class="field">
@@ -152,7 +172,7 @@
 												<img src="<?= base_url('images/no_profile.jpg') ?>" id="img-preview"/>
 											<?php endif; ?>
 										</div>
-										<div class="jp2"><?= $job_request->name.' '.$job_request->surname ?></div>
+										<div class="jp2"><a href="<?= base_url('user/' . $job_request->username) ?>"><?= $job_request->name.' '.$job_request->surname ?></a></div>
 										<div class="jp3">
 											<?php if ($job->status == 1 && $job->user_id == $this->session->userdata('id')): ?>
 												<?php if ($job_request->status == 1): ?>
@@ -181,7 +201,7 @@
 												<img src="<?= base_url('images/no_profile.jpg') ?>" id="img-preview"/>
 											<?php endif; ?>
 										</div>
-										<div class="jp2"><?= 'วง '.$job_request->name ?></div>
+										<div class="jp2"><a href="<?= base_url('band/' . $job_request->user_id) ?>"><?= 'วง '.$job_request->name ?></a></div>
 										<div class="jp3">
 											<?php if ($job->status == 1 && $job->user_id == $this->session->userdata('id')): ?>
 												<?php if ($job_request->status == 1): ?>
@@ -203,6 +223,8 @@
 									</div>
 								<?php endif; ?>
 							<?php endforeach; ?>
+							<?php elseif ($job_requests && $this->session->userdata('id') != $job->user_id): ?>
+								มีผู้สนใจงานนี้ <?= count($job_requests) ?> คน
 							<?php else: ?>
 								ไม่มีผู้สนใจ
 							<?php endif; ?>
@@ -212,7 +234,7 @@
 
 				<div style="margin-top: 30px; margin-bottom: 50px;">
 					<!-- Request job button -->
-					<?php if ($job->status == 1 && $this->session->userdata('user_type') == 2 && $job->user_id != $this->session->userdata('id')): ?>
+					<?php if ($job->status == 1 && $job->format_id != 10 && $this->session->userdata('user_type') == 2 && $job->user_id != $this->session->userdata('id')): ?>
 						<?php if ($current_employment_status == 0): ?>
 							<a class="ui red button" href="<?= base_url('job/request/'.$job->id) ?>">รับงานนี้</a>
 						<?php elseif ($current_employment_status == 1): ?>
@@ -232,7 +254,8 @@
 					<!--END Request job button -->
 
 					<!-- Band request job button -->
-					<?php if ($job->status == 1 && $job->user_id != $this->session->userdata('id') && $this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1): ?>
+					<?php if ($job->status == 1 && $job->format_id == 10 && ! empty($current_job_owner_band) && $current_job_owner_band->band_id != $this->session->userdata('band_id') && $job->user_id != $this->session->userdata('id') && 
+							$this->session->userdata('band_id') != NULL && $this->session->userdata('is_master') == 1): ?>
 						<?php if ($current_band_employment_status == 0): ?>
 							<a class="ui red button" href="<?= base_url('job/band/request/'.$job->id) ?>">รับงานนี้ (วง)</a>
 						<?php elseif ($current_band_employment_status == 1): ?>

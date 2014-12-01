@@ -13,11 +13,13 @@
 						<div class="header">สร้างงาน</div> 
 					</div>
 				</a>
-				<a class="item" style="padding: 0.9em;" href="<?= base_url('music/user') ?>">
-					<div class="content">
-						<div class="header">จัดการเพลงของคุณ</div>
-					</div>
-				</a>
+				<?php if ($this->session->userdata('user_type') == 2): ?>
+					<a class="item" style="padding: 0.9em;" href="<?= base_url('music/user') ?>">
+						<div class="content">
+							<div class="header">จัดการเพลงของคุณ</div>
+						</div>
+					</a>
+				<?php endif; ?>
 				<?php if ($this->session->userdata('is_master') != NULL && $this->session->userdata('band_id') != NULL): ?>
 					<a class="item" style="padding: 0.9em;" href="<?= base_url('music/band') ?>">
 						<div class="content">
@@ -25,7 +27,7 @@
 						</div>
 					</a>
 				<?php endif; ?>
-				<?php if ($this->session->userdata('band_id') == NULL): ?>
+				<?php if ($this->session->userdata('user_type') == 2 && $this->session->userdata('band_id') == NULL): ?>
 					<a class="item" style="padding: 0.9em;" a href="<?= base_url().'band/create' ?>" > 
 						<div class="content">
 							<div class="header">สร้างวงดนตรี</div>
@@ -285,9 +287,9 @@
 	.transition('fade');
 	$('.feed-box.box')
 	.transition('fade up');
-	$('.advt.box')
-	.transition('fade');
-	$('.advt.box')
-	.transition('fade up');
+	// $('.advt.box')
+	// .transition('fade');
+	// $('.advt.box')
+	// .transition('fade up');
 	/* End Feed transition */
 </script>

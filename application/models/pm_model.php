@@ -100,7 +100,7 @@ class Pm_model extends CI_Model {
 			group by pm1.from_user_id 
 			      ) as view_msg
 
-			order by view_msg.seen_date,view_msg.timestamp desc');
+			order by view_msg.seen_date, view_msg.timestamp desc');
 		return $query->result();
 	}
 	

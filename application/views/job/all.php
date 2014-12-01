@@ -74,31 +74,35 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-10">
-				<div class="ui four items"><?php foreach ($jobs as $job): ?>
-					<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
-						<div class="angle ui corner label" style="padding-left: 7px;">
-							<div class="ui top right pointing dropdown">
-       					 	<i class="angle down icon"></i>
-       					 	<div class="menu">
-							    <a id="del-border" class="item">แก้ไข</a>
-							    <a id="del-border" class="item">ลบ</a>
-							 </div>
+				<div class="ui four items">
+					<?php foreach ($jobs as $job): ?>
+						<div id="preview-job" class="item view job" data-id="<?= $job->id ?>">
+							<?php if ($this->session->userdata('id') == $job->user_id): ?>
+								<div class="angle ui corner label" style="padding-left: 7px;">
+										<div class="ui top right pointing dropdown">
+											<i class="angle down icon"></i>
+											<div class="menu">
+												<a id="del-border" class="item" href="<?= base_url('job/edit/' . $job->id) ?>">แก้ไข</a>
+												<a id="del-border" class="item" href="<?= base_url('job/delete/' . $job->id) ?>">ลบ</a>
+											</div>
+										</div>
+								</div>
+							<?php endif; ?>
+							<div class="content">
+								<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
+								<div class="description">
+									<p><?= $job->description ?></p><br/>
+									<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
+									<div>สถานที่ <?= $job->venue ?></div>
+									<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
+									<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
+								</div>
 							</div>
-      					</div>
-						<div class="content">
-							<div class="name"><a href="<?= base_url('job/view/'.$job->id) ?>"><?= $job->name ?></a></div>
-							<div class="description">
-							<p><?= $job->description ?></p><br/>
-							<div>ค่าจ้าง <?= $job->budget ?> บาท</div>
-							<div>สถานที่ <?= $job->venue ?></div>
-							<div>วันที่ <?= mdate("%d/%n/%Y", strtotime($job->date)) ?></div>
-							<div>เวลา <?= mdate("%H:%i", strtotime($job->time)) ?> น.</div>
-							</div>
+							<i id="job-icon" class="map marker icon"></i>
+							<span class="job-location"><?= $job->province ?></span>
+							<div class="job-red-line"></div>
 						</div>
-						<i id="job-icon" class="map marker icon"></i>
-						<span class="job-location"><?= $job->province ?></span>
-						<div class="job-red-line"></div>
-					</div><?php endforeach ?>
+				<?php endforeach ?>
 				</div>
 			</div>
 			<?php $this->load->view('job/sidebar_right'); ?>

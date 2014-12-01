@@ -51,76 +51,53 @@
 			แนะนำเพลง
 		</div>
 	</div>
-
+	
 	<div class="container" style="padding-top: 50px;">
-		<div class="row">
-			<div class="col-xs-12">
-				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 920px; height: 500px; margin-left: 15px; margin-right: 15px;">
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-						<li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-						<li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
-						<li data-target="#carousel-example-generic" data-slide-to="5" class=""></li>
-					</ol>
-					<div class="carousel-inner" role="listbox">
-						<div class="item">
-							<img src="<?= base_url('images/maroon5.jpg') ?>" alt="">
-							<div class="carousel-caption">
-								<h3>New Album</h3>
-							</div>
+		<?php if ( ! empty($banners)): ?>
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 920px; height: 500px; margin-left: 15px; margin-right: 15px;">
+						<ol class="carousel-indicators">
+							<?php for ($i = 0 ; $i < count($banners) ; $i++): ?>
+								<li data-target="#carousel-example-generic" data-slide-to="<?= $i ?>" <?= $i == 0 ? 'class="active"' : '' ?>></li>
+							<?php endfor; ?>
+						</ol>
+						<div class="carousel-inner" role="listbox">
+							<?php $i = 0 ?>
+							<?php foreach ($banners as $banner): ?>
+								<div class="item <?= $i == 0 ? 'active' : '' ?>">
+									<?php if ( ! empty($banner->url)): ?>
+										<a href="<?= $banner->url ?>"><img src="<?= base_url('uploads/banner/' . $banner->image_url) ?>"/></a>
+									<?php else: ?>
+										<img src="<?= base_url('uploads/banner/' . $banner->image_url) ?>"/>
+									<?php endif; ?>
+									<div class="carousel-caption">
+										<h3><?= ! empty($banner->caption) ? $banner->caption : '' ?></h3>
+									</div>
+								</div>
+								<?php $i++ ?>
+							<?php endforeach; ?>
 						</div>
-						<div class="item active">
-							<img src="<?= base_url('images/linkinpark.jpg') ?>" alt="">
-							<div class="carousel-caption">
-								<h3>New Album</h3>
-							</div>
-						</div>
-						<div class="item">
-							<img src="<?= base_url('images/taylorswift.jpg') ?>" alt="">
-							<div class="carousel-caption">
-								<h3>New Album</h3>
-							</div>
-						</div>
-						<div class="item">
-							<img src="<?= base_url('images/taylorswift.jpg') ?>" alt="">
-							<div class="carousel-caption">
-								<h3>New Album</h3>
-							</div>
-						</div>
-						<div class="item">
-							<img src="<?= base_url('images/taylorswift.jpg') ?>" alt="">
-							<div class="carousel-caption">
-								<h3>New Album</h3>
-							</div>
-						</div>
-						<div class="item">
-							<img src="<?= base_url('images/taylorswift.jpg') ?>" alt="">
-							<div class="carousel-caption">
-								<h3>New Album</h3>
-							</div>
-						</div>
+						<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+							<span><i class="left arrow icon" style="font-size: 1.7em;"></i></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+							<span><i class="right arrow icon" style="font-size: 1.7em;"></i></span>
+							<span class="sr-only">Next</span>
+						</a>
 					</div>
-					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-						<span><i class="left arrow icon" style="font-size: 1.7em;"></i></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-						<span><i class="right arrow icon" style="font-size: 1.7em;"></i></span>
-						<span class="sr-only">Next</span>
-					</a>
 				</div>
 			</div>
+		<?php endif; ?>
 
-		</div>
 		<div class="row">
-			<div class="col-xs-12"> 
+			<div class="col-xs-12 overflow:hidden;"> 
 				<h3 class="ui block header" style="margin-left: 15px; margin-right: 15px; margin-top: 50px; margin-bottom: 0px;">แนะนำเพลง</h3>
 				<div class="job-red-line"></div>
 				<!--แนะนำเพลง-->
 				<?php foreach ($recommended_music as $music): ?>
-					<div class="discover-item1">
+				<div class="discover-item1">
 						<div class="ui image dimmable">
 							<div class="ui dimmer">
 								<div class="content">
@@ -140,8 +117,10 @@
 							<?php endif; ?>
 						</div>
 						<div class="discover-content">
-							<b><?= $music->name ?></b>
-							<p><?= $music->artist ?></p>
+							<p>
+								<b><?= $music->name ?></b><br/>
+								<?= $music->artist ?>
+							</p>
 						</div>
 					</div>
 				<?php endforeach; ?>

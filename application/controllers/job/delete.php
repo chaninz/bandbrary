@@ -16,7 +16,7 @@ class Delete extends CI_Controller {
 			if ($job->user_id == $current_id && $job->status = 1) {
 				$this->job_model->delete($job_id);
 				
-				redirect(base_url('job/my'));
+				redirect(base_url('job'));
 			} else {
 				show_404();
 			}
